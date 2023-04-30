@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Programmer & Artist | KhizoOo</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/treeflex@2.0.1/dist/css/treeflex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@200;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/my_pics/02.png">
+
+    <meta name="author" content="KhizoOo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Discover the work of KhizoOo, a programmer with a passion for emerging technologies and an artist who expresses emotions through artwork. Explore their portfolio and learn more about their creative journey.">
+    <meta name="keywords" content="programming, artist, emerging technologies, artwork, creativity, sticky notes art, drawing, sketching, story teller, blockchain, .net" , blog>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-55BQQC8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'GT-55BQQC8');
+    </script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1199865962852645" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+
+    <nav class="nav container void-background">
+        <div class="nav-left">
+
+            <a href="https://www.facebook.com/khizoooartist" class="nav-item">
+                <span class="icon">
+                    <i class="fa fa-facebook"></i>
+                </span>
+            </a>
+            <a href="https://twitter.com/khizaroo" class="nav-item">
+                <span class="icon">
+                    <i class="fa fa-twitter"></i>
+                </span>
+            </a>
+            <a href="https://www.instagram.com/khizooo_art" class="nav-item">
+                <span class="icon">
+                    <i class="fa fa-instagram"></i>
+                </span>
+            </a>
+            <a href="https://youtube.com/@khizooo?sub_confirmation=1" class="nav-item">
+                <span class="icon">
+                    <i class="fa fa-youtube"></i>
+                </span>
+            </a>
+            <a href="https://opensea.io/KhizoOo_" class="nav-item">
+                <span class="icon">
+                    <i class="fa fa-arrows"></i>
+                </span>
+            </a>
+
+
+        </div>
+
+        <div class="nav-right nav-menu">
+            <a class="nav-item" href="aboutme.html">About Me</a>
+            <a class="nav-item active" href="arts.html">Art</a>
+            <a class="nav-item" href="tech.html">Tech</a>
+            <a class="nav-item" href="social.html">Social</a>
+        </div>
+
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+    </nav>
+
+    <section id="about" class="section section-1">
+        <div class="container has-text-centered"> <img class="avatar" src="assets/img/my_pics/02.png"> </div>
+        <div class="container has-text-centered"> </div>
+
+    </section>
+
+    <section id="MyArts" class="section section-1">
+
+        <div class="container">
+            <h1 id="MyArtsTitle" class="title" style="text-align: center;"> - - - </h1>
+            <hr style="background-color:#020e14">
+            <div class="ArtsGallery"></div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <section class="section-4 has-text-centered container">
+        <a href="https://khizooo.com">KhizoOo</a>
+    </section>
+
+    <!-- Scripts  -->
+    <script src="controller.js"></script>
+
+    <script src=https://code.jquery.com/jquery-3.4.1.min.js> </script> <script>
+        $(function() {
+
+            // GENERAL
+            {
+
+                var MyArts =
+                    `{
+				    "MyArts": {
+				        "Title": "My Arts",
+				 	"Types": [
+				            {
+						"ID": 1,
+				                "Title": "Knife Paintings",
+				                "SI": "https://placeimg.com/640/480/arch",
+				                "MI": "https://placeimg.com/640/480/arch",
+		   	                       "LI": "https://placeimg.com/640/480/arch",
+				                "SD": "Art SD",
+				                "LD": "Art LD"
+				            },
+				            {
+						"ID": 2,
+				                "Title": "Sticky Notes Drawing",
+				                "SI": "https://placeimg.com/640/480/arch",
+				                "MI": "https://placeimg.com/640/480/arch",
+		   	                      "LI": "https://placeimg.com/640/480/arch",
+				                "SD": "Art SD",
+				                "LD": "Art LD"
+				            }
+					],
+				        "Data": [
+				            {
+						"ID": 1,
+				                "Title": "Big Bang Theory",
+				                "SI": "Arts/1/Big-Bang-Theory-Image.avif",
+				                "MI": "Arts/1/Big-Bang-Theory-Image.avif",
+		   	                      "LI": "Arts/1/Big-Bang-Theory-Image.avif",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					       "DetailLink": "http://khizooo.com/Arts/1/Big-Bang-Theory.html"
+				            },
+				{
+						"ID": 2,
+				                "Title": "Upcomings",
+				                "SI": "assets/img/Upcoming.png",
+				                "MI": "assets/img/Upcoming.png",
+		   	                      "LI": "assets/img/Upcoming.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					       "DetailLink": "http://khizooo.com/Arts/1/Big-Bang-Theory.html"
+				            },
+				{
+						"ID": 3,
+   "Title": "Upcomings",
+				                "SI": "assets/img/Upcoming.png",
+				                "MI": "assets/img/Upcoming.png",
+		   	                      "LI": "assets/img/Upcoming.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					       "DetailLink": "http://khizooo.com/Arts/1/Big-Bang-Theory.html"
+				            },
+				{
+						"ID": 4,
+				                "Title": "Upcomings",
+
+				                "SI": "assets/img/Upcoming.png",
+				                "MI": "assets/img/Upcoming.png",
+		   	                      "LI": "assets/img/Upcoming.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					       "DetailLink": "http://khizooo.com/Arts/1/Big-Bang-Theory.html"
+				            }
+				        ]
+				    }
+				}`;
+
+
+
+            }
+
+            // Render My Arts via JS
+            {
+
+                var JSON = jQuery.parseJSON(MyArts.trim());
+
+                var MyArts_HTML = "";
+
+                JSON.MyArts.Data.forEach(function(A, I) {
+
+                    MyArts_HTML +=
+                        `<div class="view overlay hm-black-light gallery-item">
+					      <img src="` + A.MI + `" alt="` + A.Title + `" class="img-fluid">
+					      <div class="mask flex-center" style="padding: 10px;background-color: #5ccdf5;">
+					        <a class="ArtTitle" href="` + A.DetailLink + `">` + A.Title + `</a>
+					      </div>
+					    </div>`;
+
+                });
+
+
+                $("#MyArts #MyArtsTitle").html(JSON.MyArts.Title);
+
+                $("#MyArts .ArtsGallery").append(MyArts_HTML);
+
+            }
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

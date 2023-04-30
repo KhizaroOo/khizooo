@@ -19,7 +19,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<meta name="description" content="Discover the work of KhizoOo, a programmer with a passion for emerging technologies and an artist who expresses emotions through artwork. Explore their portfolio and learn more about their creative journey.">
-	<meta name="keywords" content="programming, artist, emerging technologies, artwork, creativity, sticky notes art, drawing, sketching, story teller, blockchain, .net, blog">
+	<meta name="keywords" content="programming, artist, emerging technologies, artwork, creativity, sticky notes art, drawing, sketching, story teller, blockchain, .net">
 
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=GT-55BQQC8"></script>
@@ -33,7 +33,8 @@
 
 	<!-- Google Adsense -->
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1199865962852645" crossorigin="anonymous"></script>
-
+	
+	
 </head>
 	<body>
 
@@ -70,7 +71,7 @@
 			</div>
 
 			<div class="nav-right nav-menu">
-				<a class="nav-item active" href="aboutme.html">About Me</a>
+				<a class="nav-item" href="aboutme.html">About Me</a>
 				<a class="nav-item" href="arts.html">Art</a>
 				<a class="nav-item" href="tech.html">Tech</a>
 				<a class="nav-item" href="social.html">Social</a>
@@ -89,12 +90,13 @@
 				<img class="avatar" src="assets/img/my_pics/02.png">
 			</div>
 			<div class="container has-text-centered">
-
-				<p class="intro" style="text-align:left">
+			</br>
+				<p class="intro">
 					<span class="title"><b style="font-family: 'Grandstander', cursive;">KhizoOo</b></span>
-				<br> 
+				<br>
 				<b style="font-family: 'Grandstander', cursive;"><a href="arts.html">ART</a> + <a href="tech.html">TECH</a></b>
-			<br><br>
+				<br>
+				<br>
 <b>By Luck</b>, I am a <b>Programmer</b> & by nature I am an <b>Artist</b> 
 <br><br>
 <b>A Programmer</b> who loves everything about emerging technologies
@@ -103,68 +105,56 @@
 <br>
 <b>An Artist</b> who loves to express emotions through artwork & I am utilizing my free time in doing ART
 </p>
-
-
-<p class="intro" style="text-align:left">
-
-<br>
-
-<b>Here are some of my core features</b>
-<br>
-1: Perfect Lazy
-<br>
-2: Very Shy
-<br>
-3: Super Friendly
-<br>
-4: 100% Funny
-<br>
-5: 100% Loyal
-<br>
-6: 30% Atheist
-<br>
-<br>
-<b>Here are some of my love to-do</b>
-<br>
-1: Love Easy Ways
-<br>
-2: Love Drawing
-<br>
-3: Lone Wolf
-<br>
-4: Love Adventures
-<br>
-5: Love When Things Go Dramatic
-<br>
-6: Love 50%/50% in Everything
-<br>
-7: Spending Time With Nature
-<br>
-8: Sleeeeeeeeep
-<br>
-9: Love Simple Things
-<br>
-<br>
-<b>Here are some of my dislikes</b>
-<br>
-1: Any Kind of Fraud
-<br>
-2: Animal cruelty
-<br>
-3: Crowd
-<br>
-4: Gossips
-<br>
-5: Too Much Protocol
-<br>
-</p>
-
-		</div>
+			</div>
 			
+			
+			<div class="container text-centered">
+			
+			<div class="body genealogy-body genealogy-scroll">
+    <div class="genealogy-tree">
+        <ul>
+            <li>
+                <ul class="active">
+                    <li>
+                        
+                            <div class="member-view-box">
+                                <div class="member-image" style="text-align:center">
+
+				<img src="assets/img/art.png" alt="KhizoOo Art">
+
+                                    <div class="member-details">
+
+                                        <h3 class="title" style="text-align: center;margin-top: 15px;color:#020e14;font-size:20px;font-family: 'Grandstander', cursive;"><b><a href="arts.html">ART</a></b></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+                    <li>
+                            <div class="member-view-box">
+                                <div class="member-image" style="text-align:center">
+                                    <img src="assets/img/tech.svg" alt="KhizoOo Tech">
+                                    <div class="member-details">       
+                                        <h3 class="title" style="text-align: center;margin-top: 15px;color:#020e14;font-size:20px;font-family: 'Grandstander', cursive;"><b><a href="tech.html">TECH</a></b></h3>
+				 
+                             </div>
+                                </div>
+                            </div>
+                        
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+			
+			</div>
+			
+    
 			
 			
 		</section>
-				
+		
 		<!-- Footer -->
 		<section class="section-4 has-text-centered container">
 			<a href="https://khizooo.com">KhizoOo</a>
@@ -178,27 +168,19 @@
 		<script>
 		
 		$(function () {
-		     	// portfolio
-			 $('.gallery ul li a').click(function() {
-			     var itemID = $(this).attr('href');
-			     $('.gallery ul').addClass('item_open');
-			     $(itemID).addClass('item_open');
-			     return false;
-			 });
-			 $('.close').click(function() {
-			     $('.port, .gallery ul').removeClass('item_open');
-			     return false;
-			 });
-			
-			 $(".gallery ul li a").click(function() {
-			     $('html, body').animate({
-			         scrollTop: parseInt($("#top").offset().top)
-			     }, 400);
-			 });
+		    $('.genealogy-tree ul').hide();
+		    $('.genealogy-tree>ul').show();
+		    $('.genealogy-tree ul.active').show();
+		    $('.genealogy-tree li').on('click', function (e) {
+		        var children = $(this).find('> ul');
+		        if (children.is(":visible")) children.hide('fast').removeClass('active');
+		        else children.show('fast').addClass('active');
+		        e.stopPropagation();
+		    });
 		});
 		
 		</script>
 				
 						
 	</body>	
-</html>
+</html><script>window.scrollTo(0, 0); setTimeout(function() { window.scrollTo(0, 0); },200)</script>
