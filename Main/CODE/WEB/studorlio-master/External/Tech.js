@@ -44,13 +44,13 @@ window.MyTech = `{
 				            },
 					   {
 						"ID": 3,
-   						"Title": "Upcomings",
-				                "SI": "assets/img/Upcoming.png",
-				                "MI": "assets/img/Upcoming.png",
-		   	                        "LI": "assets/img/Upcoming.png",
+   						"Title": "Why Blockchain?",
+				              "SI": "Tech/3/Why-BlockChain.png",
+				                "MI": "Tech/3/Why-BlockChain.png",
+		   	                        "LI": "Tech/3/Why-BlockChain.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "Tech/1/What-Is-BlockChain.html"
+					       "DetailLink": "Tech/3/Why-BlockChain.html"
 				            },
 					   {
 						"ID": 4,
