@@ -25,42 +25,42 @@ window.MyTech = `{
 				            {
 						"ID": 1,
 				                "Title": "What is BlockChain?",
-				                "SI": "Tech/1/What-is-BlockChain.png",
-				                "MI": "Tech/1/What-is-BlockChain.png",
-		   	                        "LI": "Tech/1/What-is-BlockChain.png",
+				                "SI": "1/What-is-BlockChain.png",
+				                "MI": "1/What-is-BlockChain.png",
+		   	                        "LI": "1/What-is-BlockChain.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "Tech/1/What-Is-BlockChain.html"
+					       "DetailLink": "1/What-Is-BlockChain.html"
 				            },
 				            {
 						"ID": 2,
 				                "Title": "Blockchain - Decentralization",
-				                "SI": "Tech/2/BlockChain-Decentralization.png",
-				                "MI": "Tech/2/BlockChain-Decentralization.png",
-		   	                        "LI": "Tech/2/BlockChain-Decentralization.png",
+				                "SI": "2/BlockChain-Decentralization.png",
+				                "MI": "2/BlockChain-Decentralization.png",
+		   	                        "LI": "2/BlockChain-Decentralization.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "Tech/2/BlockChain-Decentralization.html"
+					       "DetailLink": "2/BlockChain-Decentralization.html"
 				            },
 					   {
 						"ID": 3,
    						"Title": "Why Blockchain?",
-				              "SI": "Tech/3/Why-BlockChain.png",
-				                "MI": "Tech/3/Why-BlockChain.png",
-		   	                        "LI": "Tech/3/Why-BlockChain.png",
+				              "SI": "3/Why-BlockChain.png",
+				                "MI": "3/Why-BlockChain.png",
+		   	                        "LI": "3/Why-BlockChain.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "Tech/3/Why-BlockChain.html"
+					       "DetailLink": "3/Why-BlockChain.html"
 				            },
 					   {
 						"ID": 4,
 				                "Title": "Blockchain Structure",
-				                 "SI": "Tech/4/BlockChain-Structure.png",
-				                "MI": "Tech/4/BlockChain-Structure.png",
-		   	                        "LI": "Tech/4/BlockChain-Structure.png",
+				                 "SI": "4/BlockChain-Structure.png",
+				                "MI": "4/BlockChain-Structure.png",
+		   	                        "LI": "4/BlockChain-Structure.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					      "DetailLink": "Tech/4/BlockChain-Structure.html"
+					      "DetailLink": "4/BlockChain-Structure.html"
 				            }
 				        ]
 				    }
