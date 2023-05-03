@@ -32,7 +32,7 @@ window.MyTech = `{
 				                "LD": "Art LD",
 					       "DetailLink": "Tech/1/What-Is-BlockChain.html"
 				            },
-				{
+				            {
 						"ID": 2,
 				                "Title": "Blockchain - Decentralization",
 				                "SI": "Tech/2/BlockChain-Decentralization.png",
@@ -54,13 +54,13 @@ window.MyTech = `{
 				            },
 					   {
 						"ID": 4,
-				                "Title": "Upcomings",
-				                "SI": "assets/img/Upcoming.png",
-				                "MI": "assets/img/Upcoming.png",
-		   	                        "LI": "assets/img/Upcoming.png",
+				                "Title": "Blockchain Structure",
+				                 "SI": "Tech/4/BlockChain-Structure.png",
+				                "MI": "Tech/4/BlockChain-Structure.png",
+		   	                        "LI": "Tech/4/BlockChain-Structure.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					      "DetailLink": "Tech/1/What-Is-BlockChain.html"
+					      "DetailLink": "Tech/4/BlockChain-Structure.html"
 				            }
 				        ]
 				    }
