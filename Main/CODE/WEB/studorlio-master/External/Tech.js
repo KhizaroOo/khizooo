@@ -61,7 +61,38 @@ window.MyTech = `{
 				                "SD": "Art SD",
 				                "LD": "Art LD",
 					      "DetailLink": "4/BlockChain-Structure.html"
-				            }
+				            },
+					   {
+						"ID": 5,
+				                "Title": "Basic Blockchain Operations",
+				                 "SI": "5/MainIMG.png",
+				                "MI": "5/MainIMG.png",
+		   	                        "LI":"5/MainIMG.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "5/Basic-Blockchain-Operations.html"
+				            },
+					   {
+						"ID": 6,
+				                "Title": "Applications & Uses of Blockchain",
+				                 "SI": "6/Application-And-Uses-Of-Blockchain-Technology.png",
+				                "MI": "6/Application-And-Uses-Of-Blockchain-Technology.png",
+		   	                        "LI":"6/Application-And-Uses-Of-Blockchain-Technology.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "6/Application-And-Uses-Of-Blockchain-Technology.html"
+				            },
+					   {
+						"ID": 7,
+				                "Title": "Top 10 Real-World Applications Of Blockchain",
+				                 "SI": "7/Top-10-Real-World-Applications-Of-Blockchain.png",
+				                "MI": "7/Top-10-Real-World-Applications-Of-Blockchain.png",
+		   	                        "LI":"7/Top-10-Real-World-Applications-Of-Blockchain.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "7/Top-10-Real-World-Applications-Of-Blockchain.html"
+				            }	
+				
 				        ]
 				    }
 				}`;

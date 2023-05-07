@@ -6,13 +6,24 @@
 #020e14 Black
 #ff3860 Red
 
+H1 - #ff3860
+H2 - #ff3860
+H3 -  #0e9e7f
+H4 -
+
 */
 
+.CH1{ color: #ff3860 !important }
+.CH2{ color: #ff3860 !important }
+.CH3{ color: #000000 !important }
+.CH4{ color: #000000 !important }
+.CH5{ color: #000000 !important }
+.CH6{ color: #000000 !important }
 
 html, body{
 	font-family: 'Grandstander', cursive;
 	font-size:16px;
-	color: #020e14;
+	color: #000000;
 	background-color: #fadf67; 
 }
 
