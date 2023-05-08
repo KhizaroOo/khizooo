@@ -91,8 +91,17 @@ window.MyTech = `{
 				                "SD": "Art SD",
 				                "LD": "Art LD",
 					      "DetailLink": "7/Top-10-Real-World-Applications-Of-Blockchain.html"
-				            }	
-				
+				            },
+					   {
+						"ID": 8,
+				                "Title": "Blockchain Architecture - Components & Benefits",
+				                 "SI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+				                "MI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+		   	                        "LI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "8/Blockchain-Architecture-Components-And-Benefits.html"
+				            }					
 				        ]
 				    }
 				}`;
