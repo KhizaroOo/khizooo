@@ -101,7 +101,27 @@ window.MyTech = `{
 				                "SD": "Art SD",
 				                "LD": "Art LD",
 					      "DetailLink": "8/Blockchain-Architecture-Components-And-Benefits.html"
-				            }					
+				            },
+					   {
+						"ID": 9,
+				                "Title": "Blockchain General Knowledge",
+				                 "SI": "9/Blockchain-General-Knowledge.png",
+				                "MI": "9/Blockchain-General-Knowledge.png",
+		   	                        "LI": "9/Blockchain-General-Knowledge.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "9/Blockchain-General-Knowledge.html"
+				            },
+					   {
+						"ID": 10,
+				                "Title": "Blockchain - Storage",
+				                 "SI": "10/Blockchain-Storage.png",
+				                "MI": "10/Blockchain-Storage.png",
+		   	                        "LI": "10/Blockchain-Storage.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "10/Blockchain-Storage.html"
+				            }						
 				        ]
 				    }
 				}`;
