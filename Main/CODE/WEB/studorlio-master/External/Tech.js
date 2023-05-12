@@ -121,7 +121,26 @@ window.MyTech = `{
 				                "SD": "Art SD",
 				                "LD": "Art LD",
 					      "DetailLink": "10/Blockchain-Storage.html"
-				            }						
+				            },
+					   {
+						"ID": 11,
+				                "Title": "Blockchain - Cryptography",
+				                 "SI": "11/Blockchain-Cryptography.png",
+				                "MI": "11/Blockchain-Cryptography.png",
+		   	                        "LI": "11/Blockchain-Cryptography.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "11/Blockchain-Cryptography.html"
+				            },
+					   {
+						"ID": 12,
+				                "Title": "Blockchain - Mining & Incentive Models ",
+				                 "SI": "12/Blockchain-Mining-And-Incentive-Models.png",
+				                "MI": "12/Blockchain-Mining-And-Incentive-Models.png",		   	                        "LI": "12/Blockchain-Mining-And-Incentive-Models.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "12/Blockchain-Mining-And-Incentive-Models.html"
+				            }										
 				        ]
 				    }
 				}`;
