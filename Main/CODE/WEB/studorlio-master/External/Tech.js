@@ -91,8 +91,78 @@ window.MyTech = `{
 				                "SD": "Art SD",
 				                "LD": "Art LD",
 					      "DetailLink": "7/Top-10-Real-World-Applications-Of-Blockchain.html"
+				            },
+					   {
+						"ID": 8,
+				                "Title": "Blockchain Architecture - Components & Benefits",
+				                 "SI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+				                "MI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+		   	                        "LI": "8/Blockchain-Architecture-Components-And-Benefits.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "8/Blockchain-Architecture-Components-And-Benefits.html"
+				            },
+					   {
+						"ID": 9,
+				                "Title": "Blockchain General Knowledge",
+				                 "SI": "9/Blockchain-General-Knowledge.png",
+				                "MI": "9/Blockchain-General-Knowledge.png",
+		   	                        "LI": "9/Blockchain-General-Knowledge.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "9/Blockchain-General-Knowledge.html"
+				            },
+					   {
+						"ID": 10,
+				                "Title": "Blockchain - Storage",
+				                 "SI": "10/Blockchain-Storage.png",
+				                "MI": "10/Blockchain-Storage.png",
+		   	                        "LI": "10/Blockchain-Storage.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "10/Blockchain-Storage.html"
+				            },
+					   {
+						"ID": 11,
+				                "Title": "Blockchain - Cryptography",
+				                 "SI": "11/Blockchain-Cryptography.png",
+				                "MI": "11/Blockchain-Cryptography.png",
+		   	                        "LI": "11/Blockchain-Cryptography.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "11/Blockchain-Cryptography.html"
+				            },
+					   {
+						"ID": 12,
+				                "Title": "Blockchain - Mining & Incentive Models",
+				                 "SI": "12/Blockchain-Mining-And-Incentive-Models.png",
+				                "MI": "12/Blockchain-Mining-And-Incentive-Models.png",		   	                        "LI": "12/Blockchain-Mining-And-Incentive-Models.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "12/Blockchain-Mining-And-Incentive-Models.html"
+				            },
+					   {
+						"ID": 13,
+				                "Title": "Blockchain - Decentralized vs Trust",
+				                 "SI": "13/Blockchain-Decentralized-vs-Trust.png",
+				                "MI": "13/Blockchain-Decentralized-vs-Trust.png",		   	                        "LI": "13/Blockchain-Decentralized-vs-Trust.png",
+				                "SD": "Art SD",
+				                "LD": "Art LD",
+					      "DetailLink": "13/Blockchain-Decentralized-vs-Trust.html"
+				            },
+				{
+						"ID": 14,
+				                "Title": "Blockchain - Forking",
+				                 "SI": "14/Blockchain-Forking.png",
+					         "DetailLink": "14/Blockchain-Forking.html"
+				            },
+					   {
+						"ID": 15,
+				                "Title": "Blockchain - Consensus Protocols",
+				                 "SI": "15/Blockchain-Consensus-Protocols.png",
+					         "DetailLink": "15/Blockchain-Consensus-Protocols.html"
 				            }	
-				
+																	
 				        ]
 				    }
 				}`;

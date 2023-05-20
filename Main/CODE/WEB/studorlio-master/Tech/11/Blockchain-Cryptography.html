@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Blockchain - Cryptography</title>
+
+    <meta name="description" content="Learn about the importance of cryptography in blockchain technology. Explore public-key cryptography, hash functions, and consensus algorithms to understand how blockchain ensures the security and privacy of transactions.">
+    <meta name="keywords" content="blockchain, cryptography, cryptocurrency, digital assets, decentralization">
+    <meta name="author" content="KhizoOo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Blockchain - Storage">
+    <meta property="og:description" content="Learn about the importance of cryptography in blockchain technology. Explore public-key cryptography, hash functions, and consensus algorithms to understand how blockchain ensures the security and privacy of transactions.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://khizooo.com/Tech/11/Blockchain-Cryptography.html">
+    <meta property="og:image" content="http://khizooo.com/Tech/11/Blockchain-Cryptography.png">
+    <meta property="og:image:alt" content="Blockchain - Cryptography">
+    <meta property="og:site_name" content="Blockchain - KhizoOo">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:title" content="Blockchain - Storage">
+    <meta name="twitter:description" content="Learn about the importance of cryptography in blockchain technology. Explore public-key cryptography, hash functions, and consensus algorithms to understand how blockchain ensures the security and privacy of transactions.">
+    <meta name="twitter:card" content="http://khizooo.com/Tech/11/Blockchain-Cryptography.png">
+    <meta name="twitter:image" content="http://khizooo.com/Tech/11/Blockchain-Cryptography.png">
+    <meta name="twitter:site" content="@khizaroo">
+    <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/treeflex@2.0.1/dist/css/treeflex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@200;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="../../assets/img/my_pics/02.png">
+
+    <link rel="canonical" href="http://khizooo.com/Tech/10/Blockchain-Storage.html">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/styles.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-55BQQC8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'GT-55BQQC8');
+    </script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1199865962852645" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <nav class="nav container void-background">
+        <div class="nav-left">
+
+            <div class="nav-left">
+                <a href="https://www.facebook.com/khizoooartist" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-facebook"></i>
+                    </span>
+                </a>
+                <a href="https://twitter.com/khizaroo" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-twitter"></i>
+                    </span>
+                </a>
+                <a href="https://www.instagram.com/khizooo_art" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-instagram"></i>
+                    </span>
+                </a>
+                <a href="https://youtube.com/@khizooo?sub_confirmation=1" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-youtube"></i>
+                    </span>
+                </a>
+                <a href="https://www.snapchat.com/add/khizooo_1163?share_id=ZIvI4JY3joU&locale=en-PK" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-snapchat"></i>
+                    </span>
+                </a>
+                <a href="https://www.tiktok.com/@khizooo_butt" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20px;">
+                            <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" /></svg>
+                    </span>
+                </a>
+                <a href="https://opensea.io/KhizoOo_" class="nav-item" rel="nofollow">
+                    <span class="icon">
+                        <i class="fa fa-arrows"></i>
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="nav-right nav-menu">
+            <a class="nav-item" href="../../aboutme.html">About Me</a>
+            <a class="nav-item" href="../../Arts/arts.html">Art</a>
+            <a class="nav-item active" href="../tech.html">Tech</a>
+            <a class="nav-item" href="../../social.html">Social</a>
+        </div>
+
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+    </nav>
+
+    <section id="about" class="section section-1">
+        <div class="container has-text-centered" style="margin-bottom: 25px;">
+            <img class="ArtMainImg" src="Blockchain-Cryptography.png">
+        </div>
+        <div class="container has-text-centered">
+
+            <p class="intro" style="text-align:center">
+                <span class="title"><b style="font-family: 'Grandstander', cursive;">Blockchain - Cryptography</b></span>
+                <br><br>
+            </p>
+
+            <br>
+
+            <p class="intro title" style="text-align:left">
+                A beginner's guide related to Blockchain - Cryptography
+            </p>
+
+            <p class="intro" style="text-align:justify !important">
+                In recent years, <b>Blockchain</b> technology has gained widespread recognition as a groundbreaking innovation with potential applications in various fields. From finance to healthcare, supply chain management to digital identity, blockchain technology has been touted as the next big thing that will revolutionize the way we live and work.
+                <br><br>
+                At the heart of blockchain technology is the concept of cryptography. In this article, we will explore what cryptography is, how it works, and why it is essential to the functioning of blockchain technology.
+                <br><br>
+
+                <b class="CH2">What is Cryptography?</b>
+                <br>
+                Cryptography is the practice of securing communication from unauthorized access or modification. It involves the use of mathematical algorithms to convert information into a secret code that can only be decoded by those who have the correct key. Cryptography has been around for centuries and has been used in various contexts, from ancient times to modern-day applications.
+                <br><br>
+                <b class="CH2">How Does Cryptography Work?</b>
+                <br>
+                Cryptography works by using a key to encrypt and decrypt information. In the case of blockchain technology, cryptography is used to secure transactions and create a digital signature that verifies the authenticity of the transaction.
+                <br><br>
+                There are two main types of cryptography used in blockchain technology:
+                <br><br>
+                <b>1: Symmetric-key cryptography:</b> In this method, the same key is used to encrypt and decrypt the information. This type of cryptography is faster and more efficient, but it is less secure as the key needs to be shared between the sender and receiver.
+                <br><br>
+                <b>2: Public-key cryptography:</b> In this method, two keys are used, a public key and a private key. The public key is used to encrypt the information, while the private key is used to decrypt it. This type of cryptography is more secure as the private key is not shared between the sender and receiver.
+                <br><br>
+                <b class="CH2">Why is Cryptography Important in Blockchain Technology?</b>
+                <br>
+                Cryptography is crucial in blockchain technology for several reasons:
+                <br><br>
+                <b>1: Securing Transactions:</b> Cryptography is used to secure transactions on the blockchain by creating a digital signature that verifies the authenticity of the transaction. This ensures that the transaction cannot be tampered with or altered.
+                <br><br>
+                <b>2: Maintaining Privacy:</b> Cryptography is also used to maintain the privacy of users on the blockchain. Each user has a public key and a private key, which are used to encrypt and decrypt information. This ensures that only the intended recipient can access the information.
+                <br><br>
+                <b>3: Preventing Double Spending:</b> Cryptography is used to prevent double spending on the blockchain. Each transaction is verified by the network before it is added to the blockchain. This ensures that a user cannot spend the same cryptocurrency twice.
+                <br><br>
+                <b class="CH2">Asymmetric Encryption - Simply explained</b>
+                <br>
+                Asymmetric encryption, also known as public-key encryption, is a type of encryption method that uses two keys instead of one to encrypt and decrypt data. Unlike symmetric encryption, where the same key is used to both encrypt and decrypt data, in asymmetric encryption, there are two keys: a public key and a private key.
+                <br><br>
+                The public key is available to anyone who wants to send encrypted data to the owner of the private key. The private key, on the other hand, is kept secret and only known to the owner of the key. The public key is used to encrypt the data, while the private key is used to decrypt it.
+                <br><br>
+                When someone wants to send a message to the owner of the private key, they encrypt the message using the owner's public key. The message can only be decrypted by the owner of the private key, which ensures the confidentiality and security of the message.
+                <br><br>
+                Asymmetric encryption is commonly used in various applications, including secure communication, digital signatures, and online transactions. It provides a higher level of security and privacy than symmetric encryption, as the private key is never shared and only known to the owner.
+                <br><br>
+                <b>Overall</b>, asymmetric encryption is a powerful and versatile method of encryption that provides secure and reliable data transmission, and it plays a critical role in the security of digital communications and transactions.
+                <br><br>
+            </p>
+
+            <p class="intro" style="text-align:justify !important">
+                <b class="CH2">Conclusion</b>
+                <br>
+                Cryptography is an essential component of blockchain technology. It ensures that transactions are secure, private, and reliable. With the continued development of blockchain technology, cryptography will continue to play a critical role in the future of digital transactions. As such, a better understanding of cryptography is essential for anyone interested in blockchain technology.
+                <br><br>
+            </p>
+
+
+        </div>
+
+
+
+    </section>
+
+    <!-- Footer -->
+    <section class="section-4 has-text-centered container">
+        <a href="http://khizooo.com">KhizoOo</a>
+    </section>
+
+    <!-- Scripts  -->
+    <script src="../../controller.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+</body>
+
+</html>
