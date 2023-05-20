@@ -22,7 +22,7 @@ H4 -
 
 html, body{
 	font-family: 'Grandstander', cursive;
-	font-size:16px;
+	font-size:17px;
 	color: #000000;
 	background-color: #fadf67; 
 }
@@ -146,6 +146,10 @@ a.nav-item.active {
 
 
 /*----------------genealogy-scroll----------*/
+
+.container {
+    max-width: 1290px !important;
+}
 
 .genealogy-scroll::-webkit-scrollbar {
     width: 5px;
@@ -460,7 +464,7 @@ header p {
 
 .ArtsGallery .ArtTitle{
     text-align: center;
-    font-size: 10px;
+    font-size: 11.7px;
     color: #020e14;
     display: block;
 }
