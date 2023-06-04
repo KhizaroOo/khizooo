@@ -50,7 +50,7 @@ window.MyArts = `{
 		   	                        "LI": "../assets/img/Upcoming.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "http://khizooo.com/arts/1/Big-Bang-Theory.html"
+					       "DetailLink": "https://khizooo.com/arts/1/Big-Bang-Theory.html"
 				            },
 				{
 						"ID": 4,
@@ -60,7 +60,7 @@ window.MyArts = `{
 		   	                        "LI": "../assets/img/Upcoming.png",
 				                "SD": "Art SD",
 				                "LD": "Art LD",
-					       "DetailLink": "http://khizooo.com/arts/1/Big-Bang-Theory.html"
+					       "DetailLink": "https://khizooo.com/arts/1/Big-Bang-Theory.html"
 				            }
 				        ]
 				    }
