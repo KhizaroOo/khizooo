@@ -1,5 +1,0 @@
-User-agent: *
-
-Sitemap: https://khizooo.com/sitemap.xml
-Sitemap: https://khizooo.com/Tech/sitemap.xml
-Sitemap: https://khizooo.com/Arts/sitemap.xml
