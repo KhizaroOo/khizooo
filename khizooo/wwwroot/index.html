@@ -1,39 +1,95 @@
 ﻿<!DOCTYPE html>
+
+<!--
+    My Profiles Link
+    Website       https://www.khizooo.com
+    Facebook    https://www.facebook.com/khizoooartist
+    Instagram   https://www.instagram.com/khizooo_art
+    LinkedIn      https://www.linkedin.com/in/khizar-imtiaz
+    OpenSea     https://opensea.io/KhizoOo_
+    Twitter         https://twitter.com/khizaroo
+    Pinterest     https://www.pinterest.com/KhizoOo_
+    Snapchat    https://www.snapchat.com/add/khizooo_1163?share_id=ZIvI4JY3joU&locale=en-PK
+    Skype          https://join.skype.com/invite/b0k5jlb9HRmk
+    Whatsapp  https://wa.me/923007683396?text=KhizoOo%20%3C3
+    TikTok        https://www.tiktok.com/@khizooo_butt
+-->
+<!--
+    Modules Color
+    ARTFULESS	        #083045
+    TOOLBOX         	#9a2515
+    TIMELINE	            #829254
+    INFOGRAPHICS	#bba036
+    WRITINGS	        #e36723
+                                #107895
+-->
+<!-- HTML START -->
 <html lang="en">
 
+<!-- HEAD START -->
 <head>
+
+    <!-- Common META TAGS -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- TITLE -->
     <title>khizooo</title>
-    <!--<base href="/khizooo/" />-->
-    <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
+
+    <!-- For Github Pages -->
+     <base href="/khizooo/" /> 
+    <!-- For Local Pages -->
+    <!--<base href="/" />-->
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="khizooo.styles.css" rel="stylesheet" />
+
+    <!-- FONTS STYLES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="theme/css/plugins.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/theme.css" />
+
+    <!-- CUSTOM STYLES -->
+    <link href="css/khizooo.css" rel="stylesheet" />
+
 </head>
-
+<!-- HEAD END -->
+<!-- BODY START -->
 <body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+
+    <!-- POPUP START -->
+    <div id="arlo_tm_popup_blog">
+        <div class="container">
+            <div class="inner_popup scrollable"></div>
+        </div>
+        <span class="close"><a href="#"></a></span>
     </div>
-
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+    <!-- POPUP END -->
+    <!-- PRELOADER START -->
+    <div class="arlo_tm_preloader">
+        <div class="spinner_wrap">
+            <div class="spinner"></div>
+        </div>
     </div>
+    <!-- PRELOADER END -->
+    <!-- APP START -->
+    <div id="app"> </div>
+    <!-- APP END -->
+    <!-- BLAZOR SCRIPT -->
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
 
+    <!-- SCRIPTS -->
+    <script src="theme/js/jquery.js" type="text/javascript" defer></script>
+    <script src="theme/js/plugins.js" type="text/javascript" defer></script>
+    <script src="theme/js/init.js" type="text/javascript" defer></script>
+    <script src="https://kit.fontawesome.com/3e9744c4f8.js" crossorigin="anonymous" defer></script>
 
-    <script src="_framework/blazor.webassembly.js"></script>
-
-    <!-- Start Single Page Apps for GitHub Pages -->
-    <script type="text/javascript">
-        (function (l) {
+    <!-- GITHUB PAGES -->
+    <script type="text/javascript">(function (l) {
             if (l.search) {
                 var q = {};
                 l.search.slice(1).split('&').forEach(function (v) {
@@ -48,11 +104,20 @@
                     );
                 }
             }
-        }(window.location))
-    </script>
-    <!-- End Single Page Apps for GitHub Pages -->
+        }(window.location))</script>
+    <!-- GITHUB PAGES -->
+
+    <script type="text/javascript">window.myApp = {
+            init: function () {
+                console.log("Application fully loaded and initialized");
+            }
+        };
+
+        Blazor.start().then(function () {
+            window.myApp.init();
+        });</script>
 
 </body>
-
+<!-- BODY END -->
 </html>
-
+<!-- HTML END -->
