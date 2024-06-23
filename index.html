@@ -32,14 +32,17 @@
     <!-- Common META TAGS -->
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="KhizoOo">
+
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 
     <!-- TITLE -->
     <title>khizooo</title>
 
     <!-- For Github Pages -->
-     <base href="/khizooo/" /> 
-    <!-- For Local Pages -->
     <!--<base href="/khizooo/" />-->
+    <!-- For Local Pages -->
+    <base href="/khizooo/" />
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -70,11 +73,7 @@
     </div>
     <!-- POPUP END -->
     <!-- PRELOADER START -->
-    <div class="arlo_tm_preloader">
-        <div class="spinner_wrap">
-            <div class="spinner"></div>
-        </div>
-    </div>
+    <div class="FullLoader"></div>
     <!-- PRELOADER END -->
     <!-- APP START -->
     <div id="app"> </div>
@@ -107,15 +106,28 @@
         }(window.location))</script>
     <!-- GITHUB PAGES -->
 
-    <script type="text/javascript">window.myApp = {
+    <script type="text/javascript">
+        window.myApp = {
             init: function () {
+                Polazized();
                 console.log("Application fully loaded and initialized");
             }
         };
 
         Blazor.start().then(function () {
             window.myApp.init();
-        });</script>
+        });
+
+        function Polazized() {
+            var polaroids = document.querySelectorAll('.polaroid');
+            polaroids.forEach(item => {
+                const randomRotation = Math.floor(Math.random() * (6 - -6 + 1) + -6);
+                item.style.transform = `rotate(${randomRotation}deg)`
+            });
+        }
+
+
+    </script>
 
 </body>
 <!-- BODY END -->
