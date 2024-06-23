@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Landing Page -->
+    <url>
+        <loc>https://www.khizooo.com/</loc>
+    </url>
+    <!-- Landing Page -->
+
+    <!-- ARTWORK -->
+    <url>
+        <loc>https://www.khizooo.com/Artwork</loc>
+    </url>
+    <!-- ARTWORK -->
+
+    <!-- INFOGRAPHICS -->
+    <url>
+        <loc>https://www.khizooo.com/Infographic</loc>
+    </url>
+    <!-- INFOGRAPHICS -->
+
+    <!-- TOOLBOX -->
+    <url>
+        <loc>https://www.khizooo.com/Toolbox</loc>
+    </url>
+    <!-- TOOLBOX -->
+
+    <!-- WRITING -->
+    <url>
+        <loc>https://www.khizooo.com/Writing</loc>
+    </url>
+    <!-- WRITING -->
+    
+</urlset>

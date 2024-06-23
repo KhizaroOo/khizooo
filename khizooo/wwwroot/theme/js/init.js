@@ -4,29 +4,7 @@ jQuery(document).ready(function(){
 	
 	// here all ready functions
 	
-	arlo_tm_responsive();
-	arlo_tm_imgtosvg();
-	arlo_tm_magnific_popup();
-	arlo_tm_jarallax();
-	arlo_tm_list_height();
-	arlo_tm_portfolio();
-	arlo_tm_anchor();
-	arlo_tm_contact_form();
-	arlo_tm_owl_carousel();
-	arlo_tm_projects();
-	arlo_tm_miniboxes();
-	arlo_tm_isotope();
-	arlo_tm_totop();
-	arlo_tm_totop_myhide();
 	
-	arlo_tm_popup_blog();
-	arlo_tm_popupscroll();
-	//arlo_tm_animate_text();
-	//arlo_tm_about_animation();
-	arlo_tm_kenburn_slider();
-	arlo_tm_ripple();
-
-	arlo_tm_data_images();
 
 	
 	
@@ -50,7 +28,34 @@ jQuery(document).ready(function(){
 			arlo_tm_about_animation();
 			arlo_tm_switcher();
 			arlo_tm_hamburger();
-			jQuery(".arlo_tm_preloader").addClass("loaded");
+			arlo_tm_portfolio();
+
+			arlo_tm_responsive();
+			arlo_tm_imgtosvg();
+			arlo_tm_magnific_popup();
+			arlo_tm_jarallax();
+			arlo_tm_list_height();
+
+			arlo_tm_anchor();
+			arlo_tm_contact_form();
+			arlo_tm_owl_carousel();
+			arlo_tm_projects();
+			arlo_tm_miniboxes();
+			arlo_tm_isotope();
+			arlo_tm_totop();
+			arlo_tm_totop_myhide();
+
+			arlo_tm_popup_blog();
+			arlo_tm_popupscroll();
+			//arlo_tm_animate_text();
+			//arlo_tm_about_animation();
+			arlo_tm_kenburn_slider();
+			arlo_tm_ripple();
+
+			arlo_tm_data_images();
+
+			jQuery(".FullLoader").addClass("loaded");
+
 		}, 1000);
 	});
 

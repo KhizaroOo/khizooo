@@ -47,7 +47,7 @@
 
     public class MyArts
     {
-        public static string BASEPATH = "http://localhost:5064";
+        public static string BASEPATH = "http://localhost:7281";
 
         private List<ShowingLocation> ShowingLocations = new List<ShowingLocation>()
         {

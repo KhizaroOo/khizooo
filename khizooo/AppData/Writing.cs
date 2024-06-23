@@ -40,7 +40,7 @@
 
     public class MyWritings
     {
-        public static string BASEPATH = "http://localhost:5064";
+        public static string BASEPATH = "http://localhost:7281";
 
         private List<Writing> MyAllWritings = new List<Writing>()
     {

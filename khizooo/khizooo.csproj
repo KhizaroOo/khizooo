@@ -29,11 +29,12 @@
     <Folder Include="wwwroot" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Pages\My-Artfulness">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </None>
     <None Update="Pages\My-Artfulness %28copy%29">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Pages\Artfulness.razor" />
+    <Content Remove="Pages\Infographics.razor" />
   </ItemGroup>
 </Project>
