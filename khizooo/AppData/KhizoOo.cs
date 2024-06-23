@@ -65,7 +65,9 @@
         public string TikTok = "https://www.tiktok.com/@khizooo_butt";
         public string Medium = "https://medium.com/@khizar.imtiaz";
         public string Codepen = "https://codepen.io/Khizarooo";
-        public string Telegram = "@KhizarImtiaz";
+        public string Telegram = "https://t.me/KhizarImtiaz";
+        public string Github = "https://github.com/KhizaroOo";
+        public string Discord = "https://discordapp.com/users/567964089989726231";
 
 
 

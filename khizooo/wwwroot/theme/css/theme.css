@@ -2833,3 +2833,87 @@ img.svg{
 	margin-top: 15px;
 }
 /* Artwork Pictures */
+
+
+/* Comingg Soon */
+@keyframes fadeIn {
+	from {
+		top: 20%;
+		opacity: 0;
+	}
+
+	to {
+		top: 100;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		top: 20%;
+		opacity: 0;
+	}
+
+	to {
+		top: 100;
+		opacity: 1;
+	}
+}
+
+.wrapper-comingsoon {
+	text-align: center;
+	position: absolute;
+	margin-left: 50%;
+	margin-top: 20%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	animation: fadeIn 1000ms ease;
+	-webkit-animation: fadeIn 1000ms ease;
+}
+
+	.wrapper-comingsoon h1 {
+		font-size: 65px;
+		margin-bottom: 30px;
+		line-height: 1;
+		font-weight: bolder;
+		color: #f74142;
+	}
+
+	.wrapper-comingsoon .dot {
+		color: #6985fc;
+	}
+
+	.wrapper-comingsoon p {
+		text-align: center;
+		margin: 18px;
+		font-family: 'Muli', sans-serif;
+		font-weight: normal;
+	}
+
+	.wrapper-comingsoon .icons {
+		text-align: center;
+		margin-top: 25px;
+	}
+
+		.wrapper-comingsoon .icons i {
+			color: #00091B;
+			background: #fff;
+			height: 15px;
+			width: 15px;
+			padding: 13px;
+			margin: 0 10px;
+			border-radius: 50px;
+			border: 2px solid #fff;
+			transition: all 200ms ease;
+			text-decoration: none;
+			position: relative;
+		}
+
+			.wrapper-comingsoon .icons i:hover, .wrapper-comingsoon .icons i:active {
+				color: #f74542;
+				background: none;
+				cursor: pointer !important;
+				transform: scale(2);
+				-webkit-transform: scale(2);
+				text-decoration: none;
+			}
