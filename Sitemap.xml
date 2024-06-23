@@ -2,33 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- Landing Page -->
-    <url>
-        <loc>https://www.khizooo.com/</loc>
-    </url>
+    <url><loc>https://www.khizooo.com/</loc></url>
     <!-- Landing Page -->
 
     <!-- ARTWORK -->
-    <url>
-        <loc>https://www.khizooo.com/Artwork</loc>
-    </url>
+    <url><loc>https://www.khizooo.com/Artwork</loc></url>
     <!-- ARTWORK -->
 
     <!-- INFOGRAPHICS -->
-    <url>
-        <loc>https://www.khizooo.com/Infographic</loc>
-    </url>
+    <url><loc>https://www.khizooo.com/Infographic</loc></url>
     <!-- INFOGRAPHICS -->
 
     <!-- TOOLBOX -->
-    <url>
-        <loc>https://www.khizooo.com/Toolbox</loc>
-    </url>
+    <url><loc>https://www.khizooo.com/Toolbox</loc></url>
     <!-- TOOLBOX -->
 
+    <!-- TIMELINE -->
+    <url><loc>https://www.khizooo.com/Timeline</loc></url>
+    <!-- TIMELINE -->
+
     <!-- WRITING -->
-    <url>
-        <loc>https://www.khizooo.com/Writing</loc>
-    </url>
+    <url><loc>https://www.khizooo.com/Writing</loc></url>
     <!-- WRITING -->
+
+    <!-- CODDEVAULT -->
+    <url><loc>https://www.khizooo.com/CodeVault</loc></url>
+    <!-- CODDEVAULT -->
+
+    <!-- FREEBIE -->
+    <url><loc>https://www.khizooo.com/Freebie</loc></url>
+    <!-- FREEBIE -->
+
+    <!-- SYNOPSIS -->
+    <url><loc>https://www.khizooo.com/Synopsis</loc></url>
+    <!-- SYNOPSIS -->
     
 </urlset>
