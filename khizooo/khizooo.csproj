@@ -29,6 +29,9 @@
     <Folder Include="wwwroot" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\CNAME" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="Pages\My-Artfulness %28copy%29">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </None>
@@ -36,5 +39,6 @@
   <ItemGroup>
     <Content Remove="Pages\Artfulness.razor" />
     <Content Remove="Pages\Infographics.razor" />
+    <Content Remove="wwwroot\CNAME %28copy%29" />
   </ItemGroup>
 </Project>
