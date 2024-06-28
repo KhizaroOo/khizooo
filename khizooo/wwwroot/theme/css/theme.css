@@ -4,7 +4,9 @@
 	--toolbox: #140152;
 	--writing: #3a2618;
 	--timeline: #626f3c;
-	--comingsoon: #107895;
+	--codevault: #107895;
+	--freebie: #a5a50b;
+	--synopsis: #5120a9;
 }
 
 
@@ -17,12 +19,12 @@ html {
 body {
 	font-family: "REM", sans-serif;
 	font-optical-sizing: auto;
-/*	font-family: "Open Sans";*/
 	font-size: 14px;
 	line-height: 1.8;
 	letter-spacing: 0.5px;
 	word-wrap: break-word;
 	font-weight: 400;
+	cursor: none;
 }
 svg{
 	fill: currentcolor;
@@ -162,11 +164,11 @@ img.svg{
 			color: #f84b42;
 		}
 .arlo_tm_leftpart_wrap .menu_list_wrap ul li a:hover:before{width: 35px;}
-.arlo_tm_leftpart_wrap .leftpart_bottom{
-	position: absolute;
-	left: 60px;
-	bottom: 38px;
-}
+	.arlo_tm_leftpart_wrap .leftpart_bottom {
+		position: absolute;
+		left: 20%;
+		bottom: 38px;
+	}
 .social_wrap{
 	width: 100%;
 	height: auto;
@@ -967,26 +969,24 @@ img.svg{
 	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
 			box-sizing: border-box; /* Opera/IE 8+ */ 
 }
-.arlo_tm_services_wrap .list_wrap ul li .inner{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-	position: relative;
-	box-shadow: 0 0 20px rgba(0,0,0,.1);
-	padding: 40px 40px 33px 40px;
-	top: 0px;
-	
-	-webkit-transition: all .3s ease;
-	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
-	
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
-			box-sizing: border-box; /* Opera/IE 8+ */ 
-}
+	.arlo_tm_services_wrap .list_wrap ul li .inner {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		position: relative;
+		box-shadow: 0 0 20px rgba(0,0,0,.1);
+		padding: 30px 10px 30px 10px;
+		top: 0px;
+		-webkit-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
 .arlo_tm_services_wrap .list_wrap ul li .inner:hover{top: -15px;}
 .arlo_tm_services_wrap .list_wrap ul li .icon{margin-bottom: 21px;}
 .arlo_tm_services_wrap .list_wrap ul li .icon .svg{
@@ -1872,8 +1872,7 @@ img.svg{
 	width: 100%;
 	height: auto;
 	clear: both;
-	float: left;
-	text-align: left;
+	text-align: center;
 	background-color: #eef1ff;
 	padding: 4px 0px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -2589,8 +2588,14 @@ img.svg{
 .lp-writing-card {
 	background-color: var(--writing);
 }
-.lp-comingsoon-card {
-	background-color: var(--comingsoon);
+.lp-codevault-card {
+	background-color: var(--codevault);
+}
+.lp-freebie-card {
+	background-color: var(--freebie);
+}
+.lp-synopsis-card {
+	background-color: var(--synopsis);
 }
 /* Hero Section */
 
@@ -2917,3 +2922,17 @@ img.svg{
 				-webkit-transform: scale(2);
 				text-decoration: none;
 			}
+
+
+.cursor-circle {
+	--circle-size: 40px;
+	position: fixed;
+	height: var(--circle-size);
+	width: var(--circle-size);
+	border: 2px solid black;
+	border-radius: 100%;
+	top: calc(var(--circle-size) / 2 * -1);
+	left: calc(var(--circle-size) / 2 * -1);
+	pointer-events: none;
+	z-index:1000;
+}

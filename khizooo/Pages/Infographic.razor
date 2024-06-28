@@ -26,6 +26,50 @@
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
 
+        <style>
+            .infographic-card {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                text-decoration: none;
+                color: inherit;
+                transition: background-color 0.8s ease-in-out;
+            }
+
+                .infographic-card .card-body {
+                    flex-grow: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .infographic-card .card-title {
+                    font-weight: bold;
+                    font-family: 'Arial', sans-serif;
+                    font-size: 1.5rem;
+                }
+
+                .infographic-card .card-container {
+                    padding-bottom: 100%; /* Make it square */
+                    position: relative;
+                }
+
+                    .infographic-card .card-container .card {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                    }
+
+            .infographic-card:hover {
+                background-color: #f74142;
+                color: #ffffff;
+            }
+        </style>
+
         <!-- INFPGRAPHIC -->
         <div class="arlo_tm_section relative" id="Infographics">
             <div class="arlo_tm_portfolio_wrapper_all">
@@ -36,25 +80,72 @@
                 </div>
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
-                    <div class="container">
 
-                        <div class="wrapper-comingsoon">
-                            <h1>coming soon<span class="dot">.</span></h1>
-                            <p>I’m planning to create engaging content to enhance your digital experience.</p>
-                            <div class="icons">
-                                <!-- SOCIAL -->
-                                <a href=""><i class="fa-brands fa-facebook fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-tiktok fa-xl"></i></a>
-
-                                <!-- PROFESSIONAL -->
-                                <a href="#"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-
+                    <div class="container mt-5">
+                        <div class="row">
+                            <!-- Card 1 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 1</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 2</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 3</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 4</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 5</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Card 6 -->
+                            <div class="col-md-3 mb-3">
+                                <div class="card-container">
+                                    <a href="#" class="infographic-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card Title 6</h5>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
 
             </div>
