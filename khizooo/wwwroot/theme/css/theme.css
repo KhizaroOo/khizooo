@@ -2936,3 +2936,46 @@ img.svg{
 	pointer-events: none;
 	z-index:1000;
 }
+
+.infographic-card {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+	transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	background: #6985fc;
+	border: 2px solid;
+}
+
+.infographic-card-body {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.infographic-card-title {
+	font-size: 20px;
+	line-height: 1.5;
+	text-align: center;
+	padding: 20px 7px;
+}
+
+.infographic-card-container {
+	padding-bottom: 100%; /* Make it square */
+	position: relative;
+}
+
+.infographic-card:hover {
+	background-color: #f74142;
+	color: #ffffff;
+	border: 2px solid #000;
+}
