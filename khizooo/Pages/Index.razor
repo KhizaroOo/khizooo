@@ -349,20 +349,5 @@
 
     KhizoOo Me = new KhizoOo();
 
-
-    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
-    {
-        StateHasChanged();
-    }
-
-    protected override void OnInitialized()
-    {
-        Navigation.LocationChanged += OnLocationChanged;
-    }
-
-    public void Dispose()
-    {
-        Navigation.LocationChanged -= OnLocationChanged;
-    }
-
+    protected override void OnInitialized() { base.OnInitialized(); }
 }
