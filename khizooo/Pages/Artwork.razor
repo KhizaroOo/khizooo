@@ -1,5 +1,6 @@
 ﻿@page "/Artwork"
 
+
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Artworks</PageTitle>
@@ -86,6 +87,9 @@
     List<Art> MyAllArts = new MyArts().GetMyArts(1000);
 
 
-
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
 }
 
