@@ -1,5 +1,5 @@
 ﻿@page "/CreativeWorks/Infographic"
-@inject NavigationManager NavManager
+
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Infographics</PageTitle>
@@ -77,11 +77,5 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
     List<khizooo.AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
-
-    protected override void OnInitialized()
-    {
-        NavManager.NavigateTo("/CreativeWorks/Infographic");
-    }
-
 
 }
