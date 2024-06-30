@@ -1,5 +1,5 @@
 ﻿@page "/CreativeWorks/Infographic"
-
+@inject NavigationManager NavigationManager
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Infographics</PageTitle>
@@ -44,15 +44,15 @@
                             @{
                                 foreach (khizooo.AppData.Infographic infographic in MyAllInfographics)
                                 {
-                                <div class="col-md-2 mb-3">
-                                    <div class="infographic-card-container">
-                                        <a href="@((MarkupString)infographic.URL)" class="infographic-card">
-                                            <div class="infographic-card-body">
-                                                <h5 class="infographic-card-title">@((MarkupString)infographic.Title)</h5>
-                                            </div>
-                                        </a>
+                                    <div class="col-md-2 mb-3">
+                                        <div class="infographic-card-container">
+                                            <a href="@((MarkupString)infographic.URL)" class="infographic-card">
+                                                <div class="infographic-card-body">
+                                                    <h5 class="infographic-card-title">@((MarkupString)infographic.Title)</h5>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
                                 }
                             }
 
@@ -79,6 +79,6 @@
     List<khizooo.AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
 
 
+    private void Navigate() { NavigationManager.NavigateTo("/Infographic/"); }
 
-    
 }
