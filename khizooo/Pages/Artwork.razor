@@ -1,5 +1,5 @@
 ﻿@page "/CreativeWorks/Artwork"
-@inject NavigationManager NavigationManager
+@inject NavigationManager NavManager
 
 @using khizooo.AppData;
 
@@ -84,6 +84,11 @@
     List<Art> MyAllArts = new MyArts().GetMyArts(1000);
 
 
-    private void Navigate() { NavigationManager.NavigateTo("/Artwork/"); }
+
+    protected override void OnInitialized()
+    {
+        NavManager.NavigateTo("/CreativeWorks/Artwork" , true, true);
+    }
+
 }
 
