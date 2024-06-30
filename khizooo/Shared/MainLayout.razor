@@ -1,20 +1,39 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+<!-- MAIN WRAPPER START -->
+<div class="arlo_tm_wrapper_all">
 
-    <!-- MAIN WRAPPER START -->
-    <div class="arlo_tm_wrapper_all">
+    <MobileMenu />
 
-        <MobileMenu />
+    <!-- CONTENT -->
+    <div class="arlo_tm_content">
 
-        <!-- CONTENT -->
-        <div class="arlo_tm_content">
+        <LeftSidebar />
 
-            <LeftSidebar />
+        @Body
 
-            @Body
-
-            <a class="arlo_tm_totop" href="#"></a>
-
-        </div>
+        <a class="arlo_tm_totop" href="#"></a>
 
     </div>
-    <!-- MAIN WRAPPER END -->
+
+</div>
+<!-- MAIN WRAPPER END -->
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= OnLocationChanged;
+    }
+}
