@@ -88,7 +88,7 @@
             Slug = "Blockchain-Use-Case-In-Finance-Infographic",
             DataGroup = "[\"all\",\"blockchain\",\"use-cases\"]",
             Heading = "Blockchain Use-Case In Finance Infographic - Blockchain - Infographic",
-            Title = "Blockchain Use-Case<br>In Finance",
+            Title = "Blockchain<br>Use Cases<br>In Finance",
             SubTitle = "Blockchain - Infographic",
             PunchLine = "Blockchain Use-Cases In Finance",
             IMG = "/images/MyInfographics/Blockchain/Blockchain-Use-Case-In-Finance-Infographic.jpg",

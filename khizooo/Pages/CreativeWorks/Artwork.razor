@@ -1,5 +1,4 @@
 ﻿@page "/CreativeWorks/Artwork"
-@implements IDisposable
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Artworks</PageTitle>
@@ -81,26 +80,6 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
     List<Art> MyAllArts = new MyArts().GetMyArts(1000);
-
-
-
-
-    [Inject] private NavigationManager Navigation { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Navigation.LocationChanged += HandleLocationChanged;
-    }
-
-    private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
-    {
-        Console.WriteLine("URL changed to: " + e.Location);
-    }
-
-    public void Dispose()
-    {
-        Navigation.LocationChanged -= HandleLocationChanged;
-    }
 
 }
 
