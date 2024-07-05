@@ -1,8 +1,138 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<!--
+    My Profiles Link
+    Website       https://www.khizooo.com
+    Facebook    https://www.facebook.com/khizoooartist
+    Instagram   https://www.instagram.com/khizooo_art
+    LinkedIn      https://www.linkedin.com/in/khizar-imtiaz
+    OpenSea     https://opensea.io/KhizoOo_
+    Twitter         https://twitter.com/khizaroo
+    Pinterest     https://www.pinterest.com/KhizoOo_
+    Snapchat    https://www.snapchat.com/add/khizooo_1163?share_id=ZIvI4JY3joU&locale=en-PK
+    Skype          https://join.skype.com/invite/b0k5jlb9HRmk
+    Whatsapp  https://wa.me/923007683396?text=KhizoOo%20%3C3
+    TikTok        https://www.tiktok.com/@khizooo_butt
+-->
+<!--
+    Modules Color
+    ARTFULESS	        #083045
+    TOOLBOX         	#9a2515
+    TIMELINE	            #829254
+    INFOGRAPHICS	#bba036
+    WRITINGS	        #e36723
+                                #107895
+-->
+<!-- HTML START -->
+<html lang="en">
+
+<!-- HEAD START -->
 <head>
-    <meta http-equiv="refresh" content="0; url=./index.html">
+
+    <!-- Common META TAGS -->
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="KhizoOo">
+
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+
+    <!-- TITLE -->
+    <title>khizooo</title>
+
+    <!-- For Github Pages -->
+    <base href="/khizooo/" />
+    <!-- For Local Pages -->
+    <!--<base href="/khizooo/" />-->
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicons/Favicon-16.png" />
+
+    <!-- FONTS STYLES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="theme/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/plugins.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/theme.css" />
+
+    <!-- CUSTOM STYLES -->
+    <link href="css/khizooo.css" rel="stylesheet" />
+
 </head>
+<!-- HEAD END -->
+<!-- BODY START -->
 <body>
+
+    <div class="cursor-circle"></div>
+
+    <!-- POPUP START -->
+    <div id="arlo_tm_popup_blog">
+        <div class="container">
+            <div class="inner_popup scrollable"></div>
+        </div>
+        <span class="close"><a href="#"></a></span>
+    </div>
+    <!-- POPUP END -->
+    <!-- PRELOADER START -->
+    <div class="FullLoader"></div>
+    <!-- PRELOADER END -->
+    <!-- APP START -->
+    <div id="app"> </div>
+    <!-- APP END -->
+
+    <!-- GITHUB PAGES -->
+    <script type="text/javascript">(function (l) {
+            if (l.search) {
+                var q = {};
+                l.search.slice(1).split('&').forEach(function (v) {
+                    var a = v.split('=');
+                    q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+                });
+                if (q.p !== undefined) {
+                    window.history.replaceState(null, null,
+                        l.pathname.slice(0, -1) + (q.p || '') +
+                        (q.q ? ('?' + q.q) : '') +
+                        l.hash
+                    );
+                }
+            }
+        }(window.location))</script>
+    <!-- GITHUB PAGES -->
+
+    <!-- BLAZOR SCRIPT -->
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+
+    <!-- SCRIPTS -->
+    <script src="theme/js/jquery.js" type="text/javascript" defer></script>
+    <script src="theme/bootstrap/js/bootstrap.min.js" type="text/javascript" defer></script>
+    <script src="theme/js/plugins.js" type="text/javascript" defer></script>
+    <script src="theme/js/init.js" type="text/javascript" defer></script>
+    <script src="https://kit.fontawesome.com/3e9744c4f8.js" crossorigin="anonymous" defer></script>
+
+
+
+    <script type="text/javascript">window.myApp = {
+            init: function () {
+                Polazized();
+                console.log("Application fully loaded and initialized");
+            }
+        };
+
+        Blazor.start().then(function () {
+            window.myApp.init();
+        });
+
+        function Polazized() {
+            var polaroids = document.querySelectorAll('.polaroid');
+            polaroids.forEach(item => {
+                const randomRotation = Math.floor(Math.random() * (6 - -6 + 1) + -6);
+                item.style.transform = `rotate(${randomRotation}deg)`
+            });
+        }</script>
+
 </body>
+<!-- BODY END -->
 </html>
+<!-- HTML END -->
