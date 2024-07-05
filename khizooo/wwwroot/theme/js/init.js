@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
 			arlo_tm_list_height();
 
 			//arlo_tm_anchor();
-			arlo_tm_contact_form();
+			//arlo_tm_contact_form();
 			arlo_tm_owl_carousel();
 			arlo_tm_projects();
 			arlo_tm_miniboxes();
