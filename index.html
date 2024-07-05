@@ -40,9 +40,9 @@
     <title>khizooo</title>
 
     <!-- For Github Pages -->
-    <!--<base href="/khizooo/" />-->
+    <base href="/khizooo/" />
     <!-- For Local Pages -->
-    <base href="/" />
+    <!--<base href="/" />-->
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="favicons/Favicon-16.png" />
@@ -81,19 +81,9 @@
     <!-- APP START -->
     <div id="app"> </div>
     <!-- APP END -->
-    <!-- BLAZOR SCRIPT -->
-    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
-
-    <!-- SCRIPTS -->
-    <script src="theme/js/jquery.js" type="text/javascript" defer></script>
-    <script src="theme/bootstrap/js/bootstrap.min.js" type="text/javascript" defer></script>
-    <script src="theme/js/plugins.js" type="text/javascript" defer></script>
-    <script src="theme/js/init.js" type="text/javascript" defer></script>
-    <script src="https://kit.fontawesome.com/3e9744c4f8.js" crossorigin="anonymous" defer></script>
 
     <!-- GITHUB PAGES -->
-    <script type="text/javascript">
-        (function (l) {
+    <script type="text/javascript">(function (l) {
             if (l.search) {
                 var q = {};
                 l.search.slice(1).split('&').forEach(function (v) {
@@ -108,9 +98,20 @@
                     );
                 }
             }
-}(window.location))
-    </script>
+        }(window.location))</script>
     <!-- GITHUB PAGES -->
+
+    <!-- BLAZOR SCRIPT -->
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+
+    <!-- SCRIPTS -->
+    <script src="theme/js/jquery.js" type="text/javascript" defer></script>
+    <script src="theme/bootstrap/js/bootstrap.min.js" type="text/javascript" defer></script>
+    <script src="theme/js/plugins.js" type="text/javascript" defer></script>
+    <script src="theme/js/init.js" type="text/javascript" defer></script>
+    <script src="https://kit.fontawesome.com/3e9744c4f8.js" crossorigin="anonymous" defer></script>
+
+
 
     <script type="text/javascript">window.myApp = {
             init: function () {
@@ -129,8 +130,7 @@
                 const randomRotation = Math.floor(Math.random() * (6 - -6 + 1) + -6);
                 item.style.transform = `rotate(${randomRotation}deg)`
             });
-        }
-    </script>
+        }</script>
 
 </body>
 <!-- BODY END -->
