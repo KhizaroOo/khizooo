@@ -1,0 +1,26 @@
+﻿User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /*.php$
+Disallow: /*.cgi$
+
+Allow: /public/
+Allow: /content/
+
+Sitemap: https://www.khizooo.com/sitemap.xml
+
+# Block bad bots
+User-agent: BadBot
+Disallow: /
+
+# Block specific crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+# Allow all other bots to access everything else
+User-agent: *
+Allow: /
+
+# Crawl delay to prevent server overload (optional)
+Crawl-delay: 10
