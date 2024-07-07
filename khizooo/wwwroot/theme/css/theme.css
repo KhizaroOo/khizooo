@@ -2818,7 +2818,7 @@ img.svg{
 	display: inline-block;
 }
 .polaroid__content-image {
-	height: 330px;
+	height: auto;
 	width: 100%;
 	overflow: hidden;
 }
