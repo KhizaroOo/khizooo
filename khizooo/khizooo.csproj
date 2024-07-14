@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup>
+  <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+</PropertyGroup>
+
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' ">
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
@@ -29,10 +33,13 @@
     <Folder Include="wwwroot" />
     <Folder Include="Services\" />
     <Folder Include="Pages\CreativeWorks\" />
+    <Folder Include="Pages\ToolBox\" />
+    <Folder Include="wwwroot\toolbox\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Pages\CreativeWorks\" />
+    <None Remove="Pages\ToolBox\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\CNAME" />
@@ -46,5 +53,6 @@
     <Content Remove="Pages\Artfulness.razor" />
     <Content Remove="Pages\Infographics.razor" />
     <Content Remove="wwwroot\CNAME %28copy%29" />
+    <Content Remove="wwwroot\toolbox\" />
   </ItemGroup>
 </Project>

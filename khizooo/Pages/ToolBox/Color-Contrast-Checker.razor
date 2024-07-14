@@ -1,0 +1,338 @@
+﻿@page "/creative-works/toolbox/1/color-contrast-checker"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+@using khizooo.AppData;
+
+<PageTitle>Khizooo - Toolbox</PageTitle>
+<HeadContent>
+
+    <meta name="keywords" content="toolbox, creative art, color contrast checker, web accessibility, design tools, development tools, contrast widget, khizooo">
+    <meta name="description" content="Use the Color Contrast Checker by Khizar Imtiaz to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try our widget!">
+
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta property="og:description" content="Use the Color Contrast Checker by Khizar Imtiaz to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try our widget!">
+    <meta property="og:image" content="images/SEO/OG-Image.png">
+    <meta property="og:url" content="https://www.khizooo.com/Artwork">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta name="twitter:description" content="Use the Color Contrast Checker by Khizar Imtiaz to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try our widget!">
+    <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
+
+    <meta name="robots" content="index, follow">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Lato|Montserrat|Oswald|Source+Sans+Pro|Raleway|Poppins|Ubuntu|Merriweather|Noto+Sans|Nunito|Quicksand|Playfair+Display|Mukta|Libre+Baskerville|Rubik|Bebas+Neue|PT+Sans|Muli|Righteous|Arimo|Dosis|Indie+Flower|Pacifico|Cabin|Titillium+Web|Abel|Anton|Baloo+2|Bree+Serif|Cairo|Comfortaa|Caveat|Dancing+Script|Fira+Sans|Great+Vibes|IBM+Plex+Sans|Inconsolata|Josefin+Sans|Kalam|Kanit|Karma|Lobster|Maven+Pro|Merriweather|Noto+Serif|Oxygen|PT+Serif&display=swap">
+</HeadContent>
+
+<style>
+    .preview {
+        border-radius: 5px;
+        margin: auto;
+    }
+
+    .contrast-result {
+        margin-top: 10px;
+    }
+
+    .hex-input {
+        margin-top: 5px;
+    }
+
+    .contrast-result-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+        .contrast-result-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+    .success li {
+        background-color: #28A746;
+    }
+
+    .warning li {
+        background-color: #ffc107;
+    }
+
+    .danger li {
+        background-color: #dc3545;
+    }
+
+    .Success-Result {
+        color: #155724;
+        background-color: #d4edda;
+    }
+
+    .Heading-Color {
+        border: 1px solid;
+        margin-bottom: 30px;
+        background: #FFC107;
+    }
+
+    .Fail-Result {
+        color: #721c24;
+        background-color: #f8d7da;
+    }
+
+    .categories li {
+        text-transform: UPPERCASE;
+        list-style-type: none;
+        border: 1px solid #000;
+        text-transform: UPPERCASE;
+        padding: 12px
+    }
+
+    .SaveColor {
+        inline-size: 2.5rem;
+        block-size: 2.5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        vertical-align: middle;
+        appearance: none;
+        font-size: 22px;
+        margin: 5px;
+    }
+
+</style>
+
+<!-- MAIN CONTENT START -->
+<div class="arlo_tm_rightpart">
+    <div class="rightpart_inner">
+
+        <!-- ARTWORK DETAIL -->
+        <div class="arlo_tm_portfolio_single_wrap">
+            <div class="container">
+                <div class="title_holder" style="text-align:center">
+                    <h3>Color Contrast Checker</h3>
+                    <p style="margin-bottom: 30px;">Color Contrast Checker tool! Ensure your content is accessible to all users by checking the color contrast between text and background.</p>
+                </div>
+                <div class="details_wrap">
+
+                    <div id="ccc-Widget-Cotrol-01" class="container" style="padding:0px">
+
+                        <div class="row justify-content-md-center">
+
+                            <div class="col col-lg-3 p-4" style="border-right: 1px solid #da035c;">
+                                <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">SETTINGS</h4>
+                                <div class="form-group">
+                                    <h6 for="ccc-foreground" style="margin-bottom:10px">Text Color</h6>
+                                    <input type="color" class="form-control" id="ccc-foreground" name="ccc-foreground" value="#000000">
+                                    <input type="text" class="form-control hex-input" id="ccc-foregroundHex" value="#000000">
+                                </div>
+                                <div class="form-group" style="margin-top:30px">
+                                    <h6 for="ccc-background" style="margin-bottom:10px">Background Color</h6>
+                                    <input type="color" class="form-control" id="ccc-background" name="ccc-background" value="#FFFFFF">
+                                    <input type="text" class="form-control hex-input" id="ccc-backgroundHex" value="#FFFFFF">
+                                </div>
+                                <div class="form-group" style="margin-top: 30px;">
+                                    <h6 for="font-selector" style="margin-bottom:10px">Popular Fonts</h6>
+                                    <select id="font-selector" class="form-select btn btn-outline-dark form-select-sm mb-3">
+                                        <option value="Roboto">Roboto</option>
+                                        <option value="Open+Sans">Open Sans</option>
+                                        <option value="Lato">Lato</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Oswald">Oswald</option>
+                                        <option value="Source+Sans+Pro">Source Sans Pro</option>
+                                        <option value="Raleway">Raleway</option>
+                                        <option value="Poppins">Poppins</option>
+                                        <option value="Ubuntu">Ubuntu</option>
+                                        <option value="Merriweather">Merriweather</option>
+                                        <option value="Noto+Sans">Noto Sans</option>
+                                        <option value="Nunito">Nunito</option>
+                                        <option value="Quicksand">Quicksand</option>
+                                        <option value="Playfair+Display">Playfair Display</option>
+                                        <option value="Mukta">Mukta</option>
+                                        <option value="Libre+Baskerville">Libre Baskerville</option>
+                                        <option value="Rubik">Rubik</option>
+                                        <option value="Bebas+Neue">Bebas Neue</option>
+                                        <option value="PT+Sans">PT Sans</option>
+                                        <option value="Muli">Muli</option>
+                                        <option value="Righteous">Righteous</option>
+                                        <option value="Arimo">Arimo</option>
+                                        <option value="Dosis">Dosis</option>
+                                        <option value="Indie+Flower">Indie Flower</option>
+                                        <option value="Pacifico">Pacifico</option>
+                                        <option value="Cabin">Cabin</option>
+                                        <option value="Titillium+Web">Titillium Web</option>
+                                        <option value="Abel">Abel</option>
+                                        <option value="Anton">Anton</option>
+                                        <option value="Baloo+2">Baloo 2</option>
+                                        <option value="Bree+Serif">Bree Serif</option>
+                                        <option value="Cairo">Cairo</option>
+                                        <option value="Comfortaa">Comfortaa</option>
+                                        <option value="Caveat">Caveat</option>
+                                        <option value="Dancing+Script">Dancing Script</option>
+                                        <option value="Fira+Sans">Fira Sans</option>
+                                        <option value="Great+Vibes">Great Vibes</option>
+                                        <option value="IBM+Plex+Sans">IBM Plex Sans</option>
+                                        <option value="Inconsolata">Inconsolata</option>
+                                        <option value="Josefin+Sans">Josefin Sans</option>
+                                        <option value="Kalam">Kalam</option>
+                                        <option value="Kanit">Kanit</option>
+                                        <option value="Karma">Karma</option>
+                                        <option value="Lobster">Lobster</option>
+                                        <option value="Maven+Pro">Maven Pro</option>
+                                        <option value="Merriweather">Merriweather</option>
+                                        <option value="Noto+Serif">Noto Serif</option>
+                                        <option value="Oxygen">Oxygen</option>
+                                        <option value="PT+Serif">PT Serif</option>
+                                    </select>
+                                </div>
+
+                              <div class="form-group" style="margin-top: 30px;">
+                                <button id="Swap-Colors" class="btn btn-sm btn-outline-warning">Swap Colors</button>
+                                <button id="Clear-Colors" class="btn btn-sm btn-outline-danger" style="float: right;">Clear</button
+                                <button id="Save-Colors" class="btn btn-sm btn-outline-success" style="float: right;margin-right: 10px;">Save</button>
+                              </div>
+
+                                <div class="form-group" style="margin-top: 30px; text-align: end;">
+                                    <div id="SavedColors"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col col-lg-5 p-4" style="border-right: 1px solid #da035c;">
+                                <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">PREVIEW</h4>
+                                <div id="ccc-preview" style="color: #000000; background-color: #FFFFFF; padding: 25px; margin: 0px; border: 1px solid #000000">
+                                    <br />
+                                    <h1 class="preview-text text-center" style="font-size: 2.2rem; font-family: Roboto;">Preview Heading</h1>
+                                    <br />
+                                    <h4 class="preview-text text-center" style="font-size: 1.2rem; font-family: Roboto;">Preview Sub Heading</h4>
+                                    <br />
+                                    <p class="preview-text" style="margin-bottom: 0px; font-size: 14px; line-height: 2; text-align: justify; font-family: Roboto">
+                                        Preview Text.
+                                        This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color. This is an example of how your text will appear against the chosen background color.
+                                    </p>
+                                    <br />
+                                </div>
+                            </div>
+
+
+                            <div class="col col-lg-3 p-4" style="">
+                                <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">RESULTS</h4>
+                                <div class="ftco-animate fadeInUp ftco-animated">
+
+                                    <h6 for="ccc-background" style="margin-bottom:10px">Colors Comparisons</h6>
+                                    <ul class="list-group">
+                                        <li id="ccc-LiveRatioValue" class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 12px;">Contrast Ratio: <span class="badge bg-primary" style="padding: 8px; font-size: 12px;"></span></li>
+                                        <li id="ccc-LiveRGBDistance" class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 12px;">RGB Distance: <span class="badge bg-primary" style="padding: 8px; font-size: 12px;"></span></li>
+                                        <li id="ccc-LiveSaturationDifference" class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 12px;">Saturation Difference: <span class="badge bg-primary" style="padding: 8px; font-size: 12px;"></span></li>
+                                        <li id="ccc-LiveHueDifference" class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 12px;">Hue Difference: <span class="badge bg-primary" style="padding: 8px; font-size: 12px;"></span></li>
+                                        <li id="ccc-LiveLightnessDifference" class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 12px;">Lightness Difference: <span class="badge bg-primary" style="padding: 8px; font-size: 12px;"></span></li>
+                                    </ul>
+
+                                    <h6 for="ccc-background" style="margin-bottom: 10px; margin-top: 30px">WCAG <span style="font-size: 11px;">(Web Content Accessibility Guidelines)</span></h6>
+                                    <ul class="list-group categories">
+                                        <li id="ccc-AA" class="list-group-item d-flex justify-content-between align-items-center"> AA </li> @*  > 4.5  *@
+                                        <li id="ccc-AAA18PT" class="list-group-item d-flex justify-content-between align-items-center"> AA (18PT) </li> @*  > 4.5  *@
+                                        <li id="ccc-AAA" class="list-group-item d-flex justify-content-between align-items-center"> AAA </li> @*  > 7.0  *@
+                                        <li id="ccc-AA18PT" class="list-group-item d-flex justify-content-between align-items-center"> AAA (18PT) </li> @*  > 3.0  *@
+                                        <li id="ccc-COLORS" class="list-group-item d-flex justify-content-between align-items-center"> Colors </li> @*  > 3.26  *@
+                                        <li id="ccc-COLORDIFF" class="list-group-item d-flex justify-content-between align-items-center"> Color DIFF </li> @*  > 5.0  *@
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-center p-3">
+                            <div class="col col-lg-1"> </div>
+                            <div class="col col-lg-10">
+                                <div id="ccc-contrastResult" class="contrast-result"></div>
+                            </div>
+                            <div class="col col-lg-1"> </div>
+                        </div>
+
+                        <div class="row justify-content-center p-3">
+                            <div class="col col-lg-10">
+
+                                <h2 class="" style="margin-bottom: 20px;">How It Works?</h2>
+                                <p>
+                                    This tool follows the Web Content Accessibility Guidelines (WCAG), which provide recommendations for making the web more accessible. When it comes to colors, the guidelines specify two levels of contrast ratio: AA and AAA.
+                                    <br />
+                                    For AA, the minimum contrast ratio required is 4.5:1 for regular text and 3:1 for larger or bold text.
+                                    <br />
+                                    For AAA, the contrast ratio required is higher, with a minimum of 7:1 for regular text and 4.5:1 for larger or bold text.
+                                    <br />
+                                    These contrast ratios help ensure that text on websites is easily readable for all users, including those with visual impairments.
+                                </p>
+
+                                <h2 class="" style="margin-bottom: 20px; margin-top: 30px;">IMPORTANT DEFINITIONS</h2>
+                                <p>In color contrast, "AA" and "AAA" refer to two levels of compliance with the Web Content Accessibility Guidelines (WCAG), which provide recommendations for making web content more accessible to people with disabilities. Specifically, they relate to the contrast ratio between text and its background.</p>
+
+                                <h3 class=""  style="margin-bottom: 20px; margin-top: 20px;">AA</h3>
+                                <p>
+                                    This level of compliance requires a minimum contrast ratio of 4.5:1 for normal text and 3:1 for larger text (18pt or larger) or bold text. Meeting this standard ensures that text is reasonably legible for most users.
+                                </p>
+
+                                <h3 class="" style="margin-bottom: 20px; margin-top: 20px;">AA (18pt)</h3>
+                                <p>
+                                    This specifies the contrast requirements specifically for larger text, which must have a minimum contrast ratio of 3:1 to meet the AA standard.
+                                </p>
+
+                                <h3 class="" style="margin-bottom: 20px; margin-top: 20px;">AAA</h3>
+                                <p>
+                                    This is a higher level of compliance, requiring a more stringent contrast ratio of at least 7:1 for normal text and 4.5:1 for larger or bold text. Meeting this standard ensures that text is highly legible for most users, including those with low vision.
+                                </p>
+
+                                <h3 class="" style="margin-bottom: 20px; margin-top: 20px;">AAA (18pt)</h3>
+                                <p>
+                                    Similar to AA (18pt), this specifies the contrast requirements specifically for larger text to meet the AAA standard.
+                                </p>
+
+                                <h3 class="" style="margin-bottom: 20px; margin-top: 20px;">Colors</h3>
+                                <p>
+                                    Refers to the foreground (text) and background colors being compared for their contrast ratio.
+                                </p>
+
+                                <h3 class="" style="margin-bottom: 20px; margin-top: 20px;">Color DIFF</h3>
+                                <p>
+                                    This likely refers to the difference in color values between the foreground and background, which is measured to determine the contrast ratio.
+                                </p>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /ARTWORK DETAIL -->
+
+    </div>
+</div>
+<!-- /MAIN CONTENT END -->
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; } = 0;
+    [Parameter]
+    public string Slug { get; set; } = "";
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("LoadScripts", "toolbox/color-contrast-checker.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+}

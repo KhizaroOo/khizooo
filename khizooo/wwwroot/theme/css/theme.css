@@ -619,7 +619,7 @@ img.svg{
 			box-sizing: border-box; /* Opera/IE 8+ */ 
 }
 .arlo_tm_about_wrap .leftbox{
-	width: 35%;
+	width: 60%;
 	float: left;
 	height: auto;
 	padding-right: 40px;
@@ -654,7 +654,7 @@ img.svg{
 }
 .arlo_tm_about_wrap .leftbox .about_image_wrap img{opacity: 1;}
 .arlo_tm_about_wrap .rightbox{
-	width: 65%;
+	width: 40%;
 	float: right;
 	padding: 0px 0px 0px 65px;
 	
@@ -2223,16 +2223,15 @@ img.svg{
 /*	13) ARLO PORTFOLIO SINGLE
 /*---------------------------------------------------*/
 
-.arlo_tm_portfolio_single_wrap{
+.arlo_tm_portfolio_single_wrap {
 	width: 100%;
 	height: auto;
 	clear: both;
 	float: left;
-	padding-top: 150px;
-	
+	padding-top: 55px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
-			box-sizing: border-box; /* Opera/IE 8+ */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
 .arlo_tm_portfolio_single_wrap .title_holder h3{
 	font-size: 50px;
@@ -2240,7 +2239,6 @@ img.svg{
     font-weight: 500;
     letter-spacing: -.5px;
     line-height: 1;
-	margin-bottom: 100px;
 }
 .arlo_tm_portfolio_single_wrap .details_wrap{
 	width: 100%;
@@ -2256,7 +2254,7 @@ img.svg{
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
 .arlo_tm_portfolio_single_wrap .details_wrap .leftbox{
-	width: 40%;
+	width: 60%;
 	height: auto;
 	float: left;
 	padding-right: 50px;
@@ -2277,7 +2275,7 @@ img.svg{
 	margin: 0px;
 	list-style-type: none;
 }
-.arlo_tm_portfolio_single_wrap .details_wrap .short_list ul li{margin: 0px 0px 3px 0px;}
+.arlo_tm_portfolio_single_wrap .details_wrap .short_list ul li{margin: 0px 0px 15px 0px;}
 .arlo_tm_portfolio_single_wrap .details_wrap .short_list ul li:last-child{margin-bottom: 0px;}
 .arlo_tm_portfolio_single_wrap .details_wrap .short_list ul li span{display: inline-block;}
 .arlo_tm_portfolio_single_wrap .details_wrap .short_list ul li span.first{
@@ -2285,7 +2283,7 @@ img.svg{
 	min-width: 150px;
 }
 .arlo_tm_portfolio_single_wrap .details_wrap .rightbox{
-	width: 60%;
+	width: 40%;
 	height: auto;
 	float: left;
 }
@@ -2326,19 +2324,7 @@ img.svg{
 	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
-.arlo_tm_portfolio_single_wrap .pagination_wrap a{
-	text-decoration: none;
-	color: #000000;
-	font-weight: 600;
-	font-size: 16px;
-	
-	-webkit-transition: all .3s ease;
-	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
-}
-.arlo_tm_portfolio_single_wrap .pagination_wrap a:hover{color: #E3872D;}
+
 
 /*---------------------------------------------------*/
 /*	14) ARLO MOBILE HEADER
@@ -2601,15 +2587,16 @@ img.svg{
 
 /* Hero Section */
 .FullLoader {
-  width: 100vw;
-  height: 100vh;
-  min-height: 350px;
-  margin: 0;
-  position: relative;
-  background-color: #111;
-  background-image: linear-gradient(to top, #222 5%, #111 6%, #111 7%, transparent 7%), linear-gradient(to bottom, #111 30%, transparent 30%), linear-gradient(to right, #222, #2e2e2e 5%, transparent 5%), linear-gradient(to right, transparent 6%, #222 6%, #2e2e2e 9%, transparent 9%), linear-gradient(to right, transparent 27%, #222 27%, #2e2e2e 34%, transparent 34%), linear-gradient(to right, transparent 51%, #222 51%, #2e2e2e 57%, transparent 57%), linear-gradient(to bottom, #111 35%, transparent 35%), linear-gradient(to right, transparent 42%, #222 42%, #2e2e2e 44%, transparent 44%), linear-gradient(to right, transparent 45%, #222 45%, #2e2e2e 47%, transparent 47%), linear-gradient(to right, transparent 48%, #222 48%, #2e2e2e 50%, transparent 50%), linear-gradient(to right, transparent 87%, #222 87%, #2e2e2e 91%, transparent 91%), linear-gradient(to bottom, #111 37.5%, transparent 37.5%), linear-gradient(to right, transparent 14%, #222 14%, #2e2e2e 20%, transparent 20%), linear-gradient(to bottom, #111 40%, transparent 40%), linear-gradient(to right, transparent 10%, #222 10%, #2e2e2e 13%, transparent 13%), linear-gradient(to right, transparent 21%, #222 21%, #1a1a1a 25%, transparent 25%), linear-gradient(to right, transparent 58%, #222 58%, #2e2e2e 64%, transparent 64%), linear-gradient(to right, transparent 92%, #222 92%, #2e2e2e 95%, transparent 95%), linear-gradient(to bottom, #111 48%, transparent 48%), linear-gradient(to right, transparent 96%, #222 96%, #1a1a1a 99%, transparent 99%), linear-gradient(to bottom, transparent 68.5%, transparent 76%, #111 76%, #111 77.5%, transparent 77.5%, transparent 86%, #111 86%, #111 87.5%, transparent 87.5%), linear-gradient(to right, transparent 35%, #222 35%, #2e2e2e 41%, transparent 41%), linear-gradient(to bottom, #111 68%, transparent 68%), linear-gradient(to right, transparent 78%, #333 78%, #333 80%, transparent 80%, transparent 82%, #333 82%, #333 83%, transparent 83%), linear-gradient(to right, transparent 66%, #222 66%, #2e2e2e 85%, transparent 85%);
-  background-size: 300px 150px;
-  background-position: center bottom;
+	width: 100vw;
+	height: 100vh;
+	min-height: 350px;
+	margin: 0;
+	position: fixed;
+	background-color: #111;
+	background-image: linear-gradient(to top, #222 5%, #111 6%, #111 7%, transparent 7%), linear-gradient(to bottom, #111 30%, transparent 30%), linear-gradient(to right, #222, #2e2e2e 5%, transparent 5%), linear-gradient(to right, transparent 6%, #222 6%, #2e2e2e 9%, transparent 9%), linear-gradient(to right, transparent 27%, #222 27%, #2e2e2e 34%, transparent 34%), linear-gradient(to right, transparent 51%, #222 51%, #2e2e2e 57%, transparent 57%), linear-gradient(to bottom, #111 35%, transparent 35%), linear-gradient(to right, transparent 42%, #222 42%, #2e2e2e 44%, transparent 44%), linear-gradient(to right, transparent 45%, #222 45%, #2e2e2e 47%, transparent 47%), linear-gradient(to right, transparent 48%, #222 48%, #2e2e2e 50%, transparent 50%), linear-gradient(to right, transparent 87%, #222 87%, #2e2e2e 91%, transparent 91%), linear-gradient(to bottom, #111 37.5%, transparent 37.5%), linear-gradient(to right, transparent 14%, #222 14%, #2e2e2e 20%, transparent 20%), linear-gradient(to bottom, #111 40%, transparent 40%), linear-gradient(to right, transparent 10%, #222 10%, #2e2e2e 13%, transparent 13%), linear-gradient(to right, transparent 21%, #222 21%, #1a1a1a 25%, transparent 25%), linear-gradient(to right, transparent 58%, #222 58%, #2e2e2e 64%, transparent 64%), linear-gradient(to right, transparent 92%, #222 92%, #2e2e2e 95%, transparent 95%), linear-gradient(to bottom, #111 48%, transparent 48%), linear-gradient(to right, transparent 96%, #222 96%, #1a1a1a 99%, transparent 99%), linear-gradient(to bottom, transparent 68.5%, transparent 76%, #111 76%, #111 77.5%, transparent 77.5%, transparent 86%, #111 86%, #111 87.5%, transparent 87.5%), linear-gradient(to right, transparent 35%, #222 35%, #2e2e2e 41%, transparent 41%), linear-gradient(to bottom, #111 68%, transparent 68%), linear-gradient(to right, transparent 78%, #333 78%, #333 80%, transparent 80%, transparent 82%, #333 82%, #333 83%, transparent 83%), linear-gradient(to right, transparent 66%, #222 66%, #2e2e2e 85%, transparent 85%);
+	background-size: 300px 150px;
+	background-position: center bottom;
+	z-index: 9999;
 }
 	.FullLoader:before {
 		content: '';
