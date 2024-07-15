@@ -2924,7 +2924,7 @@ img.svg{
 	z-index:1000;
 }
 
-.infographic-card {
+.creative-work-card {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2942,26 +2942,26 @@ img.svg{
 	border: 2px solid;
 }
 
-.infographic-card-body {
+.creative-work-card-body {
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.infographic-card-title {
+.creative-work-card-title {
 	font-size: 20px;
 	line-height: 1.5;
 	text-align: center;
 	padding: 20px 7px;
 }
 
-.infographic-card-container {
+.creative-work-card-container {
 	padding-bottom: 100%; /* Make it square */
 	position: relative;
 }
 
-.infographic-card:hover {
+.creative-work-card:hover {
 	background-color: #f74142;
 	color: #ffffff;
 	border: 2px solid #000;
