@@ -47,7 +47,7 @@
 
     public class MyArts
     {
-        public static string BASEPATH = "https://localhost:7281";
+        public static string BASEPATH = "https://khizooo.com";
 
         private List<ShowingLocation> ShowingLocations = new List<ShowingLocation>()
         {
