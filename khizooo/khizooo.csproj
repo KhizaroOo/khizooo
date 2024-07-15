@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\CNAME" />
+    <None Include="wwwroot\nojekyll" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Pages\My-Artfulness %28copy%29">
@@ -54,5 +55,6 @@
     <Content Remove="Pages\Infographics.razor" />
     <Content Remove="wwwroot\CNAME %28copy%29" />
     <Content Remove="wwwroot\toolbox\" />
+    <Content Remove="wwwroot\nojekyll" />
   </ItemGroup>
 </Project>
