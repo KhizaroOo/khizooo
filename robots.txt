@@ -20,8 +20,8 @@ Disallow: /private/
 Disallow: /admin/
 
 # Sitemaps
-Sitemap: https://www.khizooo.com/sitemap.xml
-Sitemap: https://khizooo.com/toolbox-sitemap.xml
+Sitemap: https://khizooo.com/Sitemap.xml
+Sitemap: https://khizooo.com/Toolbox-Sitemap.xml
 
 # Indicate the crawl delay (optional, useful for large sites)
 Crawl-delay: 10
