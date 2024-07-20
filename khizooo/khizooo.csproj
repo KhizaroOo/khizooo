@@ -35,6 +35,7 @@
     <Folder Include="Pages\CreativeWorks\" />
     <Folder Include="Pages\ToolBox\" />
     <Folder Include="wwwroot\toolbox\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -56,5 +57,6 @@
     <Content Remove="wwwroot\CNAME %28copy%29" />
     <Content Remove="wwwroot\toolbox\" />
     <Content Remove="wwwroot\nojekyll" />
+    <Content Remove="wwwroot\js\" />
   </ItemGroup>
 </Project>
