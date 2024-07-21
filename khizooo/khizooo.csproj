@@ -36,11 +36,13 @@
     <Folder Include="Pages\ToolBox\" />
     <Folder Include="wwwroot\toolbox\" />
     <Folder Include="wwwroot\js\" />
+    <Folder Include="Pages\PartialViews\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Pages\CreativeWorks\" />
     <None Remove="Pages\ToolBox\" />
+    <None Remove="Pages\PartialViews\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\CNAME" />

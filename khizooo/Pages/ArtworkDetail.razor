@@ -1,6 +1,7 @@
 ﻿@page "/creative-works/artwork/detail/{id:int}/{slug}"
 @inject NavigationManager NavigationManager
 @using khizooo.AppData;
+@using khizooo.Pages.PartialViews;
 
 <PageTitle>Khizooo - Artworks</PageTitle>
 <HeadContent>
@@ -24,10 +25,9 @@
 </HeadContent>
 
 <style>
-    .Art-Detail-Text{
-        margin-bottom:  25px;
+    .Art-Detail-Text {
+        margin-bottom: 25px;
     }
-
 </style>
 
 <!-- MAIN CONTENT START -->
@@ -79,12 +79,12 @@
 
                                 if (MyPreviousArt != null)
                                 {
-                                        <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                    <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
                                 }
 
                                 if (MyNextArt != null)
                                 {
-                                        <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                    <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
                                 }
                                 else
                                 {
@@ -105,12 +105,14 @@
                         {
                             <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyArtDetail.VIDEO" type="video/mp4"></video>
                         }
-                        
+
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
         <!-- /ARTWORK DETAIL -->
+
+        <Footer />
 
     </div>
 </div>

@@ -3,6 +3,7 @@
 @inject IJSRuntime JSRuntime
 
 @using khizooo.AppData;
+@using khizooo.Pages.PartialViews;
 
 <PageTitle>Khizooo - Toolbox</PageTitle>
 <HeadContent>
@@ -104,7 +105,6 @@
         font-size: 22px;
         margin: 5px;
     }
-
 </style>
 
 <!-- MAIN CONTENT START -->
@@ -120,11 +120,10 @@
                 </div>
                 <div class="details_wrap">
 
-                    <div id="ccc-Widget-Cotrol-01" class="container" style="padding:0px">
+                    <div class="container">
 
-                        <div class="row justify-content-md-center">
-
-                            <div class="col col-lg-3 p-4" style="border-right: 1px solid #da035c;">
+                        <div class="row">
+                            <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 p-4">
                                 <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">SETTINGS</h4>
                                 <div class="form-group">
                                     <h6 for="ccc-foreground" style="margin-bottom:10px">Text Color</h6>
@@ -190,20 +189,18 @@
                                         <option value="PT+Serif">PT Serif</option>
                                     </select>
                                 </div>
-
-                              <div class="form-group" style="margin-top: 30px;">
-                                <button id="Swap-Colors" class="btn btn-sm btn-outline-warning">Swap Colors</button>
-                                <button id="Clear-Colors" class="btn btn-sm btn-outline-danger" style="float: right;">Clear</button
-                                <button id="Save-Colors" class="btn btn-sm btn-outline-success" style="float: right;margin-right: 10px;">Save</button>
-                              </div>
-
+                                <div class="form-group" style="margin-top: 30px;">
+                                    <button id="Swap-Colors" class="btn btn-sm btn-outline-warning">Swap Colors</button>
+                                    <button id="Clear-Colors" class="btn btn-sm btn-outline-danger" style="float: right;">
+                                        Clear
+                                    </button>
+                                    <button id="Save-Colors" class="btn btn-sm btn-outline-success" style="float: right;margin-right: 10px;">Save</button>
+                                </div>
                                 <div class="form-group" style="margin-top: 30px; text-align: end;">
                                     <div id="SavedColors"></div>
                                 </div>
-
                             </div>
-
-                            <div class="col col-lg-5 p-4" style="border-right: 1px solid #da035c;">
+                            <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 p-4">
                                 <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">PREVIEW</h4>
                                 <div id="ccc-preview" style="color: #000000; background-color: #FFFFFF; padding: 25px; margin: 0px; border: 1px solid #000000">
                                     <br />
@@ -218,9 +215,7 @@
                                     <br />
                                 </div>
                             </div>
-
-
-                            <div class="col col-lg-3 p-4" style="">
+                            <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 p-4">
                                 <h4 class="Heading-Color text-center p-3" style="border: 1px solid; margin-bottom: 30px; background: #FFC107;">RESULTS</h4>
                                 <div class="ftco-animate fadeInUp ftco-animated">
 
@@ -245,19 +240,14 @@
 
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row justify-content-center p-3">
-                            <div class="col col-lg-1"> </div>
-                            <div class="col col-lg-10">
-                                <div id="ccc-contrastResult" class="contrast-result"></div>
-                            </div>
-                            <div class="col col-lg-1"> </div>
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4"><div id="ccc-contrastResult" class="contrast-result"><div class="alert fade alert-simple alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show"><p class="text-center" style="margin-bottom:0">Your colors contrast is at the maximum possible level. Ideal for all viewers under any conditions.</p></div></div></div>
                         </div>
 
                         <div class="row justify-content-center p-3">
-                            <div class="col col-lg-10">
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4">
                                 <h2 class="" style="margin-bottom: 10px;">How It Works?</h2>
                                 <p>
                                     This tool follows the Web Content Accessibility Guidelines (WCAG), which provide recommendations for making the web more accessible. When it comes to colors, the guidelines specify two levels of contrast ratio: AA and AAA.
@@ -310,6 +300,8 @@
             </div>
         </div>
         <!-- /ARTWORK DETAIL -->
+
+        <Footer />
 
     </div>
 </div>
