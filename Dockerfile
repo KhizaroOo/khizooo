@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy csproj and restore as distinct layers
 COPY *.sln .
-COPY khizooo-web/*.csproj ./khizooo-web/
+COPY khizooo-web/khizooo-web.csproj ./khizooo-web/
 RUN dotnet restore
 
 # Copy everything else and build
