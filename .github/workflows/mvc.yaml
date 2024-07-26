@@ -1,0 +1,42 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build the application
+        run: dotnet publish -c Release -o out
+
+      - name: Build Docker image
+        run: |
+          docker build -t khizooo-web:latest .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name khizooo-web-container khizooo-web:latest
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+
+      - name: Stop and remove Docker container
+        run: |
+          docker stop khizooo-web-container
+          docker rm khizooo-web-container

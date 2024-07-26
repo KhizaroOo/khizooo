@@ -1,53 +1,98 @@
-name: gh-pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
 
-permissions: 
-  contents: write
-
 jobs:
-  deploy:
-
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '8.0.x'
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build the application
+        run: dotnet publish -c Release -o out
+
+      - name: Build Docker image
+        run: |
+          docker build -t khizooo-web:latest .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name khizooo-web-container khizooo-web:latest
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+
+      - name: Stop and remove Docker container
+        run: |
+          docker stop khizooo-web-container
+          docker rm khizooo-web-container
+
+
+
+# name: gh-pages
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# permissions: 
+#   contents: write
+
+# jobs:
+#   deploy:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Setup .NET Core
+#       uses: actions/setup-dotnet@v1
+#       with:
+#         dotnet-version: '8.0.x'
         
-    # - name: Publish with dotnet
-    #   run: dotnet publish --configuration Release --output build
+#     # - name: Publish with dotnet
+#     #   run: dotnet publish --configuration Release --output build
 
-    - name: Publish .NET Core Project
-      run: dotnet publish khizooo/khizooo.csproj -c Release -o release --nologo
+#     - name: Publish .NET Core Project
+#       run: dotnet publish khizooo/khizooo.csproj -c Release -o release --nologo
       
-    # changes the base-tag in index.html from '/' to 'khizooo' to match GitHub Pages repository subdirectory
-    # - name: Change base-tag in index.html from / to khizooo
-    #   run: sed -i 's/<base href="\/" \/>/<base href="\/khizooo\/" \/>/g' release/wwwroot/index.html
+#     # changes the base-tag in index.html from '/' to 'khizooo' to match GitHub Pages repository subdirectory
+#     # - name: Change base-tag in index.html from / to khizooo
+#     #   run: sed -i 's/<base href="\/" \/>/<base href="\/khizooo\/" \/>/g' release/wwwroot/index.html
       
-    # copy index.html to 404.html to serve the same file when a file is not found
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
+#     # copy index.html to 404.html to serve the same file when a file is not found
+#     - name: copy index.html to 404.html
+#       run: cp release/wwwroot/index.html release/wwwroot/404.html
 
-    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-    - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
+#     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+#     - name: Add .nojekyll file
+#       run: touch release/wwwroot/.nojekyll
       
-    # - name: Commit wwwroot to GitHub Pages
-    #   uses: JamesIves/github-pages-deploy-action@3.7.1
-    #   with:
-    #     GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-    #     BRANCH: gh-pages
-    #     FOLDER: build/wwwroot
+#     # - name: Commit wwwroot to GitHub Pages
+#     #   uses: JamesIves/github-pages-deploy-action@3.7.1
+#     #   with:
+#     #     GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+#     #     BRANCH: gh-pages
+#     #     FOLDER: build/wwwroot
 
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
+#     - name: Commit wwwroot to GitHub Pages
+#       uses: JamesIves/github-pages-deploy-action@3.7.1
+#       with:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         BRANCH: gh-pages
+#         FOLDER: release/wwwroot
