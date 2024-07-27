@@ -77,22 +77,28 @@
                 if (contrastRatio >= 21) {
                     ResultColor = 1;
                     Message = "Your colors contrast is at the maximum possible level. Ideal for all viewers under any conditions.";
-                } else if (contrastRatio >= 15) {
+                }
+                else if (contrastRatio >= 15) {
                     ResultColor = 1;
                     Message = "Extremely high contrast. Exceeds the highest accessibility standards.";
-                } else if (contrastRatio > 8) {
+                }
+                else if (contrastRatio > 8) {
                     ResultColor = 1;
                     Message = "Superb contrast. Far exceeds accessibility standards for any text size.";
-                } else if (contrastRatio >= 7) {
+                }
+                else if (contrastRatio >= 7) {
                     ResultColor = 2;
                     Message = "Excellent contrast. Excellent for all text sizes, surpasses WCAG AAA standards. Excellent readability for all users.";
-                } else if (contrastRatio >= 4.5) {
+                }
+                else if (contrastRatio >= 4.5) {
                     ResultColor = 3;
                     Message = "Good for all text sizes. Meets WCAG AA for normal text and AAA for large text. Sufficient for AA standards but not AAA. Good for most users.";
-                } else if (contrastRatio >= 3.1) {
+                }
+                else if (contrastRatio >= 3.1) {
                     ResultColor = 3;
                     Message = "Improvements advised. Meets minimum WCAG AA standards for large text. Consider improving for broader accessibility. Acceptable for large text but not for normal text.";
-                } else {
+                }
+                else {
                     ResultColor = 4;
                     Message = "Strongly consider enhancing contrast. Fails WCAG AA standards for all text sizes. Contrast too low for accessible design. Not recommended for any text size.";
                 }
@@ -191,7 +197,7 @@
          else{
            for (var i = 0; i < SavedColors.length; i++) {
                 let item = SavedColors[i];
-                HTML += "<button class='SaveColor' style='background-color: "+item.bc+";color: "+item.tc+";font-family: "+item.f+";border: 2px solid "+item.tc+";'>Aa</button>";
+               HTML += "<button class='SaveColor' data-bcg='" + item.bc + "' data-tc='" + item.tc + "' data-tf='" + item.f +"' style='background-color: "+item.bc+";color: "+item.tc+";font-family: "+item.f+";border: 2px solid "+item.tc+";'>Aa</button>";
             }
          }
          $("#SavedColors").empty().append(HTML);
@@ -222,6 +228,16 @@
        Show_Saved_Colors();
     });
 
+    $(".SaveColor").on('click', function () {
+        let A = $(this).attr("data-bcg");
+        let B = $(this).attr("data-tc");
+        let C = $(this).attr("data-tf");
+
+        $('#ccc-foregroundHex').val(A);
+        $('#ccc-foreground').val(B);
+        $("#ccc-preview .preview-text").css("font-family", C);
+
+    });
 
     updatePreviewAndContrast();
     Show_Saved_Colors();
