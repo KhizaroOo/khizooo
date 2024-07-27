@@ -23,9 +23,6 @@ Disallow: /admin/
 Sitemap: https://khizooo.com/Sitemap.xml
 Sitemap: https://khizooo.com/Toolbox-Sitemap.xml
 
-# Indicate the crawl delay (optional, useful for large sites)
-Crawl-delay: 10
-
 # Block specific user agents (if necessary)
 User-agent: BadBot
 Disallow: /
