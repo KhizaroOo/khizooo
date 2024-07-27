@@ -174,11 +174,17 @@
 
         window.myApp = {
             init: function () {
+
                 Polazized();
                 console.log("Application fully loaded and initialized");
-                debugger
+
                 window.LoadGoogleScripts();
                 console.log("Google Scripts Loaded");
+
+                setInterval(function () {
+                    jQuery(".FullLoader").addClass("Loader-Loaded");
+                    console.log("Full Screen Loader Removed");
+                }, 2000);
 
             }
         };
