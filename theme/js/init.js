@@ -54,8 +54,6 @@ jQuery(document).ready(function(){
 
 			arlo_tm_data_images();
 
-			jQuery(".FullLoader").addClass("loaded");
-
 		}, 1000);
 	});
 
