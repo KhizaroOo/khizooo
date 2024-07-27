@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "khizooo",
   "resources": {
-    "hash": "sha256-wjbXxIv6oEc4pVXbFinYRwRLjTvwHBqv8MJPXtJe9tI=",
+    "hash": "sha256-011iEEXwAoENxDPbXJbzGtQ/zdd5WvCkfxaLpPGZEsY=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.pvkr2na9g4.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,9 +17,9 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "khizooo.wasm": "sha256-psh/4lkta6G+P+Jgsywer3HwJln+DIsGYbDkGH9zAQs=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-PYUHzDbUkPpCLuQeFnh777j/D2VMZk0ZZFI5jhtSDn0=",
-      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-5PBSPobynTH5n3P4ru+xxWbOydmE2vh1lKlZ9m6Sf+s=",
+      "khizooo.wasm": "sha256-Zmqb5Rj7r3mu03eOM3G4WDNaaVgr6O0Sqer9Tx2CRVc=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-oqBLefoCbniDP8jQUVDv37kcHzUMyiN8ja1JUkshduA=",
+      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-yIDCaedP0R+3sgdSNR/KgxZCcz7dZNWUqdMSTGjxY9c=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-LYJGTqka6p2RaQhwjm0nbX5muzjO6rM8oTE9uoUmGBs=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-87sn2TYqgdZ95sXmavjKEzoEfMgHnYQ9LOvnMX+aZcI=",
       "Microsoft.Extensions.Configuration.Json.wasm": "sha256-Sxmy2ZS134URxbHEvdbS6NcQ3zXS7UWx/5ZPpwiW7FA=",
@@ -43,7 +43,7 @@
       "System.Net.Http.wasm": "sha256-8zB+Bk36QExa7wBqnQeh5Euq1RK96p/OKBgdNC+OseQ=",
       "System.Net.Primitives.wasm": "sha256-pvIZ9QdJ8DSUQqtaJ7T2Y9eMJIhPUf9ERdwXmhE95Fc=",
       "System.Private.CoreLib.wasm": "sha256-NOOZ9XDnZc69akJ/L328lKhnZVkeMTYOjckRDqhsP5k=",
-      "System.Private.Uri.wasm": "sha256-0Nd2hQJzHxmq4+xD8/C8rYL39N40EAYPh7k2oJDH6pU=",
+      "System.Private.Uri.wasm": "sha256-8OgFaqpw7KDYgs2gaNFOoarkwEQkfV1thV3SkuWTMfU=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-GPoaeJjnkJk6k0siGdXe8kVLnWUTo2N2hPM519fYMFs=",
       "System.Runtime.wasm": "sha256-GHG/g4xOQCyXStOP7+AFgqN0Eq4nG1emeL9bpdvaEWE=",
       "System.Text.Encodings.Web.wasm": "sha256-4ASLPI+R+3lvUZI8lVAOpIPzNEwiqbxX910GoFqMC+A=",
