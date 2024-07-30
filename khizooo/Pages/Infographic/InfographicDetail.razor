@@ -25,15 +25,18 @@
 </HeadContent>
 
 <style>
-    .Art-Detail-Text {
-        margin-bottom: 25px;
+    .KeyTerm {
+        margin-bottom: 15px;
+        font-size: 12px;
+        margin-top: 5px;
+        text-align: justify;
     }
 </style>
 
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
-        <div class="arlo_tm_portfolio_single_wrap">
+        <div class="arlo_tm_infographic">
             <div class="container">
                 <div class="title_holder text-center">
                     <h3>@((MarkupString)MyArtDetail.Title)</h3>
@@ -44,76 +47,65 @@
 
                 <div class="details_wrap">
                     <div class="leftbox">
-                        <div class="name_holder">
-                            <h3>Artwork Details</h3>
+                        <div class="name_holder" style="margin-bottom: 35px;"><h3>KEY TERMS</h3></div>
+
+                        <div class="name_holder"><h6>Term Name Here</h6></div>
+                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+
+                        <div class="name_holder"><h6>Term Name Here</h6></div>
+                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+
+                        <div class="name_holder"><h6>Term Name Here</h6></div>
+                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+
+                        <div class="name_holder"><h6>Term Name Here</h6></div>
+                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+
+                        <div class="name_holder"><h6>Term Name Here</h6></div>
+                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+
+
+                        <div class="pagination_wrap">
+                            @{
+
+                                if (MyPreviousArt != null)
+                                {
+                                    <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                }
+
+                                if (MyNextArt != null)
+                                {
+                                    <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                }
+                                else
+                                {
+                                    <a href="/CommingSoon" target="_self" title="Comming Soon" class="btn btn-sm btn-outline-dark" disabled>Comming Soon</a>
+                                }
+
+                            }
                         </div>
-                        <div class="short_list">
+
+                    </div>
+                    <div class="rightbox">
+                        @*<p>@((MarkupString)MyArtDetail.Desription)</p>*@
+                        <div class="images_list">
                             <ul>
                                 <li>
-                                    <span class="first">ID :</span>
-                                    <span class="second">@(MyArtDetail.ID)</span>
-                                </li>
-                                <li>
-                                    <span class="first">SLUG :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Slug)</span>
-                                </li>
-                                <li>
-                                    <span class="first">TYPE :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Type)</span>
-                                </li>
-                                <li>
-                                    <span class="first">CATEGORY :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Category)</span>
-                                </li>
-                                <li>
-                                    <span class="first">TAGS :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Tags)</span>
-                                </li>
-                                <li>
-                                    <span class="first">CREATION DATE :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.CreatedOn)</span>
+                                    @if (MyArtDetail.IMG != "")
+                                    {
+                                        <img class="img-fluid w-100 d-block" src="@MyArtDetail.IMG" alt="@MyArtDetail.Heading" title="@MyArtDetail.Heading" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" style=" border: 5px solid #000000;">
+                                    }
+                                    else
+                                    {
+                                        <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyArtDetail.VIDEO" type="video/mp4"></video>
+                                    }
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="rightbox">
-                        <p>@((MarkupString)MyArtDetail.Desription)</p>
-                    </div>
-                </div>
-                <div class="images_list">
-                    <ul>
-                        <li>
-                            @if (MyArtDetail.IMG != "")
-                            {
-                                <img class="img-fluid w-100 d-block" src="@MyArtDetail.IMG" alt="@MyArtDetail.Heading" title="@MyArtDetail.Heading" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" style=" border: 5px solid #000000;">
-                            }
-                            else
-                            {
-                                <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyArtDetail.VIDEO" type="video/mp4"></video>
-                            }
-                        </li>
-                    </ul>
                 </div>
 
-                <div class="pagination_wrap">
-                    @{
 
-                        if (MyPreviousArt != null)
-                        {
-                            <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
-                        }
-
-                        if (MyNextArt != null)
-                        {
-                            <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
-                        }
-                        else
-                        {
-                            <a href="/CommingSoon" target="_self" title="Comming Soon" class="btn btn-sm btn-outline-dark" disabled>Comming Soon</a>
-                        }
-
-                    }
-                </div>
 
             </div>
         </div>
