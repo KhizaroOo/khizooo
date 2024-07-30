@@ -37,12 +37,20 @@
     <Folder Include="wwwroot\toolbox\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="Pages\PartialViews\" />
+    <Folder Include="wwwroot\artworks\" />
+    <Folder Include="wwwroot\artworks\css\" />
+    <Folder Include="wwwroot\toolbox\css\" />
+    <Folder Include="wwwroot\toolbox\js\" />
+    <Folder Include="wwwroot\artworks\js\" />
+    <Folder Include="wwwroot\artworks\img\" />
+    <Folder Include="Pages\Artwork\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Pages\CreativeWorks\" />
     <None Remove="Pages\ToolBox\" />
     <None Remove="Pages\PartialViews\" />
+    <None Remove="Pages\Artwork\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\CNAME" />
@@ -60,5 +68,11 @@
     <Content Remove="wwwroot\toolbox\" />
     <Content Remove="wwwroot\nojekyll" />
     <Content Remove="wwwroot\js\" />
+    <Content Remove="wwwroot\artworks\" />
+    <Content Remove="wwwroot\artworks\css\" />
+    <Content Remove="wwwroot\toolbox\css\" />
+    <Content Remove="wwwroot\toolbox\js\" />
+    <Content Remove="wwwroot\artworks\js\" />
+    <Content Remove="wwwroot\artworks\img\" />
   </ItemGroup>
 </Project>
