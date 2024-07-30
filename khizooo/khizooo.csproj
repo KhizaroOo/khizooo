@@ -44,6 +44,7 @@
     <Folder Include="wwwroot\artworks\js\" />
     <Folder Include="wwwroot\artworks\img\" />
     <Folder Include="Pages\Artwork\" />
+    <Folder Include="Pages\Infographic\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -51,6 +52,7 @@
     <None Remove="Pages\ToolBox\" />
     <None Remove="Pages\PartialViews\" />
     <None Remove="Pages\Artwork\" />
+    <None Remove="Pages\Infographic\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\CNAME" />
