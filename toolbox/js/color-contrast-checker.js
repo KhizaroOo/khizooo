@@ -44,7 +44,7 @@
         CompareColors();
     }
 
-        function CompareColors() {
+    function CompareColors() {
             let ResultColor, Message, Classes;
             const rgbA = hexToRGB($foregroundHexInput.val());
             const rgbB = hexToRGB($backgroundHexInput.val());
@@ -158,7 +158,6 @@
         $element.toggleClass('Success-Result', isValid).toggleClass('Fail-Result', !isValid);
     }
 
-
     $foregroundColorPicker.add($backgroundColorPicker).on('input', synchronizeHexInputs);
     $foregroundHexInput.add($backgroundHexInput).on('input', synchronizeColorInputs);
 
@@ -227,18 +226,22 @@
        LS_Delete("Contrast-Color-Checker");
        Show_Saved_Colors();
     });
+    
+    $("body .details_wrap").on("click", ".SaveColor", function () {
 
-    $(".SaveColor").on('click', function () {
         let A = $(this).attr("data-bcg");
         let B = $(this).attr("data-tc");
         let C = $(this).attr("data-tf");
 
-        $('#ccc-foregroundHex').val(A);
-        $('#ccc-foreground').val(B);
-        $("#ccc-preview .preview-text").css("font-family", C);
-
+        $foregroundColorPicker.val(B);
+        $backgroundColorPicker.val(A);
+        $foregroundHexInput.val(B.toUpperCase());
+        $backgroundHexInput.val(A.toUpperCase());
+        updatePreviewAndContrast();
+        
     });
 
     updatePreviewAndContrast();
     Show_Saved_Colors();
+
 });

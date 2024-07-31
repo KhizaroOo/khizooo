@@ -95,6 +95,7 @@ img.svg{
 	-ms-transition: all .3s ease;
 	-o-transition: all .3s ease;
 	transition: all .3s ease;
+	border-right: 3px solid #000;
 }
 .arlo_tm_leftpart_wrap.hide{left: -250px;}
 .arlo_tm_leftpart_wrap.opened{left: -250px;}
@@ -109,6 +110,7 @@ img.svg{
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 		-moz-box-sizing: border-box; /* Firefox, other Gecko */
 		box-sizing: border-box; /* Opera/IE 8+ */
+		    border-bottom: 3px solid #000;
 	}
 .arlo_tm_leftpart_wrap .menu_list_wrap{
 	width: 100%;
@@ -2327,6 +2329,140 @@ img.svg{
 
 
 /*---------------------------------------------------*/
+/*	13) ARLO PORTFOLIO SINGLE
+/*---------------------------------------------------*/
+
+.arlo_tm_infographic {
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+	padding-top: 55px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+	.arlo_tm_infographic .title_holder h3 {
+		font-size: 50px;
+		text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: -.5px;
+		line-height: 1;
+	}
+
+	.arlo_tm_infographic .details_wrap {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 100px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
+
+		.arlo_tm_infographic .details_wrap .leftbox {
+			width: 30%;
+			height: auto;
+			float: left;
+			padding-right: 50px;
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box; /* Firefox, other Gecko */
+			box-sizing: border-box; /* Opera/IE 8+ */
+		}
+
+		.arlo_tm_infographic .details_wrap .name_holder h3 {
+			font-family: "REM", sans-serif;
+			font-optical-sizing: auto;
+			font-size: 22px;
+			font-weight: 600;
+			color: #000000;
+			line-height: 1;
+			margin-bottom: 20px;
+		}
+
+		.arlo_tm_infographic .details_wrap .short_list ul {
+			margin: 0px;
+			list-style-type: none;
+		}
+
+			.arlo_tm_infographic .details_wrap .short_list ul li {
+				margin: 0px 0px 15px 0px;
+			}
+
+				.arlo_tm_infographic .details_wrap .short_list ul li:last-child {
+					margin-bottom: 0px;
+				}
+
+				.arlo_tm_infographic .details_wrap .short_list ul li span {
+					display: inline-block;
+				}
+
+					.arlo_tm_infographic .details_wrap .short_list ul li span.first {
+						font-weight: 600;
+						min-width: 150px;
+					}
+
+		.arlo_tm_infographic .details_wrap .rightbox {
+			width: 70%;
+			height: auto;
+			float: left;
+		}
+
+			.arlo_tm_infographic .details_wrap .rightbox p {
+				line-height: 2;
+			}
+
+	.arlo_tm_infographic .images_list {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		margin-bottom: 50px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
+
+		.arlo_tm_infographic .images_list ul {
+			margin: 0px;
+			list-style-type: none;
+		}
+
+			.arlo_tm_infographic .images_list ul li {
+				margin: 0px 0px 50px 0px;
+				float: left;
+				width: 100%;
+			}
+
+				.arlo_tm_infographic .images_list ul li:last-child {
+					margin-bottom: 0px;
+				}
+
+				.arlo_tm_infographic .images_list ul li img {
+					min-width: 100%;
+				}
+
+	.arlo_tm_infographic .pagination_wrap {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		margin-bottom: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
+
+
+
+/*---------------------------------------------------*/
 /*	14) ARLO MOBILE HEADER
 /*---------------------------------------------------*/
 
@@ -2518,6 +2654,19 @@ img.svg{
 	.arlo_tm_portfolio_single_wrap .details_wrap{flex-direction: column;}
 	.arlo_tm_portfolio_single_wrap .details_wrap .leftbox{padding-right: 0px;width: 100%;margin-bottom: 50px;}
 	.arlo_tm_portfolio_single_wrap .details_wrap .rightbox{width: 100%;}
+
+	.arlo_tm_infographic .details_wrap {
+		flex-direction: column;
+	}
+		.arlo_tm_infographic .details_wrap .leftbox {
+			padding-right: 0px;
+			width: 100%;
+			margin-bottom: 50px;
+		}
+		.arlo_tm_infographic .details_wrap .rightbox {
+			width: 100%;
+		}
+
 	.arlo_tm_mobile_header_wrap{display: block;}
 }
 @media (max-width: 768px) {
@@ -2537,6 +2686,9 @@ img.svg{
 	.arlo_tm_totop.opened{bottom: 20px;}
 	.arlo_tm_preloader{display: none;}
 	.arlo_tm_portfolio_single_wrap .title_holder h3{font-size: 45px;}
+	.arlo_tm_infographic .title_holder h3 {
+		font-size: 45px;
+	}
 }
 @media (max-width: 480px) {
 	.arlo_tm_hero_header_wrap .name_holder h3{font-size: 30px;}
