@@ -22,6 +22,7 @@ Disallow: /admin/
 # Sitemaps
 Sitemap: https://khizooo.com/Sitemap.xml
 Sitemap: https://khizooo.com/Toolbox-Sitemap.xml
+Sitemap: https://khizooo.com/Infographic-Sitemap.xml
 
 # Block specific user agents (if necessary)
 User-agent: BadBot
