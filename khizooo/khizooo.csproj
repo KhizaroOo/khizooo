@@ -46,6 +46,9 @@
     <Folder Include="Pages\Artwork\" />
     <Folder Include="Pages\Infographic\" />
     <Folder Include="wwwroot\infographic\" />
+    <Folder Include="wwwroot\infographic\general\" />
+    <Folder Include="wwwroot\infographic\css\" />
+    <Folder Include="wwwroot\infographic\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -78,5 +81,8 @@
     <Content Remove="wwwroot\artworks\js\" />
     <Content Remove="wwwroot\artworks\img\" />
     <Content Remove="wwwroot\infographic\" />
+    <Content Remove="wwwroot\infographic\general\" />
+    <Content Remove="wwwroot\infographic\css\" />
+    <Content Remove="wwwroot\infographic\js\" />
   </ItemGroup>
 </Project>
