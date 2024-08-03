@@ -46,6 +46,7 @@
     <Folder Include="Pages\Artwork\" />
     <Folder Include="Pages\Infographic\" />
     <Folder Include="wwwroot\infographic\" />
+    <Folder Include="wwwroot\infographic\blockchain\" />
     <Folder Include="wwwroot\infographic\general\" />
     <Folder Include="wwwroot\infographic\css\" />
     <Folder Include="wwwroot\infographic\js\" />
@@ -62,27 +63,5 @@
     <None Include="wwwroot\CNAME" />
     <None Include="wwwroot\nojekyll" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Pages\My-Artfulness %28copy%29">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Pages\Artfulness.razor" />
-    <Content Remove="Pages\Infographics.razor" />
-    <Content Remove="wwwroot\CNAME %28copy%29" />
-    <Content Remove="wwwroot\toolbox\" />
-    <Content Remove="wwwroot\nojekyll" />
-    <Content Remove="wwwroot\js\" />
-    <Content Remove="wwwroot\artworks\" />
-    <Content Remove="wwwroot\artworks\css\" />
-    <Content Remove="wwwroot\toolbox\css\" />
-    <Content Remove="wwwroot\toolbox\js\" />
-    <Content Remove="wwwroot\artworks\js\" />
-    <Content Remove="wwwroot\artworks\img\" />
-    <Content Remove="wwwroot\infographic\" />
-    <Content Remove="wwwroot\infographic\general\" />
-    <Content Remove="wwwroot\infographic\css\" />
-    <Content Remove="wwwroot\infographic\js\" />
-  </ItemGroup>
+  
 </Project>
