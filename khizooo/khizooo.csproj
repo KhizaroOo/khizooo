@@ -32,8 +32,14 @@
   
   <ItemGroup>
     <Content Remove="wwwroot\infographics\" />
+    <Content Remove="wwwroot\infographics\blockchain\" />
+    <Content Remove="wwwroot\infographics\js\" />
+    <Content Remove="wwwroot\infographics\css\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\infographics\" />
+    <Folder Include="wwwroot\infographics\blockchain\" />
+    <Folder Include="wwwroot\infographics\js\" />
+    <Folder Include="wwwroot\infographics\css\" />
   </ItemGroup>
 </Project>
