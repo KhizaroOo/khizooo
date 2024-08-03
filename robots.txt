@@ -14,6 +14,8 @@ Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /lib/
+Allow: /infographic/
+Allow: /toolbox/
 
 # Disallow access to any private directories (if any)
 Disallow: /private/
