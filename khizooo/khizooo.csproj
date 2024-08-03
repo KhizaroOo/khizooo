@@ -30,4 +30,10 @@
   </ItemGroup>
 
   
+  <ItemGroup>
+    <Content Remove="wwwroot\infographics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\infographics\" />
+  </ItemGroup>
 </Project>
