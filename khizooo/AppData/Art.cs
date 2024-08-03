@@ -1,4 +1,5 @@
-﻿namespace khizooo.AppData
+﻿
+namespace khizooo.AppData
 {
 
     public class ShowingLocation

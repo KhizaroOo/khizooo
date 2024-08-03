@@ -3,116 +3,126 @@
 @inject NavigationManager NavigationManager
 @using khizooo.AppData;
 @using khizooo.Pages.PartialViews;
+@using static khizooo.AppData.SharedHelper;
 
-<PageTitle>Khizooo - Infographics</PageTitle>
+<PageTitle>@MyInfographicDetail.SeoTitle</PageTitle>
 <HeadContent>
-    <meta name="keywords" content="infographics, visual design, data visualization, processes, learing, education, khizooo">
-    <meta name="description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+    <meta name="keywords" content="@MyInfographicDetail.SeoKeyWords">
+    <meta name="description" content="@MyInfographicDetail.SeoDescription">
 
-    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
-    <meta property="og:description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+    <meta property="og:title" content="@MyInfographicDetail.SeoTitle">
+    <meta property="og:description" content="@MyInfographicDetail.SeoDescription">
     <meta property="og:image" content="images/SEO/OG-Image.png">
-    <meta property="og:url" content="https://www.khizooo.com/creative-works/infographic">
+    <meta property="og:url" content="https://www.khizooo.com/@MyInfographicDetail.URL">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
-    <meta name="twitter:description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+    <meta property="twitter:title" content="@MyInfographicDetail.SeoTitle">
+    <meta name="twitter:description" content="@MyInfographicDetail.SeoDescription">
     <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
-    <meta property="twitter:url" content="https://www.khizooo.com/creative-works/infographic">
+    <meta property="twitter:url" content="https://www.khizooo.com/@MyInfographicDetail.URL">
 
     <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
+
 </HeadContent>
 
 <style>
-    .KeyTerm {
-        margin-bottom: 15px;
+    .term {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .answer {
+        margin-bottom: 25px;
         font-size: 12px;
         margin-top: 5px;
-        text-align: justify;
     }
 </style>
+
 
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
-        <div class="arlo_tm_infographic">
+
+        <!-- INFOGRAPHIC DETAIL -->
+        <div class="arlo_tm_portfolio_single_wrap">
             <div class="container">
                 <div class="title_holder text-center">
-                    <h3>@((MarkupString)MyArtDetail.Title)</h3>
-                    <p style="margin-bottom: 30px;">@((MarkupString)MyArtDetail.SubTitle)</p>
+                    <h3>@((MarkupString)MyInfographicDetail.Title)</h3>
+                    <p style="margin-bottom: 30px;">@((MarkupString)MyInfographicDetail.SubTitle)</p>
                 </div>
-
                 <hr class="soften" />
 
                 <div class="details_wrap">
-                    <div class="leftbox">
-                        <div class="name_holder" style="margin-bottom: 35px;"><h3>KEY TERMS</h3></div>
 
-                        <div class="name_holder"><h6>Term Name Here</h6></div>
-                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+                    <div class="container">
 
-                        <div class="name_holder"><h6>Term Name Here</h6></div>
-                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
+                        <div class="row">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-                        <div class="name_holder"><h6>Term Name Here</h6></div>
-                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
-
-                        <div class="name_holder"><h6>Term Name Here</h6></div>
-                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
-
-                        <div class="name_holder"><h6>Term Name Here</h6></div>
-                        <p class="KeyTerm">Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p>
-
-
-                        <div class="pagination_wrap">
-                            @{
-
-                                if (MyPreviousArt != null)
-                                {
-                                    <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                @{
+                                    foreach (KeyTerm KT in InfographicKeyTerms)
+                                    {
+                                        <h6 class="term">@KT.Term</h6>
+                                        <p class="answer">@KT.Answer</p>
+                                    }
                                 }
+                                
+                            </div>
+                            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                                <div class="images_list">
+                                    <ul>
+                                        <li>
+                                            @if (MyInfographicDetail.IMG != "")
+                                            {
+                                                <img class="img-fluid w-100 d-block" src="@MyInfographicDetail.IMG" alt="@MyInfographicDetail.Heading" title="@MyInfographicDetail.Heading" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" style=" border: 5px solid #000000;">
+                                            }
+                                            else
+                                            {
+                                                <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyInfographicDetail.VIDEO" type="video/mp4"></video>
+                                            }
+                                        </li>
+                                    </ul>
+                                </div>
 
-                                if (MyNextArt != null)
-                                {
-                                    <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
-                                }
-                                else
-                                {
-                                    <a href="/CommingSoon" target="_self" title="Comming Soon" class="btn btn-sm btn-outline-dark" disabled>Comming Soon</a>
-                                }
+                                <div class="pagination_wrap">
+                                    @{
 
-                            }
+                                        if (MyPreviousInfographic != null)
+                                        {
+                                            <a href="@MyPreviousInfographic.SITE_URL" target="_self" title="@MyPreviousInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                        }
+
+                                        if (MyNextInfographic != null)
+                                        {
+                                            <a href="@MyNextInfographic.SITE_URL" target="_self" title="@MyNextInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/CommingSoon" target="_self" title="Comming Soon" class="btn btn-sm btn-outline-dark" disabled>Comming Soon</a>
+                                        }
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4">
+
+                            </div>
                         </div>
 
                     </div>
-                    <div class="rightbox">
-                        @*<p>@((MarkupString)MyArtDetail.Desription)</p>*@
-                        <div class="images_list">
-                            <ul>
-                                <li>
-                                    @if (MyArtDetail.IMG != "")
-                                    {
-                                        <img class="img-fluid w-100 d-block" src="@MyArtDetail.IMG" alt="@MyArtDetail.Heading" title="@MyArtDetail.Heading" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" style=" border: 5px solid #000000;">
-                                    }
-                                    else
-                                    {
-                                        <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyArtDetail.VIDEO" type="video/mp4"></video>
-                                    }
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
-
-
 
             </div>
         </div>
+        <!-- /INFOGRAPHIC DETAIL -->
     </div>
 </div>
 <!-- /MAIN CONTENT END -->
-
 
 @code {
 
@@ -124,22 +134,25 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
 
-    Art MyArtDetail = new Art();
-    Art MyPreviousArt = new Art();
-    Art MyNextArt = new Art();
+    Infographic MyInfographicDetail = new Infographic();
+    Infographic MyPreviousInfographic = new Infographic();
+    Infographic MyNextInfographic = new Infographic();
 
-    MyArts ArtsOBJ = new MyArts();
+    List<KeyTerm> InfographicKeyTerms = new List<KeyTerm>();
+
+    MyInfographics InfographicOBJ = new MyInfographics();
 
     protected override void OnInitialized()
     {
-        long ArtID = Convert.ToInt64(Id);
+        long InfographicID = Convert.ToInt64(Id);
 
-        long MyPreviousArtID = ArtID - 1;
-        long MyNextArtID = ArtID + 1;
+        long MyPreviousInfographicID = InfographicID - 1;
+        long MyNextInfographicID = InfographicID + 1;
 
-        MyArtDetail = ArtsOBJ.GetMyArt(ArtID, Slug);
-        MyPreviousArt = ArtsOBJ.GetMyArt(MyPreviousArtID);
-        MyNextArt = ArtsOBJ.GetMyArt(MyNextArtID);
+        MyInfographicDetail = InfographicOBJ.GetMyInfographic(InfographicID, Slug);
+        InfographicKeyTerms = MyInfographicDetail.KeyTerms.ToList();
+        MyPreviousInfographic = InfographicOBJ.GetMyInfographic(MyPreviousInfographicID);
+        MyNextInfographic = InfographicOBJ.GetMyInfographic(MyNextInfographicID);
 
     }
 
@@ -147,18 +160,15 @@
 
     private void PreviousWork()
     {
-        NavigationManager.NavigateTo(MyPreviousArt.SITE_URL, true);
+        NavigationManager.NavigateTo(MyPreviousInfographic.SITE_URL, true);
     }
 
     private void NextWork()
     {
-        NavigationManager.NavigateTo(MyNextArt.SITE_URL, true);
+        NavigationManager.NavigateTo(MyNextInfographic.SITE_URL, true);
     }
 
     #endregion
-
-
-
 
 }
 

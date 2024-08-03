@@ -4,14 +4,23 @@ namespace khizooo.AppData
 	public class SharedHelper
 	{
 
-        private static readonly string[] NumberWords = new string[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" };
-        private Random random = new Random();
 
-        public string GetRandomNumberWord()
+        #region Key Terms
+
+        public class KeyTerm
         {
-            int index = random.Next(0, NumberWords.Length);
-            return NumberWords[index];
+            public string Location { get; set; }
+            public string Term { get; set; }
+            public string Answer { get; set; }
         }
 
-	}
+        #endregion
+
+
+        #region Custom Methods
+
+
+        #endregion
+
+    }
 }

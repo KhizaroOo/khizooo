@@ -45,6 +45,9 @@
     <Folder Include="wwwroot\artworks\img\" />
     <Folder Include="Pages\Artwork\" />
     <Folder Include="Pages\Infographic\" />
+    <Folder Include="wwwroot\infographic\" />
+    <Folder Include="wwwroot\infographic\Blockchain\" />
+    <Folder Include="wwwroot\infographic\General\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -76,5 +79,8 @@
     <Content Remove="wwwroot\toolbox\js\" />
     <Content Remove="wwwroot\artworks\js\" />
     <Content Remove="wwwroot\artworks\img\" />
+    <Content Remove="wwwroot\infographic\" />
+    <Content Remove="wwwroot\infographic\Blockchain\" />
+    <Content Remove="wwwroot\infographic\General\" />
   </ItemGroup>
 </Project>
