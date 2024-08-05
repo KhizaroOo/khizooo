@@ -500,12 +500,12 @@ input[type="button"]{
 /*------------------------------------------------------------------*/
 
 .container {
-    max-width: 1500px;
+    max-width: 1560px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     height: auto;
-    padding: 0px 40px;
+    padding: 0px 10px;
     position: relative;
     clear: both;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
