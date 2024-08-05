@@ -39,15 +39,12 @@
     public class MyToolBoxes
     {
         
-        public static string BASEPATH = "https://khizooo.com";
-
         private List<ToolBox> MyAllToolBoxes = new List<ToolBox>()
         {
             new ToolBox()
            {
                   ID = 1,
-                  URL = BASEPATH + "/creative-works/toolbox/1/color-contrast-checker",
-                  SITE_URL = "/creative-works/toolbox/1/color-contrast-checker",
+                  URL = "/creative-works/toolbox/1/color-contrast-checker",
                   Tags = "[\"ToolBox\",\"UI/UX\"]",
                   Slug = "Color-Contrast-Checker",
                   DataGroup = "[\"all\",\"UI/UX\"]",
@@ -77,8 +74,7 @@
               new ToolBox()
            {
                   ID = 2,
-                  URL = BASEPATH + "/creative-works/toolbox/2/password-generator",
-                  SITE_URL = "/creative-works/toolbox/2/password-generator",
+                  URL = "/creative-works/toolbox/2/password-generator",
                   Tags = "[\"ToolBox\",\"creative-works/toolbox/2/password-generator\"]",
                   Slug = "Password-Generator",
                   DataGroup = "[\"all\",\"Generator\"]",

@@ -30,6 +30,7 @@
     .term {
         font-size: 14px;
         font-weight: 700;
+        color: var(--infographic) !important;
     }
     .answer {
         margin-bottom: 25px;
@@ -47,8 +48,9 @@
         <div class="arlo_tm_portfolio_single_wrap">
             <div class="container">
                 <div class="title_holder text-center">
-                    <h3>@((MarkupString)MyInfographicDetail.Title)</h3>
-                    <p style="margin-bottom: 30px;">@((MarkupString)MyInfographicDetail.SubTitle)</p>
+                    <h3 class="lp-infographic">@((MarkupString)MyInfographicDetail.Title)</h3>
+                    <p style="margin-bottom: 15px;">@((MarkupString)MyInfographicDetail.PunchLine)</p>
+                    <p style="margin-bottom: 25px;"><strong>@((MarkupString)MyInfographicDetail.SubTitle)</strong></p>
                 </div>
                 <hr class="soften" />
 
@@ -89,12 +91,12 @@
 
                                         if (MyPreviousInfographic != null)
                                         {
-                                            <a href="@MyPreviousInfographic.SITE_URL" target="_self" title="@MyPreviousInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                            <a href="@MyPreviousInfographic.URL" target="_self" title="@MyPreviousInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
                                         }
 
                                         if (MyNextInfographic != null)
                                         {
-                                            <a href="@MyNextInfographic.SITE_URL" target="_self" title="@MyNextInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                            <a href="@MyNextInfographic.URL" target="_self" title="@MyNextInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
                                         }
                                         else
                                         {
@@ -160,12 +162,12 @@
 
     private void PreviousWork()
     {
-        NavigationManager.NavigateTo(MyPreviousInfographic.SITE_URL, true);
+        NavigationManager.NavigateTo(MyPreviousInfographic.URL, true);
     }
 
     private void NextWork()
     {
-        NavigationManager.NavigateTo(MyNextInfographic.SITE_URL, true);
+        NavigationManager.NavigateTo(MyNextInfographic.URL, true);
     }
 
     #endregion

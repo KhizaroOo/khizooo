@@ -31,21 +31,21 @@
             <div class="arlo_tm_portfolio_wrapper_all">
 
                 <div class="arlo_tm_title_holder portfolio">
-                    <h3>Toolbox</h3>
+                    <h3 class="lp-toolbox">Toolbox</h3>
                     <span>Discover the essential web tools and resources, which will surely help your web experience.</span>
                 </div>
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
-                    <div class="container mt-5">
+                    <div class="container">
                         <div class="row">
 
 
                             @{
                                 foreach (khizooo.AppData.ToolBox toolbox in MyAllToolsBox)
                                 {
-                                    <div class="col-md-2 mb-3">
+                                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6">
                                         <div class="creative-work-card-container">
-                                            <a href="@((MarkupString)toolbox.URL)" class="creative-work-card" target="_blank">
+                                            <a href="@((MarkupString)toolbox.URL)" class="creative-work-card lp-toolbox-card" target="_blank">
                                                 <div class="creative-work-card-body">
                                                     <h5 class="creative-work-card-title">@((MarkupString)toolbox.Title)</h5>
                                                 </div>

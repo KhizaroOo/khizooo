@@ -1,0 +1,175 @@
+﻿@page "/creative-works/writing/detail/{id:int}/{slug}"
+
+@inject NavigationManager NavigationManager
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews;
+@using static khizooo.AppData.SharedHelper;
+
+<PageTitle>@MyWritingDetail.SeoTitle</PageTitle>
+<HeadContent>
+    <meta name="keywords" content="@MyWritingDetail.SeoKeyWords">
+    <meta name="description" content="@MyWritingDetail.SeoDescription">
+
+    <meta property="og:title" content="@MyWritingDetail.SeoTitle">
+    <meta property="og:description" content="@MyWritingDetail.SeoDescription">
+    <meta property="og:image" content="images/SEO/OG-Image.png">
+    <meta property="og:url" content="https://www.khizooo.com/@MyWritingDetail.URL">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="@MyWritingDetail.SeoTitle">
+    <meta name="twitter:description" content="@MyWritingDetail.SeoDescription">
+    <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
+    <meta property="twitter:url" content="https://www.khizooo.com/@MyWritingDetail.URL">
+
+    <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
+
+</HeadContent>
+
+<style>
+    :root {
+        --main-line-color: hsl(234deg 100% 93.3%);
+        --side-line-color: hsl(350deg 100% 93.04% / 61%);
+        --paper-color: hsl(0deg 0% 100%);
+        --ink-color: hsl(0deg 0% 0%);
+        --line-thickness: 2px;
+        --top-space: 2lh;
+    }
+
+    .paper {
+        background: var(--paper-color);
+        margin: 2rem;
+        padding: calc(var(--top-space) - -0.2lh) 3rem 1rem 5.5rem;
+        font-family: system-ui;
+        font-size: 1.1rem;
+        line-height: 1.7rem;
+        color: var(--ink-color);
+        background-image: linear-gradient(90deg, transparent, transparent 4rem, var(--side-line-color) 4rem, var(--side-line-color) 4.25rem, transparent 4.25rem), linear-gradient(var(--paper-color), var(--paper-color) var(--top-space), transparent var(--top-space)), repeating-linear-gradient(transparent, transparent calc(1lh - var(--line-thickness)), var(--main-line-color) calc(1lh - var(--line-thickness)), var(--main-line-color) 1lh, transparent 1lh);
+        box-shadow: 0 0 1rem rgb(0 0 0 / 0.25);
+    }
+
+
+    .w-title {
+        text-align: center;
+        font-size: 22px;
+        color: #f84a42;
+        line-height: 1.7rem;
+    }
+
+    .w-h1 {
+        font-size: 16px;
+        color: #3f51b5;
+    }
+
+    .w-h2 {
+        font-size: 14px;
+        color: #009688;
+    }
+    .w-h3 {
+        font-size: 12px;
+        color: #ff9800;
+    }
+
+    .w-p {
+        font-size: 14px;
+        color: #242422;
+    }
+
+</style>
+
+
+<!-- MAIN CONTENT START -->
+<div class="arlo_tm_rightpart">
+    <div class="rightpart_inner">
+
+        <!-- WRITING DETAIL -->
+        <div class="arlo_tm_portfolio_single_wrap">
+            <div class="container">
+                <div class="title_holder text-center">
+                    <h3 class="lp-writing">@((MarkupString)MyWritingDetail.Title)</h3>
+                    <p style="margin-bottom: 15px;">@((MarkupString)MyWritingDetail.PunchLine)</p>
+                    <p style="margin-bottom: 25px;"><strong>@((MarkupString)MyWritingDetail.SubTitle)</strong></p>
+                </div>
+                <hr class="soften" />
+
+                <div class="details_wrap">
+
+                    <div class="container">
+
+                        <div class="row justify-content-center">
+
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="WritingContennt" class='paper'>
+                                    @((MarkupString)MyWritingDetail.Description)
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row justify-content-center">
+                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /Writing DETAIL -->
+    </div>
+</div>
+<!-- /MAIN CONTENT END -->
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; } = 0;
+    [Parameter]
+    public string Slug { get; set; } = "";
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+
+    Writing MyWritingDetail = new Writing();
+    Writing MyPreviousWriting = new Writing();
+    Writing MyNextWriting = new Writing();
+
+    List<KeyTerm> WritingKeyTerms = new List<KeyTerm>();
+
+    MyWritings WritingOBJ = new MyWritings();
+
+    protected override void OnInitialized()
+    {
+        long WritingID = Convert.ToInt64(Id);
+
+        long MyPreviousWritingID = WritingID - 1;
+        long MyNextWritingID = WritingID + 1;
+
+        MyWritingDetail = WritingOBJ.GetMyWriting(WritingID, Slug);
+        WritingKeyTerms = MyWritingDetail.KeyTerms.ToList();
+        MyPreviousWriting = WritingOBJ.GetMyWriting(MyPreviousWritingID);
+        MyNextWriting = WritingOBJ.GetMyWriting(MyNextWritingID);
+
+    }
+
+    #region HANDLERS
+
+    private void PreviousWork()
+    {
+        NavigationManager.NavigateTo(MyPreviousWriting.URL, true);
+    }
+
+    private void NextWork()
+    {
+        NavigationManager.NavigateTo(MyNextWriting.URL, true);
+    }
+
+    #endregion
+
+}
+

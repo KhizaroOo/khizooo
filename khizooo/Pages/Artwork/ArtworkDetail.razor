@@ -37,14 +37,46 @@
         <div class="arlo_tm_portfolio_single_wrap">
             <div class="container">
                 <div class="title_holder" style="text-align:center">
-                    <h3>@((MarkupString)MyArtDetail.Title)</h3>
-                    <p style="margin-bottom: 30px;">@((MarkupString)MyArtDetail.SubTitle)</p>
+                    <h3 class="lp-artwork">@((MarkupString)MyArtDetail.Title)</h3>
+                    <p style="margin-bottom: 25px;">@((MarkupString)MyArtDetail.SubTitle)</p>
                 </div>
                 <hr class="soften" />
                 <div class="details_wrap">
                     <div class="leftbox">
                         <div class="short_list">
-                            <ul>
+
+                            <table class="table table-bordered border-primary">
+                               
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" style="width:25%;">ID</th>
+                                        <td colspan="2">@(MyArtDetail.ID)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">SLUG</th>
+                                        <td colspan="2">@((MarkupString)MyArtDetail.Slug)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">TYPE</th>
+                                        <td colspan="2">@((MarkupString)MyArtDetail.Type)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">CATEGORY</th>
+                                        <td colspan="2">@((MarkupString)MyArtDetail.Category)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">TAGS</th>
+                                        <td colspan="2">@((MarkupString)MyArtDetail.Tags)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">CREATION DATE</th>
+                                        <td colspan="2">@((MarkupString)MyArtDetail.CreatedOn)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            @*<ul>
                                 <li>
                                     <span class="first">ID :</span>
                                     <span class="second">@(MyArtDetail.ID)</span>
@@ -69,7 +101,7 @@
                                     <span class="first">CREATION DATE :</span>
                                     <span class="second">@((MarkupString)MyArtDetail.CreatedOn)</span>
                                 </li>
-                            </ul>
+                            </ul>*@
                         </div>
 
                         <p style="text-align: justify; margin-top: 25px;">@((MarkupString)MyArtDetail.Desription)</p>
@@ -79,12 +111,12 @@
 
                                 if (MyPreviousArt != null)
                                 {
-                                    <a href="@MyPreviousArt.SITE_URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                    <a href="@MyPreviousArt.URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
                                 }
 
                                 if (MyNextArt != null)
                                 {
-                                    <a href="@MyNextArt.SITE_URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                    <a href="@MyNextArt.URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
                                 }
                                 else
                                 {
@@ -149,12 +181,12 @@
 
     private void PreviousWork()
     {
-        NavigationManager.NavigateTo(MyPreviousArt.SITE_URL, true);
+        NavigationManager.NavigateTo(MyPreviousArt.URL, true);
     }
 
     private void NextWork()
     {
-        NavigationManager.NavigateTo(MyNextArt.SITE_URL, true);
+        NavigationManager.NavigateTo(MyNextArt.URL, true);
     }
 
     #endregion

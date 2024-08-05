@@ -31,25 +31,32 @@
             <div class="arlo_tm_portfolio_wrapper_all">
 
                 <div class="arlo_tm_title_holder portfolio">
-                    <h3>Writing</h3>
+                    <h3 class="lp-writing">Writing</h3>
                     <span>Read my writings where creativity meets insight, covering many topics with unique perspective.</span>
                 </div>
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
                     <div class="container">
 
-                        <div class="wrapper-comingsoon">
-                            <h1>coming soon<span class="dot">.</span></h1>
-                            <p>I’m planning to create engaging content to enhance your digital experience.</p>
-                            <div class="icons">
-                                <!-- SOCIAL -->
-                                <a href=""><i class="fa-brands fa-facebook fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                                <a href="#"><i class="fa-brands fa-tiktok fa-xl"></i></a>
+                        <div class="container">
+                            <div class="row">
 
-                                <!-- PROFESSIONAL -->
-                                <a href="#"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+
+                                @{
+                                    foreach (khizooo.AppData.Writing writing in MyAllWritings)
+                                    {
+                                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                                            <div class="creative-work-card-container">
+                                                <a href="@((MarkupString)writing.URL)" class="creative-work-card lp-writing-card" target="_blank">
+                                                    <div class="creative-work-card-body">
+                                                        <h5 class="creative-work-card-title">@((MarkupString)writing.Title)</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
 
                             </div>
                         </div>
@@ -66,9 +73,8 @@
 
 @code {
 
+    SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
-
-
-
+    List<khizooo.AppData.Writing> MyAllWritings = new MyWritings().GetMyWritings(1000);
 
 }

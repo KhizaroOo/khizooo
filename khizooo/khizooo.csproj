@@ -41,5 +41,9 @@
     <Folder Include="wwwroot\infographics\blockchain\" />
     <Folder Include="wwwroot\infographics\js\" />
     <Folder Include="wwwroot\infographics\css\" />
+    <Folder Include="Pages\Writing\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\Writing\" />
   </ItemGroup>
 </Project>

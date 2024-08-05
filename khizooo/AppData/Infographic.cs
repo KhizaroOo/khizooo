@@ -55,8 +55,6 @@ namespace khizooo.AppData
 
     public class MyInfographics
     {
-        public static string BASEPATH = "http://localhost:5064";
-
   
         private List<Infographic> MyAllInfographics = new List<Infographic>()
         {
@@ -66,7 +64,7 @@ namespace khizooo.AppData
             Slug = "how-blockchain-works",
             Title = "How Blockchain Works?",
             PunchLine = "Unlocking the Power of Blockchain: A Journey through Transparency, Security, and Innovation",
-            SubTitle = "How - Blockchain - Infographic",
+            SubTitle = "Blockchain | Infographic",
             Heading = "How Blockchain Works? - Blockchain - Infographic",
             IMG = "infographics/blockchain/how-blockchain-works.jpg",
             Type = "Infographic",
@@ -163,7 +161,7 @@ namespace khizooo.AppData
             Slug = "blockchain-use-cases-in-finance",
             Title = "Blockchain Use Cases In Finance",
             PunchLine = "Altering Money with Blockchain: Secure, Straightforward, and Proficient Exchanges",
-            SubTitle = "Use Cases - Blockchain - Infographic",
+            SubTitle = "Blockchain | Infographic",
             Heading = "Blockchain Use-Cases In Finance Infographic - Blockchain - Infographic",
             IMG = "infographics/blockchain/blockchain-use-cases-in-finance.jpg",
             Type = "Infographic",
@@ -255,7 +253,7 @@ namespace khizooo.AppData
             Slug = "blockchain-products",
             Title = "Blockchain Products",
             PunchLine = "Empowering the Future: Blockchain Products for Secure, Transparent, and Decentralized Solutions",
-            SubTitle = "Information - Blockchain - Infographic",
+            SubTitle = "Blockchain | Infographic",
             Heading = "Blockchain Products - Blockchain - Infographic",
             IMG = "infographics/blockchain/blockchain-products.jpg",
             Type = "Infographic",

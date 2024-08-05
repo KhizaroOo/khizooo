@@ -1,12 +1,12 @@
-﻿namespace khizooo.AppData
+﻿using static khizooo.AppData.SharedHelper;
+
+namespace khizooo.AppData
 {
 	
     public class Writing
     {
         public long ID { get; set; }
         public string URL { get; set; }
-        public string SITE_URL { get; set; }
-        public string LiveURL { get; set; }
         public string Tags { get; set; }
         public string Slug { get; set; }
         public string DataGroup { get; set; }
@@ -16,7 +16,7 @@
         public string IMG { get; set; }
         public string VIDEO { get; set; }
         public string ShortDesription { get; set; }
-        public string Desription { get; set; }
+        public string Description { get; set; }
         public string Type { get; set; }
         public string Category { get; set; }
         public string CreatedOn { get; set; }
@@ -31,178 +31,67 @@
         public string Pinterest { get; set; }
         public string Snapchat { get; set; }
 
+        public List<KeyTerm> KeyTerms { get; set; }
+        public string SeoTitle { get; set; }
+        public string SeoKeyWords { get; set; }
+        public string SeoDescription { get; set; }
+
         public long PreviousWorkID { get; set; }
         public long NextWorkID { get; set; }
 
         // PENDINGS
         public long ModuleID { get; set; }
+        public string PunchLine { get; internal set; }
     }
 
     public class MyWritings
     {
-        public static string BASEPATH = "http://localhost:7281";
 
-        private List<Writing> MyAllWritings = new List<Writing>()
+    private List<Writing> MyAllWritings = new List<Writing>()
     {
        new Writing()
        {
-              ID = 1,
-              URL = BASEPATH + "/My-Art/1/Green-Skirt-Girl-Sticky-Note-Art",
-              SITE_URL = "/My-Art/1/Green-Skirt-Girl-Sticky-Note-Art",
-              Tags = "[\"Art\",\"Sticky-Note\",]",
-              Slug = "Green-Skirt-Girl-Sticky-Note-Art",
-              DataGroup = "[\"all\",\"stickynotes\"]",
-              Heading = "Green Skirt Girl - Sticky Note - Art",
-              Title = "Green Skirt Girl",
-              SubTitle = "Sticky Note - Art",
-              IMG = "images/myarts/Green-Skirt-Girl.jpg",
-              VIDEO = "",
-              ShortDesription = "Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piec",
-              Desription = "<p class='Art-Detail-Text'>Welcome to my creative domain, where even a sticky note changes into a spellbinding show-stopper. How about we find the captivating universe of workmanship on sticky notes.</p><p class='Art-Detail-Text'>In this blog entry, I welcome you to dive into the captivating universe of my most recent drawing named \"Green Skirt Young lady\". A young lady wearing a delightful green concealed long skirt and a perfect white top, her multi-concealed earthy colored hair flowing with beauty. Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piece.</p><p class='Art-Detail-Text'>Each stroke of my pencil was an ongoing source of both pain and joy, cautiously making the many-sided subtleties that rejuvenate this young lady. The white top decorating her reflects virtue, honesty, and a feeling of ethereal excellence. The multi-concealed earthy colored hair is an embroidery of tones, catching the intricacy and uniqueness of the human soul. It murmurs accounts of versatility, development, and the incalculable encounters that shape our lives.</p><p class='Art-Detail-Text'>We should utilize the force of workmanship to elevate, rouse, and the vast potential outcomes that unfurl when innovativeness exceeds all logical limitations.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='/MyWorkFlow-MyArtfulness'>MORE</a>] to step into a world where creativity dances with imagination. Where colors come alive. Art whispers its secrets.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='https://opensea.io/KhizoOo_'>MORE</a>] to visit my OpenSea account.\n</p>",
-              Type = "Art",
-              Category = "Sticky Note",
-              CreatedOn = "27th JAN 2023",
+            ID = 1,
+            Slug = "how-to-foster-a-positive-corporate-culture",
+            Title = "How to Foster a Positive Corporate Culture",
+            PunchLine = "Nurturing Success with Core Values and Clear Vision",
+            SubTitle = "Corporate Culture | Writing",
+            Heading = "How to Foster a Positive Corporate Culture - Corporate Culture - Writing",
+            IMG = "writing/corporate-culture/how-to-foster-a-positive-corporate-culture.jpg",
+            Type = "Writing",
+            Category = "Corporate Culture",
+            CreatedOn = "5th AUG 2024",
 
-              Facebook = "",
-              Instagram = "",
-              LinkedIn = "",
-              YouTube = "",
-              OpenSea = "",
-              Twitter = "",
-              TikTok = "",
-              Pinterest = "",
-              Snapchat = "",
+            URL = "/creative-works/writing/detail/1/how-to-foster-a-positive-corporate-culture",
+            Tags = "[\"all\", \"Writing\", \"Corporate Culture\"]",
 
-              PreviousWorkID = 0,
-              NextWorkID = 2
-          },
-          new Writing()
-          {
-              ID = 2,
-              URL = BASEPATH + "/My-Art/2/Bearded-Man-Sticky-Note-Art",
-              SITE_URL = "/My-Art/2/Bearded-Man-Sticky-Note-Art",
-              Tags = "[\"Art\",\"Sticky-Note\",]",
-              Slug = "Bearded-Man-Sticky-Note-Art",
-              DataGroup = "[\"all\",\"stickynotes\"]",
-              Heading = "Bearded Man - Sticky Note - Art",
-              Title = "Bearded Man",
-              SubTitle = "Sticky Note - Art",
-              IMG = "images/myarts/Bearded-Man.jpg",
-              VIDEO = "",
-                            ShortDesription = "Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piec",
-              Desription = @"<p class='Art-Detail-Text'>Discover the beauty in my latest artistic creation. A remarkable drawing of a bearded man on a sticky note. Through intricate strokes and masterful shading.</p><p class='Art-Detail-Text'>In this drawing, the bearded man's facial hair serves as an emblem of wisdom, strength, and rugged individuality. Every pen stroke delicately captures the coarse texture of the beard, revealing the dedication and patience required to nurture such an impressive growth.</p><p class='Art-Detail-Text'>My carefully crafted lines bring life to the bearded man's expressive eyes, exuding a sense of wisdom and experience. His eyes hint at hidden stories and invite viewers to imagine the adventures and knowledge he carries within.</p><p class='Art-Detail-Text'>Rendered on a humble sticky note, this art piece challenges the boundaries of creativity, reminding us that true artistry transcends the limitations of canvas or size. It is a testament to my ability to transform the ordinary into the extraordinary, turning a mundane office supply into a window to a world of imagination.</p><p class='Art-Detail-Text'>Allow this remarkable bearded man to captivate your senses, beckoning you to delve deeper into the realms of human complexity. Explore the power of a single artwork to tell a thousand tales, and join us on our website as we celebrate the fusion of art and inspiration. <p class=""Art-Detail-Text"">Visit[<a class=""L-C"" href=""/MyWorkFlow-MyArtfulness"">MORE</a>] to step into a world where creativity dances with imagination. Where colors come alive. Art whispers its secrets.</p>",
-              Type = "Art",
-              Category = "Sticky Note",
-              CreatedOn = "1st FEB 2023",
+            KeyTerms = new List<KeyTerm>()
+            {
+                new KeyTerm {
+                    Term = "",
+                    Answer = ""
+                }
+            },
 
-              Facebook = "",
-              Instagram = "",
-              LinkedIn = "",
-              YouTube = "",
-              OpenSea = "",
-              Twitter = "",
-              TikTok = "",
-              Pinterest = "",
-              Snapchat = "",
+            SeoTitle = "How to Foster a Positive Corporate Culture - Writing - KhizoOo",
+            SeoKeyWords = "positive corporate culture, corporate culture tips, fostering corporate culture, employee engagement, business success, workplace productivity, employee retention, corporate values, open communication, positive work environment, khizooo",
+            SeoDescription = "Discover effective strategies to foster a positive corporate culture that boosts employee engagement, productivity, and retention. Learn how to align core values, encourage open communication, and create a thriving work environment.",
 
-              PreviousWorkID = 1,
-              NextWorkID = 3
-          },
-          new Writing()
-          {
-              ID = 3,
-              URL = BASEPATH + "/My-Art/3/Midnight-Muse-Sticky-Note-Art",
-              SITE_URL = "/My-Art/3/Midnight-Muse-Sticky-Note-Art",
-              Tags = "[\"Art\",\"Sticky-Note\",]",
-              Slug = "Midnight-Muse-Sticky-Note-Art",
-              DataGroup = "[\"all\",\"stickynotes\"]",
-              Heading = "Midnight Muse - Sticky Note - Art",
-              Title = "Midnight Muse",
-              SubTitle = "Sticky Note - Art",
-              IMG = "images/myarts/Midnight-Muse.jpg",
-              VIDEO = "",
-                            ShortDesription = "Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piec",
-              Desription = "<p class='Art-Detail-Text'>The phrase \"Midnight\" evokes a sense of mystery and darkness, which contrasts with her radiant beauty.</p><p class='Art-Detail-Text'>The word \"Muse\" typically refers to a source of inspiration, and in this case, her beauty could be seen as inspiring others around her.</p><p class='Art-Detail-Text'>Overall, the title \"Midnight Muse\" conveys a sense of intrigue, beauty, and inspiration, making it a suitable title for the given context.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='/MyWorkFlow-MyArtfulness'>MORE</a>] to step into a world where creativity dances with imagination. Where colors come alive. Art whispers its secrets.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='https://opensea.io/KhizoOo_'>MORE</a>] to visit my OpenSea account.\n</p>",
-              Type = "Art",
-              Category = "Sticky Note",
-              CreatedOn = "3rd FEB 2023",
+            Facebook = "",
+            Instagram = "",
+            LinkedIn = "",
+            YouTube = "",
+            OpenSea = "",
+            Twitter = "",
+            TikTok = "",
+            Pinterest = "",
+            Snapchat = "",
 
-              Facebook = "",
-              Instagram = "",
-              LinkedIn = "",
-              YouTube = "",
-              OpenSea = "",
-              Twitter = "",
-              TikTok = "",
-              Pinterest = "",
-              Snapchat = "",
+            PreviousWorkID = 0,
+            NextWorkID = 2,
 
-              PreviousWorkID = 2,
-              NextWorkID = 4
-          },
-          new Writing()
-          {
-              ID = 4,
-              URL = BASEPATH + "/My-Art/4/Fire-Heart-Sticky-Note-Art",
-              SITE_URL = "/My-Art/4/Fire-Heart-Sticky-Note-Art",
-              Tags = "[\"Art\",\"Sticky-Note\",]",
-              Slug = "Fire-Heart-Sticky-Note-Art",
-              DataGroup = "[\"all\",\"stickynotes\"]",
-              Heading = "Fire Heart - Sticky Note - Art",
-              Title = "Fire Heart",
-              SubTitle = "Sticky Note - Art",
-              IMG = "images/myarts/Fire-Heart.jpg",
-              VIDEO = "images/myarts/Fire-Heart.mp4",
-                            ShortDesription = "Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piec",
-              Desription = "<p class='Art-Detail-Text'>This art belongs to a lovely story of a young boy and a beautiful girl with some magical abilities.</p><p class='Art-Detail-Text'>Here is the story which i named “Fire Heart”\n \nOnce upon a time, in a small village tucked away in the rolling hills of a distant land, there lived a young boy named Kian. Kian was a simple boy, born into a family of farmers. He had a passion for tending the fields and caring for the livestock, but there was always something missing in his life.</p><p class='Art-Detail-Text'>One day, as he was walking through the fields, he saw a girl standing in the distance. She was unlike anyone he had ever seen before. She had fiery red hair, and her eyes sparkled like embers. Kian was immediately smitten.</p><p class='Art-Detail-Text'>The girl's name was Aria, and she too was from the village. But Aria was special. She possessed the power of fire, a rare and wondrous gift that she struggled to control. Kian was fascinated by her, and he found himself drawn to her like a lover.</p><p class='Art-Detail-Text'>Despite her fiery nature, Aria was shy and hesitant to open up to Kian. But as they spent more time together, they began to develop a deep connection. Kian's gentle nature and unwavering support made Aria feel safe and loved, and she slowly began to let down her guard.</p><p class='Art-Detail-Text'>As their relationship blossomed, Aria's powers began to grow stronger. She learned to harness her fiery energy, using it to light up the night sky and warm the hearts of those around her. Kian was always there to support her, never once flinching in the face of her powerful flames.</p><p class='Art-Detail-Text'>Together, Kian and Aria faced many challenges, but their love never wavered. They were a perfect match, a simple boy and a girl with the power of fire. And in the end, their love burned brighter than any flame, lighting up the sky for all to see.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='/MyWorkFlow-MyArtfulness'>MORE</a>] to step into a world where creativity dances with imagination. Where colors come alive. Art whispers its secrets.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='https://opensea.io/KhizoOo_'>MORE</a>] to visit my OpenSea account.\n</p>",
-              Type = "Art",
-              Category = "Sticky Note",
-              CreatedOn = "7th FEB 2023",
+            Description = "<p class=\"w-h1\"><b>Introduction</b></p><p class=\"w-p\">In today's competitive business landscape, cultivating a positive corporate culture is more important than ever. A strong corporate culture not only attracts and retains top talent but also drives organizational success and growth. It creates an environment where employees feel valued, motivated, and aligned with the company's mission and values.</p><br><p class=\"w-h1\"><b>Understanding Corporate Culture</b></p><p class=\"w-p\">Corporate culture is the collective behavior, values, and beliefs that shape how employees interact and work together within an organization. It encompasses everything from leadership styles and communication practices to company policies and work environment.</p><br><p class=\"w-h1\"><b>Benefits of a Positive Corporate Culture</b></p><p class=\"w-h2\"><b>Increased Employee Engagement</b></p><p class=\"w-p\">Employees who feel connected to their company's culture are more engaged and committed to their work.</p><p class=\"w-h2\"><b>Higher Productivity</b></p><p class=\"w-p\">A positive work environment boosts morale and motivates employees to perform at their best.</p><p class=\"w-h2\"><b>Improved Retention</b></p><p class=\"w-p\">Employees are more likely to stay with a company that values and supports them.</p><p class=\"w-h2\"><b>Better Reputation</b></p><p class=\"w-p\">Companies with a strong culture are more attractive to potential employees and customers.</p><br><p class=\"w-h1\"><b>Key Strategies to Foster a Positive Corporate Culture</b></p><p class=\"w-h2\"><b>Define Your Core Values</b></p><p class=\"w-h3\"><b>Identify Values</b></p><p class=\"w-p\">Clearly define the core values that reflect your company’s mission and goals. Ensure these values are communicated and embraced by all employees.</p><p class=\"w-h3\"><b>Align Actions</b></p><p class=\"w-p\">Make sure that all business decisions and actions align with your core values. This consistency helps build trust and credibility.</p><p class=\"w-h2\"><b>Lead by Example</b></p><p class=\"w-h3\"><b>Model Behavior</b></p><p class=\"w-p\">Leaders should exemplify the values and behaviors they wish to see in their employees. This sets a standard for others to follow.</p><p class=\"w-h3\"><b>Be Transparent</b></p><p class=\"w-p\">Practice open and honest communication. Transparency builds trust and encourages employees to share their ideas and concerns.</p><p class=\"w-h2\"><b>Encourage Open Communication</b></p><p class=\"w-h3\"><b>Foster Dialogue</b></p><p class=\"w-p\">Create an environment where employees feel comfortable expressing their thoughts and ideas. Encourage feedback and listen actively.</p><p class=\"w-h3\"><b>Use Technology</b></p><p class=\"w-p\">Leverage tools like intranets, chat platforms, and virtual meetings to facilitate communication across the organization.</p><p class=\"w-h2\"><b>Recognize and Reward Contributions</b></p><p class=\"w-h3\"><b>Celebrate Success</b></p><p class=\"w-p\">Acknowledge and celebrate both individual and team achievements. Recognition boosts morale and reinforces positive behavior.</p><p class=\"w-h3\"><b>Implement Incentives</b></p><p class=\"w-p\">Offer rewards and incentives that align with your company’s values and goals, such as bonuses, promotions, or additional time off.</p><p class=\"w-h2\"><b>Support Employee Development</b></p><p class=\"w-h3\"><b>Invest in Training</b></p><p class=\"w-p\">Provide opportunities for professional growth through training, workshops, and mentorship programs.</p><p class=\"w-h3\"><b>Encourage Learning</b></p><p class=\"w-p\">Promote a culture of continuous learning by encouraging employees to pursue new skills and knowledge.</p><p class=\"w-h2\"><b>Promote Work-Life Balance</b></p><p class=\"w-h3\"><b>Flexible Policies</b></p><p class=\"w-p\">Offer flexible work arrangements, such as remote work options or flexible hours, to support employees' work-life balance.</p><p class=\"w-h3\"><b>Encourage Breaks</b></p><p class=\"w-p\">Encourage employees to take regular breaks and vacations to recharge and avoid burnout.</p><p class=\"w-h2\"><b>Create a Positive Work Environment</b></p><p class=\"w-h3\"><b>Design a Comfortable Space</b></p><p class=\"w-p\">Ensure the physical workspace is comfortable, safe, and conducive to productivity.</p><p class=\"w-h3\"><b>Foster Inclusivity</b></p><p class=\"w-p\">Create an inclusive environment where all employees feel valued and respected, regardless of their background or identity.</p><p class=\"w-h2\"><b>Encourage Team Collaboration</b></p><p class=\"w-h3\"><b>Build Team Spirit</b></p><p class=\"w-p\">Organize team-building activities that promote collaboration and strengthen relationships among employees.</p><p class=\"w-h3\"><b>Break Down Silos</b></p><p class=\"w-p\">Encourage cross-departmental collaboration to foster innovation and problem-solving.</p><br><p class=\"w-h1\"><b>Measuring and Improving Corporate Culture</b></p><p class=\"w-h2\"><b>Conduct Surveys</b></p><p class=\"w-p\">Regularly assess employee satisfaction and engagement through surveys and feedback sessions.</p><p class=\"w-h2\"><b>Analyze Results</b></p><p class=\"w-p\">Use the feedback to identify areas for improvement and implement changes to enhance the corporate culture.</p><p class=\"w-h2\"><b>Monitor Progress</b></p><p class=\"w-p\">Continuously monitor the impact of cultural initiatives and make adjustments as needed to maintain a positive culture.</p><br><p class=\"w-h1\"><b>Conclusion</b></p><p class=\"w-p\">Fostering a positive corporate culture requires commitment and effort from both leaders and employees. By defining core values, promoting open communication, and supporting employee growth, companies can create a thriving work environment that attracts top talent and drives long-term success. Embrace the journey of building a positive culture and watch your organization flourish.</p>"
 
-              Facebook = "",
-              Instagram = "",
-              LinkedIn = "",
-              YouTube = "",
-              OpenSea = "",
-              Twitter = "",
-              TikTok = "",
-              Pinterest = "",
-              Snapchat = "",
-
-              PreviousWorkID = 3,
-              NextWorkID = 5
-          },
-          new Writing()
-          {
-              ID = 5,
-              URL = BASEPATH + "/My-Art/5/Junior-Professor-Sticky-Note-Art",
-              SITE_URL = "/My-Art/5/Junior-Professor-Sticky-Note-Art",
-              Tags = "[\"Art\",\"Sticky-Note\",]",
-              Slug = "Junior-Professor-Sticky-Note-Art",
-              DataGroup = "[\"all\",\"stickynotes\"]",
-              Heading = "Junior Professor - Sticky Note - Art",
-              Title = "Junior Professor",
-              SubTitle = "Sticky Note - Art",
-              IMG = "images/myarts/Junior-Professor.jpg",
-              VIDEO = "",
-                            ShortDesription = "Get ready to be spellbound as we investigate the motivation, the interaction, and the sheer magnificence of this craftsmanship piec",
-              Desription = "<p class='Art-Detail-Text'>A captivating cartoon depiction of a Junior Professor. Which is carefully sketched on a sticky note. In this charming creation, education meets playfulness, and wisdom is delivered with a smile.</p><p class='Art-Detail-Text'>On this small canvas, every line and curve comes alive, revealing the artist's ability to infuse personality into every stroke. From the carefully tousled hair to the endearing bow tie, this Junior Professor becomes an embodiment of the passion and dedication that fuel the pursuit of academia.</p><p class='Art-Detail-Text'>In a world that often takes itself too seriously, this delightful artwork reminds us that learning should be a joyful journey. The Junior Professor's mischievous grin and raised eyebrow invite us to approach education with a playful spirit, encouraging us to explore, question, and embrace new ideas.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='/MyWorkFlow-MyArtfulness'>MORE</a>] to step into a world where creativity dances with imagination. Where colors come alive. Art whispers its secrets.</p><p class='Art-Detail-Text'>Visit [<a class='L-C' href='https://opensea.io/KhizoOo_'>MORE</a>] to visit my OpenSea account.\n</p>",
-              Type = "Art",
-              Category = "Sticky Note",
-              CreatedOn = "11th FEB 2023",
-
-              Facebook = "",
-              Instagram = "",
-              LinkedIn = "",
-              YouTube = "",
-              OpenSea = "",
-              Twitter = "",
-              TikTok = "",
-              Pinterest = "",
-              Snapchat = "",
-
-              PreviousWorkID = 4,
-              NextWorkID = 6
           }
     };
 

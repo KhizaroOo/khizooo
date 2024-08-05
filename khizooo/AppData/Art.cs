@@ -48,8 +48,7 @@ namespace khizooo.AppData
 
     public class MyArts
     {
-        public static string BASEPATH = "https://khizooo.com";
-
+        
         private List<ShowingLocation> ShowingLocations = new List<ShowingLocation>()
         {
             new ShowingLocation(){ ID = 1 , Title = "Top 12 Arts for Landing Page To Display" },
@@ -63,7 +62,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 1,
-              URL = BASEPATH + "/creative-works/artwork/detail/1/Green-Skirt-Girl-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/1/Green-Skirt-Girl-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/1/Green-Skirt-Girl-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Green-Skirt-Girl-Sticky-Note-Art",
@@ -94,7 +93,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 2,
-              URL = BASEPATH + "/creative-works/artwork/detail/2/Bearded-Man-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/2/Bearded-Man-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/2/Bearded-Man-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Bearded-Man-Sticky-Note-Art",
@@ -125,7 +124,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 3,
-              URL = BASEPATH + "/creative-works/artwork/detail/3/Midnight-Muse-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/3/Midnight-Muse-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/3/Midnight-Muse-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Midnight-Muse-Sticky-Note-Art",
@@ -156,7 +155,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 4,
-              URL = BASEPATH + "/creative-works/artwork/detail/4/Fire-Heart-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/4/Fire-Heart-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/4/Fire-Heart-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Fire-Heart-Sticky-Note-Art",
@@ -187,7 +186,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 5,
-              URL = BASEPATH + "/creative-works/artwork/detail/5/Junior-Professor-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/5/Junior-Professor-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/5/Junior-Professor-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Junior-Professor-Sticky-Note-Art",
@@ -218,7 +217,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 6,
-              URL = BASEPATH + "/creative-works/artwork/detail/6/Colorful-Elephant-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/6/Colorful-Elephant-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/6/Colorful-Elephant-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Colorful-Elephant-Sticky-Note-Art",
@@ -249,7 +248,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 7,
-              URL = BASEPATH + "/creative-works/artwork/detail/7/Peak-Perfection-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/7/Peak-Perfection-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/7/Peak-Perfection-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Peak-Perfection-Sticky-Note-Art",
@@ -280,7 +279,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 8,
-              URL = BASEPATH + "/creative-works/artwork/detail/8/The-Spot-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/8/The-Spot-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/8/The-Spot-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "The-Spot-Sticky-Note-Art",
@@ -311,7 +310,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 9,
-              URL = BASEPATH + "/creative-works/artwork/detail/9/Young-Girl-vs-Dark-Wind-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/9/Young-Girl-vs-Dark-Wind-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/9/Young-Girl-vs-Dark-Wind-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Young-Girl-vs-Dark-Wind-Sticky-Note-Art",
@@ -342,7 +341,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 10,
-              URL = BASEPATH + "/creative-works/artwork/detail/10/Portal-To-The-Past-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/10/Portal-To-The-Past-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/10/Portal-To-The-Past-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Portal-To-The-Past-Sticky-Note-Art",
@@ -373,7 +372,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 11,
-              URL = BASEPATH + "/creative-works/artwork/detail/11/Little-Angel-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/11/Little-Angel-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/11/Little-Angel-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Little-Angel-Sticky-Note-Art",
@@ -404,7 +403,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 12,
-              URL = BASEPATH + "/creative-works/artwork/detail/12/Aurora-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/12/Aurora-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/12/Aurora-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Aurora-Sticky-Note-Art",
@@ -435,7 +434,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 13,
-              URL = BASEPATH + "/creative-works/artwork/detail/13/A-Treehouse-Dream-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/13/A-Treehouse-Dream-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/13/A-Treehouse-Dream-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "A-Treehouse-Dream-Sticky-Note-Art",
@@ -466,7 +465,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 14,
-              URL = BASEPATH + "/creative-works/artwork/detail/14/Find-Positive-In-Everything-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/14/Find-Positive-In-Everything-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/14/Find-Positive-In-Everything-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Find-Positive-In-Everything-Sticky-Note-Art",
@@ -497,7 +496,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 15,
-              URL = BASEPATH + "/creative-works/artwork/detail/15/Love-Day-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/15/Love-Day-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/15/Love-Day-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Love-Day-Sticky-Note-Art",
@@ -528,7 +527,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 16,
-              URL = BASEPATH + "/creative-works/artwork/detail/16/Cat-In-The-Coffee-Mug-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/16/Cat-In-The-Coffee-Mug-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/16/Cat-In-The-Coffee-Mug-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Cat-In-The-Coffee-Mug-Sticky-Note-Art",
@@ -559,7 +558,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 17,
-              URL = BASEPATH + "/creative-works/artwork/detail/17/Embracing-Joy-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/17/Embracing-Joy-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/17/Embracing-Joy-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Embracing-Joy-Sticky-Note-Art",
@@ -590,7 +589,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 18,
-              URL = BASEPATH + "/creative-works/artwork/detail/18/I-Believe-I-Can-Fly-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/18/I-Believe-I-Can-Fly-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/18/I-Believe-I-Can-Fly-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "I-Believe-I-Can-Fly-Sticky-Note-Art",
@@ -621,7 +620,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 19,
-              URL = BASEPATH + "/creative-works/artwork/detail/19/Tree-House-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/19/Tree-House-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/19/Tree-House-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Tree-House-Sticky-Note-Art",
@@ -652,7 +651,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 20,
-              URL = BASEPATH + "/creative-works/artwork/detail/20/Above-Earth-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/20/Above-Earth-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/20/Above-Earth-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Above-Earth-Sticky-Note-Art",
@@ -683,7 +682,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 21,
-              URL = BASEPATH + "/creative-works/artwork/detail/21/Fulgent-Life-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/21/Fulgent-Life-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/21/Fulgent-Life-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Fulgent-Life-Sticky-Note-Art",
@@ -714,7 +713,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 22,
-              URL = BASEPATH + "/creative-works/artwork/detail/22/Nature-Excavation-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/22/Nature-Excavation-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/22/Nature-Excavation-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Nature-Excavation-Sticky-Note-Art",
@@ -745,7 +744,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 23,
-              URL = BASEPATH + "/creative-works/artwork/detail/23/Cats-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/23/Cats-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/23/Cats-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Cats-Sticky-Note-Art",
@@ -776,7 +775,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 24,
-              URL = BASEPATH + "/creative-works/artwork/detail/24/Long-Distance-Relationships-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/24/Long-Distance-Relationships-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/24/Long-Distance-Relationships-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Long-Distance-Relationships-Sticky-Note-Art",
@@ -807,7 +806,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 25,
-              URL = BASEPATH + "/creative-works/artwork/detail/25/The-Rose-Enchanted-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/25/The-Rose-Enchanted-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/25/The-Rose-Enchanted-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "The-Rose-Enchanted-Sticky-Note-Art",
@@ -838,7 +837,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 26,
-              URL = BASEPATH + "/creative-works/artwork/detail/26/The-Thorny-Beauty-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/26/The-Thorny-Beauty-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/26/The-Thorny-Beauty-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "The-Thorny-Beauty-Sticky-Note-Art",
@@ -869,7 +868,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 27,
-              URL = BASEPATH + "/creative-works/artwork/detail/27/Beach-Beauty-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/27/Beach-Beauty-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/27/Beach-Beauty-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Beach-Beauty-Sticky-Note-Art",
@@ -900,7 +899,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 28,
-              URL = BASEPATH + "/creative-works/artwork/detail/28/Big-Bang-Theory-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/28/Big-Bang-Theory-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/28/Big-Bang-Theory-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Big-Bang-Theory-Sticky-Note-Art",
@@ -931,7 +930,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 29,
-              URL = BASEPATH + "/creative-works/artwork/detail/29/Sophia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/29/Sophia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/29/Sophia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Sophia-Sticky-Note-Art",
@@ -962,7 +961,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 30,
-              URL = BASEPATH + "/creative-works/artwork/detail/30/Isabella-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/30/Isabella-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/30/Isabella-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Isabella-Sticky-Note-Art",
@@ -993,7 +992,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 31,
-              URL = BASEPATH + "/creative-works/artwork/detail/31/Olivia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/31/Olivia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/31/Olivia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Olivia-Sticky-Note-Art",
@@ -1024,7 +1023,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 32,
-              URL = BASEPATH + "/creative-works/artwork/detail/32/Ava-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/32/Ava-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/32/Ava-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Ava-Sticky-Note-Art",
@@ -1055,7 +1054,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 33,
-              URL = BASEPATH + "/creative-works/artwork/detail/33/Mia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/33/Mia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/33/Mia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Mia-Sticky-Note-Art",
@@ -1086,7 +1085,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 34,
-              URL = BASEPATH + "/creative-works/artwork/detail/34/Kia-Sia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/34/Kia-Sia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/34/Kia-Sia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Kia-Sia-Sticky-Note-Art",
@@ -1117,7 +1116,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 35,
-              URL = BASEPATH + "/creative-works/artwork/detail/35/Lily-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/35/Lily-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/35/Lily-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Lily-Sticky-Note-Art",
@@ -1148,7 +1147,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 36,
-              URL = BASEPATH + "/creative-works/artwork/detail/36/Charlotte-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/36/Charlotte-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/36/Charlotte-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Charlotte-Sticky-Note-Art",
@@ -1179,7 +1178,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 37,
-              URL = BASEPATH + "/creative-works/artwork/detail/37/Amelia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/37/Amelia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/37/Amelia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Amelia-Sticky-Note-Art",
@@ -1210,7 +1209,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 38,
-              URL = BASEPATH + "/creative-works/artwork/detail/38/Grace-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/38/Grace-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/38/Grace-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Grace-Sticky-Note-Art",
@@ -1241,7 +1240,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 39,
-              URL = BASEPATH + "/creative-works/artwork/detail/39/Stella-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/39/Stella-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/39/Stella-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Stella-Sticky-Note-Art",
@@ -1272,7 +1271,7 @@ namespace khizooo.AppData
            new Art()
           {
               ID = 40,
-              URL = BASEPATH + "/creative-works/artwork/detail/40/Lia-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/40/Lia-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/43/Lia-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Lia-Sticky-Note-Art",
@@ -1303,7 +1302,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 41,
-              URL = BASEPATH + "/creative-works/artwork/detail/41/Alice-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/41/Alice-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/41/Alice-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Alice-Sticky-Note-Art",
@@ -1334,7 +1333,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 42,
-              URL = BASEPATH + "/creative-works/artwork/detail/42/Blossom-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/42/Blossom-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/42/Blossom-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Blossom-Sticky-Note-Art",
@@ -1365,7 +1364,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 43,
-              URL = BASEPATH + "/creative-works/artwork/detail/43/Little-Princess-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/43/Little-Princess-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/43/Little-Princess-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Little-Princess-Sticky-Note-Art",
@@ -1396,7 +1395,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 44,
-              URL = BASEPATH + "/creative-works/artwork/detail/44/Astro-Love-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/44/Astro-Love-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/44/Astro-Love-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Astro-Love-Sticky-Note-Art",
@@ -1427,7 +1426,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 45,
-              URL = BASEPATH + "/creative-works/artwork/detail/45/Freedom-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/45/Freedom-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/45/Freedom-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Freedom-Sticky-Note-Art",
@@ -1458,7 +1457,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 46,
-              URL = BASEPATH + "/creative-works/artwork/detail/46/Rapunzel-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/46/Rapunzel-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/46/Rapunzel-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Rapunzel-Sticky-Note-Art",
@@ -1489,7 +1488,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 47,
-              URL = BASEPATH + "/creative-works/artwork/detail/47/Unveiling-Beauty-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/47/Unveiling-Beauty-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/47/Unveiling-Beauty-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Unveiling-Beauty-Sticky-Note-Art",
@@ -1520,7 +1519,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 48,
-              URL = BASEPATH + "/creative-works/artwork/detail/48/Little-Professor-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/48/Little-Professor-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/48/Little-Professor-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Little-Professor-Sticky-Note-Art",
@@ -1551,7 +1550,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 49,
-              URL = BASEPATH + "/creative-works/artwork/detail/49/Beauty-Behind-Flowers-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/49/Beauty-Behind-Flowers-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/49/Beauty-Behind-Flowers-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Beauty-Behind-Flowers-Sticky-Note-Art",
@@ -1582,7 +1581,7 @@ namespace khizooo.AppData
           new Art()
           {
               ID = 50,
-              URL = BASEPATH + "/creative-works/artwork/detail/50/Art-&-Depression-Sticky-Note-Art",
+              URL = "/creative-works/artwork/detail/50/Art-&-Depression-Sticky-Note-Art",
               SITE_URL = "/creative-works/artwork/detail/50/Art-&-Depression-Sticky-Note-Art",
               Tags = "[\"Art\",\"Sticky-Note\"]",
               Slug = "Art-&-Depression-Sticky-Note-Art",

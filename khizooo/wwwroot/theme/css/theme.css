@@ -1,12 +1,13 @@
 :root {
-	--artfulness: #89023e;
-	--infographic: #085300;
-	--toolbox: #140152;
-	--writing: #3a2618;
-	--timeline: #626f3c;
-	--codevault: #107895;
-	--freebie: #a5a50b;
-	--synopsis: #5120a9;
+	--artwork: #3B572B;
+	--infographic: #6a6224;
+	--toolbox: #7d560f;
+	--writing: #6A2E37;
+	--timeline: #6C166F;
+	--codevault: #511B70;
+	--freebie: #431998;
+	--synopsis: #2025AE;
+	--creative-works-grid-hover-bc: #f74142;
 }
 
 
@@ -25,6 +26,7 @@ body {
 	word-wrap: break-word;
 	font-weight: 400;
 	cursor: none;
+	background-color: #eef1ff;
 }
 svg{
 	fill: currentcolor;
@@ -1084,17 +1086,16 @@ img.svg{
 	margin: 50px 0px 50px 0px;
 	padding-bottom: 50px;
 }
-.arlo_tm_portfolio_wrapper_all{
+.arlo_tm_portfolio_wrapper_all {
 	width: 100%;
 	height: auto;
 	clear: both;
 	float: left;
 	padding-bottom: 70px;
-	background-color: #fff;
-	
+	background-color: #eef1ff;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
-			box-sizing: border-box; /* Opera/IE 8+ */ 
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
 .arlo_tm_portfolio_wrapper_all .arlo_tm_button{text-align: center;}
 .arlo_tm_portfolio_wrap{
@@ -2234,14 +2235,16 @@ img.svg{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box; /* Opera/IE 8+ */
+	background: #eef1ff;
 }
-.arlo_tm_portfolio_single_wrap .title_holder h3{
-	font-size: 50px;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: -.5px;
-    line-height: 1;
-}
+	.arlo_tm_portfolio_single_wrap .title_holder h3 {
+		font-size: 30px;
+		text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: -.5px;
+		line-height: 1;
+		margin-bottom: 15px;
+	}
 .arlo_tm_portfolio_single_wrap .details_wrap{
 	width: 100%;
 	height: auto;
@@ -2706,36 +2709,72 @@ img.svg{
 
 
 
-/* Hero Section */
+/* MODDULE COLORS */
 .lp-card {
 	color: #fff !important;
 	border:2px solid #000;
 }
-.lp-artfulness-card {
-	background-color: var(--artfulness);
+.lp-artwork-card {
+	background-color: var(--artwork) !important;
 }
 .lp-infographic-card {
-	background-color: var(--infographic);
+	background-color: var(--infographic) !important;
 }
 .lp-timeline-card {
-	background-color: var(--timeline);
+	background-color: var(--timeline) !important;
 }
 .lp-toolbox-card {
-	background-color: var(--toolbox);
+	background-color: var(--toolbox) !important;
 }
 .lp-writing-card {
-	background-color: var(--writing);
+	background-color: var(--writing) !important;
 }
 .lp-codevault-card {
-	background-color: var(--codevault);
+	background-color: var(--codevault) !important;
 }
 .lp-freebie-card {
-	background-color: var(--freebie);
+	background-color: var(--freebie) !important;
 }
 .lp-synopsis-card {
-	background-color: var(--synopsis);
+	background-color: var(--synopsis) !important;
 }
-/* Hero Section */
+
+
+
+
+.lp-artwork {
+	color: var(--artwork) !important;
+}
+
+.lp-infographic {
+	color: var(--infographic) !important;
+}
+
+.lp-timeline {
+	color: var(--timeline) !important;
+}
+
+.lp-toolbox {
+	color: var(--toolbox) !important;
+}
+
+.lp-writing {
+	color: var(--writing) !important;
+}
+
+.lp-codevault {
+	color: var(--codevault) !important;
+}
+
+.lp-freebie {
+	color: var(--freebie) !important;
+}
+
+.lp-synopsis {
+	color: var(--synopsis) !important;
+}
+
+/* MODDULE COLORS */
 
 /* Hero Section */
 .FullLoader {
@@ -3006,10 +3045,10 @@ img.svg{
 	justify-content: center;
 	text-align: center;
 	text-decoration: none;
-	color: inherit;
+	color: #ffffff;
 	transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
 	background: #6985fc;
-	border: 2px solid;
+	border: 2px solid #000;
 }
 
 .creative-work-card-body {
@@ -3032,8 +3071,8 @@ img.svg{
 }
 
 .creative-work-card:hover {
-	background-color: #f74142;
-	color: #ffffff;
+	background-color: #f74142 !important;
+	color: #ffffff !important;
 	border: 2px solid #000;
 }
 
