@@ -30,7 +30,7 @@ body {
 	word-wrap: break-word;
 	font-weight: 400;
 	cursor: none;
-	background-color: #eef1ff;
+	background-color: #fff;
 }
 svg{
 	fill: currentcolor;
@@ -508,18 +508,16 @@ img.svg{
 	  font-family: "REM", sans-serif;   font-optical-sizing: auto;
 	padding-left: 25px;
 }
-.arlo_tm_about_wrapper_all{
+.arlo_tm_about_wrapper_all {
 	width: 100%;
 	height: auto;
 	clear: both;
 	float: left;
-	background-color: #fff;
-	
+	background-color: #ffffff;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
-			box-sizing: border-box; /* Opera/IE 8+ */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
-
 .arlo_tm_main_title_holder{
 	width: 100%;
 	height: auto;
@@ -682,11 +680,10 @@ img.svg{
 }
 .arlo_tm_about_wrap .definition{margin-bottom: 15px;}
 .arlo_tm_about_wrap .definition p{color: #333;}
-	.arlo_tm_about_wrap .definition p strong {
+.arlo_tm_about_wrap .definition p strong {
 		color: #6985fc;
 		text-align: justify;
 	}
-
 .arlo_tm_about_wrap .about_short_contact_wrap{
 	width: 100%;
 	height: auto;
@@ -752,7 +749,7 @@ img.svg{
 	position: relative;
 	z-index: 2;
 }
-	.arlo_tm_about_wrap .buttons_wrap ul li a {
+.arlo_tm_about_wrap .buttons_wrap ul li a {
 		text-decoration: none;
 		color: #fff;
 		background-color: #f84b42;
@@ -1332,7 +1329,7 @@ img.svg{
 	clear: both;
 	float: left;
 	padding-bottom: 70px;
-	background-color: #eef1ff;
+	background-color: #fff;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box; /* Opera/IE 8+ */
