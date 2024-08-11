@@ -22,13 +22,24 @@
     <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
 </HeadContent>
 
+<style>
+    .subtitle {
+        text-align: right;
+    }
+    .createddate {
+        text-align: right;
+        margin-top: 15px;
+        font-weight: 700;
+    }
+</style>
+
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
 
         <!-- WRITING -->
         <div class="arlo_tm_section relative" id="Writing">
-            <div class="arlo_tm_portfolio_wrapper_all">
+            <div class="arlo_tm_services_wrap">
 
                 <div class="arlo_tm_title_holder portfolio">
                     <h3 class="lp-writing">Writing</h3>
@@ -37,28 +48,28 @@
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
                     <div class="container">
-
-                        <div class="container">
                             <div class="row">
-
-                                @{
-                                    foreach (khizooo.AppData.Writing writing in MyAllWritings)
-                                    {
-                                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="creative-work-card-container">
-                                                <a href="@((MarkupString)writing.URL)" class="creative-work-card lp-writing-card" target="_blank">
-                                                    <div class="creative-work-card-body">
-                                                        <h5 class="creative-work-card-title">@((MarkupString)writing.Title)</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    }
-                                }
-
+                                <div class="list_wrap_writing">
+                                    <ul>
+                                        @{
+                                            foreach (khizooo.AppData.Writing writing in MyAllWritings)
+                                            {
+                                                <li>
+                                                    <a href="@((MarkupString)writing.URL)" title="@((MarkupString)writing.Title)">
+                                                        <div class="inner lp-card lp-writing-card-border">
+                                                            <div class="title_service">
+                                                                <h6>@((MarkupString)writing.Title)</h6>
+                                                            </div>
+                                                            <p class="subtitle">@((MarkupString)writing.SubTitle)</p>
+                                                            <p class="createddate">@((MarkupString)writing.CreatedOn)</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
                     </div>
                 </div>
 

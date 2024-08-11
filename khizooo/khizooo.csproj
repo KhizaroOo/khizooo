@@ -35,6 +35,9 @@
     <Content Remove="wwwroot\infographics\blockchain\" />
     <Content Remove="wwwroot\infographics\js\" />
     <Content Remove="wwwroot\infographics\css\" />
+    <Content Remove="wwwroot\writing\" />
+    <Content Remove="wwwroot\writing\corporate-culture\" />
+    <Content Remove="wwwroot\writing\visual-storyteller\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\infographics\" />
@@ -42,6 +45,9 @@
     <Folder Include="wwwroot\infographics\js\" />
     <Folder Include="wwwroot\infographics\css\" />
     <Folder Include="Pages\Writing\" />
+    <Folder Include="wwwroot\writing\" />
+    <Folder Include="wwwroot\writing\corporate-culture\" />
+    <Folder Include="wwwroot\writing\visual-storyteller\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Pages\Writing\" />

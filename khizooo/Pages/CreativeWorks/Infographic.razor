@@ -23,13 +23,25 @@
     <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
 </HeadContent>
 
+<style>
+    .subtitle {
+        text-align: right;
+    }
+
+    .createddate {
+        text-align: right;
+        margin-top: 15px;
+        font-weight: 700;
+    }
+</style>
+
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
 
         <!-- INFPGRAPHIC -->
         <div class="arlo_tm_section relative" id="Infographics">
-            <div class="arlo_tm_portfolio_wrapper_all">
+            <div class="arlo_tm_services_wrap">
 
                 <div class="arlo_tm_title_holder portfolio">
                     <h3 class="lp-infographic">Infographic</h3>
@@ -37,30 +49,30 @@
                 </div>
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
-
                     <div class="container">
                         <div class="row">
-
-
-                            @{
-                                foreach (khizooo.AppData.Infographic infographic in MyAllInfographics)
-                                {
-                                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                                        <div class="creative-work-card-container">
-                                            <a href="@((MarkupString)infographic.URL)" class="creative-work-card lp-infographic-card" target="_blank">
-                                                <div class="creative-work-card-body">
-                                                    <h5 class="creative-work-card-title">@((MarkupString)infographic.Title)</h5>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                }
-                            }
-
-
+                            <div class="list_wrap_infographic">
+                                <ul>
+                                    @{
+                                        foreach (khizooo.AppData.Infographic infographic in MyAllInfographics)
+                                        {
+                                            <li>
+                                                <a href="@((MarkupString)infographic.URL)" title="@((MarkupString)infographic.Title)">
+                                                    <div class="inner lp-card lp-infographic-card-border">
+                                                        <div class="title_service">
+                                                            <h6>@((MarkupString)infographic.Title)</h6>
+                                                        </div>
+                                                        <p class="subtitle">@((MarkupString)infographic.SubTitle)</p>
+                                                        <p class="createddate">@((MarkupString)infographic.CreatedOn)</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>

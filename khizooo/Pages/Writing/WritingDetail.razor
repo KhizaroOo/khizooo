@@ -99,6 +99,17 @@
                         <div class="row justify-content-center">
 
                             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                @{
+                                    if (MyWritingDetail.IMG != "No Image")
+                                    {
+                                        <div id="WritingImage" class="" style="margin: 2rem; text-align: center;">
+                                            <img src="@MyWritingDetail.IMG" alt="@((MarkupString)MyWritingDetail.Title)" style="width: 1200px; ">
+                                        </div>
+                                    }
+                                }
+
+
                                 <div id="WritingContennt" class='paper'>
                                     @((MarkupString)MyWritingDetail.Description)
                                 </div>
