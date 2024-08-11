@@ -1006,6 +1006,243 @@ img.svg{
 	line-height: 1;
 }
 
+
+/* ToolBox */
+	.arlo_tm_services_wrap .list_wrap_toolbox {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		text-align: center;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul {
+		margin: 0px 0px 0px -30px;
+		list-style-type: none;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li {
+		margin: 0px 0px 30px 0px;
+		float: left;
+		width: 20%;
+		padding-left: 30px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .inner {
+			width: 100%;
+			height: auto;
+			clear: both;
+			float: left;
+			position: relative;
+			box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
+			padding: 15px 15px 15px 15px;
+			top: 0px;
+			-webkit-transition: all .3s ease;
+			-moz-transition: all .3s ease;
+			-ms-transition: all .3s ease;
+			-o-transition: all .3s ease;
+			transition: all .3s ease;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 2px solid var(--toolbox) !important;
+			color: var(--toolbox) !important;
+		}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .inner:hover {
+		top: -15px;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .icon {
+		margin-bottom: 21px;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .icon .svg {
+		width: 40px;
+		height: 40px;
+		color: #E3872D;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .title_service {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_toolbox ul li .title_service h6 {
+						font-family: "REM", sans-serif;
+						font-optical-sizing: auto;
+						font-size: 16px;
+						font-weight: 800;
+						line-height: 2;
+						text-align: right;
+					}
+/* ToolBox */
+
+	/* Infograohic */
+	.arlo_tm_services_wrap .list_wrap_infographic {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		text-align: right;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul {
+		margin: 0px 0px 0px -30px;
+		list-style-type: none;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li {
+		margin: 0px 0px 30px 0px;
+		float: left;
+		width: 20%;
+		padding-left: 30px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+	}
+
+		.arlo_tm_services_wrap .list_wrap_infographic ul li .inner {
+			width: 100%;
+			height: auto;
+			clear: both;
+			float: left;
+			position: relative;
+			box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
+			padding: 15px 15px 15px 15px;
+			top: 0px;
+			-webkit-transition: all .3s ease;
+			-moz-transition: all .3s ease;
+			-ms-transition: all .3s ease;
+			-o-transition: all .3s ease;
+			transition: all .3s ease;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 2px solid var(--infographic) !important;
+			color: var(--infographic) !important;
+		}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li .inner:hover {
+		top: -15px;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li .icon {
+		margin-bottom: 21px;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li .icon .svg {
+		width: 40px;
+		height: 40px;
+		color: #E3872D;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li .title_service {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid;
+	}
+
+	.arlo_tm_services_wrap .list_wrap_infographic ul li .title_service h6 {
+		font-family: "REM", sans-serif;
+		font-optical-sizing: auto;
+		font-size: 16px;
+		font-weight: 800;
+		line-height: 2;
+		text-align: right;
+	}
+	/* Infograohic */
+
+
+/* Writing */
+	.arlo_tm_services_wrap .list_wrap_writing {
+		width: 100%;
+		height: auto;
+		clear: both;
+		float: left;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		text-align: right;
+	}
+
+		.arlo_tm_services_wrap .list_wrap_writing ul {
+			margin: 0px 0px 0px -30px;
+			list-style-type: none;
+		}
+
+			.arlo_tm_services_wrap .list_wrap_writing ul li {
+				margin: 0px 0px 30px 0px;
+				float: left;
+				width: 20%;
+				padding-left: 30px;
+				-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+				-moz-box-sizing: border-box; /* Firefox, other Gecko */
+				box-sizing: border-box; /* Opera/IE 8+ */
+			}
+
+				.arlo_tm_services_wrap .list_wrap_writing ul li .inner {
+					width: 100%;
+					height: auto;
+					clear: both;
+					float: left;
+					position: relative;
+					box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
+					padding: 15px 15px 15px 15px;
+					top: 0px;
+					-webkit-transition: all .3s ease;
+					-moz-transition: all .3s ease;
+					-ms-transition: all .3s ease;
+					-o-transition: all .3s ease;
+					transition: all .3s ease;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					border: 2px solid var(--writing) !important;
+					color: var(--writing) !important;
+				}
+
+					.arlo_tm_services_wrap .list_wrap_writing ul li .inner:hover {
+						top: -15px;
+					}
+
+				.arlo_tm_services_wrap .list_wrap_writing ul li .icon {
+					margin-bottom: 21px;
+				}
+
+					.arlo_tm_services_wrap .list_wrap_writing ul li .icon .svg {
+						width: 40px;
+						height: 40px;
+						color: #E3872D;
+					}
+
+				.arlo_tm_services_wrap .list_wrap_writing ul li .title_service {
+					margin-bottom: 15px;
+					padding-bottom: 15px;
+					border-bottom: 1px solid;
+				}
+
+					.arlo_tm_services_wrap .list_wrap_writing ul li .title_service h6 {
+						font-family: "REM", sans-serif;
+						font-optical-sizing: auto;
+						font-size: 16px;
+						font-weight: 800;
+						line-height: 2;
+						text-align: right;
+					}
+/* Writing */
+
+
 /*---------------------------------------------------*/
 /*	05) ARLO COUNTERBOX
 /*---------------------------------------------------*/
@@ -3059,7 +3296,7 @@ img.svg{
 }
 
 .creative-work-card-title {
-	font-size: 20px;
+	
 	line-height: 1.5;
 	text-align: center;
 	padding: 20px 7px;
