@@ -1,3 +1,5 @@
+/* ROOT */
+
 :root {
 	--artwork: #3B572B;
 	--infographic: #6a6224;
@@ -10,7 +12,9 @@
 	--creative-works-grid-hover-bc: #f74142;
 }
 
+/* ROOT */
 
+/* BASE */
 
 html {
 	overflow-x: hidden;
@@ -39,15 +43,15 @@ img.svg{
 }
 .arlo_tm_wrapper_all,
 .arlo_tm_section,
-.arlo_tm_content{
+.arlo_tm_content {
 	width: 100%;
 	height: auto;
 	clear: both;
 	float: left;
-	
+	background-color: #ffffff ;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
-			box-sizing: border-box; /* Opera/IE 8+ */ 
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
 }
 #ripple{
 	position: relative;
@@ -57,7 +61,6 @@ img.svg{
 	position: relative;
 	z-index: 2;
 }
-
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #333;
 }
@@ -75,10 +78,11 @@ img.svg{
 ::-ms-input-placeholder { /* Microsoft Edge */
    color: #333;
 }
-
 ::placeholder { /* Most modern browsers support this now. */
    color: #333;
 }
+
+/* BASE */
 
 /*---------------------------------------------------*/
 /*	02) ARLO CONTENT
@@ -101,7 +105,7 @@ img.svg{
 }
 .arlo_tm_leftpart_wrap.hide{left: -250px;}
 .arlo_tm_leftpart_wrap.opened{left: -250px;}
-	.arlo_tm_leftpart_wrap .logo_wrap {
+.arlo_tm_leftpart_wrap .logo_wrap {
 		background-color: #eef1ff;
 		padding: 50px 20px;
 		width: 100%;
@@ -131,7 +135,7 @@ img.svg{
 }
 .arlo_tm_leftpart_wrap .menu_list_wrap ul li{margin:0px;}
 .arlo_tm_leftpart_wrap .menu_list_wrap ul li:last-child{margin-bottom: 0px;}
-	.arlo_tm_leftpart_wrap .menu_list_wrap ul li a {
+.arlo_tm_leftpart_wrap .menu_list_wrap ul li a {
 		text-decoration: none;
 		color: #fff;
 		font-family: "REM", sans-serif;
@@ -148,7 +152,7 @@ img.svg{
 		-o-transition: all .3s ease;
 		transition: all .3s ease;
 	}
-		.arlo_tm_leftpart_wrap .menu_list_wrap ul li a:before {
+.arlo_tm_leftpart_wrap .menu_list_wrap ul li a:before {
 			position: absolute;
 			content: "";
 			height: 2px;
@@ -164,11 +168,11 @@ img.svg{
 			-o-transition: all .3s ease;
 			transition: all .3s ease;
 		}
-		.arlo_tm_leftpart_wrap .menu_list_wrap ul li a:hover {
+.arlo_tm_leftpart_wrap .menu_list_wrap ul li a:hover {
 			color: #f84b42;
 		}
 .arlo_tm_leftpart_wrap .menu_list_wrap ul li a:hover:before{width: 35px;}
-	.arlo_tm_leftpart_wrap .leftpart_bottom {
+.arlo_tm_leftpart_wrap .leftpart_bottom {
 		position: absolute;
 		left: 20%;
 		bottom: 38px;
@@ -193,11 +197,10 @@ img.svg{
 	margin: 0px 10px 0px 0px;
 	display: inline-block;
 }
-	.lp-social_wrap ul li {
+.lp-social_wrap ul li {
 		margin: 15px;
 		display: inline-block;
 	}
-
 .social_wrap ul li:last-child{margin-right: 0px;}
 .social_wrap ul li a {
 		text-decoration: none;
@@ -211,7 +214,7 @@ img.svg{
 .social_wrap ul li a:hover {
 			color: #f74742;
 		}
-	.arlo_tm_leftpart_wrap .arlo_tm_resize {
+.arlo_tm_leftpart_wrap .arlo_tm_resize {
 		position: absolute;
 		right: 0px;
 		bottom: 20%;
@@ -229,7 +232,7 @@ img.svg{
 		-o-transition: all .3s ease;
 		transition: all .3s ease;
 	}
-		.arlo_tm_leftpart_wrap .arlo_tm_resize:hover {
+.arlo_tm_leftpart_wrap .arlo_tm_resize:hover {
 			background-color: #f74742;
 		}
 .arlo_tm_leftpart_wrap .arlo_tm_resize.opened{right: -30px;}
@@ -352,7 +355,7 @@ img.svg{
 	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
-	.arlo_tm_universal_box_wrap .overlay_image.hero {
+.arlo_tm_universal_box_wrap .overlay_image.hero {
 /*		background-image: url(../img/hero/2.jpg);*/
 		background-color: #000000;
 	}
@@ -380,7 +383,7 @@ img.svg{
 	display: inline-block;
 	margin-bottom: 38px;
 }
-	.arlo_tm_hero_header_wrap .image_wrap img {
+.arlo_tm_hero_header_wrap .image_wrap img {
 		border-radius: 100%;
 		border: 5px solid rgb(255 255 255);
 	}
@@ -392,7 +395,7 @@ img.svg{
 	font-size: 50px;
 	font-weight: bolder;
 }
-	.arlo_tm_hero_header_wrap .name_holder h3 span {
+.arlo_tm_hero_header_wrap .name_holder h3 span {
 		color: #f84b42;
 		font-family: "REM", sans-serif;
 		font-optical-sizing: auto;
@@ -409,7 +412,7 @@ img.svg{
 	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
-	.arlo_tm_hero_header_wrap .text_typing p {
+.arlo_tm_hero_header_wrap .text_typing p {
 		color: #fff;
 		font-size: 24px;
 		font-family: "REM", sans-serif;
@@ -3156,11 +3159,13 @@ img.svg{
 	overflow: hidden;
 }
 
-	.polaroid__content-image > img {
+	.polaroid__content-image .img {
 		height: 100%;
 		width: 100%;
 		display: block;
 		object-fit: cover;
+		vertical-align: middle;
+		max-width: 100%;
 	}
 
 .polaroid__content-caption {
