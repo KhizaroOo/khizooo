@@ -111,12 +111,12 @@
 
                                 if (MyPreviousArt != null)
                                 {
-                                    <a href="@MyPreviousArt.URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
+                                    <a href="@MyPreviousArt.URL" target="_self" title="@MyPreviousArt.Heading" class="btn btn-sm btn-outline-dark SelfOpen" @onclick="PreviousWork" style="float:left">Previous Work</a>
                                 }
 
                                 if (MyNextArt != null)
                                 {
-                                    <a href="@MyNextArt.URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
+                                    <a href="@MyNextArt.URL" target="_self" title="@MyNextArt.Heading" class="btn btn-sm btn-outline-dark SelfOpen" @onclick="NextWork" style="float:right">Next Work</a>
                                 }
                                 else
                                 {

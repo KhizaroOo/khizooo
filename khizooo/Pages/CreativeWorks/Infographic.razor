@@ -57,7 +57,7 @@
                                         foreach (khizooo.AppData.Infographic infographic in MyAllInfographics)
                                         {
                                             <li>
-                                                <a href="@((MarkupString)infographic.URL)" title="@((MarkupString)infographic.Title)" target="_blank">
+                                                <a href="@((MarkupString)infographic.URL)" title="@((MarkupString)infographic.Title)" target="_self">
                                                     <div class="inner lp-card lp-infographic-card-border">
                                                         <div class="title_service">
                                                             <h6>@((MarkupString)infographic.Title)</h6>
@@ -88,5 +88,14 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
     List<khizooo.AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
 
 }

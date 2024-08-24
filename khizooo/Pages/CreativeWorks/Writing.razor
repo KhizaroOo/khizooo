@@ -48,35 +48,55 @@
 
                 <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
                     <div class="container">
-                            <div class="row">
-                                <div class="list_wrap_writing">
-                                    <ul>
-                                        @{
-                                            foreach (khizooo.AppData.Writing writing in MyAllWritings)
-                                            {
-                                                <li>
-                                                    <a href="@((MarkupString)writing.URL)" title="@((MarkupString)writing.Title)" target="_blank">
-                                                        <div class="inner lp-card lp-writing-card-border">
-                                                            <div class="title_service">
-                                                                <h6>@((MarkupString)writing.Title)</h6>
-                                                            </div>
-                                                            <p class="subtitle">@((MarkupString)writing.SubTitle)</p>
-                                                            <p class="createddate">@((MarkupString)writing.CreatedOn)</p>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            }
-                                        }
-                                    </ul>
+                        <hr class="soften">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-2">
+                                <!--!--><h5 style="text-align: right;margin-bottom: 10px;color: #f74142;font-size: 18px;">
+                                    Filter Collections
+                                </h5>
+                                <div class="form-group">
+                                    <select class="selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
+                                        <option>All Collections</option><!--!-->
+                                        <option>Ketchup</option><!--!-->
+                                        <option>Relish</option>
+                                    </select><span style="text-align: end;display: block;color: #6985fc;font-size: 12px;">2 Collections</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
+                    <div class="container">
+                        <div class="row">
+                            <div class="list_wrap_writing">
+                                <ul>
+                                    @{
+                                        foreach (khizooo.AppData.Writing writing in MyAllWritings)
+                                        {
+                                            <li>
+                                                <a href="@((MarkupString)writing.URL)" title="@((MarkupString)writing.Title)" target="_self">
+                                                    <div class="inner lp-card lp-writing-card-border">
+                                                        <div class="title_service">
+                                                            <h6>@((MarkupString)writing.Title)</h6>
+                                                        </div>
+                                                        <p class="subtitle">@((MarkupString)writing.SubTitle)</p>
+                                                        <p class="createddate">@((MarkupString)writing.CreatedOn)</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
-        <!-- /WRITING -->
-    </div>
+                </div>
+                <!-- /WRITING -->
+            </div>
 </div>
 <!-- /MAIN CONTENT END -->
 
@@ -85,5 +105,15 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
     List<khizooo.AppData.Writing> MyAllWritings = new MyWritings().GetMyWritings(1000);
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+           // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
 
 }

@@ -1,5 +1,8 @@
 ﻿@page "/"
 
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
 @using khizooo.Pages.PartialViews;
 @using khizooo.AppData;
 
@@ -80,7 +83,7 @@
 
                             </div>
                             <div class="rightbox" style="width:60%">
-                              
+
                                 <div class="definition">
                                     <p>
                                         Hi! My name is <strong>Khizar Imtiaz</strong>.
@@ -181,7 +184,7 @@
                     <div class="list_wrap">
                         <ul>
                             <li>
-                                <a href="/creative-works/artwork" title="My Artworks">
+                                <a target="_self" href="/creative-works/artwork" title="My Artworks">
                                     <div class="inner lp-card lp-artwork-card">
                                         <div class="title_service">
                                             <h3>
@@ -195,7 +198,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/infographic" title="My Infographic">
+                                <a target="_self" href="/creative-works/infographic" title="My Infographic">
                                     <div class="inner lp-card lp-infographic-card">
                                         <div class="title_service">
                                             <h3>
@@ -209,7 +212,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/toolbox" title="My Toolbox">
+                                <a target="_self" href="/creative-works/toolbox" title="My Toolbox">
                                     <div class="inner lp-card lp-toolbox-card">
                                         <div class="title_service">
                                             <h3>
@@ -223,7 +226,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/writing" title="My Writing">
+                                <a target="_self" href="/creative-works/writing" title="My Writing">
                                     <div class="inner lp-card lp-writing-card">
                                         <div class="title_service">
                                             <h3>
@@ -237,7 +240,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/timeline" title="My Timelines">
+                                <a target="_self" href="/creative-works/timeline" title="My Timelines">
                                     <div class="inner lp-card lp-timeline-card">
                                         <div class="title_service">
                                             <h3>
@@ -251,7 +254,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/codevault" title="My Code Vault">
+                                <a target="_self" href="/creative-works/codevault" title="My Code Vault">
                                     <div class="inner lp-card lp-codevault-card">
                                         <div class="title_service">
                                             <h3>CODEVAULT</h3>
@@ -263,7 +266,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/freebie" title="My Freebie">
+                                <a target="_self" href="/creative-works/freebie" title="My Freebie">
                                     <div class="inner lp-card lp-freebie-card">
                                         <div class="title_service">
                                             <h3>FREEBIE</h3>
@@ -275,7 +278,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/creative-works/synopsis" title="My Synopsis">
+                                <a target="_self" href="/creative-works/synopsis" title="My Synopsis">
                                     <div class="inner lp-card lp-synopsis-card">
                                         <div class="title_service">
                                             <h3>SYNOPSIS</h3>
@@ -300,5 +303,14 @@
 @code {
 
     KhizoOo Me = new KhizoOo();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+          // await JSRuntime.InvokeVoidAsync("LoadScripts", "theme/js/init.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
 
 }
