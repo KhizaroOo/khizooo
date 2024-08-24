@@ -2,12 +2,6 @@ jQuery(document).ready(function(){
 
 	"use strict";
 	
-	// here all ready functions
-	
-	
-
-	
-	
 	jQuery(window).on('scroll',function(){
 		//e.preventDefault();
 		arlo_tm_totop_myhide();
@@ -45,7 +39,6 @@ jQuery(document).ready(function(){
 			arlo_tm_totop();
 			arlo_tm_totop_myhide();
 
-			arlo_tm_popup_blog();
 			arlo_tm_popupscroll();
 			//arlo_tm_animate_text();
 			//arlo_tm_about_animation();
@@ -57,15 +50,32 @@ jQuery(document).ready(function(){
 		}, 1000);
 	});
 
+	//function HandleLinkClick(event) {
+	//	event.preventDefault();
+	//	var target = $(event.target);
+	//	if (target.is('a')) {
+	//		if (target.hasClass('SelfOpen')) {
+	//			window.location.href = target.attr('href');
+	//		} else if (target.hasClass('NewOpen')) {
+	//			window.open(target.attr('href'), '_blank');
+	//		}
+	//	}
+	//	else {
+	//		var parent = target.closest('.SelfOpen, .NewOpen');
+
+	//		if (parent.length > 0) {
+	//			if (parent.hasClass('SelfOpen')) {
+	//				window.location.href = parent.find('a').attr('href');
+	//			} else if (parent.hasClass('NewOpen')) {
+	//				window.open(parent.find('a').attr('href'), '_blank');
+	//			}
+	//		}
+	//	}
+	//}
+
+	//$(document).on('click', HandleLinkClick);
+
 });
-
-// -----------------------------------------------------
-// --------------------  FUNCTIONS  --------------------
-// -----------------------------------------------------
-
-// -----------------------------------------------------
-// ---------------    IMAGE TO SVG    ------------------
-// -----------------------------------------------------
 
 function arlo_tm_imgtosvg(){
 	
@@ -97,10 +107,6 @@ function arlo_tm_imgtosvg(){
 	});
 }
 
-// -----------------------------------------------------
-// --------------    RESPONSIVE    ---------------------
-// -----------------------------------------------------
-
 function arlo_tm_responsive(){
 	
 	"use strict";
@@ -117,10 +123,6 @@ function arlo_tm_responsive(){
 		rightpart.removeClass('full');
 	}
 }
-
-// -----------------------------------------------------
-// --------------    MAGNIFIC POPUP    -----------------
-// -----------------------------------------------------
 
 function arlo_tm_magnific_popup(){
 	
@@ -165,10 +167,6 @@ function arlo_tm_magnific_popup(){
 	});
 }
 
-// -----------------------------------------------------
-// --------------------    JARALLAX    -----------------
-// -----------------------------------------------------
-
 function arlo_tm_jarallax(){
 	
 	"use strict";
@@ -190,10 +188,6 @@ function arlo_tm_jarallax(){
 	});
 }
 
-// -------------------------------------------------
-// ---------    PERSONAL LIST HEIGHT    ------------
-// -------------------------------------------------
-
 function arlo_tm_list_height(){
 	
 	"use strict";
@@ -203,13 +197,6 @@ function arlo_tm_list_height(){
 	
 	list.after("<div class='clearfix'></div>");
 }
-
-
-// -------------------------------------------------
-// -----------------    PORTFOLIO    ---------------
-// -------------------------------------------------
-
-// filterable 
 
 function arlo_tm_portfolio(){
 
@@ -269,11 +256,6 @@ function arlo_tm_projects() {
 	});
 }
 
-
-// -----------------------------------------------------
-// ------------    ANCHOR NAVIGATION    ----------------
-// -----------------------------------------------------
-
 function arlo_tm_anchor() {
 	"use strict";
 	jQuery('.anchor_nav').onePageNav();
@@ -290,10 +272,6 @@ function arlo_tm_anchor() {
 		return false;	
 	});
 }
-
-// -----------------------------------------------------
-// ----------------    CONTACT FORM    -----------------
-// -----------------------------------------------------
 
 function arlo_tm_contact_form(){
 	"use strict";
@@ -328,10 +306,6 @@ function arlo_tm_contact_form(){
 		return false; 
 	});
 }
-
-// -----------------------------------------------------
-// --------------------    OWL CAROUSEL    -------------
-// -----------------------------------------------------
 
 function arlo_tm_owl_carousel(){
 	
@@ -381,17 +355,9 @@ function arlo_tm_owl_carousel(){
 	});
 }
 
-// -----------------------------------------------------
-// --------------------    WOW JS    -------------------
-// -----------------------------------------------------
+new WOW().init();
 
- new WOW().init();
-
-// -----------------------------------------------------
-// -----------------    PROGRESS BAR    ----------------
-// -----------------------------------------------------
-
-function tdProgress(container){
+function tdProgress(container) {
 
 	"use strict";
 
@@ -405,17 +371,14 @@ function tdProgress(container){
 		setTimeout(function(){pBarWrap.addClass('open');},(i*500));
 	});
 }
+
 jQuery('.arlo_tm_progress_wrap').each(function() {
 	"use strict";
 	var pWrap 			= jQuery(this);
 	pWrap.waypoint({handler: function(){tdProgress(pWrap);},offset:'90%'});	
 });
 
-// -----------------------------------------------------
-// -----------------    MINI BOXES    ------------------
-// -----------------------------------------------------
-
- function arlo_tm_miniboxes(){
+function arlo_tm_miniboxes(){
 	 
   "use strict";
 	 
@@ -444,10 +407,6 @@ jQuery('.arlo_tm_progress_wrap').each(function() {
   }
  }
 
-// -----------------------------------------------------
-// --------------    ISOTOPE MASONRY    ----------------
-// -----------------------------------------------------
-
 function arlo_tm_isotope(){
 	
 	"use strict";
@@ -459,10 +418,6 @@ function arlo_tm_isotope(){
 		}
 	});
 }
-
-// -----------------------------------------------------
-// --------------------    TOTOP    --------------------
-// -----------------------------------------------------
 
 function arlo_tm_totop(){
 	
@@ -490,9 +445,6 @@ function arlo_tm_totop_myhide(){
 		}
 	}
 }
-// -------------------------------------------------
-// -------------   ANIMATE TEXT  -------------------
-// -------------------------------------------------
 
 function arlo_tm_animate_text(){
 	"use strict";
@@ -505,48 +457,6 @@ function arlo_tm_animate_text(){
 			backDelay: 2e3
 		});
 }
-
-// -----------------------------------------------------
-// -------------------    POPUP BLOG    ----------------
-// -----------------------------------------------------
-
-function arlo_tm_popup_blog(){
-	"use strict";
-	var li				= jQuery('.arlo_tm_list_wrap.blog_list .inner_list');
-	var popupBox		= jQuery('#arlo_tm_popup_blog');
-	var popupInner		= popupBox.find('.inner_popup');
-	var closePopup		= popupBox.find('.close');
-	
-	li.each(function(){
-		var element		= jQuery(this);
-		var button		= element.find('.read_more a,.title_holder a,.link_news');
-		var html		= element.html();
-		var mainImage	= element.find('.news_image');
-		var imgData		= mainImage.data('url');
-		var title		= element.find('.title_holder h3');
-		var titleHref	= element.find('.title_holder h3 a').html();
-		
-		mainImage.css({backgroundImage: 'url('+imgData+')'});
-		button.on('click',function(){
-			popupBox.addClass('opened');
-			popupInner.html(html);
-			mainImage = popupInner.find('.news_image');
-			mainImage.css({backgroundImage: 'url('+imgData+')'});
-			title = popupInner.find('.title_holder h3');
-			title.html(titleHref);
-			return false;
-		});
-	});
-	closePopup.on('click',function(){
-		popupBox.removeClass('opened');
-		popupInner.html('');
-		return false;
-	});
-}
-
-// -----------------------------------------------------
-// -------------    WIDGET MENU SCROLL -----------------
-// -----------------------------------------------------
 
 function arlo_tm_popupscroll(){
 	
@@ -574,10 +484,6 @@ function arlo_tm_popupscroll(){
 	});
 }
 
-// -------------------------------------------------
-// -------------  SLIDER KENBURN  ------------------
-// -------------------------------------------------
-
 function arlo_tm_kenburn_slider(){
 	
 	"use strict";
@@ -598,10 +504,6 @@ function arlo_tm_kenburn_slider(){
 	});
 }
 
-// -------------------------------------------------
-// -------------  RIPPLE  --------------------------
-// -------------------------------------------------
-
 function arlo_tm_ripple(){
 	
 	"use strict";
@@ -617,11 +519,6 @@ function arlo_tm_ripple(){
 			perturbance: 0.04
 		});
 }
-
-
-// -----------------------------------------------------
-// -----------------    SWITCHER    --------------------
-// -----------------------------------------------------
 
 function arlo_tm_switcher(){
 	
@@ -660,10 +557,6 @@ function arlo_tm_switcher(){
 
 }
 
-// -----------------------------------------------------
-// -------------------    COUNTER    -------------------
-// -----------------------------------------------------
-
 jQuery('.arlo_tm_counter').each(function() {
 
 	"use strict";
@@ -684,10 +577,6 @@ jQuery('.arlo_tm_counter').each(function() {
 	});
 });
 
-// -----------------------------------------------------
-// ---------------   DATA IMAGES    --------------------
-// -----------------------------------------------------
-
 function arlo_tm_data_images(){
 	
 	"use strict";
@@ -701,11 +590,7 @@ function arlo_tm_data_images(){
 	});
 }
 
-// -----------------------------------------------------
-// -------------    PARALLAX ANIMATION    --------------
-// -----------------------------------------------------
-
-	function arlo_tm_about_animation(){
+function arlo_tm_about_animation(){
 		
 		"use strict";
 		
@@ -717,10 +602,6 @@ function arlo_tm_data_images(){
 		  } });
 		}
 	}
-
-// -----------------------------------------------------
-// ---------------  HAMBURGER  -------------------------
-// -----------------------------------------------------
 
 function arlo_tm_hamburger(){
 	
