@@ -1,7 +1,8 @@
 ﻿@page "/creative-works/artwork/detail/{id:int}/{slug}"
 @inject NavigationManager NavigationManager
+
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
-@using khizooo.Pages.PartialViews;
 
 <PageTitle>Khizooo - Artworks</PageTitle>
 <HeadContent>
@@ -46,7 +47,7 @@
                         <div class="short_list">
 
                             <table class="table table-bordered border-primary">
-                               
+
                                 <tbody>
                                     <tr>
                                         <th scope="row" style="width:25%;">ID</th>
@@ -77,31 +78,31 @@
 
 
                             @*<ul>
-                                <li>
-                                    <span class="first">ID :</span>
-                                    <span class="second">@(MyArtDetail.ID)</span>
-                                </li>
-                                <li>
-                                    <span class="first">SLUG :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Slug)</span>
-                                </li>
-                                <li>
-                                    <span class="first">TYPE :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Type)</span>
-                                </li>
-                                <li>
-                                    <span class="first">CATEGORY :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Category)</span>
-                                </li>
-                                <li>
-                                    <span class="first">TAGS :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.Tags)</span>
-                                </li>
-                                <li>
-                                    <span class="first">CREATION DATE :</span>
-                                    <span class="second">@((MarkupString)MyArtDetail.CreatedOn)</span>
-                                </li>
-                            </ul>*@
+                                    <li>
+                                        <span class="first">ID :</span>
+                                        <span class="second">@(MyArtDetail.ID)</span>
+                                    </li>
+                                    <li>
+                                        <span class="first">SLUG :</span>
+                                        <span class="second">@((MarkupString)MyArtDetail.Slug)</span>
+                                    </li>
+                                    <li>
+                                        <span class="first">TYPE :</span>
+                                        <span class="second">@((MarkupString)MyArtDetail.Type)</span>
+                                    </li>
+                                    <li>
+                                        <span class="first">CATEGORY :</span>
+                                        <span class="second">@((MarkupString)MyArtDetail.Category)</span>
+                                    </li>
+                                    <li>
+                                        <span class="first">TAGS :</span>
+                                        <span class="second">@((MarkupString)MyArtDetail.Tags)</span>
+                                    </li>
+                                    <li>
+                                        <span class="first">CREATION DATE :</span>
+                                        <span class="second">@((MarkupString)MyArtDetail.CreatedOn)</span>
+                                    </li>
+                                </ul>*@
                         </div>
 
                         <p style="text-align: justify; margin-top: 25px;">@((MarkupString)MyArtDetail.Desription)</p>

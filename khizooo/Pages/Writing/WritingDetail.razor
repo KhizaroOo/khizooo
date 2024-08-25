@@ -1,9 +1,9 @@
 ﻿@page "/creative-works/writing/detail/{id:int}/{slug}"
 
 @inject NavigationManager NavigationManager
+
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
-@using khizooo.Pages.PartialViews;
-@using static khizooo.AppData.SharedHelper;
 
 <PageTitle>@MyWritingDetail.SeoTitle</PageTitle>
 <HeadContent>
@@ -65,6 +65,7 @@
         font-size: 14px;
         color: #009688;
     }
+
     .w-h3 {
         font-size: 12px;
         color: #ff9800;
@@ -74,7 +75,6 @@
         font-size: 14px;
         color: #242422;
     }
-
 </style>
 
 

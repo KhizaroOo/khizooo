@@ -1,5 +1,12 @@
 ﻿namespace khizooo.AppData
 {
+
+    public class ToolBoxType
+    {
+        public long ID { get; set; }
+        public string Title { get; set; }
+    }
+
     public class ToolBox
     {
         public long ID { get; set; }
@@ -16,6 +23,7 @@
         public string VIDEO { get; set; }
         public string Desription { get; set; }
         public string Type { get; set; }
+        public long ToolBoxTypeID { get; set; }
         public string Category { get; set; }
         public string CreatedOn { get; set; }
 
@@ -38,7 +46,13 @@
 
     public class MyToolBoxes
     {
-        
+
+        private List<ToolBoxType> ToolBoxTypes = new List<ToolBoxType>(){
+            new ToolBoxType() { ID = 0 , Title = "All"},
+            new ToolBoxType() { ID = 1 , Title = "UI/UX"},
+            new ToolBoxType() { ID = 2 , Title = "Generators"}
+        };
+
         private List<ToolBox> MyAllToolBoxes = new List<ToolBox>()
         {
             new ToolBox()
@@ -55,6 +69,7 @@
                   VIDEO = "",
                   Desription = "",
                   Type = "ToolBox",
+                  ToolBoxTypeID = 1,
                   Category = "UI/UX",
                   CreatedOn = "1st MAR 2024",
 
@@ -71,7 +86,7 @@
                   PreviousWorkID = 0,
                   NextWorkID = 2
               },
-              new ToolBox()
+            new ToolBox()
            {
                   ID = 2,
                   URL = "/creative-works/toolbox/2/password-generator",
@@ -80,11 +95,12 @@
                   DataGroup = "[\"all\",\"Generator\"]",
                   Heading = "Password Generator | ToolBox",
                   Title = "Password Generator",
-                  SubTitle = "Password Generator - ToolBox",
+                  SubTitle = "Generator - ToolBox",
                   IMG = "images/mytoolboxes/Password-Generator.png",
                   VIDEO = "",
                   Desription = "",
                   Type = "ToolBox",
+                  ToolBoxTypeID = 2,
                   Category = "Generator",
                   CreatedOn = "1st MAY 2024",
 
@@ -128,6 +144,13 @@
         {
             ToolBox Data = new ToolBox();
             Data = MyAllToolBoxes.FirstOrDefault(A => A.ID == ID && A.Slug == Slug);
+            return Data;
+        }
+
+        public List<ToolBoxType> Get_ToolBox_Types()
+        {
+            List<ToolBoxType> Data = new List<ToolBoxType>();
+            Data = ToolBoxTypes.ToList();
             return Data;
         }
 

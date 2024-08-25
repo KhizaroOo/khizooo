@@ -1,5 +1,6 @@
 ﻿@page "/creative-works/toolbox"
-@using khizooo.Pages.PartialViews;
+
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Toolbox</PageTitle>
@@ -37,17 +38,30 @@
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
-
         <!-- TOOLBOX -->
         <div class="arlo_tm_section relative" id="Toolbox">
             <div class="arlo_tm_services_wrap">
-
                 <div class="arlo_tm_title_holder portfolio">
                     <h3 class="lp-toolbox">Toolbox</h3>
                     <span>Discover the essential web tools and resources, which will surely help your web experience.</span>
-                </div>
-
-                <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
+                    <hr class="soften">
+                    <div class="container" style="margin-bottom:25px">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-2">
+                                <h5 style="text-align: right;margin-bottom: 10px;color: #f74142;font-size: 14px;">Toolbox Types</h5>
+                                <div class="form-group">
+                                    <select class="selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
+                                        @{
+                                            foreach (ToolBoxType toolBoxType in ToolBoxTypes)
+                                            {
+                                                <option value="@toolBoxType.ID">@toolBoxType.Title</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container">
                         <div class="row">
                             <div class="list_wrap_toolbox">
@@ -73,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- /TOOLBOX -->
@@ -87,13 +100,14 @@
 
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
-    List<khizooo.AppData.ToolBox> MyAllToolsBox = new MyToolBoxes().GetMyToolBoxes(1000);
+    List<AppData.ToolBox> MyAllToolsBox = new MyToolBoxes().GetMyToolBoxes(1000);
+    List<ToolBoxType> ToolBoxTypes = new MyToolBoxes().Get_ToolBox_Types();
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-           // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+            // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
         }
         catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
     }

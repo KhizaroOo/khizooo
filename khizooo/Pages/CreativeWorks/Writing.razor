@@ -1,5 +1,6 @@
 ﻿@page "/creative-works/writing"
-@using khizooo.Pages.PartialViews;
+
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
 
 <PageTitle>Khizooo - Writing</PageTitle>
@@ -25,11 +26,14 @@
 <style>
     .subtitle {
         text-align: right;
+        color: var(--writing) !important;
+        font-weight: 300;
     }
     .createddate {
         text-align: right;
-        margin-top: 15px;
-        font-weight: 700;
+        margin-top: 0px;
+        font-weight: 600;
+        color: var(--theme_font_color) !important;
     }
 </style>
 
@@ -44,29 +48,24 @@
                 <div class="arlo_tm_title_holder portfolio">
                     <h3 class="lp-writing">Writing</h3>
                     <span>Read my writings where creativity meets insight, covering many topics with unique perspective.</span>
-                </div>
-
-                <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
-                    <div class="container">
-                        <hr class="soften">
+                    <hr class="soften">
+                    <div class="container" style="margin-bottom:25px">
                         <div class="row justify-content-end">
                             <div class="col-sm-2">
-                                <!--!--><h5 style="text-align: right;margin-bottom: 10px;color: #f74142;font-size: 18px;">
-                                    Filter Collections
-                                </h5>
+                                <h5 style="text-align: right; margin-bottom: 10px; color: #f74142; font-size: 14px;">Writing Types</h5>
                                 <div class="form-group">
                                     <select class="selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
-                                        <option>All Collections</option><!--!-->
-                                        <option>Ketchup</option><!--!-->
-                                        <option>Relish</option>
-                                    </select><span style="text-align: end;display: block;color: #6985fc;font-size: 12px;">2 Collections</span>
+                                        @{
+                                            foreach (WritingType writingType in WritingTypes)
+                                            {
+                                                <option value="@writingType.ID">@writingType.Title</option>
+                                            }
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
                     <div class="container">
                         <div class="row">
                             <div class="list_wrap_writing">
@@ -92,11 +91,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-                </div>
-                <!-- /WRITING -->
-            </div>
+        </div>
+        <!-- /WRITING -->
+    </div>
 </div>
 <!-- /MAIN CONTENT END -->
 
@@ -104,14 +102,14 @@
 
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
-    List<khizooo.AppData.Writing> MyAllWritings = new MyWritings().GetMyWritings(1000);
-
+    List<AppData.Writing> MyAllWritings = new MyWritings().GetMyWritings(1000);
+    List<WritingType> WritingTypes = new MyWritings().Get_Writing_Types();
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-           // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+            // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
         }
         catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
     }

@@ -1,7 +1,8 @@
 ﻿@page  "/creative-works/infographic"
 
-@using khizooo.Pages.PartialViews;
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
+
 
 <PageTitle>Khizooo - Infographics</PageTitle>
 <HeadContent>
@@ -38,17 +39,30 @@
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
     <div class="rightpart_inner">
-
         <!-- INFPGRAPHIC -->
         <div class="arlo_tm_section relative" id="Infographics">
             <div class="arlo_tm_services_wrap">
-
                 <div class="arlo_tm_title_holder portfolio">
                     <h3 class="lp-infographic">Infographic</h3>
                     <span>Discover my visually engaging infographics, which is designed to simplify complex information.</span>
-                </div>
-
-                <div class="arlo_tm_second_portfolio" style="margin-top: 40px">
+                    <hr class="soften">
+                    <div class="container" style="margin-bottom:25px">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-2">
+                                <h5 style="text-align: right;margin-bottom: 10px;color: #f74142;font-size: 14xwpx;">Infographic Types</h5>
+                                <div class="form-group">
+                                    <select class="selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
+                                        @{
+                                            foreach (InfographicType infographicType in InfographicTypes)
+                                            {
+                                                <option value="@infographicType.ID">@infographicType.Title</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container">
                         <div class="row">
                             <div class="list_wrap_infographic">
@@ -74,11 +88,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- /INFPGRAPHIC -->
-
     </div>
 </div>
 <!-- /MAIN CONTENT END -->
@@ -87,7 +99,8 @@
 
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
-    List<khizooo.AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
+    List<AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
+    List<InfographicType> InfographicTypes = new MyInfographics().Get_Infographic_Types();
 
     protected override async Task OnInitializedAsync()
     {

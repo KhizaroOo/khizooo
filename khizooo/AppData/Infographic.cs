@@ -1,14 +1,14 @@
-﻿using static khizooo.AppData.SharedHelper;
-using System.Collections.Generic;
-using Microsoft.VisualBasic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Diagnostics;
-using System.Resources;
-using System.Transactions;
+﻿
+using khizooo.AppData.SharedHelper;
 
 namespace khizooo.AppData
 {
 
+    public class InfographicType
+    {
+        public long ID { get; set; }
+        public string Title { get; set; }
+    }
 
     public class Infographic
     {
@@ -27,6 +27,7 @@ namespace khizooo.AppData
         public string VIDEO { get; set; }
         public string Desription { get; set; }
         public string Type { get; set; }
+        public long InfographicTypeID { get; set; }
         public string Category { get; set; }
         public string CreatedOn { get; set; }
 
@@ -48,6 +49,7 @@ namespace khizooo.AppData
         public string SeoKeyWords { get; set; }
         public string SeoDescription { get; set; }
 
+
         // PENDINGS
         public long ModuleID { get; set; }
         public string PunchLine { get; internal set; }
@@ -55,7 +57,12 @@ namespace khizooo.AppData
 
     public class MyInfographics
     {
-  
+
+        private List<InfographicType> InfographicTypes = new List<InfographicType>(){
+            new InfographicType() { ID = 0 , Title = "All"},
+            new InfographicType() { ID = 1 , Title = "Blockchain"}
+        };
+
         private List<Infographic> MyAllInfographics = new List<Infographic>()
         {
         new Infographic()
@@ -68,6 +75,7 @@ namespace khizooo.AppData
             Heading = "How Blockchain Works? - Blockchain - Infographic",
             IMG = "infographics/blockchain/how-blockchain-works.jpg",
             Type = "Infographic",
+            InfographicTypeID = 1,
             Category = "Technologies",
             CreatedOn = "1st AUG 2023",
 
@@ -165,6 +173,7 @@ namespace khizooo.AppData
             Heading = "Blockchain Use-Cases In Finance Infographic - Blockchain - Infographic",
             IMG = "infographics/blockchain/blockchain-use-cases-in-finance.jpg",
             Type = "Infographic",
+            InfographicTypeID = 1,
             Category = "Technologies",
             CreatedOn = "3rd MAR 2024",
 
@@ -257,6 +266,7 @@ namespace khizooo.AppData
             Heading = "Blockchain Products - Blockchain - Infographic",
             IMG = "infographics/blockchain/blockchain-products.jpg",
             Type = "Infographic",
+            InfographicTypeID = 1,
             Category = "Technologies",
             CreatedOn = "3rd AUG 2024",
 
@@ -422,7 +432,13 @@ namespace khizooo.AppData
             return Data;
         }
 
+        public List<InfographicType> Get_Infographic_Types()
+        {
+            List<InfographicType> Data = new List<InfographicType>();
+            Data = InfographicTypes.ToList();
+            return Data;
+        }
+
     }
 
 }
-

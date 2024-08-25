@@ -1,9 +1,9 @@
 ﻿@page "/creative-works/infographic/detail/{id:int}/{slug}"
 
 @inject NavigationManager NavigationManager
+
+@using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
-@using khizooo.Pages.PartialViews;
-@using static khizooo.AppData.SharedHelper;
 
 <PageTitle>@MyInfographicDetail.SeoTitle</PageTitle>
 <HeadContent>
@@ -32,6 +32,7 @@
         font-weight: 700;
         color: var(--infographic) !important;
     }
+
     .answer {
         margin-bottom: 25px;
         font-size: 12px;
@@ -68,7 +69,7 @@
                                         <p class="answer">@KT.Answer</p>
                                     }
                                 }
-                                
+
                             </div>
                             <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
                                 <div class="images_list">
