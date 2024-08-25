@@ -5,21 +5,19 @@ jQuery(document).ready(function(){
 	jQuery(window).on('scroll',function(){
 		//e.preventDefault();
 		arlo_tm_totop_myhide();
-		
 	});
 	
 	jQuery(window).on('resize',function(){
 		arlo_tm_miniboxes();
 		arlo_tm_isotope();
 		arlo_tm_responsive();
-		
 	});
 
 	jQuery(window).on("load", function () {
 
 		setTimeout(function () {
-			arlo_tm_animate_text();
-			arlo_tm_about_animation();
+			//arlo_tm_animate_text();
+			//arlo_tm_about_animation();
 			arlo_tm_switcher();
 			arlo_tm_hamburger();
 			arlo_tm_portfolio();
@@ -49,31 +47,6 @@ jQuery(document).ready(function(){
 
 		}, 1000);
 	});
-
-	//function HandleLinkClick(event) {
-	//	event.preventDefault();
-	//	var target = $(event.target);
-	//	if (target.is('a')) {
-	//		if (target.hasClass('SelfOpen')) {
-	//			window.location.href = target.attr('href');
-	//		} else if (target.hasClass('NewOpen')) {
-	//			window.open(target.attr('href'), '_blank');
-	//		}
-	//	}
-	//	else {
-	//		var parent = target.closest('.SelfOpen, .NewOpen');
-
-	//		if (parent.length > 0) {
-	//			if (parent.hasClass('SelfOpen')) {
-	//				window.location.href = parent.find('a').attr('href');
-	//			} else if (parent.hasClass('NewOpen')) {
-	//				window.open(parent.find('a').attr('href'), '_blank');
-	//			}
-	//		}
-	//	}
-	//}
-
-	//$(document).on('click', HandleLinkClick);
 
 });
 
@@ -535,7 +508,8 @@ function arlo_tm_switcher(){
 			switcherIcon.removeClass('opened');
 			leftPart.removeClass('opened');
 			rightPart.removeClass('opened');
-		}else{
+		}
+		else {
 			switcherOpener.addClass('opened');
 			switcherIcon.addClass('opened');
 			leftPart.addClass('opened');
