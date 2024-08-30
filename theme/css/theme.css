@@ -1280,8 +1280,8 @@ img.svg {
                     clear: both;
                     float: left;
                     position: relative;
-                    box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
-                    padding: 15px 15px 15px 15px;
+                    box-shadow: 3px 3px 5px rgb(0 0 0 / 55%);
+                    padding: 10px 15px 10px 15px;
                     top: 0px;
                     -webkit-transition: all .3s ease;
                     -moz-transition: all .3s ease;
@@ -1291,8 +1291,9 @@ img.svg {
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
                     box-sizing: border-box;
-                    border: 2px solid var(--toolbox) !important;
-                    color: var(--toolbox) !important;
+                    border: 2px solid #000000 !important;
+                    color: #000000 !important;
+                    border-radius: 5px;
                 }
 
                     .arlo_tm_services_wrap .list_wrap_toolbox ul li .inner:hover {
@@ -1311,17 +1312,16 @@ img.svg {
 
                 .arlo_tm_services_wrap .list_wrap_toolbox ul li .title_service {
                     margin-bottom: 15px;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid #000000;
                 }
 
                     .arlo_tm_services_wrap .list_wrap_toolbox ul li .title_service h6 {
-                        
-                        
-                        font-size: 16px;
-                        font-weight: 800;
-                        line-height: 2;
+                        font-size: 13px;
+                        font-weight: 500;
+                        line-height: 1.8;
                         text-align: right;
+                        color: #000000;
                     }
     /* ToolBox */
 
@@ -1358,8 +1358,8 @@ img.svg {
                     clear: both;
                     float: left;
                     position: relative;
-                    box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
-                    padding: 15px 15px 15px 15px;
+                    box-shadow: 3px 3px 5px rgb(0 0 0 / 55%);
+                    padding: 10px 15px 10px 15px;
                     top: 0px;
                     -webkit-transition: all .3s ease;
                     -moz-transition: all .3s ease;
@@ -1369,8 +1369,9 @@ img.svg {
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
                     box-sizing: border-box;
-                    border: 2px solid var(--infographic) !important;
-                    color: var(--infographic) !important;
+                    border: 2px solid #000000 !important;
+                    color: #000000 !important;
+                    border-radius: 5px;
                 }
 
                     .arlo_tm_services_wrap .list_wrap_infographic ul li .inner:hover {
@@ -1389,17 +1390,16 @@ img.svg {
 
                 .arlo_tm_services_wrap .list_wrap_infographic ul li .title_service {
                     margin-bottom: 15px;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid #000000;
                 }
 
                     .arlo_tm_services_wrap .list_wrap_infographic ul li .title_service h6 {
-                        
-                        
-                        font-size: 16px;
-                        font-weight: 800;
-                        line-height: 2;
+                        font-size: 13px;
+                        font-weight: 500;
+                        line-height: 1.8;
                         text-align: right;
+                        color: #000000;
                     }
     /* Infograohic */
 
