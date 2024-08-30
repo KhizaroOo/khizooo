@@ -135,11 +135,14 @@
              });
         };
 
+        window.LoadGoogleScripts();
+        console.log("Google Scripts Loaded");
+
         window.myApp = {
             init: function () {
                 console.log("Application fully loaded and initialized");
 
-                window.LoadGoogleScripts();
+                //window.LoadGoogleScripts();
                 console.log("Google Scripts Loaded");
 
                 setTimeout(function () {
