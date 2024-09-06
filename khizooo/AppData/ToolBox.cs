@@ -56,7 +56,7 @@
         private List<ToolBox> MyAllToolBoxes = new List<ToolBox>()
         {
             new ToolBox()
-           {
+            {
                   ID = 1,
                   URL = "/creative-works/toolbox/1/color-contrast-checker",
                   Tags = "[\"ToolBox\",\"UI/UX\"]",
@@ -65,7 +65,7 @@
                   Heading = "Color Contrast Checker - UI/UX - ToolBox",
                   Title = "Color Contrast Checker",
                   SubTitle = "UI/UX | ToolBox",
-                  IMG = "images/mytoolboxes/Color-Contrast-Checker.png",
+                  IMG = "images/mytoolboxes/color-contrast-checker.png",
                   VIDEO = "",
                   Desription = "",
                   Type = "ToolBox",
@@ -87,7 +87,7 @@
                   NextWorkID = 2
               },
             new ToolBox()
-           {
+            {
                   ID = 2,
                   URL = "/creative-works/toolbox/2/password-generator",
                   Tags = "[\"ToolBox\",\"creative-works/toolbox/2/password-generator\"]",
@@ -96,7 +96,7 @@
                   Heading = "Password Generator | ToolBox",
                   Title = "Password Generator",
                   SubTitle = "Generator - ToolBox",
-                  IMG = "images/mytoolboxes/Password-Generator.png",
+                  IMG = "images/mytoolboxes/password-generator.png",
                   VIDEO = "",
                   Desription = "",
                   Type = "ToolBox",
@@ -116,6 +116,37 @@
 
                   PreviousWorkID = 1,
                   NextWorkID = 3
+            },
+            new ToolBox()
+            {
+                  ID = 3,
+                  URL = "/creative-works/toolbox/3/gradient-color-generator",
+                  Tags = "[\"ToolBox\",\"creative-works/toolbox/3/gradient-color-generator\"]",
+                  Slug = "Gradient-Color-Generator",
+                  DataGroup = "[\"all\",\"Generator\"]",
+                  Heading = "Gradient Color Generator | ToolBox",
+                  Title = "Gradient Color Generator",
+                  SubTitle = "Generator - ToolBox",
+                  IMG = "images/mytoolboxes/gradient-color-generator.png",
+                  VIDEO = "",
+                  Desription = "",
+                  Type = "ToolBox",
+                  ToolBoxTypeID = 2,
+                  Category = "Generator",
+                  CreatedOn = "1st AUG 2024",
+
+                  Facebook = "",
+                  Instagram = "",
+                  LinkedIn = "",
+                  YouTube = "",
+                  OpenSea = "",
+                  Twitter = "",
+                  TikTok = "",
+                  Pinterest = "",
+                  Snapchat = "",
+
+                  PreviousWorkID = 2,
+                  NextWorkID = 4
               }
         };
 
