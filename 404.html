@@ -94,16 +94,16 @@
                 document.head.appendChild(script1);
 
                 // Google GTAG
-                //var script2 = document.createElement('script');
-                //script2.textContent = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'GT-55BQQC8');`;
-                //document.head.appendChild(script2);
+                var script2 = document.createElement('script');
+                script2.textContent = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'GT-55BQQC8');`;
+                document.head.appendChild(script2);
 
                 // Google Page Ads
-                //var script3 = document.createElement('script');
-                //script3.async = true;
-                //script3.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1199865962852645";
-                //script3.crossOrigin = "anonymous";
-                //document.head.appendChild(script3);
+                var script3 = document.createElement('script');
+                script3.async = true;
+                script3.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1199865962852645";
+                script3.crossOrigin = "anonymous";
+                document.head.appendChild(script3);
 
                 // Google Site Verification
                 var meta = document.createElement('meta');
@@ -112,47 +112,45 @@
                 document.head.appendChild(meta);
 
                 // Google GTM
-    //            var script4 = document.createElement('script');
-    //            script4.textContent = `(function (w, d, s, l, i) {
-    //    w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); 
-    //    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
-    //    j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
-    //    f.parentNode.insertBefore(j, f);
-    //})(window, document, 'script', 'dataLayer', 'GTM-5T8552FX');`;
-    //            document.head.appendChild(script4);
+                var script4 = document.createElement('script');
+                script4.textContent = `(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); 
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
+                j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5T8552FX');`;
+                document.head.appendChild(script4);
 
                 // Google Tag Manager
-                //var noscript = document.createElement('noscript');
-                //var iframe = document.createElement('iframe');
-                //iframe.src = "https://www.googletagmanager.com/ns.html?id=GTM-5T8552FX";
-                //iframe.height = 0;
-                //iframe.width = 0;
-                //iframe.style.display = "none";
-                //iframe.style.visibility = "hidden";
-                //noscript.appendChild(iframe);
-                //document.body.appendChild(noscript);
+                var noscript = document.createElement('noscript');
+                var iframe = document.createElement('iframe');
+                iframe.src = "https://www.googletagmanager.com/ns.html?id=GTM-5T8552FX";
+                iframe.height = 0;
+                iframe.width = 0;
+                iframe.style.display = "none";
+                iframe.style.visibility = "hidden";
+                noscript.appendChild(iframe);
+                document.body.appendChild(noscript);
 
              });
         };
-
-        window.LoadGoogleScripts();
-        console.log("Google Scripts Loaded");
 
         window.myApp = {
             init: function () {
                 console.log("Application fully loaded and initialized");
 
-                //window.LoadGoogleScripts();
-                console.log("Google Scripts Loaded");
-
                 setTimeout(function () {
+
+                    window.LoadGoogleScripts();
+                    console.log("Google Scripts Loaded");
+
                     jQuery(".FullLoader").addClass("Loader-Loaded");
                     console.log("Full Screen Loader Removed");
+
                 }, 2000);
 
             }
         };
-
 
         Blazor.start().then(function () {
             window.myApp.init();
