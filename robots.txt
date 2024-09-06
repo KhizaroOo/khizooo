@@ -1,31 +1,9 @@
 # Allow all web crawlers access to the site
 User-agent: *
-
-# Disallow access to these directories
-Disallow: /_framework/
-Disallow: /_content/
-Disallow: /_blazor/
-Disallow: /obj/
-Disallow: /bin/
-
-# Allow access to dynamic Blazor content
-Allow: /index.html
-Allow: /css/
-Allow: /js/
-Allow: /images/
-Allow: /lib/
-Allow: /infographic/
-Allow: /toolbox/
-
-# Disallow access to any private directories (if any)
-Disallow: /private/
-Disallow: /admin/
+Allow: /
 
 # Sitemaps
 Sitemap: https://khizooo.com/Sitemap.xml
 Sitemap: https://khizooo.com/Toolbox-Sitemap.xml
 Sitemap: https://khizooo.com/Infographic-Sitemap.xml
-
-# Block specific user agents (if necessary)
-User-agent: BadBot
-Disallow: /
+Sitemap: https://khizooo.com/Writing-Sitemap.xml
