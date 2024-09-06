@@ -1,8 +1,6 @@
-# Allow all web crawlers access to the site
 User-agent: *
 Allow: /
 
-# Sitemaps
 Sitemap: https://khizooo.com/Sitemap.xml
 Sitemap: https://khizooo.com/Toolbox-Sitemap.xml
 Sitemap: https://khizooo.com/Infographic-Sitemap.xml
