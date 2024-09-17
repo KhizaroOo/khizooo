@@ -29,6 +29,23 @@ jQuery(document).ready(function(){
 	});
 
 
+	/* Creative Works List Page Select Box */
+
+	$("body").on('change', '.select-creative-work', function () {
+		const SelectedCreativeWorkType = $(this).val();
+
+		if (SelectedCreativeWorkType == "0") {
+			$('[data-creative-type]').removeClass("d-none");
+		}
+		else {
+			$('[data-creative-type]').addClass("d-none");
+			$('[data-creative-type="' + SelectedCreativeWorkType + '"]').removeClass("d-none");
+		}
+
+	});
+
+	/* Creative Works List Page Select Box */
+
 
 });
 
@@ -193,4 +210,4 @@ function arlo_tm_hamburger(){
 		}
 		return false;
 	});
-}
+} 

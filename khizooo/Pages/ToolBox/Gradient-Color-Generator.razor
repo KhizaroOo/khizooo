@@ -8,25 +8,99 @@
 <PageTitle>Khizooo - Toolbox</PageTitle>
 <HeadContent>
 
-    <meta name="keywords" content="toolbox, creative art, color contrast checker, web accessibility, design tools, development tools, contrast widget, khizooo">
-    <meta name="description" content="Use the Color Contrast Checker by Khizooo to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try our widget!">
+    <meta name="keywords" content="gradient generator, color gradient, online gradient maker, linear gradient tool, radial gradient generator, CSS gradient, web design, graphic design, khizooo">
+    <meta name="description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions.">
 
     <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
-    <meta property="og:description" content="Use the Color Contrast Checker by Khizooo to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try my widget!">
+    <meta property="og:description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions. Try my widget!">
     <meta property="og:image" content="images/SEO/OG-Image.png">
     <meta property="og:url" content="https://www.khizooo.com/Artwork">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
-    <meta name="twitter:description" content="Use the Color Contrast Checker by Khizooo to ensure your website's colors meet accessibility standards. Perfect for designers and developers. Try my widget!">
+    <meta name="twitter:description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions. Try my widget!">
     <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Lato|Montserrat|Oswald|Source+Sans+Pro|Raleway|Poppins|Ubuntu|Merriweather|Noto+Sans|Nunito|Quicksand|Playfair+Display|Mukta|Libre+Baskerville|Rubik|Bebas+Neue|PT+Sans|Muli|Righteous|Arimo|Dosis|Indie+Flower|Pacifico|Cabin|Titillium+Web|Abel|Anton|Baloo+2|Bree+Serif|Cairo|Comfortaa|Caveat|Dancing+Script|Fira+Sans|Great+Vibes|IBM+Plex+Sans|Inconsolata|Josefin+Sans|Kalam|Kanit|Karma|Lobster|Maven+Pro|Merriweather|Noto+Serif|Oxygen|PT+Serif&display=swap">
 
-    <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
 </HeadContent>
 
+<style>
+
+    .gcg-style {
+        width: 520px;
+        background: #fff;
+        padding: 15px;
+        position: relative;
+        border: 2px solid #010101;
+    }
+
+    .gcg-style i {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+        .gcg-style i:active {
+            transform: rotate(45deg);
+        }
+
+        .gcg-style .gradientColorBox {
+            height: 315px;
+            width: 100%;
+            border: 2px solid #010101;
+            background: linear-gradient(to left top, #9acd32, #daff44);
+        }
+
+        .gcg-style p {
+            font-size: 14px;
+            margin: 5px 0;
+            font-weight: 600;
+        }
+
+        .gcg-style select {
+            height: 50px;
+            padding: 0 10px;
+            line-height: 50px;
+            border: 2px solid black;
+            cursor: pointer;
+            width: 100%;
+        }
+
+    .gcg-style .colorContainer {
+        margin: 10px 0;
+    }
+
+        .gcg-style .colorContainer .colors {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    .gcg-style .colors input {
+        width: 49%;
+        height: 50px;
+        border: 2px solid black;
+        padding: 4px;
+    }
+
+        .gcg-style textarea {
+            color: black;
+            width: 100%;
+            height: 60px;
+            font-size: 12px;
+            resize: none;
+            margin: 10px 0;
+            border: 2px solid black;
+        }
+
+        .gcg-style .button {
+            display: flex;
+            justify-content: end;
+            margin: 5px;
+        }
+</style>
 
 <!-- MAIN CONTENT START -->
 <div class="arlo_tm_rightpart">
@@ -46,14 +120,132 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                                <div class="container gcg-style">
+                                    <div class="gradientColorBox"></div>
 
+                                    <div class="GradientType">
+                                        <p>Gradient Type</p>
+                                        <select>
+                                            <option value="linear">Linear Gradient</option>
+                                            <option value="radial">Radial Gradient</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="direction">
+                                        <p>Direction</p>
+                                        <select>
+                                            <option value="to top" selected>Top</option>
+                                            <option value="to right top">Right top</option>
+                                            <option value="to right">Right</option>
+                                            <option value="to right bottom">Right bottom</option>
+                                            <option value="to bottom">Bottom</option>
+                                            <option value="to left bottom">Left bottom</option>
+                                            <option value="to left">Left</option>
+                                            <option value="to left top">Left top</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="position">
+                                        <p>Position</p>
+                                        <select>
+                                            <option value="center" selected>Center</option>
+                                            <option value="top">Top</option>
+                                            <option value="right top">Top-Right</option>
+                                            <option value="right">Right</option>
+                                            <option value="right bottom">Bottom-Right</option>
+                                            <option value="bottom">Bottom</option>
+                                            <option value="left bottom">Bottom-Left</option>
+                                            <option value="left">Left</option>
+                                            <option value="left top">Top-Left</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="blendMode">
+                                        <p>Blend Mode</p>
+                                        <input type="color" value="#7d560f" style="width:100%;margin-bottom:10px;">
+                                        <select>
+                                            <option value="normal" selected>Normal</option>
+                                            <option value="multiply">Multiply</option>
+                                            <option value="screen">Screen</option>
+                                            <option value="overlay">Overlay</option>
+                                            <option value="darken">Darken</option>
+                                            <option value="lighten">Lighten</option>
+                                            <option value="color-dodge">Color Dodge</option>
+                                            <option value="color-burn">Color Burn</option>
+                                            <option value="hard-light">Hard Light</option>
+                                            <option value="soft-light">Soft Light</option>
+                                            <option value="difference">Difference</option>
+                                            <option value="exclusion">Exclusion</option>
+                                            <option value="hue">Hue</option>
+                                            <option value="saturation">Saturation</option>
+                                            <option value="color">Color</option>
+                                            <option value="luminosity">Luminosity</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="colorContainer">
+                                        <p>Colors</p>
+                                        <div class="colors">
+                                            <input type="color" value="#9acd32">
+                                            <input type="color" value="#daff44">
+                                        </div>
+                                    </div>
+
+                                    <textarea disabled>background: linear-gradient(to left top, #9acd32, #daff44);</textarea>
+                                    <div class="button">
+                                        <button class="btn btn-danger button refreshBtn">Recolor</button>
+                                        <button class="btn btn-success button copyBtn">Copy Code</button>
+
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            
+                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-7 col-sm-12 col-xs-12">
+
+                                <div class="container gradient-generator">
+                                    <p>
+                                        A powerful yet simple tool designed for creators, developers, and designers who want to build captivating backgrounds for websites, apps, or digital artwork. Whether you're looking for sleek linear gradients or striking radial effects, this tool gives you full control over your designs.
+                                    </p>
+                                    <br>
+                                    <h3 style="margin-bottom:5px">Features</h3>
+                                    <ul>
+                                        <li><strong>Linear and Radial Gradients</strong> - Effortlessly switch between two of the most popular gradient types. Choose a linear gradient for smooth transitions in any direction, or a radial gradient for a circular color effect.</li>
+                                        <li><strong>Full Direction and Position Control</strong> - In linear gradients, easily adjust the direction from top to bottom, left to right, or even at a diagonal. For radial gradients, position your color center precisely where you want – center, corners, or anywhere in between.</li>
+                                        <li><strong>Custom Color Selection</strong> - Pick the perfect colors for your gradients. Use the built-in color picker to select any color from the spectrum, or enter your custom hex codes directly.</li>
+                                        <li><strong>Live Preview</strong> - Instantly see your gradient take shape in the preview box as you adjust the colors, direction, or position.</li>
+                                        <li><strong>Random Gradient Generator</strong> - Feeling creative or need inspiration? Use the "Refresh" button to generate random gradients with new colors every time.</li>
+                                        <li><strong>Copy Code</strong> - Once you've created the perfect gradient, simply click "Copy Code" to copy the CSS for easy use in your projects.</li>
+                                    </ul>
+                                    <br>
+                                    <h3 style="margin-bottom:5px">How to Use</h3>
+                                    <div class="how-to-use">
+                                        <ol>
+                                            <li><strong>Select Gradient Type:</strong> Choose between <strong>Linear Gradient</strong> and <strong>Radial Gradient</strong>. The interface adapts to your selection, showing either direction options (for linear) or position controls (for radial).</li>
+                                            <li><strong>Choose Colors:</strong> Use the color pickers to select your starting and ending colors. The preview box will update in real-time as you make your selections.</li>
+                                            <li>
+                                                <strong>Set Direction or Position:</strong>
+                                                <ul>
+                                                    <li>For <strong>linear gradients</strong>, pick from predefined directions such as top-to-bottom or diagonal flows.</li>
+                                                    <li>For <strong>radial gradients</strong>, choose a position for the gradient's center point.</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Preview &amp; Copy:</strong> Once you're happy with the design, click <strong>Copy Code</strong> to grab the CSS and use it in your web projects instantly!</li>
+                                        </ol>
+                                    </div>
+                                    <br>
+                                    <h3 style="margin-bottom:5px">Why Use Gradient Generator?</h3>
+                                    <p>
+                                        This tool provides maximum flexibility with an intuitive interface, making it perfect for users of all skill levels. Whether you're designing a sleek modern UI or creating custom backgrounds for your personal projects, our gradient generator is designed to save time while delivering professional-quality results.
+                                    </p>
+
+
+
+                                </div>
+
 
                             </div>
                         </div>
-
                     </div>
 
                 </div>
@@ -80,7 +272,6 @@
     {
         try
         {
-            await JSRuntime.InvokeVoidAsync("LoadScripts", "toolbox/js/gradient-color-picker-plugin.js");
             await JSRuntime.InvokeVoidAsync("LoadScripts", "toolbox/js/gradient-color-picker.js");
         }
         catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }

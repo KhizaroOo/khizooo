@@ -1,105 +1,96 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
-	let presets = window.localStorage.getItem('presets');
-	let colorPresets = { custom: [] };
-	let gradientPresets = { custom: [] };
+    const $gradientType = $('.GradientType select');
+    const $direction = $('.direction');
+    const $position = $('.position');
+    const $blendMode = $('.blendMode');
+    const $colorInputs = $('.colors input');
+    const $blendColorInputs = $('.blendMode input');
+    const $gradientColorBox = $('.gradientColorBox');
+    const $textarea = $('textarea');
+    const $refreshBtn = $('.refreshBtn');
+    const $copyBtn = $('.copyBtn');
 
-	// maybe override the built-in default presets as well
-	/*
-		colorPresets.defaults = ['red', 'blue'];
-		gradientPresets.defaults = ['linear-gradient(white, black)', radial-gradient(red, blue)];
-	*/
+    $position.hide();
 
-	if (presets) {
-		try {
-			presets = JSON.parse(presets);
-		} catch (e) {
-			presets = null;
-		}
-		if (presets) {
-			const {
-				colorPresets: customColors,
-				gradientPresets: customGradients,
-			} = presets;
+    function generateGradient(isRandom) {
+        const gradientType = $gradientType.val();
+        const direction = $('.direction select').val();
+        const position = $('.position select').val();
+        const selectedBlendMode = $('.blendMode select').val();
+        const color1 = $colorInputs.eq(0).val();
+        const color2 = $colorInputs.eq(1).val();
+        const color3 = $blendColorInputs.eq(0).val();
 
-			colorPresets.custom = customColors;
-			gradientPresets.custom = customGradients;
-		}
-	}
+        let gradient_css = '';
+        let blend_css = `background-blend-mode: ${selectedBlendMode};`;
 
-	// callback for when custom presets are saved or deleted
-	const onSaveDeletePreset = ({
-		action, // "save" or "delete"
-		groupChanged, // "color" or "gradient"
-		colorPresets, // the current custom color presets array
-		gradientPresets, // the current custom gradient presets array
-	}) => {
-		// or save to your databsase here
-		window.localStorage.setItem('presets', JSON.stringify({
-			colorPresets,
-			gradientPresets,
-		}));
-	};
+        if (gradientType === 'linear') {
+            gradient_css = `linear-gradient(${direction}, ${color1}, ${color2})`;
+        } else {
+            gradient_css = `radial-gradient(circle at ${position}, ${color1}, ${color2})`;
+        }
 
-	// set the value of your input field when the color changes 
-	// (the App DOES NOT write to your input field intentionally)
-	const onColorChange = (input, color) => input.value = color;
+        let CSS = `background: ${gradient_css}, ${color3};\n${blend_css}`;
+        $gradientColorBox.css({
+            'background': `${gradient_css}, ${color3}`,
+            'background-blend-mode': selectedBlendMode
+        });
 
-	// initial call with custom settings
-	window.advColorPicker({
-		// "full" = all controls, "single" = only color controls (no gradients) -- default: "full"
-		mode: 'full',
+        $textarea.val(CSS);
+    }
 
-		// the size of the color picker swatches -- default: 24
-		size: 24,
 
-		// the color pickjer swatch skin, "classic" or "light" -- default: "classic"
-		skin: 'classic',
+    $gradientType.on('change', function () {
+        if ($(this).val() === 'linear') {
+            $direction.show();
+            $position.hide();
+        } else {
+            $direction.hide();
+            $position.show();
+        }
+        generateGradient(false);
+    });
 
-		// optional color for the modal background -- default: "rgba(0,0,0,0.5)"
-		modalBgColor: 'rgba(0,0,0,0.5)',
+    $direction.on('change', function () {
+        generateGradient(false);
+    });
 
-		// optional id attribute to to apply to the editor's outermost wrapper - default: null
-		editorId: true,
+    $position.on('change', function () {
+        generateGradient(false);
+    });
 
-		// allow multi-color stops in output -- default: true
-		// multi-color stops allow for condensed output but are not supported in Edge
-		multiStops: true,
+    $blendMode.on('change', function () {
+        generateGradient(false);
+    });
 
-		// allow conic gradients (only supported in webkit browsers) -- default: true
-		conic: true,
+    $blendColorInputs.on('input', function () {
+        generateGradient(false);
+    });
 
-		// show the default warning note for conic gradients (if conic is enabled) -- default: false
-		conicNote: true,
+    $colorInputs.on('input', function () {
+        generateGradient(false);
+    });
 
-		// show the bar at the bottom of the screen displaying the final output value -- default: false
-		outputBar: true,
+    $refreshBtn.on('click', function () {
+        $colorInputs.eq(0).val(getRandomColor());
+        $colorInputs.eq(1).val(getRandomColor());
+        generateGradient(false);
+    });
 
-		// color change callback function (see above)
-		onColorChange,
+    $copyBtn.on('click', function () {
+        navigator.clipboard.writeText($textarea.val());
+        $copyBtn.text('Code Copied');
+        setTimeout(function () {
+            $copyBtn.text('Copy Code');
+        }, 2000);
+    });
 
-		// default and/or custom color presets: { defaults: [], custom: [] }
-		colorPresets,
+    function getRandomColor() {
+        const randomHexColor = Math.floor(Math.random() * 0xffffff).toString(16);
+        return `#${randomHexColor.padStart(6, '0')}`;
+    }
 
-		// default and/or gradient presets: { defaults: [], custom: [] }
-		gradientPresets,
-
-		// save/delete preset callback function (see above)
-		onSaveDeletePreset,
-	});
-
-	const pageContentChange = () => {
-		const input = document.createElement('input');
-		input.type = 'hidden';
-		input.className = 'cj-colorpicker';
-		input.value = 'green';
-		document.body.appendChild(input);
-		window.advColorPicker();
-	};
-
-	const input = document.querySelector('.cj-colorpicker');
-	input.value = "linear-gradient(blue,red)";
-	input.click();
+    generateGradient(false);
 
 });

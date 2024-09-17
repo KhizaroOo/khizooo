@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
     <meta property="twitter:url" content="https://www.khizooo.com/creative-works/writing">
 
-    <meta name="google-site-verification" content="tPPq9BHgWFlHRRBE_jnKnbh0LlRxe50ArDoWoX8RfNM" />
+    
 </HeadContent>
 
 <style>
@@ -54,7 +54,7 @@
                             <div class="col-sm-2">
                                 <h5 style="text-align: right; margin-bottom: 10px; color: #f74142; font-size: 14px;">Writing Types</h5>
                                 <div class="form-group">
-                                    <select class="selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
+                                    <select class="select-creative-work selectpicker form-control" style="border: 2px solid #000000;color: #000000;text-align: end;">
                                         @{
                                             foreach (WritingType writingType in WritingTypes)
                                             {
@@ -73,7 +73,7 @@
                                     @{
                                         foreach (khizooo.AppData.Writing writing in MyAllWritings)
                                         {
-                                            <li>
+                                            <li data-creative-type="@writing.WritingTypeID">
                                                 <a href="@((MarkupString)writing.URL)" title="@((MarkupString)writing.Title)" target="_self">
                                                     <div class="inner lp-card lp-writing-card-border">
                                                         <div class="title_service">
