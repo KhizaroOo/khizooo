@@ -2887,7 +2887,7 @@ img.svg {
     height: auto;
     clear: both;
     float: left;
-    padding-top: 55px;
+    padding-top: 25px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box; /* Firefox, other Gecko */
     box-sizing: border-box; /* Opera/IE 8+ */
@@ -3967,5 +3967,5 @@ hr.soften {
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
     border: 0;
     margin-bottom: 25px;
-    margin-top: 50px;
+    margin-top: 45px;
 }
