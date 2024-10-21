@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "khizooo",
   "resources": {
-    "hash": "sha256-cxPUQJH4JLjtcnXlBC3r8JvPbP3GVTa3WKtX2Vwq1lM=",
+    "hash": "sha256-hxYF4poCsp2rci8zalMIshGGHxRMVqjy3WssCE3vxvA=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.4xsnm8lwn6.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "khizooo.wasm": "sha256-xs71fYY4wbFveVr+/0GueO9kdJa2wH4AVTVWKf/lBRM=",
+      "khizooo.wasm": "sha256-1biSnpVCfzIr1pu3I7jnUIT6u9R+SJmXY+JH/djmwb0=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-oqBLefoCbniDP8jQUVDv37kcHzUMyiN8ja1JUkshduA=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-yIDCaedP0R+3sgdSNR/KgxZCcz7dZNWUqdMSTGjxY9c=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-LYJGTqka6p2RaQhwjm0nbX5muzjO6rM8oTE9uoUmGBs=",
