@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.khizooo.com/Sitemap.xml
-Sitemap: https://www.khizooo.com/Toolbox-Sitemap.xml
-Sitemap: https://www.khizooo.com/Infographic-Sitemap.xml
-Sitemap: https://www.khizooo.com/Writing-Sitemap.xml
+Sitemap: https://khizooo.com/sitemap.xml
+Sitemap: https://khizooo.com/toolbox-sitemap.xml
+Sitemap: https://khizooo.com/infographic-sitemap.xml
+Sitemap: https://khizooo.com/writing-sitemap.xml
