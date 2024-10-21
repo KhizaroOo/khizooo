@@ -1,13 +1,13 @@
 ﻿RewriteEngine On
 
-RewriteCond %{HTTP_HOST} ^khizooo.com [NC]
-RewriteRule ^(.*)$ https://khizooo.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www.khizooo.com [NC]
+RewriteRule ^(.*)$ https://www.khizooo.com/$1 [L,R=301]
 
-RewriteCond %{HTTP_HOST} ^khizooo.com [NC]
-RewriteRule ^(.*)$ https://khizooo.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www.khizooo.com [NC]
+RewriteRule ^(.*)$ https://www.khizooo.com/$1 [L,R=301]
 
-RewriteCond %{HTTP_HOST} ^http://khizooo.com [NC]
-RewriteRule ^(.*)$ https://khizooo.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^http://www.khizooo.com [NC]
+RewriteRule ^(.*)$ https://www.khizooo.com/$1 [L,R=301]
 
-RewriteCond %{HTTP_HOST} ^http://khizooo.com [NC]
-RewriteRule ^(.*)$ https://khizooo.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^http://www.khizooo.com [NC]
+RewriteRule ^(.*)$ https://www.khizooo.com/$1 [L,R=301]
