@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.khizooo.com/sitemap.xml
-Sitemap: https://www.khizooo.com/toolbox-sitemap.xml
-Sitemap: https://www.khizooo.com/infographic-sitemap.xml
-Sitemap: https://www.khizooo.com/writing-sitemap.xml

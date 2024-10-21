@@ -17,7 +17,7 @@
         public string NickName = "KhizoOo";
         public string CurrentCity = "Lahore";
 
-        public string FullBio = "I'm a person who really enjoys learning about new and cool technologies, and I also love creating art to express emotions. You can discover this awesome mix of art and tech on my website, khizooo.com.\n\nTake a look at some beautiful art, explore my portfolio, read interesting blogs about technology, find useful bits of code, and enjoy the magic of learning through visuals.\n\nIn a world filled with lots of information, we believe that learning is more fun when it's visual. I make detailed pictures and graphics that help explain complicated ideas and make learning exciting.\n\nCome along on this journey where creativity and innovation come together!";
+        public string FullBio = "I'm a person who really enjoys learning about new and cool technologies, and I also love creating art to express emotions. You can discover this awesome mix of art and tech on my website, www.khizooo.com.\n\nTake a look at some beautiful art, explore my portfolio, read interesting blogs about technology, find useful bits of code, and enjoy the magic of learning through visuals.\n\nIn a world filled with lots of information, we believe that learning is more fun when it's visual. I make detailed pictures and graphics that help explain complicated ideas and make learning exciting.\n\nCome along on this journey where creativity and innovation come together!";
         public string ShortBio = "By Luck, A Tech Guy  < - - - -  KHIZOOO  - - - - >  By Nature, An Artist";
         public string Birthdate = "1991-09-12 | 12 Sep 1991";
         public string AddressOne = "Kashmir House - 273, P-Block, Model Town, Lahore, Punjab, Pakistan";
