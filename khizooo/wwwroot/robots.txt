@@ -1,4 +1,9 @@
 User-agent: *
+Disallow: /wp-admin/  # Disallow only the admin section if applicable
 Allow: /
 
 Sitemap: https://www.khizooo.com/sitemap.xml
+
+
+
+
