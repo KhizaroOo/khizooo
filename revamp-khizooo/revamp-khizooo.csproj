@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>revamp_khizooo</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Content Remove="wwwroot\css\" />
+    <Content Remove="wwwroot\js\" />
+    <Content Remove="wwwroot\img\" />
+    <Content Remove="wwwroot\images\landingpage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="Views\Shared\PV\" />
+    <Folder Include="Views\Home\PV\" />
+    <Folder Include="Views\Home\PV\LP\" />
+    <Folder Include="Views\LandingPage\" />
+    <Folder Include="wwwroot\images\landingpage\" />
+    <Folder Include="Views\Portfolio\" />
+    <Folder Include="Views\Portfolio\PV\" />
+    <Folder Include="Views\Artwork\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Shared\PV\" />
+    <None Remove="Views\Home\PV\" />
+    <None Remove="Views\Home\PV\LP\" />
+    <None Remove="Views\LandingPage\" />
+    <None Remove="Views\Portfolio\" />
+    <None Remove="Views\Portfolio\PV\" />
+    <None Remove="Views\Artwork\" />
+  </ItemGroup>
+</Project>

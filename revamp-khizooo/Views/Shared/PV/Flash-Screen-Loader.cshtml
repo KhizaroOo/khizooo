@@ -1,0 +1,204 @@
+﻿<style>
+    #simulation {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: #ddd;
+    }
+
+    .insect {
+        position: absolute;
+        transform-origin: center;
+        transition: transform 0s;
+        z-index: 2;
+    }
+
+    .insect-shadow {
+        position: absolute;
+        opacity: 0.2;
+        transform-origin: center;
+        z-index: 1;
+        filter: blur(3px)
+    }
+
+    .insect-dark {
+        filter: grayscale(1);
+    }
+</style>
+
+<div id="loading">
+    <div id="loading-center">
+        <div id=simulation></div>
+        @*<div class="loader">
+            <div class="cube">
+                <div class="sides">
+                    <div class="top"></div>
+                    <div class="right"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="front"></div>
+                    <div class="back"></div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+
+<script>
+    const simulation = document.getElementById('simulation');
+const SIZE = 32;
+
+const pick = arr => arr[Math.random()*arr.length|0];
+const smoothstep = t => t * t * (3.0 - 2.0 * t);
+
+class Insect {
+  constructor(emoji) {
+    this.el = document.createElement('div');
+    this.shadow = document.createElement('div');
+
+    this.el.innerHTML = emoji;
+    this.el.style.fontSize = `${SIZE}px`;
+    this.el.classList.add('insect');
+    this.el.classList.toggle('insect-dark', Math.random() > 0.8);
+    this.shadow.innerHTML = emoji;
+    this.shadow.style.fontSize = `${SIZE*0.9}px`;
+    this.shadow.classList.add('insect-shadow');
+
+    this.x = Math.random() * (simulation.clientWidth - 30);
+    this.y = Math.random() * (simulation.clientHeight - 30);
+    this.angle = Math.random() * 360;
+    this.speed = 1 + Math.random() * 1.5;
+    this.stateTime = 0;
+    this.flyTarget = null;
+    this.flySpeed = 1 - Math.random() * 0.5;
+    this.flyProgress = 0;
+    this.flyStartPos = null;
+    this.flyHeight = 0;
+    this.walkTurn = -5 + Math.random() * 10;
+
+    simulation.append(this.shadow, this.el);
+    
+    this.updatePosition();
+    this.setState(pick(['idle','idle','idle','walk']));
+  }
+
+  setState(state) {
+    this.state = state;
+    this.stateTime = 0;
+
+    if (state === 'idle') {
+      this.idleDuration = 100 + Math.random() * 3000;
+    } else if (state === 'walk') {
+      this.angle = Math.random() * 360;
+      this.walkTurn = -5 + Math.random() * 10;
+    } else if (state === 'fly') {
+      this.flyStartPos = { x: this.x, y: this.y };
+      this.flyTarget = {
+        x: Math.random() * (simulation.clientWidth - 30),
+        y: Math.random() * (simulation.clientHeight - 30)
+      };
+      this.flyProgress = 0;
+      this.flyHeight = 30 + Math.random() * 50;
+    }
+  }
+
+  updatePosition() {
+    const t = this.flyProgress;
+    const height = 4 * t * (1 - t) * this.flyHeight;
+    let angle = this.angle + 90;
+    this.el.style.transform = `translate(${this.x}px, ${this.y - height}px) rotate(${angle}deg)`;
+    this.shadow.style.transform = `translate(${this.x}px, ${this.y + SIZE*0.2}px) rotate(${angle}deg)`;
+  }
+
+  update(dt, bugs) {
+    this.stateTime += dt;
+
+    if (this.state === 'idle') {
+      if (this.stateTime > this.idleDuration) {
+        this.setState(Math.random() > 0.2 ? 'walk' : 'fly');
+      }
+      if (Math.random() > 0.99) this.angle = Math.random() * 360;
+    } else if (this.state === 'walk') {
+      const radians = this.angle * Math.PI / 180;
+      const dx = Math.cos(radians) * this.speed;
+      const dy = Math.sin(radians) * this.speed;
+
+      this.x += dx;
+      this.y += dy;
+      
+      this.angle += this.walkTurn * dt / 100;
+
+      // bound check
+      if (this.x < 0 || this.x > simulation.clientWidth - 30 || 
+          this.y < 0 || this.y > simulation.clientHeight - 30) {
+        this.angle = (this.angle + 180 + (Math.random() * 60 - 30)) % 360;
+      }
+
+      for (const bug of bugs) {
+        if (bug !== this && bug.state !== 'fly') {
+          const dx = bug.x - this.x;
+          const dy = bug.y - this.y;
+          const distance = dx * dx + dy * dy;
+          if (distance < SIZE**2) {
+            this.angle = (this.angle + 90 + Math.random() * 180) % 360;
+            if (Math.random() < 0.3) {
+              this.setState('idle');
+            }
+            break;
+          }
+        }
+      }
+
+      if (this.stateTime > 5000 && Math.random() < 0.01) {
+        this.setState(Math.random() > 0.7 ? 'idle' : 'walk');
+      }
+      if (Math.random() > 0.93) this.walkTurn = -5 + Math.random() * 10;
+      if (Math.random() > 0.93) this.angle += -10 + Math.random() * 20;
+    } else if (this.state === 'fly') {
+      this.flyProgress += dt / 1000 * this.flySpeed;
+
+      if (this.flyProgress >= 1) {
+        this.x = this.flyTarget.x;
+        this.y = this.flyTarget.y;
+        this.setState(pick(['idle','idle','walk']));
+      } else {
+        // Bezier curve flight path
+        const t = smoothstep(this.flyProgress);
+        const u = 1 - t;
+
+        // Quadratic bezier
+        const midX = (this.flyStartPos.x + this.flyTarget.x) / 2;
+        const midY = (this.flyStartPos.y + this.flyTarget.y) / 2 - this.flyHeight;
+        this.x = u * u * this.flyStartPos.x + 2 * u * t * midX + t * t * this.flyTarget.x;
+        this.y = u * u * this.flyStartPos.y + 2 * u * t * midY + t * t * this.flyTarget.y;
+
+        const dx = 2 * u * (midX - this.flyStartPos.x) + 2 * t * (this.flyTarget.x - midX);
+        const dy = 2 * u * (midY - this.flyStartPos.y) + 2 * t * (this.flyTarget.y - midY);
+        this.angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        const height = 4 * t * (1 - t) * this.flyHeight;
+        this.el.style.zIndex = Math.floor(height) + 2;
+        this.shadow.style.opacity = Math.max(0.05, 0.2 - height / 300);
+        this.shadow.style.transform = `scale(${1 + height/100})`;
+      }
+    }
+
+    this.updatePosition();
+  }
+}
+
+
+const bugs = Array.from({ length: 42 }, () => new Insect("🐞"));
+
+let lastTime = performance.now();
+const animate = (time = 0.0) => {
+  const dt = time - lastTime;
+  bugs.forEach(bug => bug.update(dt, bugs));
+  lastTime = time;
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
