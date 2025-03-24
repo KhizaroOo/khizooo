@@ -26,6 +26,9 @@
     <Folder Include="Views\Portfolio\" />
     <Folder Include="Views\Portfolio\PV\" />
     <Folder Include="Views\Artwork\" />
+    <Folder Include="Views\Infographic\" />
+    <Folder Include="Views\Writing\" />
+    <Folder Include="Views\Toolbox\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Shared\PV\" />
@@ -35,5 +38,8 @@
     <None Remove="Views\Portfolio\" />
     <None Remove="Views\Portfolio\PV\" />
     <None Remove="Views\Artwork\" />
+    <None Remove="Views\Infographic\" />
+    <None Remove="Views\Writing\" />
+    <None Remove="Views\Toolbox\" />
   </ItemGroup>
 </Project>

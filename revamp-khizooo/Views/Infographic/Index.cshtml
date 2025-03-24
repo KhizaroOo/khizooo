@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Artwork";
+}
+
+<style>
+    .image-container {
+        position: relative;
+        background-color: transparent;
+        border-radius: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .image-container img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        padding: 10px 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .image-container:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .image-overlay p {
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+</style>
+
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <h1 class="mb-2">MY INFOGRAPHICS</h1>
+                        <h5 class="mb-4">Inspire  -  Visualize  -  Transform</h5>
+
+                        <a href="https://www.instagram.com/khizooo_art" class="btn btn-dark btn-lg">Instagram</a>
+                        <a href="https://www.facebook.com/khizoooartist" class="btn btn-dark btn-lg">Facebook</a>
+                        <a href="https://twitter.com/khizaroo" class="btn btn-dark btn-lg">X</a>
+                        <a href="https://www.pinterest.com/KhizoOo_" class="btn btn-dark btn-lg">Pinterest</a>
+                        <a href="https://www.tiktok.com/@@khizooo_butt" class="btn btn-dark btn-lg">TikTok</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="	https://khizooo.com/images/MyArts/I-Believe-I-Can-Fly.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="	https://khizooo.com/images/MyArts/I-Believe-I-Can-Fly.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/I-Believe-I-Can-Fly.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 align-self-center p-1">
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="https://khizooo.com/images/MyArts/Bearded-Man.jpg" alt="Sketch 1" class="img-fluid">
+                    <div class="image-overlay">
+                        <p class="mb-0">Sketch 1</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Art Modal -->
+<div class="modal fade" id="ArtModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-self-center">
+                <h5 class="modal-title" id="ArtTitle"></h5>
+            </div>
+            <div class="modal-body" style="padding:2rem">
+                <img id="ArtImg" src="" class="modal-img">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function openModal(element) {
+        document.getElementById("ArtImg").src = element.querySelector("img").src;
+        document.getElementById("ArtTitle").innerText = element.querySelector(".image-overlay p").innerText;
+        $('#ArtModal').modal('show');
+    }
+</script>
