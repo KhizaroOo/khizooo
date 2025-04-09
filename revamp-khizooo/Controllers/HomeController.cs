@@ -4,11 +4,11 @@ using revamp_khizooo.Models;
 
 namespace revamp_khizooo.Controllers;
 
-public class ArtworkController : Controller
+public class HomeController : Controller
 {
-    private readonly ILogger<ArtworkController> _logger;
+    private readonly ILogger<HomeController> _logger;
 
-    public ArtworkController(ILogger<ArtworkController> logger)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
     }

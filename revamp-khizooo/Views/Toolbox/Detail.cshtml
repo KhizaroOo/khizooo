@@ -2,17 +2,188 @@
     ViewData["Title"] = "Artwork";
 }
 
+<style>
+
+    .custom-section {
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        padding: 20px;
+    }
+
+    .section-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .highlight-box {
+        background: #f5f3ec5e;
+        border-left: 5px solid #000000;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        border: 1px dashed grey;
+    }
+
+    .market-data-section {
+        background-color: #ffffff;
+        margin-top: 2rem;
+    }
+
+    .card-custom {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .btn-toggle {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .btn-toggle button {
+        margin-left: 5px;
+    }
+
+    .term-icon {
+        margin-right: 8px;
+    }
+
+    .table, .grid-view {
+        display: none;
+    }
+
+    .table-view-active .table, .grid-view-active .grid-view {
+        display: block;
+    }
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+        }
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+        }
+    }
+
+    .pulse {
+        animation: pulse 1.5s infinite;
+    }
+
+    .pulse-up {
+        animation: pulse-green 1s infinite;
+    }
+    .pulse-down {
+        animation: pulse-red 1s infinite;
+    }
+    .pulse-grey {
+        animation: pulse-grey 1s infinite;
+    }
+
+    @@keyframes pulse-green {
+        0% { box-shadow: 0 0 0 0 rgba(0,255,0,0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(0,255,0,0); }
+        100% { box-shadow: 0 0 0 0 rgba(0,255,0,0); }
+    }
+
+    @@keyframes pulse-red {
+        0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+        100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+    }
+
+    @@keyframes pulse-grey {
+        0% {
+            box-shadow: 0 0 0 0 rgba(169, 169, 169, 0.4); 
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(169, 169, 169, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(169, 169, 169, 0);
+        }
+    }
+
+
+
+
+
+    .logic-more-demand {
+        background-color: #d4f4dd;
+        color: #2e7d32;
+    }
+
+    .logic-weak-demand,
+    .logic-selling-pressure {
+        background-color: #fce4ec;
+        color: #c62828;
+    }
+
+    .logic-less-supply {
+        background-color: #e0f7fa;
+        color: #00796b;
+    }
+
+    .logic-accumulation {
+        background-color: #e3f2fd;
+        color: #1565c0;
+    }
+
+    .logic-distribution {
+        background-color: #fff8e1;
+        color: #f57f17;
+    }
+
+    .logic-no-interest {
+        background-color: #fbe9e7;
+        color: #6d4c41;
+    }
+
+    .logic-fakeouts {
+        background-color: #f3e5f5;
+        color: #6a1b9a;
+    }
+
+    .logic-panic {
+        background-color: #ffebee;
+        color: #b71c1c;
+    }
+
+    .logic-default {
+        background-color: #e0e0e0 !important;
+        color: #555 !important;
+    }
+
+
+
+</style>
+
 <!-- Page Content  -->
 <div id="content-page" class="content-page">
     <div id="Right-Page-Content" class="container-fluid">
 
-        @*<div class="row">
+        <div class="row">
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
                 <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
                     <div class="iq-card-body pb-5 pt-5">
-                        <h1 class="mb-2">MY ARTWORKS</h1>
-                        <h5 class="mb-4">Expressive  -  Unique  -  Visionary</h5>
+                        <h1 class="mb-2">Real-Time Crypto Market Logic Tool</h1>
+                        <h5 class="mb-4">Get live market data and analysis based on our custom logic engine</h5>
 
                         <a href="https://www.instagram.com/khizooo_art" class="btn btn-dark btn-lg">Instagram</a>
                         <a href="https://www.facebook.com/khizoooartist" class="btn btn-dark btn-lg">Facebook</a>
@@ -24,7 +195,7 @@
                 </div>
             </div>
 
-        </div>*@
+        </div>
 
         <div class="row">
 
@@ -32,7 +203,79 @@
                 <div class="iq-card">
                     <div class="iq-card-body">
 
-                        <div class="row" style="height:1000px">
+                        <div class="row">
+
+
+
+                            <div class="container mt-5 mb-5">
+
+                                <div class="card custom-section p-4 mb-4 wow fadeInUp">
+                                    <h4 class="section-title">How This Tool Works</h4>
+                                    <p>This tool provides real-time market data and analysis based on various technical indicators. It displays market conditions and potential price movements, helping traders make informed decisions based on current trends and volume patterns.</p>
+                                </div>
+
+                                <div class="card custom-section p-4 mb-4 wow fadeInUp">
+                                    <h4 class="section-title">📘 Terms Used</h4>
+                                    <ul class="list-unstyled">
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Price:</strong> Current trading price of the asset.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Volume:</strong> Amount of transactions in a given time.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Resistance Level:</strong> A level where price keeps failing to go higher.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Support Level:</strong> A price level where price usually bounces up.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Moving Average (MA):</strong> A calculation used to analyze data points by creating averages over a specific time period. It helps smooth out price data and identify trends./li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>RSI:</strong> A momentum oscillator that measures the speed and change of price movements. RSI values range from 0 to 100, indicating overbought or oversold conditions.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>MACD:</strong> A trend-following momentum indicator that shows the relationship between two moving averages of a security’s price.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>Bollinger Bands:</strong> A volatility indicator that consists of a middle band (SMA) and two outer bands that represent standard deviations from the middle band.</li>
+                                        <li><i class="ri-corner-down-right-line mt-0 mr-2 ml-2 text-success"></i><strong>Upper Band:</strong> This is the middle band (SMA) plus a set number of standard deviations (usually 2). It represents the upper limit of price volatility.</li>
+                                        <li><i class="ri-corner-down-right-line mt-0 mr-2 ml-2 text-success"></i><strong>Middle Band (SMA):</strong> This is a simple moving average (SMA) of the asset's price, typically set to 20 periods.</li>
+                                        <li><i class="ri-corner-down-right-line mt-0 mr-2 ml-2 text-success"></i><strong>Lower Band:</strong> This is the middle band (SMA) minus the same number of standard deviations (usually 2). It represents the lower limit of price volatility.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-success"></i><strong>On-Balance Volume (OBV):</strong> A technical analysis indicator that uses volume flow to predict changes in stock price.</li>
+
+
+
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Breakout:</strong> Price moving above resistance or below support.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Capitulation:</strong> Panic sell after heavy drop. Possible reversal point.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Bull Trap:</strong> Fake breakout upward to trick traders.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Trend:</strong> The general direction in which the market or asset is moving, either upwards, downwards, or sideways.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Volume Profile:</strong> A charting tool that shows the amount of a particular asset that was traded at different price levels over a set period.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Fibonacci Retracement:</strong> A tool used to identify potential support and resistance levels based on the key Fibonacci numbers, often used to predict price reversals.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Candlestick Patterns:</strong> A charting technique used to visualize the price movements of an asset over a set time period, helping traders predict market direction.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>ATR:</strong> A volatility indicator that measures the degree of price movement, helping traders assess the risk in a particular asset.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Stochastic Oscillator:</strong> A momentum indicator that compares a particular closing price to a range of prices over a certain period of time.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Parabolic SAR:</strong> A trend-following indicator that determines potential points where an asset might reverse direction.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Divergence:</strong> A situation where the price of an asset moves in the opposite direction to an indicator, potentially signaling a reversal.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>VWAP:</strong> The average price of an asset, weighted by volume, used to measure the true average price.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Liquidity:</strong> The ease with which an asset can be bought or sold without causing a significant impact on its price.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Order Book Depth:</strong> A tool that shows the current orders (buy/sell) in the market at various price levels, indicating market depth.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Delta (Price Change):</strong> The rate of change of an asset's price, typically shown as a percentage.</li>
+                                        <li><i class="ri-arrow-right-box-fill mt-0 mr-2 text-danger"> </i><strong>Sentiment Analysis:</strong> The process of analyzing market sentiment (bullish or bearish) based on news, social media, and other sources to determine price movement.</li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="card custom-section p-4 mb-4 wow fadeInUp">
+                                    <h4 class="section-title">💡 Trading Logic Interpreter</h4>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-success"></i> Price ↑, Volume ↑ = More Demand → People are interested in buying → Price will go up</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-danger"></i> Price ↓, Volume ↑ = Weak Demand → People are not interested in buying → Price will go down</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-danger"></i> Price ↓, Volume ↑ = More Selling Pressure → People are interested in selling → Price will go down</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-success"></i> Price ↑, Volume ↓ = Less Supply → People are not interested in selling → Price will go up</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-warning"></i> Price ↑, Volume ↑ = Accumulation → Buyers secretly buying → Breakout expected upward</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-warning"></i> Price ↓, Volume ↑ = Distribution → Sellers offloading → Breakout expected downward</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-muted"></i> Price -, Volume - = No Interest → Market is flat → No strong move expected</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-warning"></i> Price ↑, Volume ↓ = Fakeout / Bull Trap → Might reverse quickly → Caution advised</div>
+                                    <div class="highlight-box"><i class="ri-focus-fill mt-0 mr-2 text-danger"></i> Price ↓, Volume ↑ = Panic Sell / Capitulation → Possible bottom → Reversal coming</div>
+                                </div>
+
+                                <div class="market-data-section custom-section wow fadeInUp">
+                                    <h4 class="section-title">📊 Market Overview</h4>
+
+                                    <div class="market-grid-view row" id="marketData">
+                                        <!-- Data will be populated here dynamically -->
+                                    </div>
+
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -44,3 +287,6 @@
 
     </div>
 </div>
+
+
+

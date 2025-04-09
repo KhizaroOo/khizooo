@@ -1243,3 +1243,204 @@ body.two-sidebar.sidebar-main .iq-sidebar-logo { width: 60px }
 }
 /* Pixel */
 
+
+
+
+/* LP-Boxes */
+
+.ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: start;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.ag-courses_item {
+    -ms-flex-preferred-size: calc(25% - 0px);
+    flex-basis: calc(25% - 0px);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.ag-courses-item_link {
+    display: block;
+    background-color: #1f1c19;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid black;
+    box-shadow: 0px 0px 2px #000000;
+}
+
+    .ag-courses-item_link:hover,
+    .ag-courses-item_link:hover .ag-courses-item_date {
+        text-decoration: none;
+        color: #fff;
+    }
+        .ag-courses-item_link:hover .ag-courses-item_description {
+            color: #fff;
+        }
+
+        .ag-courses-item_link:hover .ag-courses-item_bg {
+            -webkit-transform: scale(10);
+            -ms-transform: scale(10);
+            transform: scale(10);
+        }
+
+.ag-courses-item_title {
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_date-box {
+    font-size: 13px;
+    color: #ffffff;
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_description {
+    color: #cfcece;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.ag-courses-item_date {
+    font-weight: bold;
+    color: #B17457;
+    -webkit-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+}
+
+.ag-courses-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: #F04A00;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+    background-color: #004953;
+}
+
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+    background-color: #4caf50;
+}
+
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+    background-color: #9C27B0;
+}
+
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+    background-color: #4d4d4d;
+}
+
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+    background-color: #4d4d4d;
+}
+.ag-courses_item:nth-child(7n) .ag-courses-item_bg {
+    background-color: #4d4d4d;
+}
+.ag-courses_item:nth-child(8n) .ag-courses-item_bg {
+    background-color: #4d4d4d;
+}
+.ag-courses_item:nth-child(9n) .ag-courses-item_bg {
+    background-color: #4d4d4d;
+}
+
+
+@media only screen and (max-width: 1632px) {
+    .ag-courses-item_title {
+        font-size: 18px;
+    }
+}
+
+
+@media only screen and (max-width: 1450px) {
+    .ag-courses-item_title {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .ag-courses-item_title {
+        font-size: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 979px) {
+    .ag-courses_item {
+        -ms-flex-preferred-size: calc(50% - 0px);
+        flex-basis: calc(50% - 30px);
+    }
+
+    .ag-courses-item_title {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .ag-format-container {
+        width: 96%;
+    }
+    .ag-courses-item_title {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    .ag-courses_item {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
+
+    .ag-courses-item_title {
+        min-height: 72px;
+        line-height: 1;
+        font-size: 24px;
+    }
+
+    .ag-courses-item_link {
+        padding: 22px 40px;
+    }
+
+    .ag-courses-item_date-box {
+        font-size: 16px;
+    }
+}
+
+/* LP Boxes */
+
+.Art-Detail-Img {
+    box-shadow: rgb(0, 0, 0) 0px 0px 2px;
+    overflow: hidden;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+}
+
+@media (max-width: 768px) {
+    .Art-Detail-Img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
