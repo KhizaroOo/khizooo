@@ -1,5 +1,3 @@
-/*
-Template: Sofbox - Responsive Bootstrap 4 Admin Dashboard Template
 Author: iqonicthemes.in
 Design and Developed by: iqonicthemes.in
 NOTE: This file contains the styling for responsive Template.
@@ -175,7 +173,7 @@ NOTE: This file contains the styling for responsive Template.
 	.iq-top-navbar .navbar-toggler { display: block; right: 85px; top: 18px; position: absolute; color: #0084ff; background: #e5f2ff; border: none; padding: 7px 10px; border-radius: 5px; font-size: 24px; }
 	.navbar-collapse { position: absolute; top: 75px; left: 0; width: 100%; background: #fff; -webkit-box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); -moz-box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); box-shadow: 0px 5px 12px 0px rgba(55, 73, 72, 0.15); }
 	.navbar-nav.navbar-list { float: right; display: inline-block; }
-	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { right: 0px; top: 18px; }
+	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { right: 0px; top: 10px; }
 	.animation-card .an-img .bodymovin { margin-bottom: 0; margin-left: 0; width: 100%; }
 	.iq-footer, .iq-footer .col-lg-6.text-right { text-align: center !important; }
 	.iq-booking-index { overflow-x: scroll; }
