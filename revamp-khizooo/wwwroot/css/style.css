@@ -1261,8 +1261,8 @@ body.two-sidebar.sidebar-main .iq-sidebar-logo { width: 60px }
 }
 
 .ag-courses_item {
-    -ms-flex-preferred-size: calc(25% - 0px);
-    flex-basis: calc(25% - 0px);
+    -ms-flex-preferred-size: calc(33.33% - 0px);
+    flex-basis: calc(33.33% - 0px);
     overflow: hidden;
     border-radius: 15px;
 }
