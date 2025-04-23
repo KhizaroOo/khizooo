@@ -1,0 +1,129 @@
+﻿@page  "/infographic"
+
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+
+
+<PageTitle>Khizooo - Infographics</PageTitle>
+<HeadContent>
+    <meta name="keywords" content="infographics, visual design, data visualization, processes, learing, education, khizooo">
+    <meta name="description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta property="og:description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+    <meta property="og:image" content="images/SEO/OG-Image.png">
+    <meta property="og:url" content="https://www.khizooo.com/creative-works/infographic">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta name="twitter:description" content="Discover khizooo visually engaging infographics, designed to simplify complex information and make it accessible to everyone.">
+    <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
+    <meta property="twitter:url" content="https://www.khizooo.com/creative-works/infographic">
+
+</HeadContent>
+
+
+<style>
+    .grid-container {
+        columns: 5 200px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+        .grid-container .Art-Piece {
+            width: 150px;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: 100%;
+            border: solid 4px black;
+            padding: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .grid-container .Art-Piece:hover img {
+                filter: grayscale(0);
+            }
+
+            .grid-container .Art-Piece:hover {
+                border-color: #ffd100;
+                box-shadow: 0px 0px 15px #ffd100;
+            }
+
+            .grid-container .Art-Piece img {
+                width: 100%;
+                filter: grayscale(100%);
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+            }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+</style>
+
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <h1 class="mb-2">MY INFOGRAPHICS</h1>
+                        <h5 class="mb-4">Expressive  -  Unique  -  Visionary</h5>
+
+                        <a href="https://www.instagram.com/khizooo_art" class="btn btn-warning btn-lg">Instagram</a>
+                        <a href="https://www.facebook.com/khizoooartist" class="btn btn-warning btn-lg">Facebook</a>
+                        <a href="https://twitter.com/khizaroo" class="btn btn-warning btn-lg">X</a>
+                        <a href="https://www.pinterest.com/KhizoOo_" class="btn btn-warning btn-lg">Pinterest</a>
+                        <a href="https://www.tiktok.com/@@khizooo_butt" class="btn btn-warning btn-lg">TikTok</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="grid-container">
+                @{
+                    foreach (khizooo.AppData.Infographic infographic in MyAllInfographics)
+                    {
+                        <a href="@((MarkupString)infographic.URL)">
+                        <div class="Art-Piece">
+                            <img class="grid-item grid-item-1"
+                                 src="@((MarkupString)infographic.IMG)"
+                                 alt="@((MarkupString)infographic.Title)">
+                            <h6 class="mt-3 mb-3 text-center">@((MarkupString)infographic.Title)</h6>
+                        </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+    List<AppData.Infographic> MyAllInfographics = new MyInfographics().GetMyInfographics(1000);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+
+}

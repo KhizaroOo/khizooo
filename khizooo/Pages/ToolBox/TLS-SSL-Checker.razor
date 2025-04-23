@@ -1,4 +1,4 @@
-﻿@page "/creative-works/toolbox/4/tls-ssl-checker"
+﻿@page "/toolbox/tls-ssl-checker"
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 @using System.Net.Security;
@@ -219,68 +219,68 @@
 
     public void GetSslDetails(string url)
     {
-        bool Status = false;
-        string Message = String.Empty;
+        // bool status = false;
+        // string message = string.empty;
 
-        if (string.IsNullOrWhiteSpace(url))
-        {
-            Message = "Invalid URL provided";
-        }
+        // if (string.isnullorwhitespace(url))
+        // {
+        //     message = "invalid url provided";
+        // }
 
-        try
-        {
-            // Normalize URL and extract hostname
-            Uri uri = new UriBuilder(url).Uri;
-            string hostname = uri.Host;
+        // try
+        // {
+        //     normalize url and extract hostname
+        //     uri uri = new uribuilder(url).uri;
+        //     string hostname = uri.host;
 
-            using var client = new TcpClient();
-            await client.ConnectAsync(hostname, 443);
+        //     using var client = new tcpclient();
+        //     await client.connectasync(hostname, 443);
 
-            using var sslStream = new SslStream(client.GetStream(), false,
-                (sender, certificate, chain, errors) => true);
+        //     using var sslstream = new sslstream(client.getstream(), false,
+        //         (sender, certificate, chain, errors) => true);
 
-            // Initiate SSL handshake
-            await sslStream.AuthenticateAsClientAsync(hostname);
+        //     initiate ssl handshake
+        //     await sslstream.authenticateasclientasync(hostname);
 
-            // Extract certificate details
-            var certificate = sslStream.RemoteCertificate as X509Certificate2;
-            if (certificate == null)
-            {
-                return BadRequest("No SSL certificate found.");
-            }
+        //     extract certificate details
+        //     var certificate = sslstream.remotecertificate as x509certificate2;
+        //     if (certificate == null)
+        //     {
+        //         return badrequest("no ssl certificate found.");
+        //     }
 
-            var issuer = certificate.Issuer;
-            var subject = certificate.Subject;
-            var validFrom = certificate.NotBefore.ToString("yyyy-MM-dd HH:mm:ss");
-            var validTo = certificate.NotAfter.ToString("yyyy-MM-dd HH:mm:ss");
-            var protocol = sslStream.SslProtocol.ToString();
-            var cipher = sslStream.CipherAlgorithm.ToString();
+        //     var issuer = certificate.issuer;
+        //     var subject = certificate.subject;
+        //     var validfrom = certificate.notbefore.tostring("yyyy-mm-dd hh:mm:ss");
+        //     var validto = certificate.notafter.tostring("yyyy-mm-dd hh:mm:ss");
+        //     var protocol = sslstream.sslprotocol.tostring();
+        //     var cipher = sslstream.cipheralgorithm.tostring();
 
-            // Extract certificate chain
-            var chain = new X509Chain();
-            chain.Build(certificate);
+        //     extract certificate chain
+        //     var chain = new x509chain();
+        //     chain.build(certificate);
 
-            var chainList = chain.ChainElements
-                .Cast<X509ChainElement>()
-                .Select(e => e.Certificate.Subject)
-                .ToList();
+        //     var chainlist = chain.chainelements
+        //         .cast<x509chainelement>()
+        //         .select(e => e.certificate.subject)
+        //         .tolist();
 
-            // Return results as JSON
-            return Ok(new
-            {
-                Issuer = issuer,
-                Subject = subject,
-                ValidFrom = validFrom,
-                ValidTo = validTo,
-                Protocol = protocol,
-                Cipher = cipher,
-                CertificateChain = chainList
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"An error occurred: {ex.Message}");
-        }
+        //     return results as json
+        //     return ok(new
+        //     {
+        //         issuer = issuer,
+        //         subject = subject,
+        //         validfrom = validfrom,
+        //         validto = validto,
+        //         protocol = protocol,
+        //         cipher = cipher,
+        //         certificatechain = chainlist
+        //     });
+        // }
+        // catch (exception ex)
+        // {
+        //     return statuscode(500, $"an error occurred: {ex.message}");
+        // }
     }
 
 

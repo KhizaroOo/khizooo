@@ -1,41 +1,53 @@
 ﻿@inject NavigationManager Navigation
 @using khizooo.AppData;
 <!-- LEFT SIDEBAR START -->
-<div class="arlo_tm_leftpart_wrap">
-    <div class="leftpart_inner">
-        <div class="logo_wrap">
-            <a href="/">
-                <img src="logo/khizooo-logo-100.png" style="width:80px" alt="Khizooo Website Logo" title="Khizooo Website Logo" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" />
-            </a>
-        </div>
-        <div class="menu_list_wrap">
-            <ul class="anchor_nav">
-                <li><a target="_self" href="/creative-works/artwork" title="My Artworks"><span class="lp-artwork">ARTWOK</span></a></li>
-                <li><a target="_self" href="/creative-works/infographic" title="My Infographics"><span class="lp-infographic">INFOGRAPHIC</span></a></li>
-                <li><a target="_self" href="/creative-works/toolbox" title="My Toolbox"><span class="lp-toolbox">TOOLBOX</span></a></li>
-                <li><a target="_self" href="/creative-works/writing" title="My Writings"><span class="lp-writing">WRITING</span></a></li>
-                <li><a target="_self" href="/creative-works/timeline" title="My Timelines"><span class="lp-timeline">TIMELINE</span></a></li>
-                <li><a target="_self" href="/creative-works/codevault" title="My Code Vault"><span class="lp-codevault">CODEVAULT</span></a></li>
-                <li><a target="_self" href="/creative-works/freebie" title="My Freebies"><span class="lp-freebie">FREEBIE</span></a></li>
-                <li><a target="_self" href="/creative-works/synopsis" title="My Synopsis"><span class="lp-synopsis">SYNOPSIS</span></a></li>
-            </ul>
-        </div>
-        <div class="leftpart_bottom">
-            <div class="social_wrap">
-                <ul>
-                    <!-- SOCIAL -->
-                    <li><a href="@Me.Facebook" target="_blank" title="My Facebook Profile"><i class="fa-brands fa-facebook fa-xl"></i></a></li>
-                    <li><a href="@Me.Twitter" target="_blank" title="My Twitter X Account"><i class="fa-brands fa-twitter fa-xl"></i></a></li>
-                    <li><a href="@Me.Instagram" target="_blank" title="My Instagram Account"><i class="fa-brands fa-instagram fa-xl"></i></a></li>
-                    <li><a href="@Me.TikTok" target="_blank" title="My TikTok Account"><i class="fa-brands fa-tiktok fa-xl"></i></a></li>
+<div class="iq-sidebar-logo d-flex justify-content-center align-items-center">
+    <a href="/">
+        <img src="logo/khizooo-logo-200.png" class="img-fluid" alt="khizooo Logo">
+    </a>
+</div>
+<div id="sidebar-scrollbar">
+    <nav class="iq-sidebar-menu" style="text-align: left;">
+        <ul id="iq-sidebar-toggle" class="iq-menu" style="">
 
-                    <!-- PROFESSIONAL -->
-                    <li><a href="@Me.LinkedIn" target="_blank" title="My LinkedIn Profile"><i class="fa-brands fa-linkedin fa-xl"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <a class="arlo_tm_resize" href="javascript:void(0)"><i class="xcon-angle-left"></i></a>
-    </div>
+            <li><a href="/portfolio" class="iq-waves-effect"><span>PORTFOLIO</span></a></li>
+            <li><a href="/artwork" class="iq-waves-effect"><span>ARTWOK</span></a></li>
+            <li><a href="/infographic" class="iq-waves-effect"><span>INFOGRAPHIC</span></a></li>
+            <li><a href="/toolbox" class="iq-waves-effect"><span>TOOLBOX</span></a></li>
+            <li><a href="/writing" class="iq-waves-effect"><span>WRITING</span></a></li>
+            <li>
+                <a href="/" class="iq-waves-effect text-muted">
+                    <span>GAMES</span>
+                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/" class="iq-waves-effect text-muted">
+                    <span>TIMELINE</span>
+                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/" class="iq-waves-effect text-muted">
+                    <span>CODEVAULT</span>
+                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/" class="iq-waves-effect text-muted">
+                    <span>FREEBIE</span>
+                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
+                </a>
+            </li>
+            <li>
+                <a href="/" class="iq-waves-effect text-muted">
+                    <span>SYNOPSIS</span>
+                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
 </div>
 <!-- LEFT SIDEBAR END -->
 

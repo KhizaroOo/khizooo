@@ -2,26 +2,23 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 
-    <!-- MAIN WRAPPER START -->
-    <div class="arlo_tm_wrapper_all">
+<!-- WRAPPER -->
+<div class="wrapper">
 
-        <MobileMenu />
-
-        <!-- CONTENT -->
-        <div class="arlo_tm_content">
-
-            <LeftSidebar />
-
-            @Body
-
-            <a class="arlo_tm_totop" href="javascript:void(0);"></a>
-
-        </div>
-
-
+    <!-- Left Sidebar  -->
+    <div class="iq-sidebar">
+        <LeftSidebar />
     </div>
-    <!-- MAIN WRAPPER END -->
 
+    <!-- TOP Nav Bar -->
+    <TopNavbar />
+
+    @Body
+
+</div>
+<!-- WRAPPER -->
+
+<Footer />
 
     @code {
         protected override void OnInitialized()

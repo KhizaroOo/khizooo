@@ -1,4 +1,4 @@
-﻿@page "/creative-works/infographic/detail/{id:int}/{slug}"
+﻿@page "/infographic/{slug}"
 
 @inject NavigationManager NavigationManager
 
@@ -22,110 +22,82 @@
     <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
     <meta property="twitter:url" content="https://www.khizooo.com/@MyInfographicDetail.URL">
 
-    
-
 </HeadContent>
 
 <style>
-    .term {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--infographic) !important;
-    }
 
-    .answer {
-        margin-bottom: 25px;
-        font-size: 12px;
-        margin-top: 5px;
-    }
 </style>
 
 
-<!-- MAIN CONTENT START -->
-<div class="arlo_tm_rightpart">
-    <div class="rightpart_inner">
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
 
-        <!-- INFOGRAPHIC DETAIL -->
-        <div class="arlo_tm_portfolio_single_wrap">
-            <div class="container">
-                <div class="title_holder text-center">
-                    <h3 class="lp-infographic">@((MarkupString)MyInfographicDetail.Title)</h3>
-                    <p style="margin-bottom: 15px;">@((MarkupString)MyInfographicDetail.PunchLine)</p>
-                    <p style="margin-bottom: 25px;"><strong>@((MarkupString)MyInfographicDetail.SubTitle)</strong></p>
-                </div>
-                <hr class="soften" />
+        <div class="row">
 
-                <div class="details_wrap">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                    <div class="container">
+                <div class="card pb-5">
+                    <div class="card-body pt-5">
 
                         <div class="row">
-                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-                                @{
-                                    foreach (KeyTerm KT in InfographicKeyTerms)
-                                    {
-                                        <h6 class="term">@KT.Term</h6>
-                                        <p class="answer">@KT.Answer</p>
-                                    }
-                                }
-
-                            </div>
-                            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                                <div class="images_list">
-                                    <ul>
-                                        <li>
-                                            @if (MyInfographicDetail.IMG != "")
-                                            {
-                                                <img class="img-fluid w-100 d-block" src="@MyInfographicDetail.IMG" alt="@MyInfographicDetail.Heading" title="@MyInfographicDetail.Heading" loading="lazy" decoding="async" importance="high" crossorigin="anonymous" style=" border: 5px solid #000000;">
-                                            }
-                                            else
-                                            {
-                                                <video autoplay="" class="img-fluid w-100 d-block" controls="" controlslist="nodownload" loop="" playsinline="" preload="metadata" style="object-fit: contain; border-radius: initial;"><source data-testid="AssetMedia--video" src="@MyInfographicDetail.VIDEO" type="video/mp4"></video>
-                                            }
-                                        </li>
-                                    </ul>
+                            <div class="col-lg-8 col-md-8 col-sm-12 order-1 order-sm-1">
+                                <div class="mb-4 text-center">
+                                    <img id="MyArtImage" src="images/info-test.png" data-art-title="Sketch 01" class="img-fluid Art-Detail-Img">
                                 </div>
 
-                                <div class="pagination_wrap">
-                                    @{
+                            </div>
 
-                                        if (MyPreviousInfographic != null)
-                                        {
-                                            <a href="@MyPreviousInfographic.URL" target="_self" title="@MyPreviousInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="PreviousWork" style="float:left">Previous Work</a>
-                                        }
+                            <div class="col-lg-4 col-md-4 col-sm-12 order-2 order-sm-2" style="border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6;">
 
-                                        if (MyNextInfographic != null)
-                                        {
-                                            <a href="@MyNextInfographic.URL" target="_self" title="@MyNextInfographic.Heading" class="btn btn-sm btn-outline-dark" @onclick="NextWork" style="float:right">Next Work</a>
-                                        }
-                                        else
-                                        {
-                                            <a href="/CommingSoon" target="_self" title="Comming Soon" class="btn btn-sm btn-outline-dark" disabled>Comming Soon</a>
-                                        }
+                                <div class="">
+                                    <h3 class="card-title" style="color: #577bc1;">Used Key Terms</h3>
+                                </div>
 
-                                    }
+                                <div class="mb-5">
+                                    <div class="">
+                                        @{
+                                            foreach (KeyTerm KT in InfographicKeyTerms)
+                                            {
+                                                <div class="">
+                                                    <h5 class="card-title" style="">@KT.Term</h5>
+                                                    <p class="">@KT.Answer</p>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+
+                                    <div class="text-start">
+                                        <button class="btn btn-dark btn-lg" onclick="DownloadInfographic()">Download</button>
+                                        <div class="btn-group" role="group">
+                                            <button id="ArtSocialButton" type="button" class="btn btn-dark btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Social Media
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                                <a class="dropdown-item disabled" href="#">Instagram</a>
+                                                <a class="dropdown-item disabled" href="#">Facebook</a>
+                                                <a class="dropdown-item disabled" href="#">X</a>
+                                                <a class="dropdown-item disabled" href="#">TikTok</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
 
 
-                        <div class="row justify-content-center">
-                            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4">
-
-                            </div>
-                        </div>
 
                     </div>
-
                 </div>
 
             </div>
+
         </div>
-        <!-- /INFOGRAPHIC DETAIL -->
+
     </div>
 </div>
-<!-- /MAIN CONTENT END -->
 
 @code {
 
@@ -137,10 +109,7 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
 
-    Infographic MyInfographicDetail = new Infographic();
-    Infographic MyPreviousInfographic = new Infographic();
-    Infographic MyNextInfographic = new Infographic();
-
+    AppData.Infographic MyInfographicDetail = new AppData.Infographic();
     List<KeyTerm> InfographicKeyTerms = new List<KeyTerm>();
 
     MyInfographics InfographicOBJ = new MyInfographics();
@@ -152,10 +121,8 @@
         long MyPreviousInfographicID = InfographicID - 1;
         long MyNextInfographicID = InfographicID + 1;
 
-        MyInfographicDetail = InfographicOBJ.GetMyInfographic(InfographicID, Slug);
+        MyInfographicDetail = InfographicOBJ.GetMyInfographic(Slug);
         InfographicKeyTerms = MyInfographicDetail.KeyTerms.ToList();
-        MyPreviousInfographic = InfographicOBJ.GetMyInfographic(MyPreviousInfographicID);
-        MyNextInfographic = InfographicOBJ.GetMyInfographic(MyNextInfographicID);
 
     }
 
@@ -163,12 +130,12 @@
 
     private void PreviousWork()
     {
-        NavigationManager.NavigateTo(MyPreviousInfographic.URL, true);
+       // NavigationManager.NavigateTo(MyPreviousInfographic.URL, true);
     }
 
     private void NextWork()
     {
-        NavigationManager.NavigateTo(MyNextInfographic.URL, true);
+        //NavigationManager.NavigateTo(MyNextInfographic.URL, true);
     }
 
     #endregion

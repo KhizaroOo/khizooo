@@ -146,10 +146,8 @@
     SharedHelper SH = new SharedHelper();
     KhizoOo Me = new KhizoOo();
 
-    Writing MyWritingDetail = new Writing();
-    Writing MyPreviousWriting = new Writing();
-    Writing MyNextWriting = new Writing();
-
+    AppData.Writing MyWritingDetail = new AppData.Writing();
+    
     List<KeyTerm> WritingKeyTerms = new List<KeyTerm>();
 
     MyWritings WritingOBJ = new MyWritings();
@@ -161,10 +159,8 @@
         long MyPreviousWritingID = WritingID - 1;
         long MyNextWritingID = WritingID + 1;
 
-        MyWritingDetail = WritingOBJ.GetMyWriting(WritingID, Slug);
+        MyWritingDetail = WritingOBJ.GetMyWriting(Slug);
         WritingKeyTerms = MyWritingDetail.KeyTerms.ToList();
-        MyPreviousWriting = WritingOBJ.GetMyWriting(MyPreviousWritingID);
-        MyNextWriting = WritingOBJ.GetMyWriting(MyNextWritingID);
 
     }
 
@@ -172,12 +168,12 @@
 
     private void PreviousWork()
     {
-        NavigationManager.NavigateTo(MyPreviousWriting.URL, true);
+        //NavigationManager.NavigateTo(MyPreviousWriting.URL, true);
     }
 
     private void NextWork()
     {
-        NavigationManager.NavigateTo(MyNextWriting.URL, true);
+        //NavigationManager.NavigateTo(MyNextWriting.URL, true);
     }
 
     #endregion

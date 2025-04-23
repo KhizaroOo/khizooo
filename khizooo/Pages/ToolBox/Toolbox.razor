@@ -1,0 +1,102 @@
+﻿@page "/toolbox"
+
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+
+<PageTitle>Khizooo - Toolbox</PageTitle>
+<HeadContent>
+    <meta name="keywords" content="web tools, resources, web development, productivity tools, khizooo">
+    <meta name="description" content="Discover the essential web tools and resources curated by KhizoOo to enhance your web experience.">
+
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta property="og:description" content="Discover the essential web tools and resources curated by KhizoOo to enhance your web experience.">
+    <meta property="og:image" content="images/SEO/OG-Image.png">
+    <meta property="og:url" content="https://www.khizooo.com/creative-works/toolbox">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta name="twitter:description" content="Discover the essential web tools and resources curated by KhizoOo to enhance your web experience.">
+    <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
+    <meta property="twitter:url" content="https://www.khizooo.com/creative-works/toolbox">
+
+    
+</HeadContent>
+
+<style>
+    .item-list-content .title a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #666;
+        transition: all .50s;
+    }
+
+    .item-list-content .title:hover {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #ff4c7c), color-stop(50%, #09f), color-stop(80%, #99cb33) );
+    }
+</style>
+
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <h1 class="mb-2">MY TOOLBOX</h1>
+                        <h5 class="mb-4">Discover  -  Optimize  -  Elevate</h5>
+
+                        <a href="https://www.instagram.com/khizooo_art" class="btn btn-warning btn-lg">Instagram</a>
+                        <a href="https://www.facebook.com/khizoooartist" class="btn btn-warning btn-lg">Facebook</a>
+                        <a href="https://twitter.com/khizaroo" class="btn btn-warning btn-lg">X</a>
+                        <a href="https://www.pinterest.com/KhizoOo_" class="btn btn-warning btn-lg">Pinterest</a>
+                        <a href="https://www.tiktok.com/@@khizooo_butt" class="btn btn-warning btn-lg">TikTok</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            @{
+                foreach (khizooo.AppData.ToolBox toolbox in MyAllToolsBox)
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" data-creative-type="@toolbox.Type">
+                        <div class="iq-card iq-mb-3">
+                            <div class="card-header">"@((MarkupString)toolbox.Type)</div>
+                            <div class="card-body item-list-content">
+                                <blockquote class="title blockquote mb-0">
+                                    <a class="mb-0" href="@((MarkupString)toolbox.URL)" title="@((MarkupString)toolbox.Title)">@((MarkupString)toolbox.Title)</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+    </div>
+</div>
+</div>
+<!-- Page Content  -->
+
+@code {
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+    List<AppData.ToolBox> MyAllToolsBox = new MyToolBoxes().GetMyToolBoxes(1000);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // await JSRuntime.InvokeVoidAsync("LoadScripts", "artworks/js/artworks.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+
+
+}

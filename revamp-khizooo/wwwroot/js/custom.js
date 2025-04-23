@@ -73,31 +73,31 @@ Index Of Script
         /*---------------------------------------------------------------------
         Magnific Popup
         -----------------------------------------------------------------------*/
-        jQuery('.popup-gallery').magnificPopup({
-            delegate: 'a.popup-img',
-            type: 'image',
-            tLoading: 'Loading image #%curr%...',
-            mainClass: 'mfp-img-mobile',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-            },
-            image: {
-                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-                titleSrc: function(item) {
-                    return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
-                }
-            }
-        });
-        jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
+        //jQuery('.popup-gallery').magnificPopup({
+        //    delegate: 'a.popup-img',
+        //    type: 'image',
+        //    tLoading: 'Loading image #%curr%...',
+        //    mainClass: 'mfp-img-mobile',
+        //    gallery: {
+        //        enabled: true,
+        //        navigateByImgClick: true,
+        //        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+        //    },
+        //    image: {
+        //        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        //        titleSrc: function(item) {
+        //            return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+        //        }
+        //    }
+        //});
+        //jQuery('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+        //    disableOn: 700,
+        //    type: 'iframe',
+        //    mainClass: 'mfp-fade',
+        //    removalDelay: 160,
+        //    preloader: false,
+        //    fixedContentPos: false
+        //});
 
 
         /*---------------------------------------------------------------------
@@ -260,9 +260,9 @@ Index Of Script
         /*---------------------------------------------------------------------
         Select input
         -----------------------------------------------------------------------*/
-        jQuery('.select2jsMultiSelect').select2({
-            tags: true
-        });
+        //jQuery('.select2jsMultiSelect').select2({
+        //    tags: true
+        //});
 
         /*---------------------------------------------------------------------
         Search input
@@ -321,113 +321,113 @@ Index Of Script
         /*---------------------------------------------------------------------
         slick
         -----------------------------------------------------------------------*/
-        jQuery('.slick-slider').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 9,
-            slidesToScroll: 1,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '30',
-                    slidesToShow: 3
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '15',
-                    slidesToShow: 1
-                }
-            }],
-            nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
-            prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
-        });
+        //jQuery('.slick-slider').slick({
+        //    centerMode: true,
+        //    centerPadding: '60px',
+        //    slidesToShow: 9,
+        //    slidesToScroll: 1,
+        //    focusOnSelect: true,
+        //    responsive: [{
+        //        breakpoint: 992,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '30',
+        //            slidesToShow: 3
+        //        }
+        //    }, {
+        //        breakpoint: 480,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '15',
+        //            slidesToShow: 1
+        //        }
+        //    }],
+        //    nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
+        //    prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
+        //});
 
-        jQuery('#product-additional-slider').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '30',
-                    slidesToShow: 3
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '15',
-                    slidesToShow: 1
-                }
-            }],
-            nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
-            prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
-        });
+        //jQuery('#product-additional-slider').slick({
+        //    centerMode: true,
+        //    centerPadding: '60px',
+        //    slidesToShow: 3,
+        //    slidesToScroll: 1,
+        //    focusOnSelect: true,
+        //    responsive: [{
+        //        breakpoint: 992,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '30',
+        //            slidesToShow: 3
+        //        }
+        //    }, {
+        //        breakpoint: 480,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '15',
+        //            slidesToShow: 1
+        //        }
+        //    }],
+        //    nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
+        //    prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
+        //});
 
-        jQuery('#related-slider').slick({
-            centerMode: false,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '30',
-                    slidesToShow: 2
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '15',
-                    slidesToShow: 1
-                }
-            }],
-            nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
-            prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
-        });
-        jQuery('#card-slider').slick({
-            centerMode: false,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay:true,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '30',
-                    slidesToShow: 2
-                }
-            }, {
-                breakpoint: 650,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '15',
-                    slidesToShow: 1
-                }
-            }],
-            // nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
-            // prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
-        });
+        //jQuery('#related-slider').slick({
+        //    centerMode: false,
+        //    centerPadding: '60px',
+        //    slidesToShow: 3,
+        //    slidesToScroll: 1,
+        //    focusOnSelect: true,
+        //    responsive: [{
+        //        breakpoint: 992,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '30',
+        //            slidesToShow: 2
+        //        }
+        //    }, {
+        //        breakpoint: 480,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '15',
+        //            slidesToShow: 1
+        //        }
+        //    }],
+        //    nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
+        //    prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
+        //});
+        //jQuery('#card-slider').slick({
+        //    centerMode: false,
+        //    centerPadding: '60px',
+        //    slidesToShow: 3,
+        //    slidesToScroll: 1,
+        //    autoplay:true,
+        //    focusOnSelect: true,
+        //    responsive: [{
+        //        breakpoint: 992,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '30',
+        //            slidesToShow: 2
+        //        }
+        //    }, {
+        //        breakpoint: 650,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '15',
+        //            slidesToShow: 1
+        //        }
+        //    }],
+        //    // nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
+        //    // prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
+        //});
 
 
         /*---------------------------------------------------------------------

@@ -1,21 +1,12 @@
 ﻿namespace khizooo.AppData
 {
 
-    public class ToolBoxType
-    {
-        public long ID { get; set; }
-        public string Title { get; set; }
-    }
-
     public class ToolBox
     {
         public long ID { get; set; }
         public string URL { get; set; }
-        public string SITE_URL { get; set; }
-        public string LiveURL { get; set; }
         public string Tags { get; set; }
         public string Slug { get; set; }
-        public string DataGroup { get; set; }
         public string Heading { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
@@ -23,22 +14,13 @@
         public string VIDEO { get; set; }
         public string Desription { get; set; }
         public string Type { get; set; }
-        public long ToolBoxTypeID { get; set; }
-        public string Category { get; set; }
         public string CreatedOn { get; set; }
 
         public string Facebook { get; set; }
         public string Instagram { get; set; }
-        public string YouTube { get; set; }
-        public string OpenSea { get; set; }
-        public string Twitter { get; set; }
+        public string X { get; set; }
         public string TikTok { get; set; }
-        public string LinkedIn { get; set; }
         public string Pinterest { get; set; }
-        public string Snapchat { get; set; }
-
-        public long PreviousWorkID { get; set; }
-        public long NextWorkID { get; set; }
 
         // PENDINGS
         public long ModuleID { get; set; }
@@ -47,106 +29,71 @@
     public class MyToolBoxes
     {
 
-        private List<ToolBoxType> ToolBoxTypes = new List<ToolBoxType>(){
-            new ToolBoxType() { ID = 0 , Title = "All"},
-            new ToolBoxType() { ID = 1 , Title = "UI/UX"},
-            new ToolBoxType() { ID = 2 , Title = "Generators"}
-        };
 
         private List<ToolBox> MyAllToolBoxes = new List<ToolBox>()
         {
             new ToolBox()
             {
                   ID = 1,
-                  URL = "/creative-works/toolbox/1/color-contrast-checker",
+                  URL = "/toolbox/color-contrast-checker",
                   Tags = "[\"ToolBox\",\"UI/UX\"]",
                   Slug = "Color-Contrast-Checker",
-                  DataGroup = "[\"all\",\"UI/UX\"]",
                   Heading = "Color Contrast Checker - UI/UX - ToolBox",
                   Title = "Color Contrast Checker",
                   SubTitle = "UI/UX | ToolBox",
                   IMG = "images/mytoolboxes/color-contrast-checker.png",
                   VIDEO = "",
                   Desription = "",
-                  Type = "ToolBox",
-                  ToolBoxTypeID = 1,
-                  Category = "UI/UX",
+                  Type = "UI/UX",
                   CreatedOn = "1st MAR 2024",
 
                   Facebook = "",
                   Instagram = "",
-                  LinkedIn = "",
-                  YouTube = "",
-                  OpenSea = "",
-                  Twitter = "",
+                  X = "",
                   TikTok = "",
-                  Pinterest = "",
-                  Snapchat = "",
-
-                  PreviousWorkID = 0,
-                  NextWorkID = 2
+                  Pinterest = ""
               },
             new ToolBox()
             {
                   ID = 2,
-                  URL = "/creative-works/toolbox/2/password-generator",
-                  Tags = "[\"ToolBox\",\"creative-works/toolbox/2/password-generator\"]",
+                  URL = "/toolbox/password-generator",
+                  Tags = "[\"ToolBox\",\"Password-Generator\"]",
                   Slug = "Password-Generator",
-                  DataGroup = "[\"all\",\"Generator\"]",
                   Heading = "Password Generator | ToolBox",
                   Title = "Password Generator",
                   SubTitle = "Generator - ToolBox",
                   IMG = "images/mytoolboxes/password-generator.png",
                   VIDEO = "",
                   Desription = "",
-                  Type = "ToolBox",
-                  ToolBoxTypeID = 2,
-                  Category = "Generator",
+                  Type = "Generator",
                   CreatedOn = "1st MAY 2024",
 
                   Facebook = "",
                   Instagram = "",
-                  LinkedIn = "",
-                  YouTube = "",
-                  OpenSea = "",
-                  Twitter = "",
+                  X = "",
                   TikTok = "",
-                  Pinterest = "",
-                  Snapchat = "",
-
-                  PreviousWorkID = 1,
-                  NextWorkID = 3
+                  Pinterest = ""
             },
             new ToolBox()
             {
                   ID = 3,
-                  URL = "/creative-works/toolbox/3/gradient-color-generator",
-                  Tags = "[\"ToolBox\",\"creative-works/toolbox/3/gradient-color-generator\"]",
+                  URL = "/toolbox/gradient-color-generator",
+                  Tags = "[\"ToolBox\",\"Gradient-Color-Generator\"]",
                   Slug = "Gradient-Color-Generator",
-                  DataGroup = "[\"all\",\"Generator\"]",
                   Heading = "Gradient Color Generator | ToolBox",
                   Title = "Gradient Color Generator",
                   SubTitle = "Generator - ToolBox",
                   IMG = "images/mytoolboxes/gradient-color-generator.png",
                   VIDEO = "",
                   Desription = "",
-                  Type = "ToolBox",
-                  ToolBoxTypeID = 2,
-                  Category = "Generator",
+                  Type = "Generator",
                   CreatedOn = "1st AUG 2024",
 
                   Facebook = "",
                   Instagram = "",
-                  LinkedIn = "",
-                  YouTube = "",
-                  OpenSea = "",
-                  Twitter = "",
+                  X = "",
                   TikTok = "",
                   Pinterest = "",
-                  Snapchat = "",
-
-                  PreviousWorkID = 2,
-                  NextWorkID = 4
               }
         };
 
@@ -157,31 +104,10 @@
             return Data;
         }
 
-        public ToolBox GetMyToolBox(long ID)
-        {
-            ToolBox Data = new ToolBox();
-            Data = MyAllToolBoxes.FirstOrDefault(A => A.ID == ID);
-            return Data;
-        }
-
         public ToolBox GetMyToolBox(string Slug)
         {
             ToolBox Data = new ToolBox();
             Data = MyAllToolBoxes.FirstOrDefault(A => A.Slug == Slug);
-            return Data;
-        }
-
-        public ToolBox GetMyToolBox(long ID, string Slug)
-        {
-            ToolBox Data = new ToolBox();
-            Data = MyAllToolBoxes.FirstOrDefault(A => A.ID == ID && A.Slug == Slug);
-            return Data;
-        }
-
-        public List<ToolBoxType> Get_ToolBox_Types()
-        {
-            List<ToolBoxType> Data = new List<ToolBoxType>();
-            Data = ToolBoxTypes.ToList();
             return Data;
         }
 
