@@ -112,8 +112,13 @@ NOTE: This file contains the styling for responsive Template.
 		width: auto;
 		background: transparent;
 	}
-	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { display: inline-block; position: absolute;         right: 0px;
-        top: 18px; opacity: 1; }
+	.iq-top-navbar .iq-navbar-custom .iq-menu-bt {
+		display: inline-block;
+		position: absolute;
+		right: 0px;
+		top: 10px;
+		opacity: 1;
+	}
 	body.sidebar-main .iq-top-navbar .iq-sidebar-logo a span { opacity: 1; display: inline-block; }
 	body.sidebar-main .iq-sidebar { width: 260px; left: 0; }
 		body.sidebar-main .iq-sidebar .iq-sidebar-logo {
