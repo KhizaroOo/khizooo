@@ -30,190 +30,57 @@
 </HeadContent>
 
 <style>
-
-    .custom-section {
-        border: 1px solid #dee2e6;
-        border-radius: 0.25rem;
-        padding: 20px;
+    .section-header {
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 8px 12px;
+        background-color: #e1e7ef;
+        border-bottom: 1px solid #ccd4e0;
     }
 
-    .section-title {
-        font-weight: bold;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .highlight-box {
-        background: #f5f3ec5e;
-        border-left: 5px solid #000000;
-        padding: 10px 10px;
-        margin-bottom: 10px;
-        border: 1px dashed grey;
-    }
-
-    .market-data-section {
+    .boxed-section {
+        border: 1px solid #d1d8e2;
+        border-radius: 6px;
+        margin-bottom: 20px;
         background-color: #ffffff;
-        margin-top: 2rem;
     }
 
-    .card-custom {
-        background-color: #ffffff;
-        border: 1px solid #dee2e6;
-        padding: 10px;
-        border-radius: 0.25rem;
-        margin-bottom: 1rem;
+    .boxed-body {
+        padding: 12px 15px;
     }
 
-    .table th, .table td {
-        vertical-align: middle;
-        text-align: center;
+    .badge-label {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 10px;
     }
 
-    .btn-toggle {
-        margin-bottom: 1rem;
-        display: flex;
-        justify-content: flex-end;
+    .mini-block {
+        margin-bottom: 15px;
     }
 
-        .btn-toggle button {
-            margin-left: 5px;
-        }
-
-    .term-icon {
-        margin-right: 8px;
+    .border-box {
+        border: 1px solid #ccc;
+        padding: 0;
+        border-radius: 6px;
+        background-color: #fafbfc;
     }
 
-    .table, .grid-view {
-        display: none;
+    .border-box-header {
+        background-color: #dee4ed;
+        padding: 8px 12px;
+        border-bottom: 1px solid #ccd4e0;
+        font-weight: 600;
     }
 
-    .table-view-active .table, .grid-view-active .grid-view {
-        display: block;
+    .border-box-body {
+        padding: 10px 12px;
     }
 
-    @@keyframes pulse {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
-        }
-
-        70% {
-            transform: scale(1.05);
-            box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
-        }
-
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
-        }
-    }
-
-    .pulse {
-        animation: pulse 1.5s infinite;
-    }
-
-    .pulse-up {
-        animation: pulse-green 1s infinite;
-    }
-
-    .pulse-down {
-        animation: pulse-red 1s infinite;
-    }
-
-    .pulse-grey {
-        animation: pulse-grey 1s infinite;
-    }
-
-    @@keyframes pulse-green {
-        0% {
-            box-shadow: 0 0 0 0 rgba(0,255,0,0.4);
-        }
-
-        70% {
-            box-shadow: 0 0 0 10px rgba(0,255,0,0);
-        }
-
-        100% {
-            box-shadow: 0 0 0 0 rgba(0,255,0,0);
-        }
-    }
-
-    @@keyframes pulse-red {
-        0% {
-            box-shadow: 0 0 0 0 rgba(255,0,0,0.4);
-        }
-
-        70% {
-            box-shadow: 0 0 0 10px rgba(255,0,0,0);
-        }
-
-        100% {
-            box-shadow: 0 0 0 0 rgba(255,0,0,0);
-        }
-    }
-
-    @@keyframes pulse-grey {
-        0% {
-            box-shadow: 0 0 0 0 rgba(169, 169, 169, 0.4);
-        }
-
-        70% {
-            box-shadow: 0 0 0 10px rgba(169, 169, 169, 0);
-        }
-
-        100% {
-            box-shadow: 0 0 0 0 rgba(169, 169, 169, 0);
-        }
-    }
-
-
-
-
-
-    .logic-more-demand {
-        background-color: #d4f4dd;
-        color: #2e7d32;
-    }
-
-    .logic-weak-demand,
-    .logic-selling-pressure {
-        background-color: #fce4ec;
-        color: #c62828;
-    }
-
-    .logic-less-supply {
-        background-color: #e0f7fa;
-        color: #00796b;
-    }
-
-    .logic-accumulation {
-        background-color: #e3f2fd;
-        color: #1565c0;
-    }
-
-    .logic-distribution {
-        background-color: #fff8e1;
-        color: #f57f17;
-    }
-
-    .logic-no-interest {
-        background-color: #fbe9e7;
-        color: #6d4c41;
-    }
-
-    .logic-fakeouts {
-        background-color: #f3e5f5;
-        color: #6a1b9a;
-    }
-
-    .logic-panic {
-        background-color: #ffebee;
-        color: #b71c1c;
-    }
-
-    .logic-default {
-        background-color: #e0e0e0 !important;
-        color: #555 !important;
+    .info-badge {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        border-radius: 12px;
     }
 </style>
 
@@ -227,14 +94,12 @@
                 <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
                     <div class="iq-card-body pb-5 pt-5">
                         <h1 class="mb-2">Crypto Whisper (Real-Time Crypto Market Logic Too)l</h1>
-                        <h5 class="mb-4">Get live market data and analysis based on our custom logic engine</h5>
-
+                        <h5 class="mb-4">Get live market data and analysis based on my custom logic engine</h5>
                         <a href="https://www.instagram.com/khizooo_art" class="btn btn-warning btn-lg">Instagram</a>
                         <a href="https://www.facebook.com/khizoooartist" class="btn btn-warning btn-lg">Facebook</a>
                         <a href="https://twitter.com/khizaroo" class="btn btn-warning btn-lg">X</a>
                         <a href="https://www.pinterest.com/KhizoOo_" class="btn btn-warning btn-lg">Pinterest</a>
                         <a href="https://www.tiktok.com/@@khizooo_butt" class="btn btn-warning btn-lg">TikTok</a>
-
                     </div>
                 </div>
             </div>
@@ -248,6 +113,139 @@
                     <div class="iq-card-body">
 
                         <div class="row">
+
+                            <!-- Your Selected Token -->
+                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                <div class="boxed-section">
+                                    <div class="section-header">📥 Your Investment</div>
+                                    <div class="boxed-body">
+                                        <div class="form-group">
+                                            <label>Select Your Crypto</label>
+                                            <select class="form-control" id="CryptoCoinSelect"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="boxed-section">
+                                    <div class="section-header bg-light text-danger">❗ Important Note</div>
+                                    <div class="boxed-body">
+                                        <small>All crypto amount predictions shown here are based on past data and do not guarantee future results. Always do your own research before making any investment decisions.</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Output -->
+                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+                                <div class="row"><h2>---</h2></div>
+
+                                <div class="boxed-section">
+                                    <div class="section-header">📈 Market Overview</div>
+                                    <div class="boxed-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Market Price</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Trading Volume</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Resistance Level</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Support Level</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="boxed-section">
+                                    <div class="section-header">🔍 More Information</div>
+                                    <div class="boxed-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Market Cap / 1D</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Circulating Supply / 1D</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Total Max Supply</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Moving Average / 1D</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Relative Strength Index (RSI)</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Moving Average Convergence Divergence / 1D</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Bollinger Bands</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Average True Range / 1D</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Liquidity</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Candlestick Pat</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Order Book Depth</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Volume-Weighted Average Price</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                                <div class="border-box">
+                                                    <div class="border-box-header">Trends</div>
+                                                    <div class="border-box-body"><strong>---</strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <div class="container mt-5 mb-5">
 

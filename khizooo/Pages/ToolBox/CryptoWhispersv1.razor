@@ -1,0 +1,384 @@
+﻿@page "/toolbox/crypto-whisper-v1"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@using System.Net.Security;
+@using System.Net.Sockets;
+@using System.Security.Cryptography.X509Certificates;
+
+
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+
+<PageTitle>Khizooo - Toolbox</PageTitle>
+<HeadContent>
+
+    <meta name="keywords" content="gradient generator, color gradient, online gradient maker, linear gradient tool, radial gradient generator, CSS gradient, web design, graphic design, khizooo">
+    <meta name="description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions.">
+
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta property="og:description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions. Try my widget!">
+    <meta property="og:image" content="images/SEO/OG-Image.png">
+    <meta property="og:url" content="https://www.khizooo.com/Artwork">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Khizooo - Drawing Artist | Tech Lover | Content Creator">
+    <meta name="twitter:description" content="Use our free Gradient Color Generator to create stunning linear and radial gradients for your designs. Choose from predefined themes like Light, Deep, Rainbow, and Intense. Customize angle and intensity for perfect color transitions. Try my widget!">
+    <meta name="twitter:image" content="images/SEO/Twitter-Image.png">
+
+</HeadContent>
+
+<style>
+    p{
+        white-space: pre-line;
+    }
+</style>
+
+
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-5 pt-5">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <h1 class="mb-2">Crypto Whisper (Real-Time Crypto Market Logic Too)</h1>
+                        <h5 class="mb-4">Get live market data and analysis based on my custom logic engine</h5>
+                        <a href="https://www.instagram.com/khizooo_art" class="btn btn-warning btn-lg">Instagram</a>
+                        <a href="https://www.facebook.com/khizoooartist" class="btn btn-warning btn-lg">Facebook</a>
+                        <a href="https://twitter.com/khizaroo" class="btn btn-warning btn-lg">X</a>
+                        <a href="https://www.pinterest.com/KhizoOo_" class="btn btn-warning btn-lg">Pinterest</a>
+                        <a href="https://www.tiktok.com/@@khizooo_butt" class="btn btn-warning btn-lg">TikTok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                
+                <!-- 📥 Your Investment -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">📥 Your Investment</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <p class="mb-2">Pick a Coin and Type How Much You Want to Invest</p>
+                        <div class="form-group">
+                            <label for="Investment-Amount">Select Coin</label>
+                            <select id="Crypto-Select" class="form-control form-control-sm mb-3">
+                                <option value="">Select a coin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Investment-Amount">Investment Amount</label>
+                            <input id="Investment-Amount" type="number" class="form-control form-control-sm" placeholder="Amount in $">
+                        </div>
+                        <div class="form-group">
+                            <button id="Prediction-Button" type="button" class="btn btn-warning btn-md" style="float: right;">
+                                Predict for Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ❗Important Note -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">❗Important Note</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+
+                        <p class="mb-2">All crypto amount predictions shown here are based on past data and do not guarantee future results. Always do your own research before making any investment decisions.</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+
+                <!-- 🧠 Smart Market Behavior -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">🧠 Smart Market Behavior</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Price-Volume Signals</div>
+                                    <div class="card-body">
+                                        <p id="Price-Volume-Signal" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Market Insights</div>
+                                    <div class="card-body">
+                                        <p id="Market-Insight-Signal" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Trend Forecast</div>
+                                    <div class="card-body">
+                                        <p id="Trend-Forecast-Signal" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Trader Alerts & Traps</div>
+                                    <div class="card-body">
+                                        <p id="Trader-Alerts-Traps-Volume-Signal" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📈 Market Overview -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">📈 Market Overview</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Market Price</div>
+                                    <div class="card-body">
+                                        <p id="Market-Price-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Trading Volume</div>
+                                    <div class="card-body">
+                                        <p id="Trading-Volume-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Resistance Level</div>
+                                    <div class="card-body">
+                                        <p id="Resistance-Level-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Support Level</div>
+                                    <div class="card-body">
+                                        <p id="Support-Level-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Market Cap</div>
+                                    <div class="card-body">
+                                        <p id="Market-Cap-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Circulating Supply</div>
+                                    <div class="card-body">
+                                        <p id="Circulating-Supply-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Total Max Supply</div>
+                                    <div class="card-body">
+                                        <p id="Total-Max-Supply-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">Moving Average</div>
+                                    <div class="card-body">
+                                        <p id="Moving-Average-Overview" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📊 Technical Indicators -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">📊 Market Overview</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Relative Strength Index (RSI)</div>
+                                    <div class="card-body">
+                                        <p id="RSI-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Moving Average Convergence Divergence (MACD)</div>
+                                    <div class="card-body">
+                                        <p id="MACD-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Bollinger Bands (BB)</div>
+                                    <div class="card-body">
+                                        <p id="BB-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Average True Range (ATR)</div>
+                                    <div class="card-body">
+                                        <p id="ATR-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Liquidity</div>
+                                    <div class="card-body">
+                                        <p id="Liquidity-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Candlestick Pattern (CP)</div>
+                                    <div class="card-body">
+                                        <p id="CP-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Order Book Depth (OBD)</div>
+                                    <div class="card-body">
+                                        <p id="OBD-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Volume-Weighted Average Price (VWAP)</div>
+                                    <div class="card-body">
+                                        <p id="VWAP-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">Trends</div>
+                                    <div class="card-body">
+                                        <p id="Trends-Indicator" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🎯 Trade Suggestion -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">🎯 Trade Suggestion</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p id="Trade-Suggestion" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📰 Market Sentiment -->
+                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
+                    <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                            <h4 class="card-title">📰 Market Sentiment</h4>
+                        </div>
+                    </div>
+                    <div class="iq-card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p id="Market-Sentiment" class="card-text">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; } = 0;
+    [Parameter]
+    public string Slug { get; set; } = "";
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("LoadScripts", "toolbox/js/crypto-whisper.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+
+}
