@@ -49,9 +49,6 @@
     }
 
     Initialize_Crypto();
-    /* Fill Coins Data While Page Loading */
-
-    /* Market Behavior */
 
     // 🛠️ UTILS
     const API_BASE = 'https://api.coingecko.com/api/v3';
@@ -61,8 +58,8 @@
     const DB_NAME = 'CryptoWhisperCacheDB';
     const STORE_NAME = 'MarketDataStore';
     const DB_VERSION = 1;
-    const CACHE_DURATION_MS = 5 * 60 * 1000; // 5 minutes
-    const MAX_CACHE_ENTRIES = 50;
+    const CACHE_DURATION_MS = 10 * 60 * 1000; // 10 Minutes
+    const MAX_CACHE_ENTRIES = 500;
 
     function openDB() {
         return new Promise((resolve, reject) => {
@@ -309,7 +306,7 @@
 
         const volumeTrend = volumePctChange > smallVolumeMove ? '↑' : volumePctChange < -smallVolumeMove ? '↓' : '-';
 
-        const combo = `Price ${priceTrend}, Volume ${volumeTrend}`;
+        const combo = `Price ${priceTrend}    Volume ${volumeTrend}`;
 
         const isPriceStrongUp = pricePctChange > largePriceMove;
         const isPriceStrongDown = pricePctChange < -largePriceMove;
@@ -322,109 +319,109 @@
 
         if (priceTrend === '↑' && volumeTrend === '↑') {
             if (isPriceStrongUp && isVolumeStrongUp) {
-                label = '->Strong Momentum Spike\n';
-                meaning = '->Strong Demand & Volume surge indicate breakout\n';
-                insight = '->Bullish momentum confirmed by Volume\n'; 
-                trap = '->Low Risk & Trend likely to continue\n';
-                forecast = '->Expect Strong uptrend continuation\n';
+                label = 'Strong Momentum Spike\n';
+                meaning = 'Strong Demand & Volume surge indicate breakout\n';
+                insight = 'Bullish momentum confirmed by Volume\n'; 
+                trap = 'Low Risk & Trend likely to continue\n';
+                forecast = 'Expect Strong uptrend continuation\n';
             } else if (isPriceStrongUp && !isVolumeStrongUp) {
-                label = '->Price Surge with Low Volume\n';
-                meaning = '->Price rising but volume lagging, which mean Caution\n';
-                insight = '->Potential Weak Rally or Pump\n';
-                trap = '->Risk of Bull Trap, which mean Volume should confirm\n';
-                forecast = '->Rally may stall without Volume Support\n';
+                label = 'Price Surge with Low Volume\n';
+                meaning = 'Price rising but volume lagging, which mean Caution\n';
+                insight = 'Potential Weak Rally or Pump\n';
+                trap = 'Risk of Bull Trap, which mean Volume should confirm\n';
+                forecast = 'Rally may stall without Volume Support\n';
             } else if (!isPriceStrongUp && isVolumeStrongUp) {
-                label = '->Volume Spike, Price Flat\n';
-                meaning = '->Unusual volume without price move\n';
-                insight = '->Possible accumulation or manipulation\n';
-                trap = '->Watch closely for Breakout or Reversal\n';
-                forecast = '->Possible upcoming Volatility\n';
+                label = 'Volume Spike, Price Flat\n';
+                meaning = 'Unusual volume without price move\n';
+                insight = 'Possible accumulation or manipulation\n';
+                trap = 'Watch closely for Breakout or Reversal\n';
+                forecast = 'Possible upcoming Volatility\n';
             } else {
-                label = '->Gradual Uptrend';
-                meaning = '->Price & Volume rising moderately\n';
-                insight = '->Healthy accumulation under Resistance\n';
-                trap = '->Positive Signal with moderate Risk\n';
-                forecast = '->Uptrend building momentum\n';
+                label = 'Gradual Uptrend';
+                meaning = 'Price & Volume rising moderately\n';
+                insight = 'Healthy accumulation under Resistance\n';
+                trap = 'Positive Signal with moderate Risk\n';
+                forecast = 'Uptrend building momentum\n';
             }
         }
         else if (priceTrend === '↓' && volumeTrend === '↑') {
             if (isPriceStrongDown && isVolumeStrongUp) {
-                label = '->Panic Sell / Capitulation\n';
-                meaning = '->Heavy Sell-Off with Strong Volume\n';
-                insight = '->Weak hands dumping Assets\n';
-                trap = '->High Risk but possible bottom formation\n';
-                forecast = '->Possible rebound if Volume fades\n';
+                label = 'Panic Sell / Capitulation\n';
+                meaning = 'Heavy Sell-Off with Strong Volume\n';
+                insight = 'Weak hands dumping Assets\n';
+                trap = 'High Risk but possible bottom formation\n';
+                forecast = 'Possible rebound if Volume fades\n';
             } else if (!isPriceStrongDown && isVolumeStrongUp) {
-                label = '->Distribution';
-                meaning = '->Selling Pressure increasing\n';
-                insight = '->Profit taking or cautious Selling\n';
-                trap = '->Bearish Signal, Watch Support Levels\n';
-                forecast = '->Possible downtrend forming\n';
+                label = 'Distribution';
+                meaning = 'Selling Pressure increasing\n';
+                insight = 'Profit taking or cautious Selling\n';
+                trap = 'Bearish Signal, Watch Support Levels\n';
+                forecast = 'Possible downtrend forming\n';
             } else {
-                label = '->Mild Decline\n';
-                meaning = '->Price slightly Down, Volume Up\n';
-                insight = '->Market under slight bearish Pressure\n';
-                trap = '->Monitor for confirmation\n';
-                forecast = '->Potential Slow Downtrend\n';
+                label = 'Mild Decline\n';
+                meaning = 'Price slightly Down, Volume Up\n';
+                insight = 'Market under slight bearish Pressure\n';
+                trap = 'Monitor for confirmation\n';
+                forecast = 'Potential Slow Downtrend\n';
             }
         }
         else if (priceTrend === '↑' && volumeTrend === '↓') {
             if (isPriceStrongUp && !isVolumeStrongDown) {
-                label = '->Bull Trap Warning\n';
-                meaning = '->Price rising but Volume Declining\n';
-                insight = '->Lack of conviction behind Rally\n';
-                trap = '->Likely fake breakout, which means Beware\n';
-                forecast = '->Rally may Reverse\n';
+                label = 'Bull Trap Warning\n';
+                meaning = 'Price rising but Volume Declining\n';
+                insight = 'Lack of conviction behind Rally\n';
+                trap = 'Likely fake breakout, which means Beware\n';
+                forecast = 'Rally may Reverse\n';
             } else {
-                label = '->Weak Rally\n';
-                meaning = '->Price Up, Volume Low\n';
-                insight = '->Slow Buying, Uncertain Strength\n';
-                trap = '->Risk of Reversal\n';
-                forecast = '->Sideways or Weak Uptrend\n';
+                label = 'Weak Rally\n';
+                meaning = 'Price Up, Volume Low\n';
+                insight = 'Slow Buying, Uncertain Strength\n';
+                trap = 'Risk of Reversal\n';
+                forecast = 'Sideways or Weak Uptrend\n';
             }
         }
         else if (priceTrend === '↓' && volumeTrend === '↓') {
             if (isPriceStrongDown && isVolumeStrongDown) {
-                label = '->Strong Sell-Off Cooling\n';
-                meaning = '->Price & Volume falling sharply\n';
-                insight = '->Market losing interest fast\n';
-                trap = '->Possible exhaustion Sell-Off\n';
-                forecast = '->Sideways or Reversal possible\n';
+                label = 'Strong Sell-Off Cooling\n';
+                meaning = 'Price & Volume falling sharply\n';
+                insight = 'Market losing interest fast\n';
+                trap = 'Possible exhaustion Sell-Off\n';
+                forecast = 'Sideways or Reversal possible\n';
             } else {
-                label = '->Disinterest / Consolidation\n';
-                meaning = '->Price & Volume declining mildly\n';
-                insight = '->Market quiet, Low Volume, which means indecision. Market waiting for catalyst\n';
-                trap = '->Low volatility zone\n';
-                forecast = '->Sideways trend\n';
+                label = 'Disinterest / Consolidation\n';
+                meaning = 'Price & Volume declining mildly\n';
+                insight = 'Market quiet, Low Volume, which means indecision. Market waiting for catalyst\n';
+                trap = 'Low volatility zone\n';
+                forecast = 'Sideways trend\n';
             }
         }
         else if (priceTrend === '-' && volumeTrend === '↑') {
-            label = '->Accumulation Phase';
-            meaning = '->Flat Price but Volume rising\n';
-            insight = '->Buyers quietly accumulating\n';
-            trap = '->Positive sign if sustained\n';
-            forecast = '->Possible breakout ahead\n';
+            label = 'Accumulation Phase';
+            meaning = 'Flat Price but Volume rising\n';
+            insight = 'Buyers quietly accumulating\n';
+            trap = 'Positive sign if sustained\n';
+            forecast = 'Possible breakout ahead\n';
         }
         else if (priceTrend === '-' && volumeTrend === '-') {
-            label = '->No Interest / Flat Market\n';
-            meaning = '->Little to no movement in Price or Volume\n';
-            insight = '->Market in rest mode\n';
-            trap = '->Avoid Trading\n';
-            forecast = '->Sideways chop expected\n';
+            label = 'No Interest / Flat Market\n';
+            meaning = 'Little to no movement in Price or Volume\n';
+            insight = 'Market in rest mode\n';
+            trap = 'Avoid Trading\n';
+            forecast = 'Sideways chop expected\n';
         }
         else if (priceTrend === '-' && volumeTrend === '↓') {
-            label = '->Decreasing Interest\n';
-            meaning = '->Volume drying up with flat Price\n';
-            insight = '->Lack of participation\n';
-            trap = '->Low Liquidity Risk\n';
-            forecast = '->Sideways or Weak movement\n';
+            label = 'Decreasing Interest\n';
+            meaning = 'Volume drying up with flat Price\n';
+            insight = 'Lack of participation\n';
+            trap = 'Low Liquidity Risk\n';
+            forecast = 'Sideways or Weak movement\n';
         }
         else {
-            label = '->Mixed Signals\n';
-            meaning = '->Price & volume trends are unclear or conflicting\n';
-            insight = '->Market indecision\n';
-            trap = '->Trade with caution\n';
-            forecast = '->Wait for clear signals\n';
+            label = 'Mixed Signals\n';
+            meaning = 'Price & volume trends are unclear or conflicting\n';
+            insight = 'Market indecision\n';
+            trap = 'Trade with caution\n';
+            forecast = 'Wait for clear signals\n';
         }
 
         // === Indicator calculations ===
@@ -438,62 +435,62 @@
 
         if (rsi !== null) {
             if (rsi > 70) {
-                insight += '->RSI indicates overbought conditions\n';
-                trap = '->' + trap ? trap + 'Potential Price correction or reversal\n' : 'Potential Price correction or reversal\n';
+                insight += 'RSI indicates overbought conditions\n';
+                trap = '' + trap ? trap + 'Potential Price correction or reversal\n' : 'Potential Price correction or reversal\n';
             } else if (rsi < 30) {
-                insight += '->RSI indicates oversold conditions\n';
-                forecast = '->' + forecast ? forecast + 'Potential rebound likely\n' : 'Potential rebound likely\n';
+                insight += 'RSI indicates oversold conditions\n';
+                forecast = '' + forecast ? forecast + 'Potential rebound likely\n' : 'Potential rebound likely\n';
             } else {
-                insight += '->RSI in neutral zone\n';
+                insight += 'RSI in neutral zone\n';
             }
         } else {
-            insight += '->RSI data unavailable\n';
+            insight += 'RSI data unavailable\n';
         }
 
         if (macd !== null) {
             if (macd.histogram > 0) {
-                insight += '->MACD histogram positive, which means Bullish Momentum\n';
-                forecast = '->' + forecast.includes('Uptrend') ? forecast : (forecast ? forecast + 'Potential Bullish Trend\n' : 'Potential Bullish Trend\n');
+                insight += 'MACD histogram positive, which means Bullish Momentum\n';
+                forecast = '' + forecast.includes('Uptrend') ? forecast : (forecast ? forecast + 'Potential Bullish Trend\n' : 'Potential Bullish Trend\n');
             } else if (macd.histogram < 0) {
-                insight += '->MACD histogram negative, Bearish Momentum\n';
-                forecast = '->' + forecast.includes('Downtrend') ? forecast : (forecast ? forecast + 'Potential Bearish Trend\n' : 'Potential Bearish Trend\n');
+                insight += 'MACD histogram negative, Bearish Momentum\n';
+                forecast = '' + forecast.includes('Downtrend') ? forecast : (forecast ? forecast + 'Potential Bearish Trend\n' : 'Potential Bearish Trend\n');
             } else {
-                insight += '->MACD histogram neutral\n';
+                insight += 'MACD histogram neutral\n';
             }
         } else {
-            insight += '->MACD data unavailable\n';
+            insight += 'MACD data unavailable\n';
         }
 
         if (bb !== null) {
             const lastClose = pricesFull[pricesFull.length - 1];
             const lastBB = bb[bb.length - 1];
             if (lastClose > lastBB.upper) {
-                insight += '->Price above upper Bollinger Band, which means possible over extension\n';
-                trap = '->' + trap ? trap + 'BB upper band breakout caution\n' : 'BB upper band breakout caution\n';
+                insight += 'Price above upper Bollinger Band, which means possible over extension\n';
+                trap = '' + trap ? trap + 'BB upper band breakout caution\n' : 'BB upper band breakout caution\n';
             } else if (lastClose < lastBB.lower) {
-                insight += '->Price below lower Bollinger Band, which means possible oversold\n';
-                forecast = '->' + forecast ? forecast + 'BB Lower band rebound likely\n' : 'BB Lower band rebound likely\n';
+                insight += 'Price below lower Bollinger Band, which means possible oversold\n';
+                forecast = '' + forecast ? forecast + 'BB Lower band rebound likely\n' : 'BB Lower band rebound likely\n';
             } else {
-                insight += '->Price within Bollinger Bands & Normal Volatility\n';
+                insight += 'Price within Bollinger Bands & Normal Volatility\n';
             }
         } else {
-            insight += '->Bollinger Bands data unavailable\n';
+            insight += 'Bollinger Bands data unavailable\n';
         }
 
         if (ma50 && ma200) {
             const lastMA50 = ma50[ma50.length - 1];
             const lastMA200 = ma200[ma200.length - 1];
             if (lastMA50 > lastMA200) {
-                insight += '->50-day MA above 200-day MA, which means Bullish Crossover (Golden Cross)\n';
-                forecast += '->' + forecast ? 'Golden Cross signal\n' : 'Golden Cross signal\n';
+                insight += '50-day MA above 200-day MA, which means Bullish Crossover (Golden Cross)\n';
+                forecast += '' + forecast ? 'Golden Cross signal\n' : 'Golden Cross signal\n';
             } else if (lastMA50 < lastMA200) {
-                insight += '->50-day MA below 200-day MA, which means Bearish Crossover (Death Cross)\n';
-                forecast += '->' + forecast ? 'Death Cross signal\n' : 'Death Cross signal\n';
+                insight += '50-day MA below 200-day MA, which means Bearish Crossover (Death Cross)\n';
+                forecast += '' + forecast ? 'Death Cross signal\n' : 'Death Cross signal\n';
             } else {
-                insight += '->MA crossover neutral\n';
+                insight += 'MA crossover neutral\n';
             }
         } else {
-            insight += '->Moving Averages data unavailable\n';
+            insight += 'Moving Averages data unavailable\n';
         }
 
         return {
@@ -521,13 +518,17 @@
 
         const [coin] = marketData;
 
-        const prices = chartData.prices.map(p => p[1]); // extract prices
+        const prices = chartData.prices.map(p => p[1]); 
 
         const resistanceLevel = Math.max(...prices);
         const supportLevel = Math.min(...prices);
 
         return {
-            marketPrice: coin.current_price,
+            name: coin.name,
+            symbol: coin.symbol ? coin.symbol.toUpperCase() : '',
+            marketPrice: coin.current_price, 
+            image: coin.image, 
+            priceChangePercent: coin.price_change_percentage_24h,
             volume_24h: coin.total_volume,
             resistance: resistanceLevel.toFixed(2),
             support: supportLevel.toFixed(2)
@@ -536,34 +537,54 @@
 
     // 🔮 3. Hourly Prediction
     async function getHourlyPrediction(coinId, investmentAmount = 100) {
-        const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinId}`;
+        // Get 1-day price chart (5-min intervals)
+        const chartURL = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=1`;
+        const chartData = await fetchWithCache(chartURL, `${coinId}_chart_1d`);
+        if (!chartData || !chartData.prices || chartData.prices.length < 13) return null;
 
-        // Fetch coin data with caching
-        const coinData = await fetchWithCache(url, `${coinId}_market`);
+        // Get current price
+        const currentPrice = chartData.prices.at(-1)[1];
 
-        if (!coinData || !coinData.length) return null;
+        // Calculate growth factors for 1h, 2h, 3h
+        // Each hour = 12 intervals (5 min each)
+        const nowIdx = chartData.prices.length - 1;
+        const idx1h = Math.max(0, nowIdx - 12);
+        const idx2h = Math.max(0, nowIdx - 24);
+        const idx3h = Math.max(0, nowIdx - 36);
 
-        const currentPrice = coinData[0].current_price;
+        const price1hAgo = chartData.prices[idx1h][1];
+        const price2hAgo = chartData.prices[idx2h][1];
+        const price3hAgo = chartData.prices[idx3h][1];
 
-        // Basic growth factors (mock logic)
-        const factors = {
-            '1h': 1.012,  // +1.2%
-            '2h': 1.018,  // +1.8%
-            '3h': 1.025   // +2.5%
-        };
+        // Growth factors: current / past
+        const factor1h = currentPrice / price1hAgo;
+        const factor2h = currentPrice / price2hAgo;
+        const factor3h = currentPrice / price3hAgo;
 
+        // Use these factors to project future prices (for demo, project forward with same rate)
         const predictions = {};
 
-        for (let hour in factors) {
-            const predictedPrice = currentPrice * factors[hour];
-            const coinQuantity = investmentAmount / currentPrice;
-            const futureValue = coinQuantity * predictedPrice;
+        // 1h projection: assume next hour grows at same rate as last hour
+        const predictedPrice1h = currentPrice * factor1h;
+        const coinQuantity = investmentAmount / currentPrice;
+        predictions['1h'] = {
+            predictedPrice: predictedPrice1h.toFixed(2),
+            projectedAmount: (coinQuantity * predictedPrice1h).toFixed(2)
+        };
 
-            predictions[hour] = {
-                predictedPrice: predictedPrice.toFixed(2),
-                projectedAmount: futureValue.toFixed(2)
-            };
-        }
+        // 2h projection: compound last 2 hours' rate
+        const predictedPrice2h = currentPrice * factor2h;
+        predictions['2h'] = {
+            predictedPrice: predictedPrice2h.toFixed(2),
+            projectedAmount: (coinQuantity * predictedPrice2h).toFixed(2)
+        };
+
+        // 3h projection: compound last 3 hours' rate
+        const predictedPrice3h = currentPrice * factor3h;
+        predictions['3h'] = {
+            predictedPrice: predictedPrice3h.toFixed(2),
+            projectedAmount: (coinQuantity * predictedPrice3h).toFixed(2)
+        };
 
         return predictions;
     }
@@ -1151,6 +1172,35 @@
 
 
     // Helper Functions
+    function formatBinanceNumber(value, currency = false, currencySymbol = '$') {
+        // Convert to number and check for invalid input
+        const num = Number(value);
+        if (!isFinite(num)) return '-';
+
+        const abs = Math.abs(num);
+        let formatted;
+
+        if (abs >= 1_000_000_000) {
+            formatted = (num / 1_000_000_000).toFixed(2).replace(/\.00$/, '') + 'B';
+        } else if (abs >= 1_000_000) {
+            formatted = (num / 1_000_000).toFixed(2).replace(/\.00$/, '') + 'M';
+        } else if (abs >= 1_000) {
+            formatted = (num / 1_000).toFixed(2).replace(/\.00$/, '') + 'K';
+        } else if (abs >= 1) {
+            formatted = num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        } else if (abs > 0) {
+            formatted = num.toFixed(8).replace(/\.?0+$/, '');
+            if (formatted.indexOf('.') === -1) formatted += '.00';
+            else if (formatted.split('.')[1].length === 1) formatted += '0';
+        } else {
+            formatted = '0.00';
+        }
+
+        // Add currency symbol if needed, always at the end (Binance style)
+        if (currency) formatted += currencySymbol;
+
+        return formatted;
+    }
 
     let controller = null;
     $("body").on('click', '#Prediction-Button', async function (e) { 
@@ -1178,7 +1228,7 @@
 
         const smartBehavior = await getSmartMarketBehavior(selectedCoin);
         const current = await getCurrentData(selectedCoin);
-        const prediction = await getHourlyPrediction(selectedCoin);
+        const prediction = await getHourlyPrediction(selectedCoin, Number(investmentAmount));
         const moreInfo = await getMoreInformation(selectedCoin);
         const suggestion = await getCachedTradeSuggestion(moreInfo);
         const sentiment = await getMarketSentiment();
@@ -1191,46 +1241,82 @@
         console.log('📊 Trade Suggestion', suggestion);
         console.log('📰 Market Sentiment', sentiment);
 
+        // Try to get coin logo and display heading with logo
+        let headingHtml = '';
+        if (current && current.name && current.symbol && current.marketPrice) {
+            // Try to get the logo from cached coins list
+            let coins = [];
+            try {
+                coins = JSON.parse(localStorage.getItem('top100_cryptos')) || [];
+            } catch { coins = []; }
+            const coinInfo = coins.find(c => c.id === selectedCoin);
+
+            // Use CoinGecko image if available
+            const logoUrl = coinInfo && coinInfo.image ? coinInfo.image : (current.image || '');
+
+            const price = formatBinanceNumber(current.marketPrice, true);
+            const percent = (current.priceChangePercent > 0 ? '+' : '') + Number(current.priceChangePercent).toFixed(2) + '%';
+            const percentColor = current.priceChangePercent > 0 ? '#28a745' : '#dc3545'; // Bootstrap green/red
+
+            headingHtml = `
+    ${logoUrl ? `<img src="${logoUrl}" alt="${current.symbol}" style="width:32px;height:32px;vertical-align:middle;margin-right:8px;border-radius:50%;box-shadow:0 1px 4px #ccc;">` : ''}
+    <span style="vertical-align:middle;">
+        ${current.name} (${current.symbol}) - <span style="font-size: 0.9rem;font-weight: 400;">
+            1 ${current.name} equals ${price}
+            ${current.priceChangePercent !== undefined
+                    ? ` | <span style="color:${percentColor};font-weight:600;">${percent}</span> 1D`
+                    : ''}
+        </span>
+    </span>
+`;
+            $('#SelectedCryptoTitle').html(headingHtml);
+        } else {
+            $('#SelectedCryptoTitle').text('');
+        }
+
+        // Hourly Prediction
+        $('#Prediction1h').text(formatBinanceNumber(prediction?.['1h']?.predictedPrice, true));
+        $('#Prediction2h').text(formatBinanceNumber(prediction?.['2h']?.predictedPrice, true));
+        $('#Prediction3h').text(formatBinanceNumber(prediction?.['3h']?.predictedPrice, true));
+        $('#Projected1h').text(formatBinanceNumber(prediction?.['1h']?.projectedAmount, true));
+        $('#Projected2h').text(formatBinanceNumber(prediction?.['2h']?.projectedAmount, true));
+        $('#Projected3h').text(formatBinanceNumber(prediction?.['3h']?.projectedAmount, true));
+
         // Smart Market Behavior
-        $('#Price-Volume-Signal').text(`${smartBehavior?.priceVolumeSignal?.combo ?? '-'}\n(${smartBehavior?.priceVolumeSignal?.label ?? '-'})\n(${smartBehavior?.priceVolumeSignal?.meaning ?? '-'})`);
+        $('#Price-Volume-Signal').text(`${smartBehavior?.priceVolumeSignal?.combo ?? '-'}\n${smartBehavior?.priceVolumeSignal?.label ?? '-'}${smartBehavior?.priceVolumeSignal?.meaning ?? '-'}`);
         $('#Market-Insight-Signal').text(smartBehavior?.marketInsight ?? '-');
         $('#Trend-Forecast-Signal').text(smartBehavior?.trendForecast ?? '-');
         $('#Trader-Alerts-Traps-Volume-Signal').text(smartBehavior?.traderTrap ?? '-');
 
         // Current Market Info
-        $('#Market-Price-Overview').text(current?.marketPrice ?? '-');
-        $('#Trading-Volume-Overview').text(current?.volume_24h ?? '-');
-        $('#Resistance-Level-Overview').text(current?.resistance ?? '-');
-        $('#Support-Level-Overview').text(current?.support ?? '-');
-        $('#Market-Cap-Overview').text(moreInfo?.marketCap ?? '-');
-        $('#Circulating-Supply-Overview').text(moreInfo?.circulatingSupply ?? '-');
-        $('#Total-Max-Supply-Overview').text(moreInfo?.totalMaxSupply ?? '-');
-        $('#Moving-Average-Overview').text(moreInfo?.movingAverage ?? '-');
+        $('#Market-Price-Overview').text(formatBinanceNumber(current?.marketPrice, true));
+        $('#Trading-Volume-Overview').text(formatBinanceNumber(current?.volume_24h));
+        $('#Resistance-Level-Overview').text(formatBinanceNumber(current?.resistance, true));
+        $('#Support-Level-Overview').text(formatBinanceNumber(current?.support, true));
+        $('#Market-Cap-Overview').text(formatBinanceNumber(moreInfo?.marketCap));
+        $('#Circulating-Supply-Overview').text(formatBinanceNumber(moreInfo?.circulatingSupply));
+        $('#Total-Max-Supply-Overview').text(formatBinanceNumber(moreInfo?.totalMaxSupply));
+        $('#Moving-Average-Overview').text(formatBinanceNumber(moreInfo?.movingAverage, true));
 
-        //// Hourly Prediction
-        //$('#Prediction1h').text(prediction?.['1h']?.predictedPrice ?? '-');
-        //$('#Prediction2h').text(prediction?.['2h']?.predictedPrice ?? '-');
-        //$('#Prediction3h').text(prediction?.['3h']?.predictedPrice ?? '-');
-        //$('#Projected1h').text(prediction?.['1h']?.projectedAmount ?? '-');
-        //$('#Projected2h').text(prediction?.['2h']?.projectedAmount ?? '-');
-        //$('#Projected3h').text(prediction?.['3h']?.projectedAmount ?? '-');
 
         // More Information
-        $('#RSI-Indicator').text(`${moreInfo?.rsi?.value ?? '-'}\n(${moreInfo?.rsi?.label ?? '-'})\n(${moreInfo?.rsi?.description ?? '-'})`);
-        $('#MACD-Indicator').text(`${moreInfo?.macd?.value ?? '-'}\n(${moreInfo?.macd?.label ?? '-'})\n(${moreInfo?.macd?.description ?? '-'})`);
-        $('#BB-Indicator').text(`${moreInfo?.bollinger?.label ?? '-'}\n(${moreInfo?.bollinger?.description ?? '-'})`);
-        $('#ATR-Indicator').text(`${moreInfo?.atr?.value ?? '-'}\n(${moreInfo?.atr?.label ?? '-'})\n(${moreInfo?.atr?.description ?? '-'})`);
-        $('#Liquidity-Indicator').text(`${moreInfo?.liquidity?.value ?? '-'}\n(${moreInfo?.liquidity?.label ?? '-'})\n(${moreInfo?.liquidity?.description ?? '-'})`);
-        $('#CP-Indicator').text(`${moreInfo?.candlestickPattern?.label ?? '-'}\n(${moreInfo?.candlestickPattern?.description ?? '-'})`);
-        $('#OBD-Indicator').text(`${moreInfo?.obv?.label ?? '-'}\n(${moreInfo?.obv?.description ?? '-'})`);
-        $('#VWAP-Indicator').text(`${moreInfo?.vwap?.value ?? '-'}\n(${moreInfo?.vwap?.label ?? '-'})\n(${moreInfo?.vwap?.description ?? '-'})`);
-        $('#Trends-Indicator').text(`${moreInfo?.trend?.label ?? '-'}\n(${moreInfo?.trend?.description ?? '-'})`);
+        $('#RSI-Indicator').text(`${formatBinanceNumber(moreInfo?.rsi?.value)}\n${moreInfo?.rsi?.label ?? '-'}\n${moreInfo?.rsi?.description ?? '-'}`);
+        $('#MACD-Indicator').text(`${formatBinanceNumber(moreInfo?.macd?.value)}\n${moreInfo?.macd?.label ?? '-'}\n${moreInfo?.macd?.description ?? '-'}`);
+        $('#ATR-Indicator').text(`${formatBinanceNumber(moreInfo?.atr?.value)}\n${moreInfo?.atr?.label ?? '-'}\n${moreInfo?.atr?.description ?? '-'}`);
+        $('#VWAP-Indicator').text(`${formatBinanceNumber(moreInfo?.vwap?.value, true)}\n${moreInfo?.vwap?.label ?? '-'}\n${moreInfo?.vwap?.description ?? '-'}`);
+        $('#Liquidity-Indicator').text(`${formatBinanceNumber(moreInfo?.liquidity?.value)}\n${moreInfo?.liquidity?.label ?? '-'}\n${moreInfo?.liquidity?.description ?? '-'}`);
+        $('#BB-Indicator').text(`${moreInfo?.bollinger?.label ?? '-'}\n${moreInfo?.bollinger?.description ?? '-'}`);
+        $('#CP-Indicator').text(`${moreInfo?.candlestickPattern?.label ?? '-'}\n${moreInfo?.candlestickPattern?.description ?? '-'}`);
+        $('#OBD-Indicator').text(`${moreInfo?.obv?.label ?? '-'}\n${moreInfo?.obv?.description ?? '-'}`);
+        $('#Trends-Indicator').text(`${moreInfo?.trend?.label ?? '-'}\n${moreInfo?.trend?.description ?? '-'}`);
+
+
 
         // Trade Suggestion
         $('#Trade-Suggestion').text(suggestion ?? '-');
 
         // Market Sentiment
-        $('#Market-Sentiment').text(`${sentiment?.label ?? '-'}\n(${sentiment?.description ?? '-'})`); 
+        $('#Market-Sentiment').text(`${sentiment?.label ?? '-'}\n${sentiment?.description ?? '-'}`); 
 
 
 
@@ -1238,4 +1324,3 @@
     });
 
 });
-
