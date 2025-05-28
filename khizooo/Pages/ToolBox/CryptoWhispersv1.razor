@@ -32,10 +32,15 @@
     p{
         white-space: pre-line;
     }
-
     .display-4 {
         font-size: 1.5rem;
         line-height: 1;
+    }
+    .badge {
+        padding: .3em .9em;
+        font-weight: 600;
+        line-height: 2;
+        text-transform: capitalize;
     }
 </style>
 
@@ -65,10 +70,10 @@
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 
                 <!-- 📥 Your Investment -->
-                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
-                    <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-card sb-top-banner-card iq-card-block">
+                    <div class="iq-card-header d-flex justify-content-between bg-dark">
                         <div class="iq-header-title">
-                            <h4 class="card-title">📥 Your Investment</h4>
+                            <h4 class="card-title text-white">📥 Your Investment</h4>
                         </div>
                     </div>
                     <div class="iq-card-body">
@@ -92,16 +97,14 @@
                 </div>
 
                 <!-- ❗Important Note -->
-                <div class="iq-card sb-top-banner-card iq-card-block pb-2 pt-2">
-                    <div class="iq-card-header d-flex justify-content-between">
+                <div class="iq-card sb-top-banner-card iq-card-block">
+                    <div class="iq-card-header d-flex justify-content-between bg-dark">
                         <div class="iq-header-title">
-                            <h4 class="card-title">❗Important Note</h4>
+                            <h4 class="card-title text-white">❗Important Note</h4>
                         </div>
                     </div>
                     <div class="iq-card-body">
-
                         <p class="mb-2">All crypto amount predictions shown here are based on past data and do not guarantee future results. Always do your own research before making any investment decisions.</p>
-
                     </div>
                 </div>
 
@@ -115,17 +118,17 @@
                         <h4 id="SelectedCryptoTitle" class="card-title">---</h4>
 
                         <!-- 💡 Investment Prediction Card -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2 mb-3">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">💡 Investment Prediction (03-Hours)</h4>
+                                    <h4 class="card-title text-white">💡 Investment Prediction (03-Hours)</h4>
                                 </div>
                             </div>
                             <div class="iq-card-body pb-0">
                                 <div class="row text-center">
                                     <div class="col-4">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">+1 Hour</div>
+                                            <div class="card-header bg-light">+1 Hour</div>
                                             <div class="card-body">
                                                 <div>Predicted Price</div>
                                                 <div id="Prediction1h" class="display-4 font-weight-bold mb-3">---</div>
@@ -136,7 +139,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">+2 Hours</div>
+                                            <div class="card-header bg-light">+2 Hours</div>
                                             <div class="card-body">
                                                 <div>Predicted Price</div>
                                                 <div id="Prediction2h" class="display-4 font-weight-bold mb-3">---</div>
@@ -147,7 +150,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">+3 Hours</div>
+                                            <div class="card-header bg-light">+3 Hours</div>
                                             <div class="card-body">
                                                 <div>Predicted Price</div>
                                                 <div id="Prediction3h" class="display-4 font-weight-bold mb-3">---</div>
@@ -161,17 +164,18 @@
                         </div>
 
                         <!-- 🧠 Smart Market Behavior -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between align-items-center bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">🧠 Smart Market Behavior</h4>
+                                    <h4 class="card-title text-white">🧠 Smart Market Behavior</h4>
                                 </div>
+                                <a href="#" class="btn btn-outline-light btn-sm">Detail</a>
                             </div>
                             <div class="iq-card-body pb-0">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Price-Volume Signals</div>
+                                            <div class="card-header bg-light">Price-Volume Signals</div>
                                             <div class="card-body">
                                                 <p id="Price-Volume-Signal" class="card-text">---</p>
                                             </div>
@@ -179,7 +183,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Market Insights</div>
+                                            <div class="card-header bg-light">Market Insights</div>
                                             <div class="card-body">
                                                 <p id="Market-Insight-Signal" class="card-text">---</p>
                                             </div>
@@ -187,7 +191,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Trend Forecast</div>
+                                            <div class="card-header bg-light">Trend Forecast</div>
                                             <div class="card-body">
                                                 <p id="Trend-Forecast-Signal" class="card-text">---</p>
                                             </div>
@@ -195,7 +199,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Trader Alerts & Traps</div>
+                                            <div class="card-header bg-light">Trader Alerts & Traps</div>
                                             <div class="card-body">
                                                 <p id="Trader-Alerts-Traps-Volume-Signal" class="card-text">---</p>
                                             </div>
@@ -206,17 +210,20 @@
                         </div>
 
                         <!-- 🧭 Technical Indicators -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">🧭 Technical Indicators</h4>
+                                    <h4 class="card-title text-white">🧭 Technical Indicators</h4>
                                 </div>
                             </div>
                             <div class="iq-card-body pb-0">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Relative Strength Index (RSI)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Relative Strength Index (RSI)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="RSI-Indicator" class="card-text">---</p>
                                             </div>
@@ -224,7 +231,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Moving Average Convergence Divergence (MACD)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Moving Average Convergence Divergence (MACD)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="MACD-Indicator" class="card-text">---</p>
                                             </div>
@@ -232,7 +242,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Bollinger Bands (BB)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Bollinger Bands (BB)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="BB-Indicator" class="card-text">---</p>
                                             </div>
@@ -240,7 +253,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Average True Range (ATR)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Average True Range (ATR)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="ATR-Indicator" class="card-text">---</p>
                                             </div>
@@ -248,7 +264,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Liquidity</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Liquidity</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="Liquidity-Indicator" class="card-text">---</p>
                                             </div>
@@ -256,7 +275,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Candlestick Pattern (CP)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Candlestick Pattern (CP)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="CP-Indicator" class="card-text">---</p>
                                             </div>
@@ -264,7 +286,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Order Book Depth (OBD)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Order Book Depth (OBD)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="OBD-Indicator" class="card-text">---</p>
                                             </div>
@@ -272,7 +297,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Volume-Weighted Average Price (VWAP)</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Volume-Weighted Average Price (VWAP)</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="VWAP-Indicator" class="card-text">---</p>
                                             </div>
@@ -280,7 +308,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Trends</div>
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <span>Trends</span>
+                                                <a href="#" class="btn btn-outline-dark btn-sm">Detail</a>
+                                            </div>
                                             <div class="card-body">
                                                 <p id="Trends-Indicator" class="card-text">---</p>
                                             </div>
@@ -294,17 +325,17 @@
                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 
                         <!-- 📈 Market Overview -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">📈 Market Overview</h4>
+                                    <h4 class="card-title text-white">📈 Market Overview</h4>
                                 </div>
                             </div>
                             <div class="iq-card-body pb-0">
                                 <div class="row text-center">
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Market Price</div>
+                                            <div class="card-header bg-light">Market Price</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Market-Price-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -312,7 +343,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Trading Volume</div>
+                                            <div class="card-header bg-light">Trading Volume</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Trading-Volume-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -320,7 +351,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Resistance Level</div>
+                                            <div class="card-header bg-light">Resistance Level</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Resistance-Level-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -328,7 +359,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Support Level</div>
+                                            <div class="card-header bg-light">Support Level</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Support-Level-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -336,7 +367,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Market Cap</div>
+                                            <div class="card-header bg-light">Market Cap</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Market-Cap-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -344,7 +375,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Circulating Supply</div>
+                                            <div class="card-header bg-light">Circulating Supply</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Circulating-Supply-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -352,7 +383,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Total Max Supply</div>
+                                            <div class="card-header bg-light">Total Max Supply</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Total-Max-Supply-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -360,7 +391,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="card">
-                                            <div class="card-header text-white bg-dark">Moving Average</div>
+                                            <div class="card-header bg-light">Moving Average</div>
                                             <div class="card-body pb-0 pt-3">
                                                 <p id="Moving-Average-Overview" class="display-4 font-weight-bold">---</p>
                                             </div>
@@ -371,10 +402,10 @@
                         </div>
 
                         <!-- 🎯 Trade Suggestion -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">🎯 Trade Suggestion</h4>
+                                    <h4 class="card-title text-white">🎯 Trade Suggestion</h4>
                                 </div>
                             </div>
                             <div class="iq-card-body">
@@ -383,10 +414,10 @@
                         </div>
 
                         <!-- 📰 Market Sentiment -->
-                        <div class="iq-card sb-top-banner-card iq-card-block pt-2">
-                            <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-card sb-top-banner-card iq-card-block">
+                            <div class="iq-card-header d-flex justify-content-between bg-dark">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title">📰 Market Sentiment</h4>
+                                    <h4 class="card-title text-white">📰 Market Sentiment</h4>
                                 </div>
                             </div>
                             <div class="iq-card-body">
