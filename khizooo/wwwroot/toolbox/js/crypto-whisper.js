@@ -1208,6 +1208,245 @@
             .join('\n');
     }
 
+    // Projected Amounts: color green if greater than investment amount
+    function setProjectedAmount(id, projected, investment) {
+        const numProjected = Number(projected);
+        const numInvestment = Number(investment);
+        const formatted = formatBinanceNumber(projected, true);
+        if (numProjected > numInvestment) {
+            $(`#${id}`).html(`<span style="color:#28a745;font-weight:bold;">${formatted}</span>`);
+        } else {
+            $(`#${id}`).html(formatted);
+        }
+    }
+
+        { // Detail Modal Work
+
+            // Add modal HTML to the page if not already present
+            function ensureDetailModal() {
+                if ($('#crypto-detail-modal').length === 0) {
+                    $('body').append(`
+<div id="crypto-detail-modal" style="display:none;position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);">
+  <div style="background:#fff;max-width:1150px;margin:5% auto;padding:24px 18px 18px 18px;border-radius:8px;position:relative;">
+    <button id="crypto-detail-modal-close" style="position:absolute;top:8px;right:12px;font-size:1.5rem;background:none;border:none;color:#888;cursor:pointer;">&times;</button>
+    <h5 id="crypto-detail-modal-title"></h5>
+    <div id="crypto-detail-modal-body"></div>
+  </div>
+</div>
+            `);
+                    $('#crypto-detail-modal-close').on('click', function () {
+                        $('#crypto-detail-modal').hide();
+                    });
+                    // Optional: close modal on backdrop click
+                    $('#crypto-detail-modal').on('click', function (e) {
+                        if (e.target === this) $(this).hide();
+                    });
+                }
+            }
+
+            // Data for each modal
+            const detailTables = {
+                'detail-marketbehavior': {
+                    title: 'Smart Market Behavior Details',
+                    headers: ['Pattern', 'UX Label', 'Short Description', 'Interpretation'],
+                    rows: [
+                        ['Price ↑, Volume ↑', 'More Demand', 'People are interested in buying', 'Price will go up'],
+                        ['Price ↓, Volume ↑', 'Weak Demand', 'People are not interested in buying', 'Price will go down'],
+                        ['Price ↓, Volume ↑', 'More Selling Pressure', 'People are interested in selling', 'Price will go down'],
+                        ['Price ↑, Volume ↓', 'Less Supply', 'People are not interested in selling', 'Price will go up'],
+                        ['Price ↑, Volume ↑', 'Accumulation', 'Buyers secretly buying', 'Breakout expected upward'],
+                        ['Price ↓, Volume ↑', 'Distribution', 'Sellers offloading', 'Breakout expected downward'],
+                        ['Price -, Volume -', 'No Interest', 'Market is flat', 'No strong move expected'],
+                        ['Price ↑, Volume ↓', 'Fakeout / Bull Trap', 'Might reverse quickly', 'Caution advised'],
+                        ['Price ↓, Volume ↑', 'Panic Sell / Capitulation', 'Possible bottom', 'Reversal coming']
+                    ]
+                },
+                'detail-rsi': {
+                    title: 'RSI (Relative Strength Index) Details',
+                    headers: ['RSI Value', 'Visual Indicator', 'UX Meaning', 'Short Description of UX Label'],
+                    rows: [
+                        ['0–10', '🔵 Blue', 'Extremely Oversold', 'High reversal chance'],
+                        ['11–20', '🔵 Blue', 'Deep Oversold', 'Strong buy signals forming'],
+                        ['21–30', '🔵 Blue', 'Oversold', 'Buy zone'],
+                        ['31–40', '🟢 Green', 'Weak bullish momentum', 'Cautious entry'],
+                        ['41–50', '🟢 Green', 'Neutral', 'Wait and observe'],
+                        ['51–60', '🟢 Green', 'Light bullish strength', 'Potential trend forming'],
+                        ['61–70', '🟢 Green', 'Strong momentum', 'Possible continuation'],
+                        ['71–80', '🔴 Red', 'Overbought', 'Caution on new buys'],
+                        ['81–90', '🔴 Red', 'Extremely Overbought', 'Possible pullback'],
+                        ['91–100', '🔴 Red', 'Danger Zone', 'High reversal risk']
+                    ]
+                },
+                'detail-macd': {
+                    title: 'MACD Details',
+                    headers: ['MACD Behavior / Value', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['MACD just crossed above Signal', '🟢 Green', 'Bullish Crossover', 'Momentum shifting upward, early buy signal'],
+                        ['MACD significantly above Signal and rising', '🟢 Bright Green', 'Strong Bullish Momentum', 'Uptrend gaining strength, buyers in control'],
+                        ['MACD above Signal but flattening', '🟡 Yellow', 'Stalling Bullish Momentum', 'Momentum slowing down, trend may pause or reverse'],
+                        ['MACD curving down toward Signal from above', '🟡 Yellow', 'Weakening Bullish Trend', 'Bullish phase fading, potential reversal'],
+                        ['MACD ≈ Signal (difference near zero ±0.005)', '⚪ Light Gray', 'No Clear Signal', 'Neutral market, no strong buy/sell indication'],
+                        ['MACD just crossed below Signal', '🔴 Red', 'Bearish Crossover', 'Momentum shifting downward, early sell signal'],
+                        ['MACD significantly below Signal and falling', '🔴 Dark Red', 'Strong Bearish Momentum', 'Downtrend gaining strength, sellers in control'],
+                        ['MACD below Signal but flattening', '🟠 Orange', 'Stalling Bearish Momentum', 'Bearish pressure weakening, reversal may be near'],
+                        ['MACD curving up toward Signal from below', '🟠 Orange', 'Possible Reversal Building', 'Early signs of trend change, bullish bounce potential'],
+                        ['MACD and Signal both flat near zero', '⚫ Gray', 'Sideways Market', 'Low volatility, no direction, market indecisive']
+                    ]
+                },
+                'detail-bb': {
+                    title: 'Bollinger Bands Details',
+                    headers: ['BB Behavior / Value', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Price touches or breaks Upper Band', '🔴 Red', 'Overbought Pressure', 'Price may be peaking; possible pullback or correction'],
+                        ['Price hugs Upper Band with volume increasing', '🟢 Bright Green', 'Bullish Breakout Possible', 'Strong uptrend may continue; buyers in control'],
+                        ['Price touches or breaks Lower Band', '🔵 Blue', 'Oversold Pressure', 'Price may be bottoming out; possible rebound'],
+                        ['Price hugs Lower Band with volume increasing', '🔴 Dark Red', 'Bearish Breakdown Possible', 'Strong downtrend may continue; sellers in control'],
+                        ['Bands are very wide (high volatility)', '🟠 Orange', 'High Volatility Zone', 'Market is unstable; sharp price moves likely'],
+                        ['Bands are very narrow (squeezing)', '🟡 Yellow', 'Squeeze Alert', 'Low volatility — breakout in either direction expected'],
+                        ['Price is between Middle Band (SMA) and Upper Band', '🟢 Green', 'Mild Bullish Bias', 'Momentum leaning upward; buyers gradually increasing'],
+                        ['Price is between Middle Band (SMA) and Lower Band', '🔵 Light Blue', 'Mild Bearish Bias', 'Momentum leaning downward; sellers slowly pushing'],
+                        ['Price crosses above Middle Band (SMA) from below', '🟢 Green', 'Uptrend Signal', 'Possible shift to bullish phase'],
+                        ['Price crosses below Middle Band (SMA) from above', '🔴 Red', 'Downtrend Signal', 'Possible shift to bearish phase']
+                    ]
+                },
+                'detail-atr': {
+                    title: 'ATR Details',
+                    headers: ['ATR Behavior / Value', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['ATR is very low (compared to historical average)', '⚪ Light Gray', 'Low Volatility', 'Price moves are small; market is calm — potential breakout setup'],
+                        ['ATR is low but rising', '🟡 Yellow', 'Volatility Building', 'Market heating up — prepare for stronger moves'],
+                        ['ATR is moderate and stable', '🟢 Green', 'Normal Volatility', 'Healthy price movement — good for regular trading'],
+                        ['ATR is high and increasing', '🔴 Red', 'High Volatility', 'Large price swings — risky zone, potential quick profits or losses'],
+                        ['ATR is spiking suddenly', '🔴 Dark Red', 'Extreme Volatility Spike', 'Unusual movement — often caused by news, liquidations, or panic'],
+                        ['ATR is falling after a spike', '🟠 Orange', 'Cooling Down', 'Volatility returning to normal — stabilization phase'],
+                        ['ATR trending upward consistently', '🟠 Orange', 'Increasing Risk', 'Market becoming unstable — manage positions carefully'],
+                        ['ATR trending downward consistently', '🟢 Light Green', 'Stabilizing Market', 'Market calming down — trend may be maturing'],
+                        ['ATR remains flat over time', '⚫ Gray', 'No Clear Signal', 'Market lacks momentum or direction — wait for signal']
+                    ]
+                },
+                'detail-liquidity': {
+                    title: 'Liquidity Details',
+                    headers: ['Liquidity Behavior / Value', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Liquidity is very high (tight bid-ask, deep order book)', '🟢 Green', 'Highly Liquid Market', 'Easy to enter/exit trades without impact — ideal for active trading'],
+                        ['Liquidity is above average', '🟢 Light Green', 'Good Liquidity', 'Smooth trading experience; minimal slippage'],
+                        ['Liquidity is moderate', '🟡 Yellow', 'Average Liquidity', 'Tradable, but some slippage may occur'],
+                        ['Liquidity is low (wider spread, shallow book)', '🟠 Orange', 'Low Liquidity', 'Harder to fill orders; price impact possible'],
+                        ['Liquidity is very low', '🔴 Red', 'Illiquid Market', 'Difficult to trade; large slippage and price manipulation risk'],
+                        ['Sudden drop in liquidity during active price movement', '🔴 Dark Red', 'Liquidity Shock', 'High volatility + low liquidity = dangerous, risky to trade'],
+                        ['Liquidity remains stable over time', '⚪ Gray', 'Stable Market Flow', 'Consistent volume & order book — healthy market structure'],
+                        ['Liquidity is increasing over time', '🟢 Green', 'Building Trader Interest', 'Market attracting more buyers/sellers — improved conditions'],
+                        ['Liquidity is decreasing', '🟠 Orange', 'Declining Activity', 'Market cooling down — may lead to wider spreads and less participation']
+                    ]
+                },
+                'detail-cp': {
+                    title: 'Candlestick Patterns Details',
+                    headers: ['Pattern Type / Name', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Bullish Engulfing', '🟢 Green', 'Strong Reversal Up', 'Buyers have taken control — trend may reverse upward'],
+                        ['Bearish Engulfing', '🔴 Red', 'Strong Reversal Down', 'Sellers overpowering — possible downward reversal'],
+                        ['Hammer (at bottom)', '🟢 Green', 'Bullish Reversal Signal', 'Price rejection at lows — bounce likely'],
+                        ['Inverted Hammer (after downtrend)', '🟢 Light Green', 'Weak Bullish Signal', 'Possible reversal — needs confirmation'],
+                        ['Shooting Star (at top)', '🔴 Red', 'Bearish Reversal Signal', 'Price rejection at highs — reversal likely'],
+                        ['Doji (small body, long wicks)', '⚪ Gray', 'Indecision in Market', 'Market balance — next candle gives clarity'],
+                        ['Dragonfly Doji (at bottom)', '🟢 Green', 'Reversal Possible (Bullish)', 'Strong rejection of lower prices — bounce may follow'],
+                        ['Gravestone Doji (at top)', '🔴 Red', 'Reversal Possible (Bearish)', 'Rejection at highs — caution for bulls'],
+                        ['Morning Star (3-candle bullish pattern)', '🟢 Bright Green', 'Strong Bullish Reversal', 'Downtrend may end — upward move likely'],
+                        ['Evening Star (3-candle bearish pattern)', '🔴 Dark Red', 'Strong Bearish Reversal', 'Uptrend may end — downward move likely']
+                    ]
+                },
+                'detail-obd': {
+                    title: 'Order Book Depth Details',
+                    headers: ['Order Book Behavior', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Buy & Sell orders are deep and balanced', '🟢 Green', 'Healthy Market Depth', 'Strong liquidity on both sides; easy to trade without impact'],
+                        ['Buy side significantly deeper than sell side', '🟢 Bright Green', 'Bullish Depth Imbalance', 'Buyers are dominant — strong support below price'],
+                        ['Sell side significantly deeper than buy side', '🔴 Red', 'Bearish Depth Imbalance', 'Sellers are dominant — strong resistance above price'],
+                        ['Both sides shallow (low order volume)', '🟠 Orange', 'Weak Depth', 'Thin order book — price can move quickly with small trades'],
+                        ['Large gaps between order levels (no smooth stacking)', '⚠️ Yellow', 'Volatility Risk Zone', 'Unstable book — susceptible to whipsaws or fakeouts'],
+                        ['Sudden spike in one side of order book', '🔁 Blue', 'Aggressive Order Flow', 'Likely caused by institutions or whales pushing direction'],
+                        ['Constant high depth with high spreads', '🔴 Dark Red', 'Stacked But Illiquid', 'Looks deep but spreads too wide — caution needed']
+                    ]
+                },
+                'detail-vwap': {
+                    title: 'VWAP Details',
+                    headers: ['VWAP Behavior / Value', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Price is above VWAP and holding', '🟢 Green', 'Bullish Bias', 'Buyers are willing to pay more than the average — possible uptrend'],
+                        ['Price is rising above VWAP with volume', '🟢 Bright Green', 'Strong Bullish Signal', 'Institutional buying likely — trend strength increasing'],
+                        ['Price is below VWAP and holding', '🔴 Red', 'Bearish Bias', 'Price is trading at a discount — possible downtrend'],
+                        ['Price is falling below VWAP with volume', '🔴 Dark Red', 'Strong Bearish Signal', 'Selling pressure increasing — possible short opportunity'],
+                        ['Price crosses above VWAP from below', '🟢 Light Green', 'Breakout Attempt (Bullish)', 'Potential bullish reversal — confirmation needed'],
+                        ['Price crosses below VWAP from above', '🔴 Light Red', 'Breakdown Attempt (Bearish)', 'Trend may be reversing to downside — caution'],
+                        ['Price is hugging VWAP (±1%)', '⚪ Gray', 'Consolidation Zone', 'Market undecided — wait for clearer direction'],
+                        ['VWAP is flat while price is volatile', '🟡 Yellow', 'Divergence Risk', 'Price and average out of sync — likely false breakouts'],
+                        ['VWAP is trending upward with price above it', '🟢 Green', 'Trend in Progress (Up)', 'Healthy bullish trend — supported by volume'],
+                        ['VWAP is trending downward with price below it', '🔴 Red', 'Trend in Progress (Down)', 'Healthy bearish trend — supported by volume']
+                    ]
+                },
+                'detail-trends': {
+                    title: 'Trends Details',
+                    headers: ['Trend Behavior', 'Visual Indicator', 'UX Label', 'Short Description of UX Label'],
+                    rows: [
+                        ['Price is making higher highs & higher lows', '🟢 Green', 'Uptrend', 'Consistent upward movement — buyers in control'],
+                        ['Price is rising steadily with volume support', '🟢 Bright Green', 'Strong Uptrend', 'Solid bullish trend — likely continuation'],
+                        ['Price is making lower highs & lower lows', '🔴 Red', 'Downtrend', 'Consistent downward pressure — sellers in control'],
+                        ['Price is falling steadily with volume support', '🔴 Dark Red', 'Strong Downtrend', 'Solid bearish trend — likely continuation'],
+                        ['Price is moving within a narrow range', '⚪ Gray', 'Sideways Market', 'No clear direction — wait for breakout'],
+                        ['Price is oscillating between same levels repeatedly', '⚪ Light Gray', 'Consolidation Phase', 'Accumulation or distribution — breakout likely coming'],
+                        ['Price shows erratic moves with no clear pattern', '🟡 Yellow', 'Unstable Trend', 'High volatility and no trend — avoid or trade carefully'],
+                        ['Uptrend is slowing (price rising slower, volatility ↓)', '🟠 Orange', 'Weakening Uptrend', 'Momentum fading — possible reversal'],
+                        ['Downtrend is slowing (price falling slower)', '🟠 Orange', 'Weakening Downtrend', 'Sellers losing control — bounce may come'],
+                        ['Trend direction keeps switching quickly', '🟣 Purple', 'Choppy / Noisy Market', 'Unreliable signals — best to wait for clarity']
+                    ]
+                }
+            };
+
+        // Table generator for each modal
+        function getDetailTableHtml(id) {
+            const data = detailTables[id];
+            if (!data) return '<div>No data available.</div>';
+
+            // Revert: Only use static headers and rows, no "Current Value" column or valueRows logic
+            let headers = [...data.headers];
+
+            let html = `<table style="width:100%;border-collapse:collapse;margin-top:10px;">
+        <thead>
+            <tr>
+                ${headers.map(h => `<th style="border-bottom:1px solid #eee;padding:6px;">${h}</th>`).join('')}
+            </tr>
+        </thead>
+        <tbody>`;
+            data.rows.forEach((row) => {
+                html += `<tr>${row.map(cell => `<td style="padding:6px;">${cell}</td>`).join('')}</tr>`;
+            });
+            html += `</tbody></table>`;
+            return html;
+        }
+
+            // Map button IDs to modal titles (for fallback)
+            function getModalTitleById(id) {
+                return detailTables[id]?.title || 'Detail';
+            }
+
+            // Attach click handlers to all detail buttons
+            function attachDetailButtonHandlers() {
+                ensureDetailModal();
+                const ids = Object.keys(detailTables);
+                ids.forEach(function (id) {
+                    $(document).off('click', '#' + id); // Remove previous handler if any
+                    $(document).on('click', '#' + id, function (e) {
+                        e.preventDefault();
+                        const title = getModalTitleById(id);
+                        $('#crypto-detail-modal-title').text(title);
+                        $('#crypto-detail-modal-body').html(getDetailTableHtml(id));
+                        $('#crypto-detail-modal').show();
+                    });
+                });
+            }
+        
+    }
+
 
     let controller = null;
     $("body").on('click', '#Prediction-Button', async function (e) { 
@@ -1283,12 +1522,20 @@
         }
 
         // Hourly Prediction
+        // Hourly Prediction
         $('#Prediction1h').text(formatBinanceNumber(prediction?.['1h']?.predictedPrice, true));
         $('#Prediction2h').text(formatBinanceNumber(prediction?.['2h']?.predictedPrice, true));
         $('#Prediction3h').text(formatBinanceNumber(prediction?.['3h']?.predictedPrice, true));
-        $('#Projected1h').text(formatBinanceNumber(prediction?.['1h']?.projectedAmount, true));
-        $('#Projected2h').text(formatBinanceNumber(prediction?.['2h']?.projectedAmount, true));
-        $('#Projected3h').text(formatBinanceNumber(prediction?.['3h']?.projectedAmount, true));
+        setProjectedAmount('Projected1h', prediction?.['1h']?.projectedAmount, investmentAmount);
+        setProjectedAmount('Projected2h', prediction?.['2h']?.projectedAmount, investmentAmount);
+        setProjectedAmount('Projected3h', prediction?.['3h']?.projectedAmount, investmentAmount);
+
+        //$('#Prediction1h').text(formatBinanceNumber(prediction?.['1h']?.predictedPrice, true));
+        //$('#Prediction2h').text(formatBinanceNumber(prediction?.['2h']?.predictedPrice, true));
+        //$('#Prediction3h').text(formatBinanceNumber(prediction?.['3h']?.predictedPrice, true));
+        //$('#Projected1h').text(formatBinanceNumber(prediction?.['1h']?.projectedAmount, true));
+        //$('#Projected2h').text(formatBinanceNumber(prediction?.['2h']?.projectedAmount, true));
+        //$('#Projected3h').text(formatBinanceNumber(prediction?.['3h']?.projectedAmount, true));
 
         // Smart Market Behavior
         // $('#Price-Volume-Signal').text(`${smartBehavior?.priceVolumeSignal?.combo ?? '-'}\n${smartBehavior?.priceVolumeSignal?.label ?? '-'}${smartBehavior?.priceVolumeSignal?.meaning ?? '-'}`);
@@ -1388,4 +1635,9 @@
         $button.prop('disabled', false).text('Predict for Me'); controller = null; 
     });
 
+
+
+    attachDetailButtonHandlers();
 });
+
+
