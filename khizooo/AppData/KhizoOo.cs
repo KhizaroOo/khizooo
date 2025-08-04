@@ -2,9 +2,7 @@
 {
 	public class KhizoOo
 	{
-
 		public KhizoOo() { }
-
 
         public string ID = "ME";
         public string FirstName = "Khizar";
@@ -68,8 +66,20 @@
         public string Telegram = "https://t.me/KhizarImtiaz";
         public string Github = "https://github.com/KhizaroOo";
         public string Discord = "https://discordapp.com/users/567964089989726231";
+        public string Threads = "";
+        public string Behance = "";
+        public string Reddit = "";
+        public string DeviantArt = "";
 
 
+        public List<KhizoooImage> KhizoooImages = new List<KhizoooImage>();
+        public List<SocialProfile> SocialProfiles = new List<SocialProfile>();
+        public List<WebsiteContent> WebsiteContents = new List<WebsiteContent>()
+        { 
+        new WebsiteContent() { ContentColor = "#F04A00", ContentIcon = "ri-brush-fill", ContentTitle = "ARTWORK", ContentDescription = "Vibrant & Imaginative Creativity", ContentUpdated = "2025-08-01", ContentCount = "00" },
+        new WebsiteContent() { ContentColor = "#004953", ContentIcon = "ri-shapes-fill", ContentTitle = "INFOGRAPHIC", ContentDescription = "Visually Presentation of Information", ContentUpdated = "2025-08-04", ContentCount = "00" },
+        new WebsiteContent() { ContentColor = "#4caf50", ContentIcon = "ri-hammer-fill", ContentTitle = "TOOLBOX", ContentDescription = "Essential Web Tools", ContentUpdated = "2025-08-10", ContentCount = "00" }
+        };
 
         #region COMMON METHODS
 
@@ -80,20 +90,31 @@
 
     public class SocialProfile
     {
-        #region SOCIAL
-
-       
-
-        #endregion
+        public SocialProfile() { }
+        public string SocialType = "";
+        public string SocialTitle = "";
+        public string SocialURL = "";
     }
 
-    public class KhizoOoImages
+    public class KhizoooImage
     {
+        public KhizoooImage() { }
         public string Title { get; set; }
         public string URL { get; set; }
         public string RouteLink { get; set; }
     }
 
+
+    public class WebsiteContent
+    {
+        public WebsiteContent() { }
+        public string ContentColor = "";
+        public string ContentIcon = "";
+        public string ContentTitle = "";
+        public string ContentDescription = "";
+        public string ContentUpdated = "";
+        public string ContentCount = "";
+    }
 
 }
 

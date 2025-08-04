@@ -230,12 +230,12 @@ a:hover { text-decoration: none; }
     box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1);
     border-right: 2px solid #000000;
 }
-.iq-sidebar .iq-sidebar-logo {
-    float: none;
-    width: 100%;
-    text-align: center;
-    padding: 75px;
-}
+    .iq-sidebar .iq-sidebar-logo {
+        float: none;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
     .iq-sidebar .iq-sidebar-logo img {
         max-width: 150px;
         display: block;
@@ -272,23 +272,20 @@ a:hover { text-decoration: none; }
 .iq-sidebar-menu .iq-menu { margin: 0; padding: 0; list-style-type: none; }
 .iq-sidebar-menu .iq-menu li { list-style-type: none; position: relative; }
     .iq-sidebar-menu .iq-menu li a {
-        font-size: 16px;
+        font-size: 15px;
         white-space: nowrap;
-        display: block;
-        color: #EEF7FF;
+        color: #f3f7fd;
         position: relative;
         padding: 20px 15px 20px 15px;
         line-height: 20px;
-        font-weight: 800;
-        display: -webkit-box;
+        font-weight: 500;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
         overflow: hidden;
-        text-shadow: 0.5px 0.5px 0.5px #000000;
-        letter-spacing: 1px;
+        letter-spacing: 1.3px;
     }
 .iq-sidebar-menu .iq-menu li>a::before { transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; content: ""; width: 3px; height: 0; display: inline-block; background: #0084ff; position: absolute; top: 0; right: 0; opacity: 1; }
 .iq-sidebar-menu .iq-menu li.active>a::before { opacity: 1; height: 100%; }
@@ -348,7 +345,7 @@ a:hover { text-decoration: none; }
     border-radius: 0;
     margin-bottom: 0;
     padding: 0;
-    min-height: 55px;
+    min-height: 35px;
     position: fixed;
     top: 0;
     left: 0;
@@ -363,7 +360,7 @@ a:hover { text-decoration: none; }
 }
     .iq-top-navbar .iq-navbar-custom .navbar-breadcrumb {
         display: inline-block;
-        margin: 15px 0 0 15px;
+        margin: 5px 0 0 15px;
         float: left;
     }
     .iq-top-navbar .iq-navbar-custom .navbar-breadcrumb .breadcrumb-color {
@@ -487,7 +484,7 @@ a:hover { text-decoration: none; }
 .content-page {
     margin-left: 220px;
     overflow: hidden;
-    padding: 70px 0px 0;
+    padding: 50px 0px 0;
     min-height: 100vh;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
@@ -769,7 +766,12 @@ Animation Card
 /*---------------------------------------------------------------------
 Footer
 -----------------------------------------------------------------------*/
-.iq-footer { padding: 15px; margin-left: 220px; -webkit-box-shadow: 0px 0px 12px 0px rgba(55, 73, 72, 0.06); -moz-box-shadow: 0px 0px 12px 0px rgba(55, 73, 72, 0.06); box-shadow: 0px 0px 12px 0px rgba(55, 73, 72, 0.06); -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
+.iq-footer {
+    min-height: 30px;
+    margin-left: 220px;
+    box-shadow: 0px 0px 2px 0px #577bc1;
+    transition: all 0.3s ease-out 0s;
+}
 .iq-footer ul li a { color: #777D74; }
 .iq-footer ul li a:hover { color: #0084ff; text-decoration: none; }
 .bg-banner-image.style-three { height: 150px; background: url('../images/bg-03.jpg'); }
@@ -1344,7 +1346,7 @@ body.two-sidebar.sidebar-main .iq-sidebar-logo { width: 60px }
 }
 
 .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
-    background-color: #9C27B0;
+    background-color: #4d4d4d;
 }
 
 .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
@@ -1442,4 +1444,8 @@ body.two-sidebar.sidebar-main .iq-sidebar-logo { width: 60px }
         max-width: 100%;
         margin: 0 auto;
     }
+}
+
+.btn-social-custom{
+    margin:3px;
 }

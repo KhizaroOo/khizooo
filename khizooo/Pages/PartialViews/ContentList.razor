@@ -1,0 +1,32 @@
+﻿@inject NavigationManager Navigation
+@using khizooo.AppData;
+
+<div class="">
+
+    <div class="ag-courses_box">
+
+        @{
+            foreach (WebsiteContent wc in Me.WebsiteContents)
+            {
+                <div class="ag-courses_item text-left p-2">
+                    <a href="/artwork" class="ag-courses-item_link">
+                        <i class="@((MarkupString)wc.ContentIcon) mt-0 mr-2" style="color: #ffffff; right: 0; top: 0; position: absolute; z-index: 5; font-size: 24px; "></i>
+                        <div class="ag-courses-item_bg"></div>
+                        <div class="ag-courses-item_title m-2 p-2">@((MarkupString)wc.ContentTitle)</div>
+                        <p class="ag-courses-item_description ml-2 pl-2">@((MarkupString)wc.ContentDescription)</p>
+                        <div class="ag-courses-item_date-box m-2 p-2">Updated At: <span class="ag-courses-item_date">@((MarkupString)wc.ContentUpdated)</span></div>
+                    </a>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+
+@code {
+
+    KhizoOo Me = new KhizoOo();
+
+
+}
+
