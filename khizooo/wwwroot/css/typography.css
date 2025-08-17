@@ -68,7 +68,7 @@ body {
     line-height: 2;
     padding: 0;
     margin: 0;
-    color: #000000;
+    color: #363636;
     background: #f3f7fd;
 }
 a, .btn { -webkit-transition: all 0.5s ease-out 0s; -moz-transition: all 0.5s ease-out 0s; -ms-transition: all 0.5s ease-out 0s; -o-transition: all 0.5s ease-out 0s; transition: all 0.5s ease-out 0s; }
@@ -342,9 +342,6 @@ Card
     -moz-border-radius: 0px;
     border-radius: 5px;
     border: none;
-    -webkit-box-shadow: 0px 0px 2px 0px #577bc1;
-    -moz-box-shadow: 0px 0px 2px 0px #577bc1;
-    box-shadow: 0px 0px 2px 0px #577bc1;
 }
 .iq-card-body { padding: 20px; }
 .iq-card .iq-card-header { padding: 0 20px; min-height: 60px; border-bottom: 1px solid #f2edff; -ms-flex-align: center !important; align-items: center !important; }
