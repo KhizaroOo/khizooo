@@ -76,9 +76,9 @@
         public List<SocialProfile> SocialProfiles = new List<SocialProfile>();
         public List<WebsiteContent> WebsiteContents = new List<WebsiteContent>()
         { 
-        new WebsiteContent() { ContentColor = "#F04A00", ContentIcon = "ri-brush-fill", ContentTitle = "ARTWORK", ContentDescription = "Vibrant & Imaginative Creativity", ContentUpdated = "2025-08-01", ContentCount = "00" },
-        new WebsiteContent() { ContentColor = "#004953", ContentIcon = "ri-shapes-fill", ContentTitle = "INFOGRAPHIC", ContentDescription = "Visually Presentation of Information", ContentUpdated = "2025-08-04", ContentCount = "00" },
-        new WebsiteContent() { ContentColor = "#4caf50", ContentIcon = "ri-hammer-fill", ContentTitle = "TOOLBOX", ContentDescription = "Essential Web Tools", ContentUpdated = "2025-08-10", ContentCount = "00" }
+        new WebsiteContent() { ContentColor = "#96d8ed", ContentIcon = "ri-brush-fill", ContentTitle = "ARTWORK", ContentDescription = "Vibrant & Imaginative Creativity", ContentUpdated = "2025-08-01", ContentCount = "00" },
+        new WebsiteContent() { ContentColor = "#dfeab5", ContentIcon = "ri-shapes-fill", ContentTitle = "INFOGRAPHIC", ContentDescription = "Visually Presentation of Information", ContentUpdated = "2025-08-04", ContentCount = "00" },
+        new WebsiteContent() { ContentColor = "#4caf50", ContentIcon = "ri-hammer-fill", ContentTitle = "WEBTOOL", ContentDescription = "Essential Web Tools", ContentUpdated = "2025-08-10", ContentCount = "00" }
         };
 
         #region COMMON METHODS

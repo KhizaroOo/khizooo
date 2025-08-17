@@ -1,66 +1,56 @@
-﻿@inject NavigationManager Navigation
-@using khizooo.AppData;
+﻿@inject NavigationManager NavigationManager;
+
 <!-- LEFT SIDEBAR START -->
 <div class="iq-sidebar-logo d-flex justify-content-center align-items-center">
-    <a href="/">
-        <img src="logo/khizooo-logo-200.png" class="img-fluid" alt="khizooo Logo">
-    </a>
+    <a href="/"><img src="logo/khizooo-logo-200.png" class="img-fluid" alt="khizooo Logo"></a>
 </div>
 <div id="sidebar-scrollbar">
     <nav class="iq-sidebar-menu" style="text-align: left;">
         <ul id="iq-sidebar-toggle" class="iq-menu" style="">
-
-            <li><a href="/portfolio" class="iq-waves-effect"><span>PORTFOLIO</span></a></li>
-            <li><a href="/artwork" class="iq-waves-effect"><span>ARTWORK</span></a></li>
-            <li><a href="/infographic" class="iq-waves-effect"><span>INFOGRAPHIC</span></a></li>
-            <li><a href="/toolbox" class="iq-waves-effect"><span>TOOLBOX</span></a></li>
-
-            @* <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>WRITING</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li>
-            <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>GAMES</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li>
-            <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>TIMELINE</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li>
-            <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>CODEVAULT</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li>
-            <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>FREEBIE</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li>
-            <li>
-                <a href="/" class="iq-waves-effect text-muted">
-                    <span>SYNOPSIS</span>
-                    <span style="font-size: 8px;font-weight: 500;margin-left: 5px;color: #fbdd44;text-shadow: none;">{Next Up}</span>
-                </a>
-            </li> *@
-
+            <li id="Left-Sidebar-Portfolio"><a href="/portfolio" class="iq-waves-effect @LS_Portfolio"><span>PORTFOLIO</span></a></li>
+            <li id="Left-Sidebar-Artwork"><a href="/artworks" class="iq-waves-effect @LS_Artwork"><span>ARTWORKS</span></a></li>
+            <li id="Left-Sidebar-Infographic"><a href="/infographics" class="iq-waves-effect @LS_Infographic"><span>INFOGRAPHICS</span></a></li>
+            <li id="Left-Sidebar-Webtool"><a href="/webtools" class="iq-waves-effect @LS_Webtool"><span>WEBTOOLS</span></a></li>
         </ul>
     </nav>
 </div>
 <!-- LEFT SIDEBAR END -->
 
 @code {
+    string LS_Portfolio = string.Empty;
+    string LS_Artwork = string.Empty;
+    string LS_Infographic = string.Empty;
+    string LS_Webtool = string.Empty;
 
-    KhizoOo Me = new KhizoOo();
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+        UpdateCurrentPage();
+    }
 
+    private void OnLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        UpdateCurrentPage();
+        InvokeAsync(StateHasChanged);
+    }
 
+    private void UpdateCurrentPage()
+    {
+        var currentPath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        LS_Portfolio = string.Empty;
+        LS_Artwork = string.Empty;
+        LS_Infographic = string.Empty;
+        LS_Webtool = string.Empty;
+
+        if (string.IsNullOrEmpty(currentPath) || currentPath == "index") { }
+        else if (currentPath == "portfolio") { LS_Portfolio = "active"; }
+        else if (currentPath == "artworks") { LS_Artwork = "active"; }
+        else if (currentPath == "infographics") { LS_Infographic = "active"; }
+        else if (currentPath == "webtools") { LS_Webtool = "active"; }
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
 }
-

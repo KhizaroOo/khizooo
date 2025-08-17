@@ -1,6 +1,10 @@
-﻿@page "/toolbox/gradient-color-generator"
+﻿@page "/webtool/tls-ssl-checker"
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+@using System.Net.Security;
+@using System.Net.Sockets;
+@using System.Security.Cryptography.X509Certificates;
+
 
 @using khizooo.AppData.SharedHelper;
 @using khizooo.AppData;
@@ -28,23 +32,22 @@
 <style>
 
     .gcg-style {
-        width: 520px;
         background: #fff;
         padding: 15px;
         position: relative;
         border: 2px solid #010101;
     }
 
-    .gcg-style i {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-    }
-
-        .gcg-style i:active {
-            transform: rotate(45deg);
+        .gcg-style i {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
         }
+
+            .gcg-style i:active {
+                transform: rotate(45deg);
+            }
 
         .gcg-style .gradientColorBox {
             height: 315px;
@@ -68,22 +71,22 @@
             width: 100%;
         }
 
-    .gcg-style .colorContainer {
-        margin: 10px 0;
-    }
-
-        .gcg-style .colorContainer .colors {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .gcg-style .colorContainer {
+            margin: 10px 0;
         }
 
-    .gcg-style .colors input {
-        width: 49%;
-        height: 50px;
-        border: 2px solid black;
-        padding: 4px;
-    }
+            .gcg-style .colorContainer .colors {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        .gcg-style .colors input {
+            width: 49%;
+            height: 50px;
+            border: 2px solid black;
+            padding: 4px;
+        }
 
         .gcg-style textarea {
             color: black;
@@ -109,9 +112,9 @@
         <div class="arlo_tm_portfolio_single_wrap">
             <div class="container">
                 <div class="title_holder" style="text-align:center">
-                    <h3 class="lp-toolbox">Gradient Color Generator</h3>
-                    <p style="margin-bottom: 15px;">Seamlessly Blend Colors, Craft Your Perfect Gradient!</p>
-                    <p style="margin-bottom: 25px;"><strong>Generator | Toolbox</strong></p>
+                    <h3 class="lp-toolbox">TLS/SSL Checker</h3>
+                    <p style="margin-bottom: 15px;">Analyze the SSL/TLS Configuration of Your Server or CDN for Maximum Security!</p>
+                    <p style="margin-bottom: 25px;"><strong>Checker | Toolbox</strong></p>
                 </div>
 
                 <hr class="soften" />
@@ -120,88 +123,23 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                            <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                 <div class="container gcg-style">
-                                    <div class="gradientColorBox"></div>
 
                                     <div class="GradientType">
-                                        <p>Gradient Type</p>
-                                        <select>
-                                            <option value="linear">Linear Gradient</option>
-                                            <option value="radial">Radial Gradient</option>
-                                        </select>
+                                        <p>Enter URL</p>
+                                        <input id="url" placeholder="Enter URL" />
                                     </div>
 
-                                    <div class="direction">
-                                        <p>Direction</p>
-                                        <select>
-                                            <option value="to top" selected>Top</option>
-                                            <option value="to right top">Right top</option>
-                                            <option value="to right">Right</option>
-                                            <option value="to right bottom">Right bottom</option>
-                                            <option value="to bottom">Bottom</option>
-                                            <option value="to left bottom">Left bottom</option>
-                                            <option value="to left">Left</option>
-                                            <option value="to left top">Left top</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="position">
-                                        <p>Position</p>
-                                        <select>
-                                            <option value="center" selected>Center</option>
-                                            <option value="top">Top</option>
-                                            <option value="right top">Top-Right</option>
-                                            <option value="right">Right</option>
-                                            <option value="right bottom">Bottom-Right</option>
-                                            <option value="bottom">Bottom</option>
-                                            <option value="left bottom">Bottom-Left</option>
-                                            <option value="left">Left</option>
-                                            <option value="left top">Top-Left</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="blendMode">
-                                        <p>Blend Mode</p>
-                                        <input type="color" value="#7d560f" style="width:100%;margin-bottom:10px;">
-                                        <select>
-                                            <option value="normal" selected>Normal</option>
-                                            <option value="multiply">Multiply</option>
-                                            <option value="screen">Screen</option>
-                                            <option value="overlay">Overlay</option>
-                                            <option value="darken">Darken</option>
-                                            <option value="lighten">Lighten</option>
-                                            <option value="color-dodge">Color Dodge</option>
-                                            <option value="color-burn">Color Burn</option>
-                                            <option value="hard-light">Hard Light</option>
-                                            <option value="soft-light">Soft Light</option>
-                                            <option value="difference">Difference</option>
-                                            <option value="exclusion">Exclusion</option>
-                                            <option value="hue">Hue</option>
-                                            <option value="saturation">Saturation</option>
-                                            <option value="color">Color</option>
-                                            <option value="luminosity">Luminosity</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="colorContainer">
-                                        <p>Colors</p>
-                                        <div class="colors">
-                                            <input type="color" value="#9acd32">
-                                            <input type="color" value="#daff44">
-                                        </div>
-                                    </div>
-
-                                    <textarea disabled>background: linear-gradient(to left top, #9acd32, #daff44);</textarea>
                                     <div class="button">
-                                        <button class="btn btn-danger button refreshBtn">Recolor</button>
-                                        <button class="btn btn-success button copyBtn">Copy Code</button>
-
+                                        <button class="btn btn-danger button refreshBtn">Reset</button>
+                                        <button class="btn btn-success button startBtn">Start</button>
                                     </div>
+
                                 </div>
                             </div>
-                            
-                            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-7 col-sm-12 col-xs-12">
+
+                            <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
 
                                 <div class="container gradient-generator">
                                     <p>
@@ -276,4 +214,74 @@
         }
         catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
     }
+
+
+
+    public void GetSslDetails(string url)
+    {
+        // bool status = false;
+        // string message = string.empty;
+
+        // if (string.isnullorwhitespace(url))
+        // {
+        //     message = "invalid url provided";
+        // }
+
+        // try
+        // {
+        //     normalize url and extract hostname
+        //     uri uri = new uribuilder(url).uri;
+        //     string hostname = uri.host;
+
+        //     using var client = new tcpclient();
+        //     await client.connectasync(hostname, 443);
+
+        //     using var sslstream = new sslstream(client.getstream(), false,
+        //         (sender, certificate, chain, errors) => true);
+
+        //     initiate ssl handshake
+        //     await sslstream.authenticateasclientasync(hostname);
+
+        //     extract certificate details
+        //     var certificate = sslstream.remotecertificate as x509certificate2;
+        //     if (certificate == null)
+        //     {
+        //         return badrequest("no ssl certificate found.");
+        //     }
+
+        //     var issuer = certificate.issuer;
+        //     var subject = certificate.subject;
+        //     var validfrom = certificate.notbefore.tostring("yyyy-mm-dd hh:mm:ss");
+        //     var validto = certificate.notafter.tostring("yyyy-mm-dd hh:mm:ss");
+        //     var protocol = sslstream.sslprotocol.tostring();
+        //     var cipher = sslstream.cipheralgorithm.tostring();
+
+        //     extract certificate chain
+        //     var chain = new x509chain();
+        //     chain.build(certificate);
+
+        //     var chainlist = chain.chainelements
+        //         .cast<x509chainelement>()
+        //         .select(e => e.certificate.subject)
+        //         .tolist();
+
+        //     return results as json
+        //     return ok(new
+        //     {
+        //         issuer = issuer,
+        //         subject = subject,
+        //         validfrom = validfrom,
+        //         validto = validto,
+        //         protocol = protocol,
+        //         cipher = cipher,
+        //         certificatechain = chainlist
+        //     });
+        // }
+        // catch (exception ex)
+        // {
+        //     return statuscode(500, $"an error occurred: {ex.message}");
+        // }
+    }
+
+
 }
