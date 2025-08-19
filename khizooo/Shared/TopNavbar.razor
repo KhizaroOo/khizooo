@@ -16,7 +16,21 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item breadcrumb-color">khizooo.com</li>
-                    <li class="breadcrumb-item breadcrumb-color active" aria-current="page">@CurrentPage</li>
+
+                    @{
+
+                        if (CurrentModule != "")
+                        {
+                            <li class="breadcrumb-item breadcrumb-color active" aria-current="page">@CurrentModule</li>
+                        }
+
+                        if (CurrentPage != "")
+                        {
+                            <li class="breadcrumb-item breadcrumb-color active" aria-current="page">@CurrentPage</li>
+                        }
+
+                    }
+
                 </ol>
             </nav>
         </div>
@@ -36,6 +50,7 @@
 <!-- MOBILE MENU END -->
 
 @code {
+    string CurrentModule = "";
     string CurrentPage = "";
 
     protected override void OnInitialized()
@@ -52,15 +67,21 @@
 
     private void UpdateCurrentPage()
     {
-        var currentPath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        var currentModule = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
 
-        if (string.IsNullOrEmpty(currentPath) || currentPath == "index") { CurrentPage = "Landing Page"; }
-        else if (currentPath == "portfolio") { CurrentPage = "Portfolio"; }
-        else if (currentPath == "artworks") { CurrentPage = "Artworks"; }
-        else if (currentPath == "infographics") { CurrentPage = "Infographics"; }
-        else if (currentPath == "webtools") { CurrentPage = "WebTools"; }
-        else if (currentPath == "freebies") { CurrentPage = "Freebies"; }
-        else { CurrentPage = currentPath; }
+        var uri = new Uri(NavigationManager.Uri);
+        var segments = uri.Segments;
+        currentModule = segments.Length > 1 ? segments[1].Replace("/", "") : "";
+        CurrentPage = segments.Length > 2 ? segments[2].Replace("/", "") : "";
+
+        if (string.IsNullOrEmpty(currentModule) || currentModule == "index") { CurrentModule = "Landing Page"; }
+        else if (currentModule == "portfolio") { CurrentModule = "Portfolio"; }
+        else if (currentModule == "artworks") { CurrentModule = "Artworks"; }
+        else if (currentModule == "infographics") { CurrentModule = "Infographics"; }
+        else if (currentModule == "webtools") { CurrentModule = "WebTools"; }
+        else if (currentModule == "freebies") { CurrentModule = "Freebies"; }
+        else if (currentModule == "converters") { CurrentModule = "Converters"; }
+        else if (currentModule == "calculators") { CurrentModule = "Calculators"; }
     }
 
     public void Dispose()

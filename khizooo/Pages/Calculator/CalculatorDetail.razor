@@ -1,0 +1,180 @@
+﻿@page "/calculators/{slug}"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews
+
+<PageTitle>@Slug Freebies</PageTitle>
+
+
+<style>
+    .grid-container {
+        columns: 6 200px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+        .grid-container .Art-Piece {
+            width: 150px;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: 100%;
+            border: solid 4px black;
+            padding: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .grid-container .Art-Piece:hover img {
+                filter: grayscale(0);
+            }
+
+            .grid-container .Art-Piece:hover {
+                border-color: #ffd100;
+                box-shadow: 0px 0px 15px #ffd100;
+            }
+
+            .grid-container .Art-Piece img {
+                width: 100%;
+                filter: grayscale(100%);
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+            }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+</style>
+
+
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row mb-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height p-2" style="background:#96d8ed">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 align-self-center text-left">
+                                <h1 class="mb-2">@((MarkupString)freebie.Title.ToUpper())</h1>
+                                <p class="mb-2">@((MarkupString)freebie.Description)</p>
+                            </div>
+                            <div class="col-4 align-self-center text-right"><SocialMedia /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="grid-container">
+            @foreach (var item in JsonItems)
+            {
+                var name = item.ContainsKey("name") ? item["name"]?.ToString() : "";
+                var image = item.ContainsKey("image") ? item["image"]?.ToString() : "";
+                var url = item.ContainsKey("url") ? item["url"]?.ToString() : "";
+                var favicon = item.ContainsKey("favicon") ? item["favicon"]?.ToString() : "";
+                var tags = item.ContainsKey("tags") ? item["tags"]?.ToString() : "";
+
+                <div class="Art-Piece" onclick="openArtModal(this)">
+                    <img class="grid-item grid-item-1"
+                         src="@((MarkupString)image)"
+                         alt="@((MarkupString)name)">
+                    <h6 class="mt-3 mb-3 text-center">@((MarkupString)name)</h6>
+                </div>
+
+
+              
+                @* 
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100 shadow-sm border-0" style="background:#f8fafc;">
+                        <div class="position-relative text-center p-3">
+                            <img src="@image" alt="@name" class="img-fluid rounded" style="max-height:120px; background:#fff; box-shadow:0 2px 8px #e6e6e6;">
+                            @if (!string.IsNullOrEmpty(favicon))
+                            {
+                                <img src="@favicon" alt="favicon" class="position-absolute" style="top:10px; right:10px; width:32px; height:32px; border-radius:8px; box-shadow:0 1px 4px #bbb;">
+                            }
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-2" style="color:#577bc1;">@name</h5>
+                            @if (!string.IsNullOrEmpty(url))
+                            {
+                                <a href="@url" target="_blank" class="btn btn-outline-primary btn-sm mb-2" style="font-size:0.95rem;">
+                                    Visit <i class="ri-external-link-line"></i>
+                                </a>
+                            }
+                            @if (!string.IsNullOrEmpty(tags))
+                            {
+                                var tagList = tags.Trim('[', ']').Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                .Select(t => t.Trim(' ', '"'));
+                                <div class="mt-2">
+                                    @foreach (var tag in tagList)
+                                    {
+                                        <span class="badge rounded-pill" style="background:#96d8ed; color:#222; margin-right:4px;">@tag</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div> *@
+            }
+        
+</div>        
+
+
+</div>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Slug { get; set; } = "";
+    List<Dictionary<string, object>> JsonItems = null;
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+    AppData.Freebie freebie;
+
+
+    protected override void OnInitialized()
+    {
+        freebie = new MyFreebies().GetMyFreebies(1000).Where(X => X.Slug == Slug.ToString()).FirstOrDefault();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        JsonItems = null;
+        if (!string.IsNullOrWhiteSpace(Slug))
+        {
+            var jsonPath = $"json/{Slug}.json";
+            try
+            {
+                var json = await Http.GetStringAsync(jsonPath);
+                // Parse as array of objects
+                var doc = JsonDocument.Parse(json);
+                JsonItems = new List<Dictionary<string, object>>();
+                foreach (var element in doc.RootElement.EnumerateArray())
+                {
+                    var dict = new Dictionary<string, object>();
+                    foreach (var prop in element.EnumerateObject())
+                    {
+                        dict[prop.Name] = prop.Value.ToString();
+                    }
+                    JsonItems.Add(dict);
+                }
+            }
+            catch
+            {
+               // JsonItems = new List<Dictionary<string, object>>();
+            }
+        }
+    }
+}

@@ -11,7 +11,9 @@
             <li id="Left-Sidebar-Artwork"><a href="/artworks" class="iq-waves-effect @LS_Artwork"><span>ARTWORKS</span></a></li>
             <li id="Left-Sidebar-Infographic"><a href="/infographics" class="iq-waves-effect @LS_Infographic"><span>INFOGRAPHICS</span></a></li>
             <li id="Left-Sidebar-Webtool"><a href="/webtools" class="iq-waves-effect @LS_Webtool"><span>WEBTOOLS</span></a></li>
-            <li id="Left-Sidebar-Webtool"><a href="/freebies" class="iq-waves-effect @LS_Freebie"><span>FREEBIES</span></a></li>
+            <li id="Left-Sidebar-Freebie"><a href="/freebies" class="iq-waves-effect @LS_Freebie"><span>FREEBIES</span></a></li>
+            <li id="Left-Sidebar-Converter"><a href="/converters" class="iq-waves-effect @LS_Converter"><span>CONVERTERS</span></a></li>
+            <li id="Left-Sidebar-Calculator"><a href="/calculators" class="iq-waves-effect @LS_Calculator"><span>CALCULATORS</span></a></li>
         </ul>
     </nav>
 </div>
@@ -23,6 +25,8 @@
     string LS_Infographic = string.Empty;
     string LS_Webtool = string.Empty;
     string LS_Freebie = string.Empty;
+    string LS_Converter = string.Empty;
+    string LS_Calculator = string.Empty;
 
     protected override void OnInitialized()
     {
@@ -44,6 +48,8 @@
         LS_Infographic = string.Empty;
         LS_Webtool = string.Empty;
         LS_Freebie = string.Empty;
+        LS_Converter = string.Empty;
+        LS_Calculator = string.Empty;
 
         if (string.IsNullOrEmpty(currentPath) || currentPath == "index") { }
         else if (currentPath == "portfolio") { LS_Portfolio = "active"; }
@@ -51,6 +57,8 @@
         else if (currentPath == "infographics") { LS_Infographic = "active"; }
         else if (currentPath == "webtools") { LS_Webtool = "active"; }
         else if (currentPath == "freebies") { LS_Freebie = "active"; }
+        else if (currentPath == "converters") { LS_Converter = "active"; }
+        else if (currentPath == "calculators") { LS_Calculator = "active"; }
     }
 
     public void Dispose()
