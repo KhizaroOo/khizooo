@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json;
+
 namespace khizooo.AppData
 {
 
@@ -11,7 +13,7 @@ namespace khizooo.AppData
         public string Count { get; set; }
     }
 
-    public class MyCalculators
+public class MyCalculators
     {
 
         private List<Calculator> MyAllCalculators = new List<Calculator>()
