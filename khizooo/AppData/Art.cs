@@ -187,6 +187,11 @@ namespace khizooo.AppData
             new Art() { Slug = "whale-trip",Title = "Whale Trip",IMG = "artworks/img/whale-trip.jpg",Type = "Sticky Note" },
             new Art() { Slug = "wise-toad",Title = "Wise Toad",IMG = "artworks/img/wise-toad.jpg",Type = "Sticky Note" },
             new Art() { Slug = "young-girl-vs-dark-wind",Title = "Young Girl vs Dark Wind",IMG = "artworks/img/young-girl-vs-dark-wind.jpg",Type = "Sticky Note" },
+            new Art() { Slug = "2-worlds-whale",Title = "2 Worlds Whale",IMG = "artworks/img/2-worlds-whale.jpg",Type = "Sticky Note" },
+            new Art() { Slug = "dreams-&-reality",Title = "Dreams & Reality",IMG = "artworks/img/dreams-&-reality.jpg",Type = "Sticky Note" },
+            new Art() { Slug = "lost-in-thought",Title = "Lost in Thought",IMG = "artworks/img/lost-in-thought.jpg",Type = "Sticky Note" },
+            new Art() { Slug = "wild-eyed-wanderer",Title = "Wild Eyed Wanderer",IMG = "artworks/img/wild-eyed-wanderer.jpg",Type = "Sticky Note" },
+            new Art() { Slug = "silent-screams",Title = "Silent Screams",IMG = "artworks/img/silent-screams.jpg",Type = "Sticky Note" },
         };
 
         public List<Art> GetMyArts(int Count)
