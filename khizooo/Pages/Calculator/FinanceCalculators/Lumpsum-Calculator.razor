@@ -1,0 +1,366 @@
+﻿@page "/calculators/finance-calculators/lumpsum-calculator"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews
+
+<PageTitle>Calculators</PageTitle>
+
+
+<style>
+    .grid-container {
+        columns: 6 200px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+        .grid-container .Art-Piece {
+            width: 150px;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: 100%;
+            border: solid 4px black;
+            padding: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .grid-container .Art-Piece:hover img {
+                filter: grayscale(0);
+            }
+
+            .grid-container .Art-Piece:hover {
+                border-color: #ffd100;
+                box-shadow: 0px 0px 15px #ffd100;
+            }
+
+            .grid-container .Art-Piece img {
+                width: 100%;
+                filter: grayscale(100%);
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+            }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .calculator-asset:hover .iq-card {
+        background: #9ad6d4;
+    }
+</style>
+
+
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row mb-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height p-2" style="background:#9ad6d4">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 align-self-center text-left">
+                                <h4 class="mb-2">Finance Calculator</h4>
+                                <h1 class="mb-2">Lumpsum</h1>
+                                <p class="mb-2">Calculate returns on your Lumpsum investments with detailed growth analysis.</p>
+                            </div>
+                            <div class="col-4 align-self-center text-right"><SocialMedia /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- LEFT: Forms -->
+            <div class="col-lg-4 mb-4">
+                <div class="card sticky-col">
+                    <div class="card-header pb-0">
+                        <ul class="nav nav-tabs card-header-tabs" id="calcTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="lumpsum-tab" data-toggle="tab" href="#lumpsum" role="tab" aria-controls="lumpsum" aria-selected="false">Lumpsum Calculator</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="calcContent">
+                            <!-- Lumpsum -->
+                            <div class="tab-pane fade show active" id="lumpsum" role="tabpanel" aria-labelledby="lumpsum-tab">
+                                <form id="lumpForm">
+                                    <div class="form-group">
+                                        <label>One-time Investment Amount (₹)</label>
+                                        <input type="number" min="0" step="1000" class="form-control" id="lumpAmount" value="100000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Investment Period (Years)</label>
+                                        <input type="number" min="1" step="1" class="form-control" id="lumpYears" value="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Expected Return Rate (%)</label>
+                                        <input type="number" min="1" max="30" step="0.1" class="form-control" id="lumpRate" value="12">
+                                    </div>
+                                    <button type="button" class="btn btn-accent btn-block" id="btnLump">Calculate Lumpsum Returns</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Results -->
+            <div class="col-lg-8">
+                <!-- Summary -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0">Investment Summary</h5>
+                            <span class="chip" id="modeChip">SIP</span>
+                        </div>
+                        <div class="row kpi text-center">
+                            <div class="col-md-4 mb-3">
+                                <div class="label">Total Investment (Principal)</div>
+                                <div class="value figure figure-lg" id="sumPrincipal">₹0</div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="label">Est. Returns (Growth)</div>
+                                <div class="value text-success figure figure-lg" id="sumReturns">₹0</div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="label">Maturity Value (Final Amount)</div>
+                                <div class="value text-primary figure figure-lg" id="sumMaturity">₹0</div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <div class="mini">CAGR (Compound Annual Growth Rate)</div>
+                                <div class="value text-info" id="sumCagr">0%</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mini">XIRR (Time-weighted IRR)</div>
+                                <div class="value text-info" id="sumXirr">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Breakdown -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="mb-3">Growth Breakdown</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover mb-0" id="breakdownTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width:70px">Year</th>
+                                        <th>Total Investment</th>
+                                        <th>Expected Value</th>
+                                        <th class="text-success">Returns</th>
+                                        <th>Returns %</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insights -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-3">Investment Insights</h6>
+                        <div class="row" id="insights">
+                            <!-- dynamic insight cards -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+      // ---------- Helpers ----------
+    const INR = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n||0);
+    const pct = x => (x*100).toFixed(2)+'%';
+    const clamp = (x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+
+    // IRR solver (monthly). Returns monthly rate; annualized via (1+r)^12 - 1
+    function irrMonthly(cashflows, guess=0.01){
+      const npv = r => cashflows.reduce((a,[t,c])=>a + c/Math.pow(1+r,t),0);
+      // Bracket with bisection
+      let lo=-0.9, hi=1.0;
+      for(let i=0;i<64;i++){
+        const mid=(lo+hi)/2, v=npv(mid);
+        if(Math.abs(v)<1e-6) return mid;
+        const vlo=npv(lo);
+        if(vlo===0) return lo;
+        if(vlo*v<0) hi=mid; else lo=mid;
+      }
+      return (lo+hi)/2;
+    }
+
+    // ---------- Lumpsum ----------
+    function calcLumpsum(L, years, annualRate){
+      const r = annualRate/100/12, n = years*12;
+      const maturity = L * Math.pow(1+r,n);
+      const principal = L;
+      const returns = maturity - principal;
+      const cagr = Math.pow(maturity/principal,1/years)-1;
+
+      // Breakdown (yearly)
+      let bal=L, rows=[{year:0,invested:L,value:L,gain:0,gainPct:0}];
+      for(let y=1;y<=years;y++){
+        bal = L*Math.pow(1+r,y*12);
+        rows.push({
+          year:y, invested:L, value:bal, gain:bal-L, gainPct:(bal-L)/L
+        });
+      }
+
+      // IRR: one outflow at t0, one inflow at n
+      const rmon = irrMonthly([[0,-L],[n,maturity]]);
+      const xirr = Math.pow(1+rmon,12)-1;
+
+      // Insights
+      const doubleImpact = (L*2*Math.pow(1+r,n)) - maturity;
+      const longerHorizon = L*Math.pow(1+r,(years+5)*12);
+      const plus2RateGain = L*Math.pow(1+(annualRate+2)/100/12,n) - maturity;
+
+      return {mode:'Lumpsum',principal,returns,maturity,cagr,xirr,rows,insights:{
+        t10:null,t25:null,t50:null,t100:null,
+        compoShare: returns/maturity,
+        doubleImpact,doubleImpactLump:true,
+        longerHorizon, plus2RateGain
+      }};
+    }
+
+    // ---------- UI binding ----------
+    const els = {
+      sumP: document.getElementById('sumPrincipal'),
+      sumR: document.getElementById('sumReturns'),
+      sumM: document.getElementById('sumMaturity'),
+      sumC: document.getElementById('sumCagr'),
+      sumX: document.getElementById('sumXirr'),
+      tableBody: document.querySelector('#breakdownTable tbody'),
+      chip: document.getElementById('modeChip'),
+      insights: document.getElementById('insights')
+    };
+
+    function render(result){
+      els.chip.textContent = result.mode;
+      els.sumP.textContent = INR(result.principal);
+      els.sumR.textContent = INR(result.returns);
+      els.sumM.textContent = INR(result.maturity);
+      els.sumC.textContent = pct(result.cagr);
+      els.sumX.textContent = pct(result.xirr);
+
+      // table
+      els.tableBody.innerHTML = result.rows.map(r=>`
+        <tr>
+          <td>${r.year}</td>
+          <td>${INR(r.invested)}</td>
+          <td>${INR(r.value)}</td>
+          <td class="text-success">${INR(r.gain)}</td>
+          <td>${pct(r.gainPct)}</td>
+        </tr>
+      `).join('');
+
+      // insights
+      const i = result.insights;
+      const insightCard = (title, value, sub='') => `
+        <div class="col-md-6 col-lg-4 mb-3">
+          <div class="card h-100 insight">
+            <div class="card-body">
+              <div class="mini mb-1">${title}</div>
+              <div class="figure">${value}</div>
+              ${sub?`<div class="mini mt-1">${sub}</div>`:''}
+            </div>
+          </div>
+        </div>`;
+      const parts = [];
+
+      if(i.t10) parts.push(insightCard('₹10 Lakhs', `${i.t10.years} years`, 'At current SIP & rate'));
+      if(i.t25) parts.push(insightCard('₹25 Lakhs', `${i.t25.years} years`, 'At current SIP & rate'));
+      if(i.t50) parts.push(insightCard('₹50 Lakhs', `${i.t50.years} years`, 'At current SIP & rate'));
+      if(i.t100)parts.push(insightCard('₹100 Lakhs', `${i.t100.years} years`, 'At current SIP & rate'));
+
+      parts.push(insightCard('Power of Compounding', pct(i.compoShare), 'Share of growth in maturity'));
+      parts.push(insightCard('Double Monthly Impact', INR(i.doubleImpact), 'Extra if you double contribution'));
+      parts.push(insightCard('Longer Time Horizon (+5y)', INR(i.longerHorizon), 'Maturity if you extend 5 years'));
+      parts.push(insightCard('Return Rate +2%', INR(i.plus2RateGain), 'Extra maturity if rate +2%'));
+
+      els.insights.innerHTML = parts.join('');
+    }
+    
+    function runLump(){
+      const L = clamp(+document.getElementById('lumpAmount').value||0,0,1e12);
+      const Y = clamp(+document.getElementById('lumpYears').value||1,1,60);
+      const R = clamp(+document.getElementById('lumpRate').value||0,0.1,40);
+      render(calcLumpsum(L,Y,R));
+    }
+
+    document.getElementById('btnLump').addEventListener('click', runLump);
+
+    ['lumpAmount','lumpYears','lumpRate'].forEach(id=>document.getElementById(id).addEventListener('input', runLump));
+
+    runLump();
+</script>
+
+
+@code {
+    public string Slug { get; set; } = "lumpsum-calculator";
+    public string Calculator_Type { get; set; } = "finance-calculators";
+    List<Dictionary<string, object>> JsonItems = new List<Dictionary<string, object>>();
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+    AppData.Calculator calculator;
+    AppData.Calculator actual_calculator;
+
+    protected override void OnInitialized()
+    {
+        calculator = new MyCalculators().GetMyCalculators(1000).Where(X => X.Slug == Calculator_Type.ToString()).FirstOrDefault();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(Calculator_Type))
+        {
+            var jsonPath = $"json/online-calculators/{Calculator_Type}.json";
+            try
+            {
+                var json = await Http.GetStringAsync(jsonPath);
+                var doc = JsonDocument.Parse(json);
+                foreach (var element in doc.RootElement.EnumerateArray())
+                {
+                    var dict = new Dictionary<string, object>();
+                    foreach (var prop in element.EnumerateObject())
+                    {
+                        dict[prop.Name] = prop.Value.ToString();
+                    }
+                    JsonItems.Add(dict);
+                }
+            }
+            catch
+            {
+               // JsonItems = new List<Dictionary<string, object>>();
+            }
+        }
+    
+        if (JsonItems != null && JsonItems.Count > 0)
+        {
+            var json = JsonSerializer.Serialize(JsonItems);
+            List<AppData.Calculator> all_calculators = JsonSerializer.Deserialize<List<AppData.Calculator>>(json);
+            actual_calculator = all_calculators.Where(X => X.Slug == Slug.ToString()).FirstOrDefault();
+        }
+    
+    }
+}

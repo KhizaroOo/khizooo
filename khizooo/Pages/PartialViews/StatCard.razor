@@ -1,0 +1,26 @@
+@using khizooo.Pages.PartialViews
+
+<div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+    <div class="iq-card-body">
+        <div class="rounded-circle iq-card-icon iq-bg-primary"><i class="@Icon"></i></div>
+        <span class="float-right line-height-6">@Title</span>
+        <div class="clearfix"></div>
+        <div class="text-right mb-4">
+            <h2 class="mb-0"><span class="counter">@Value</span><span>@Unit</span></h2>
+            @if (!string.IsNullOrEmpty(ChangeText))
+            {
+                <p class="text-secondary line-height"><i class="@ChangeIcon text-success mr-1"></i><span class="text-success">@ChangeValue</span> @ChangeText</p>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Icon { get; set; } = "ri-exchange-dollar-fill";
+    [Parameter] public string Title { get; set; } = "Net Worth";
+    [Parameter] public string Value { get; set; } = "65";
+    [Parameter] public string Unit { get; set; } = "M";
+    [Parameter] public string ChangeIcon { get; set; } = "ri-arrow-up-line";
+    [Parameter] public string ChangeValue { get; set; } = "10%";
+    [Parameter] public string ChangeText { get; set; } = "Increased";
+}

@@ -240,6 +240,12 @@ Background Color
 .bg-light, .badge-light { background-color: #E9EDF4 !important; }
 .bg-dark, .badge-dark { background-color: #000000 !important; }
 
+
+
+.bg-calculators, .badge-primary {
+/*    background-color: #9ad6d4 !important;*/
+}
+
 /*----------------------------------------------
 Custom Background Color
 ------------------------------------------------*/

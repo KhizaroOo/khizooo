@@ -1,0 +1,528 @@
+﻿@page "/calculators/finance-calculators/sip-calculator"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews
+
+<PageTitle>Calculators</PageTitle>
+
+
+<style>
+    .grid-container {
+        columns: 6 200px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+        .grid-container .Art-Piece {
+            width: 150px;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: 100%;
+            border: solid 4px black;
+            padding: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .grid-container .Art-Piece:hover img {
+                filter: grayscale(0);
+            }
+
+            .grid-container .Art-Piece:hover {
+                border-color: #ffd100;
+                box-shadow: 0px 0px 15px #ffd100;
+            }
+
+            .grid-container .Art-Piece img {
+                width: 100%;
+                filter: grayscale(100%);
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+            }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .calculator-asset:hover .iq-card {
+        background: #9ad6d4;
+    }
+
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .timeline-dot {
+        position: relative;
+        text-align: center;
+        flex: 1;
+    }
+
+    .year-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #6f42c1;
+    }
+
+    .value-label {
+        font-size: 12px;
+        margin-top: 5px;
+        color: #333;
+    }
+
+
+    /* Bar Rows */
+    .bar-row {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+    }
+
+    .bar-label {
+        width: 70px;
+        font-size: 0.85rem;
+        color: #374151;
+    }
+
+    .bar-track {
+        flex: 1;
+        background: #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .bar-invested {
+        background: #2563eb;
+        height: 12px;
+    }
+
+    .bar-returns {
+        background: #16a34a;
+        height: 12px;
+    }
+
+    /* Progress Bars */
+    .progress-wrap {
+        margin: 1rem 0;
+    }
+
+    .progress-bar {
+        background: #e5e7eb;
+        border-radius: 8px;
+        height: 14px;
+        overflow: hidden;
+    }
+
+    .progress-invested {
+        background: #2563eb;
+        height: 100%;
+        transition: width 1s ease;
+    }
+
+    .progress-returns {
+        background: #16a34a;
+        height: 100%;
+        transition: width 1s ease;
+    }
+
+    .card-header {
+        background-color: rgb(154 214 212);
+        font-weight: 600;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+</style>
+
+
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row mb-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height p-2" style="background:#9ad6d4">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 align-self-center text-left">
+                                <h4 class="mb-2">Finance Calculator</h4>
+                                <h1 class="mb-2">Systematic Investment Plan</h1>
+                                <p class="mb-2">Calculate returns on your Systematic Investment Plan (SIP) investments with detailed growth analysis.</p>
+                            </div>
+                            <div class="col-4 align-self-center text-right"><SocialMedia /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- LEFT: Forms -->
+            <div class="col-lg-3 mb-4">
+                <div class="card sticky-col">
+                    <div class="card-header text-dark">SIP Calculator</div>
+                    <div class="card-body">
+                        <div class="tab-content" id="calcContent">
+                            <!-- SIP -->
+                            <div class="tab-pane fade show active" id="sip" role="tabpanel" aria-labelledby="sip-tab">
+                                <div class="form-group">
+                                    <label>Currency</label>
+                                    <select id="currency" class="form-control">
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="BGN">BGN - Bulgarian Lev</option>
+                                        <option value="BRL">BRL - Brazilian Real</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                        <option value="CNY">CNY - Chinese Yuan</option>
+                                        <option value="CZK">CZK - Czech Koruna</option>
+                                        <option value="DKK">DKK - Danish Krone</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                                        <option value="HRK">HRK - Croatian Kuna</option>
+                                        <option value="HUF">HUF - Hungarian Forint</option>
+                                        <option value="IDR">IDR - Indonesian Rupiah</option>
+                                        <option value="ILS">ILS - Israeli Shekel</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="ISK">ISK - Icelandic Krona</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="KRW">KRW - South Korean Won</option>
+                                        <option value="MXN">MXN - Mexican Peso</option>
+                                        <option value="MYR">MYR - Malaysian Ringgit</option>
+                                        <option value="NOK">NOK - Norwegian Krone</option>
+                                        <option value="NZD">NZD - New Zealand Dollar</option>
+                                        <option value="PHP">PHP - Philippine Peso</option>
+                                        <option value="PLN">PLN - Polish Zloty</option>
+                                        <option value="RON">RON - Romanian Leu</option>
+                                        <option value="RUB">RUB - Russian Ruble</option>
+                                        <option value="SEK">SEK - Swedish Krona</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                        <option value="THB">THB - Thai Baht</option>
+                                        <option value="TRY">TRY - Turkish Lira</option>
+                                        <option value="USD" selected>USD - US Dollar</option>
+                                        <option value="ZAR">ZAR - South African Rand</option>
+                                    </select>
+                                </div>
+                                    <div class="form-group">
+                                        <label>Monthly Investment (₹)</label>
+                                    <input type="number" min="0" step="100" class="form-control" id="sipMonthly" value="5000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Investment Period (Years)</label>
+                                    <input type="number" min="1" step="1" class="form-control" id="sipYears" value="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Expected Return Rate (%)</label>
+                                    <input type="number" min="1" max="30" step="0.1" class="form-control" id="sipRate" value="12">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Results -->
+            <div class="col-lg-9">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Overall Summary</div>
+                            <div class="card-body">
+                                <div class="row" id="summaryRow"></div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card chart-card mb-4"><div class="card-header text-dark">Growth Over Time</div><div class="card-body"><div id="lineChart"></div></div></div>
+                     </div>
+
+                    <div class="col-6">                        
+                        <div class="card chart-card mb-4"><div class="card-header text-dark">Yearly Investment vs Returns</div><div class="card-body"><div id="barChart"></div></div></div>
+                        <div class="card chart-card mb-4"><div class="card-header text-dark">Final Portfolio Breakdown</div><div class="card-body"><div id="pieChart"></div></div></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between text-dark">
+                                <span>Growth Breakdown</span>
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#yearly">Yearly</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#monthly">Monthly</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-content">
+                                <div class="tab-pane fade show active" id="yearly">
+                                    <table class="table table-sm" id="yearlyTable"></table>
+                                </div>
+                                <div class="tab-pane fade" id="monthly">
+                                    <table class="table table-sm" id="monthlyTable"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let lineChart, barChart, pieChart;
+    const currencySymbols = {
+      AUD:"A$", BGN:"лв", BRL:"R$", CAD:"C$", CHF:"Fr", CNY:"¥", CZK:"Kč", DKK:"kr", EUR:"€", GBP:"£", HKD:"HK$", HRK:"kn", HUF:"Ft", IDR:"Rp", ILS:"₪", INR:"₹", ISK:"kr", JPY:"¥", KRW:"₩", MXN:"$", MYR:"RM", NOK:"kr", NZD:"NZ$", PHP:"₱", PLN:"zł", RON:"lei", RUB:"₽", SEK:"kr", SGD:"S$", THB:"฿", TRY:"₺", USD:"$", ZAR:"R"
+    };
+
+    let fxRates = {};
+    const FREECURRENCYAPI_KEY = "fca_live_PhuNI0BSRHJ51gnrB1fMEABX0hiQ1ZKSIaNa34ZW";
+
+    async function fetchFxRates(base="USD") {
+      try {
+        // check localStorage cache
+        const cached = localStorage.getItem("fxRates");
+        const expiry = localStorage.getItem("fxRates_expiry");
+        if (cached && expiry && Date.now() < +expiry) {
+          fxRates = JSON.parse(cached);
+          return;
+        }
+
+        const url = `https://api.freecurrencyapi.com/v1/latest?apikey=${FREECURRENCYAPI_KEY}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        fxRates = data.data || {};
+        fxRates[base] = 1;
+
+        // save in cache for 24h
+        localStorage.setItem("fxRates", JSON.stringify(fxRates));
+        localStorage.setItem("fxRates_expiry", Date.now() + 24*60*60*1000);
+      } catch (e) {
+        fxRates = {USD:1};
+      }
+    }
+
+    function calcSIP(P, years, rate){
+      const m=12,i=rate/100/m,n=years*m;
+      const fv=P*((Math.pow(1+i,n)-1)/i)*(1+i);
+      const invested=P*n,returns=fv-invested;
+      const labelsY=[],invY=[],valY=[],retY=[];
+      for(let y=1;y<=years;y++){
+        const months=y*m;
+        const fvY=P*((Math.pow(1+i,months)-1)/i)*(1+i);
+        labelsY.push("Year "+y);
+        invY.push(P*months);
+        valY.push(fvY);
+        retY.push(fvY-P*months);
+      }
+      const labelsM=[],invM=[],valM=[],retM=[];
+      for(let mo=1;mo<=n;mo++){
+        const fvM=P*((Math.pow(1+i,mo)-1)/i)*(1+i);
+        labelsM.push("M"+mo);
+        invM.push(P*mo);
+        valM.push(fvM);
+        retM.push(fvM-P*mo);
+      }
+      const cagr=Math.pow(fv/invested,1/years)-1;
+      const xirr=(fv/invested-1)/(years); // approx
+
+      // additional metrics
+      const gainPct = (returns/invested)*100;
+      const wealthMultiple = fv/invested;
+      let breakEvenYear = "-";
+      for(let y=0;y<valY.length;y++){
+        if(valY[y] > invY[y]) { breakEvenYear = y+1; break; }
+      }
+
+      return {invested,fv,returns,cagr,xirr,
+              labelsY,invY,valY,retY,
+              labelsM,invM,valM,retM,
+              years,months:n,gainPct,wealthMultiple,breakEvenYear,P};
+    }
+
+    function format(num,sym){ return sym+" "+num.toLocaleString(); }
+
+    function renderSummary(res,sym){
+      const row=document.getElementById("summaryRow"); row.innerHTML="";
+      const cards=[
+        {label:"Total Investment", val:format(res.invested,sym) , icon:"ri-exchange-dollar-fill", w:"col-4", info1:"", info2:""},
+        {label:"Monthly SIP", val:format(res.P,sym) , icon:"ri-line-chart-line", w:"col-4", info1:"", info2:""},
+        {label:"Duration", val:`(${res.months} months)` , icon:"ri-line-chart-line", w:"col-4", info1:"", info2:""},
+
+        {label:"Final Amount", val:format(res.fv,sym) , icon:"ri-exchange-dollar-fill", w:"col-3", info1:"", info2:""},
+        {label:"Est. Returns", val:format(res.returns,sym) , icon:"ri-exchange-dollar-fill", w:"col-3", info1:"", info2:""},
+
+        {label:"Total Gain %", val:res.gainPct.toFixed(2)+"%" , icon:"ri-exchange-dollar-fill", w:"col-3", info1:"", info2:""},
+        {label:"Wealth Multiple", val:res.wealthMultiple.toFixed(2)+"x" , icon:"ri-line-chart-line", w:"col-3", info1:"", info2:""},
+        
+        {label:"CAGR", val:(res.cagr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Compound Annual Growth Rate)(Effective Rate)", info2:"Effective annual rate considering monthly investments"},
+        {label:"XIRR", val:(res.xirr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Internal Rate of Return)(Time-weighted)", info2:"Considers timing of monthly investments for accurate returns"},
+      ];
+      cards.forEach(c=>{
+        row.innerHTML+=`
+        <div class='${c.w}'>
+          <div class='card iq-mb-3 bg-calculators p-1' style="padding:0.7rem">
+            <div class='card-body text-dark text-center p-1'>
+              <span class="">${c.label}</span>
+            </div>
+            <div class='card-footer text-center p-1'><h6 class="text-dark">${c.val}</h6></div>
+          </div>
+        </div>`;
+      });
+    }
+
+    function renderTable(id,labels,inv,val,ret,sym){
+      const t=document.getElementById(id);
+      let html="<tr><th>Period</th><th>Invested</th><th>Value</th><th>Returns</th></tr>";
+      labels.forEach((l,i)=>{html+=`<tr><td>${l}</td><td>${format(inv[i],sym)}</td><td>${format(val[i],sym)}</td><td>${format(ret[i],sym)}</td></tr>`;});
+      t.innerHTML=html;
+    }
+
+     function makeCharts(res, sym) {
+      document.getElementById("lineChart").innerHTML = "";
+      document.getElementById("barChart").innerHTML = "";
+      document.getElementById("pieChart").innerHTML = "";
+
+    const lineWrap = document.getElementById("lineChart"); lineWrap.innerHTML = ""; 
+    const timeline = document.createElement("div"); timeline.className = "timeline";
+
+    res.labelsY.forEach((year, i) => {
+      const dot = document.createElement("div");
+      dot.className = "timeline-dot";
+      
+      const yearLabel = document.createElement("div");
+      yearLabel.className = "year-label";
+      yearLabel.innerText = `${i + 1}Y`;
+
+      const valueLabel = document.createElement("div");
+      valueLabel.className = "value-label";
+      valueLabel.innerText = `${sym} ${res.valY[i].toLocaleString()}`;
+
+      dot.appendChild(yearLabel);
+      dot.appendChild(valueLabel);
+      timeline.appendChild(dot);
+    });
+
+    lineWrap.appendChild(timeline);
+
+      const barWrap = document.getElementById("barChart");
+      res.labelsY.forEach((year, i) => {
+        const row = document.createElement("div");
+        row.className = "bar-row";
+        row.innerHTML = `
+          <div class="bar-label">${year}</div>
+          <div class="bar-track">
+            <div class="bar-invested" style="width:${(res.invY[i]/res.valY[res.valY.length-1])*100}%"></div>
+            <div class="bar-returns" style="width:${(res.retY[i]/res.valY[res.valY.length-1])*100}%"></div>
+          </div>
+        `;
+        barWrap.appendChild(row);
+      });
+
+      const pieWrap = document.getElementById("pieChart");
+
+      const total = res.invested + res.returns;
+      const investedPercent = ((res.invested / total) * 100).toFixed(1);
+      const returnsPercent = ((res.returns / total) * 100).toFixed(1);
+
+      pieWrap.innerHTML += `
+        <div class="progress-wrap">
+          <span>Invested: ${sym} ${res.invested.toLocaleString()} (${investedPercent}%)</span>
+          <div class="progress-bar">
+            <div class="progress-invested" style="width:${investedPercent}%"></div>
+          </div>
+        </div>
+        <div class="progress-wrap">
+          <span>Returns: ${sym} ${res.returns.toLocaleString()} (${returnsPercent}%)</span>
+          <div class="progress-bar">
+            <div class="progress-returns" style="width:${returnsPercent}%"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function compute(){
+      const P=+document.getElementById("sipMonthly").value||0;
+      const Y=+document.getElementById("sipYears").value||0;
+      const R=+document.getElementById("sipRate").value||0;
+      const curr=document.getElementById("currency").value;
+      if(!fxRates[curr]) await fetchFxRates("USD");
+      const factor=fxRates[curr]||1, sym=currencySymbols[curr]||curr;
+      const res=calcSIP(P,Y,R);
+      ["invested","fv","returns","invY","valY","retY","invM","valM","retM"].forEach(k=>{
+        if(Array.isArray(res[k])) res[k]=res[k].map(v=>v*factor);
+        else res[k]*=factor;
+      });
+      renderSummary(res,sym);
+      renderTable("yearlyTable",res.labelsY,res.invY,res.valY,res.retY,sym);
+      renderTable("monthlyTable",res.labelsM,res.invM,res.valM,res.retM,sym);
+      makeCharts(res,sym);
+    }
+
+    ["sipMonthly","sipYears","sipRate","currency"].forEach(id=>{
+      document.getElementById(id).addEventListener("input",compute);
+    });
+
+    fetchFxRates("USD").then(compute);
+</script>
+
+
+@code {
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+
+
+    // Summary Values
+    public string TotalInvestment { get; set; } = "0";
+    public string EstReturns { get; set; } = "0";
+    public string MaturityValue { get; set; } = "0";
+    public string CAGR { get; set; } = "0%";
+    public string XIRR { get; set; } = "0%";
+
+    public void CalculateStats()
+    {
+        TotalInvestment = "$10,000";
+        EstReturns = "$2,500";
+        MaturityValue = "$12,500";
+        CAGR = "12.00%";
+        XIRR = "11.50%";
+    }
+
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; }
+
+    protected override void OnInitialized()
+    {
+        CalculateStats();
+    }
+
+    protected override async Task OnParametersSetAsync() { }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // await JSRuntime.InvokeVoidAsync("LoadScripts", "js/chart.min.js");
+            // await JSRuntime.InvokeVoidAsync("LoadScripts", "js/chartjs-plugin-annotation.min.js");
+        }
+        catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+
+}

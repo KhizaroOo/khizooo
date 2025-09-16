@@ -1,0 +1,349 @@
+﻿@page  "/devspark"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews
+
+<PageTitle>Khizooo - DEVSPARK – Free Developer Tools & Resources</PageTitle>
+<HeadContent>
+
+</HeadContent>
+
+<style>
+    .grid-container {
+        columns: 5 200px;
+        column-gap: 1rem;
+        margin: 0 auto;
+    }
+
+        .grid-container .Art-Piece {
+            width: 150px;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: 100%;
+            border: solid 4px black;
+            padding: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .grid-container .Art-Piece:hover img {
+                filter: grayscale(0);
+            }
+
+            .grid-container .Art-Piece:hover {
+                border-color: #ffd100;
+                box-shadow: 0px 0px 15px #ffd100;
+            }
+
+            .grid-container .Art-Piece img {
+                width: 100%;
+                filter: grayscale(100%);
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+            }
+
+    .modal-img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+        .freebie-asset:hover .iq-card {
+        background: #d9aed1;
+    }
+
+	.markdown-section ul{
+		padding-left:0px !important;
+	}
+
+	.markdown-section ul li p {
+		    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-size: 20px;
+    font-weight: 600;
+	}
+
+	.markdown-section ul li p a{
+				margin-top: 1rem;
+				margin-bottom: 0.3rem;
+				font-size: 18px;
+				font-weight: 600;
+	}
+
+
+		.markdown-section ul li a{
+			font-size: 14px;
+			font-weight: 500;
+	}
+
+	/* Fixed sidebar */
+	.fixed-sidebar {
+		position: sticky;
+		top: 1rem;
+		max-height: calc(100vh - 2rem);
+		overflow-y: auto;
+	}
+
+	.nav-pills .nav-link {
+		text-align: left;
+		transition: 0.2s;
+		color: #000;
+	}
+
+		.nav-pills .nav-link.active {
+			background: #6251bb;
+			color: #fff;
+		}
+
+	/* Tab content */
+	.tab-pane {
+		background: #fff;
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+	}
+
+	/* Category title inside tab */
+	.tab-heading {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		border-bottom: 2px solid #e5e7eb;
+		padding-bottom: 0.5rem;
+		color: #111827;
+	}
+
+	.subcategory {
+		margin-bottom: 2rem;
+	}
+
+		.subcategory h3 {
+			font-size: 1.2rem;
+			margin-bottom: 0.3rem;
+			font-weight: 600;
+			color: #000000;
+		}
+
+	.devspark-list {
+		list-style: none;
+		padding: 0;
+	}
+
+		.devspark-list li {
+			margin-bottom: 0.1rem;
+		}
+
+		.devspark-list a {
+			font-weight: 600;
+			color: #6251bb;
+			text-decoration: none;
+		}
+
+			.devspark-list a:hover {
+				text-decoration: underline;
+			}
+
+		.devspark-list p {
+			margin: 0.2rem 0 0;
+			color: #6b7280;
+			font-size: 0.9rem;
+		}
+
+</style>
+
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height p-2" style="background:#aba4d0">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 align-self-center text-left">
+                                <h1 class="mb-2">DEVSPARK</h1>
+                                <p class="mb-2">Find – Build – Grow</p>
+                            </div>
+                            <div class="col-4 align-self-center text-right"><SocialMedia /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="row p-2">
+
+			<div class="col-12 p-2">
+				<div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-0 pt-0">
+					<div class="iq-card-body">
+						<div class="row">
+							<!-- Sidebar Tabs -->
+							<div class="col-3 pl-0 pr-0">
+								<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"></div>
+							</div>
+
+							<!-- Tab Content -->
+							<div class="col-9">
+								<div class="tab-content" id="v-pills-tabContent"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+				
+       
+     </div>
+</div>
+
+<script>
+	// Load external JSON
+	 fetch('json/devspark/data.json')
+	  .then(res => res.json())
+	  .then(data => {
+		const nav = document.getElementById("v-pills-tab");
+		const content = document.getElementById("v-pills-tabContent");
+
+		data.forEach((cat, idx) => {
+		  const catId = "cat-" + idx;
+
+		  // Sidebar link
+		  const a = document.createElement("a");
+		  a.className = "nav-link" + (idx === 0 ? " active" : "");
+		  a.id = catId + "-tab";
+		  a.dataset.toggle = "pill";
+		  a.href = "#" + catId;
+		  a.role = "tab";
+		  a.setAttribute("aria-controls", catId);
+		  a.setAttribute("aria-selected", idx === 0 ? "true" : "false");
+		  a.innerText = cat.category;
+		  nav.appendChild(a);
+
+		  // 👇 scroll to top on click
+		  a.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		  });
+
+		  // Tab content
+		  const div = document.createElement("div");
+		  div.className = "tab-pane fade p-0" + (idx === 0 ? " show active" : "");
+		  div.id = catId;
+		  div.role = "tabpanel";
+		  div.setAttribute("aria-labelledby", catId + "-tab");
+
+		  // Category heading above content
+		  const heading = document.createElement("div");
+		  heading.className = "tab-heading";
+		  heading.textContent = cat.category;
+		  div.appendChild(heading);
+
+		  cat.subCategory.forEach(sub => {
+			const subDiv = document.createElement("div");
+			subDiv.className = "subcategory";
+
+			const h3 = document.createElement("h3");
+			if(sub.link) {
+			  h3.innerHTML = `<a href="${sub.link}" target="_blank">${sub.title}</a>`;
+			} else {
+			  h3.textContent = sub.title;
+			}
+			subDiv.appendChild(h3);
+
+			const ul = document.createElement("ul");
+			ul.className = "devspark-list";
+
+			sub.list.forEach(item => {
+			  const li = document.createElement("li");
+			  li.innerHTML = `<a href="${item.link || '#'}" target="_blank">${item.title}</a>
+							  <p>${item.description}</p>`;
+			  ul.appendChild(li);
+			});
+
+			subDiv.appendChild(ul);
+			div.appendChild(subDiv);
+		  });
+
+		  content.appendChild(div);
+		});
+	  })
+	  .catch(err => console.error("Error loading JSON:", err));
+</script>
+
+@code {
+
+    SharedHelper SH = new SharedHelper();
+    KhizoOo Me = new KhizoOo();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+  //       try
+  //       {
+		// 	var json = await Http.GetStringAsync("json/devspark/data.json");
+		// 	Categories = JsonSerializer.Deserialize<List<khizooo.AppData.Devspark>>(json) ?? new();
+		// foreach (var cat in Categories)
+		// 		accordionStates[cat.Key] = false;
+  //       }
+  //       catch (Exception ex) { Console.WriteLine($"Error loading or calling script: {ex.Message}"); }
+    }
+
+
+	protected override async Task OnParametersSetAsync()
+	{
+		// var jsonPath = $"json/devpark/data.json";
+		// JsonItems.Clear();
+
+		// if (string.IsNullOrWhiteSpace(jsonPath))
+		// {
+		// 	Optionally log or show an error message
+		// 	return;
+		// }
+
+		// try
+		// {
+		// 	var response = await Http.GetAsync(jsonPath);
+		// 	if (!response.IsSuccessStatusCode)
+		// 	{
+		// 		Optionally log or show an error message
+		// 		return;
+		// 	}
+
+		// 	var json = await response.Content.ReadAsStringAsync();
+		// 	if (string.IsNullOrWhiteSpace(json))
+		// 	{
+		// 		Optionally log or show an error message
+		// 		return;
+		// 	}
+
+		// 	using var doc = JsonDocument.Parse(json);
+		// 	if (doc.RootElement.ValueKind != JsonValueKind.Array)
+		// 	{
+		// 		Optionally log or show an error message
+		// 		return;
+		// 	}
+
+		// 	foreach (var element in doc.RootElement.EnumerateArray())
+		// 	{
+		// 		var dict = new Dictionary<string, object>();
+		// 		foreach (var prop in element.EnumerateObject())
+		// 		{
+		// 			dict[prop.Name] = prop.Value.ToString();
+		// 		}
+		// 		JsonItems.Add(dict);
+		// 	}
+		// }
+		// catch (Exception ex)
+		// {
+		// 	Optionally log or show an error message
+		// 	e.g. Console.WriteLine(ex.Message);
+		// }
+	}
+
+}

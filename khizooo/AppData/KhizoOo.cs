@@ -80,7 +80,6 @@
         new WebsiteContent() { ContentColor = "#dfeab5", ContentIcon = "ri-shapes-fill", ContentTitle = "INFOGRAPHICS", ContentDescription = "Visually Presentation of Information", ContentUpdated = "2025-08-04", ContentCount = "00" },
         new WebsiteContent() { ContentColor = "#4caf50", ContentIcon = "ri-hammer-fill", ContentTitle = "WEBTOOLS", ContentDescription = "Essential Web Tools", ContentUpdated = "2025-08-10", ContentCount = "00" },
         new WebsiteContent() { ContentColor = "#d9aed1", ContentIcon = "ri-gift-fill", ContentTitle = "FREEBIES", ContentDescription = "Gateway to the Best Free Assets", ContentUpdated = "2025-08-10", ContentCount = "00" },
-        new WebsiteContent() { ContentColor = "#aba4d0", ContentIcon = "ri-hammer-fill", ContentTitle = "CONVERTERS", ContentDescription = "Instantly Switch Between Different Units", ContentUpdated = "2025-08-10", ContentCount = "00" },
         new WebsiteContent() { ContentColor = "#9ad6d4",ContentIcon = "ri-hammer-fill", ContentTitle = "CALCULATORS", ContentDescription = "Calculators for Making Complex Numbers Easy.", ContentUpdated = "2025-08-10", ContentCount = "00" }
 
         };

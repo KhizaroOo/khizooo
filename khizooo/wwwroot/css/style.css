@@ -218,7 +218,6 @@ a:hover { text-decoration: none; }
     width: 220px;
     overflow: hidden;
     height: 100%;
-    background: #577BC1;
     transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -274,7 +273,7 @@ a:hover { text-decoration: none; }
     .iq-sidebar-menu .iq-menu li a {
         font-size: 15px;
         white-space: nowrap;
-        color: #f3f7fd;
+        color: #000000;
         position: relative;
         padding: 20px 15px 20px 15px;
         line-height: 20px;
@@ -572,7 +571,14 @@ body.sidebar-main .iq-sidebar:hover .iq-sidebar-menu .iq-menu li a span, body.si
 /*---------------------------------------------------------------------
                                OWL Carousel
 -----------------------------------------------------------------------*/
-.iq-card-icon { height: 60px; width: 60px; display: inline-block; line-height: 60px; text-align: center; font-size: 22px; }
+.iq-card-icon {
+    height: 42px;
+    width: 42px;
+    display: inline-block;
+    line-height: 42px;
+    text-align: center;
+    font-size: 26px;
+}
 
 /*---------------------------------------------------------------------
                                Timeline

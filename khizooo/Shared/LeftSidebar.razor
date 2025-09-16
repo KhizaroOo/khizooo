@@ -12,7 +12,7 @@
             <li id="Left-Sidebar-Infographic"><a href="/infographics" class="iq-waves-effect @LS_Infographic"><span>INFOGRAPHICS</span></a></li>
             <li id="Left-Sidebar-Webtool"><a href="/webtools" class="iq-waves-effect @LS_Webtool"><span>WEBTOOLS</span></a></li>
             <li id="Left-Sidebar-Freebie"><a href="/freebies" class="iq-waves-effect @LS_Freebie"><span>FREEBIES</span></a></li>
-            <li id="Left-Sidebar-Converter"><a href="/converters" class="iq-waves-effect @LS_Converter"><span>CONVERTERS</span></a></li>
+            <li id="Left-Sidebar-Freebie"><a href="/devspark" class="iq-waves-effect @LS_Devspark"><span>DEVSPARK</span></a></li>
             <li id="Left-Sidebar-Calculator"><a href="/calculators" class="iq-waves-effect @LS_Calculator"><span>CALCULATORS</span></a></li>
 
           @*   <li id="Left-Sidebar-Calculator"><a href="/calculators" class="iq-waves-effect @LS_Calculator"><span>DEV & CODE TOOLS</span></a></li>
@@ -37,7 +37,7 @@
     string LS_Infographic = string.Empty;
     string LS_Webtool = string.Empty;
     string LS_Freebie = string.Empty;
-    string LS_Converter = string.Empty;
+    string LS_Devspark = string.Empty;
     string LS_Calculator = string.Empty;
 
     protected override void OnInitialized()
@@ -55,22 +55,24 @@
     private void UpdateCurrentPage()
     {
         var currentPath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        var segments = currentPath.Split("/", StringSplitOptions.RemoveEmptyEntries);
+        var controllerName = segments.Length > 0 ? segments[0] : string.Empty;
         LS_Portfolio = string.Empty;
         LS_Artwork = string.Empty;
         LS_Infographic = string.Empty;
         LS_Webtool = string.Empty;
         LS_Freebie = string.Empty;
-        LS_Converter = string.Empty;
+        LS_Devspark = string.Empty;
         LS_Calculator = string.Empty;
 
-        if (string.IsNullOrEmpty(currentPath) || currentPath == "index") { }
-        else if (currentPath == "portfolio") { LS_Portfolio = "active"; }
-        else if (currentPath == "artworks") { LS_Artwork = "active"; }
-        else if (currentPath == "infographics") { LS_Infographic = "active"; }
-        else if (currentPath == "webtools") { LS_Webtool = "active"; }
-        else if (currentPath == "freebies") { LS_Freebie = "active"; }
-        else if (currentPath == "converters") { LS_Converter = "active"; }
-        else if (currentPath == "calculators") { LS_Calculator = "active"; }
+        if (string.IsNullOrEmpty(controllerName) || controllerName == "index") { }
+        else if (controllerName == "portfolio") { LS_Portfolio = "active"; }
+        else if (controllerName == "artworks") { LS_Artwork = "active"; }
+        else if (controllerName == "infographics") { LS_Infographic = "active"; }
+        else if (controllerName == "webtools") { LS_Webtool = "active"; }
+        else if (controllerName == "freebies") { LS_Freebie = "active"; }
+        else if (controllerName == "devspark") { LS_Devspark = "active"; }
+        else if (controllerName == "calculators") { LS_Calculator = "active"; }
     }
 
     public void Dispose()
