@@ -96,17 +96,10 @@
 	}
 
 		.nav-pills .nav-link.active {
-			background: #6251bb;
-			color: #fff;
+			background: #ffdd44;
+			color: #000000;
 		}
 
-	/* Tab content */
-	.tab-pane {
-		background: #fff;
-		padding: 1.5rem;
-		border-radius: 0.5rem;
-		box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-	}
 
 	/* Category title inside tab */
 	.tab-heading {
@@ -115,7 +108,7 @@
 		margin-bottom: 1.5rem;
 		border-bottom: 2px solid #e5e7eb;
 		padding-bottom: 0.5rem;
-		color: #111827;
+		color: #f74442;
 	}
 
 	.subcategory {
@@ -176,30 +169,26 @@
             </div>
         </div>
 
-		<div class="row p-2">
+		<div class="row pt-3">
 
-			<div class="col-12 p-2">
-				<div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height pb-0 pt-0">
+			<div class="col-4">
+				<div class="iq-card sb-top-banner-card iq-card-block">
 					<div class="iq-card-body">
-						<div class="row">
-							<!-- Sidebar Tabs -->
-							<div class="col-3 pl-0 pr-0">
-								<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"></div>
-							</div>
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"></div>
+					</div>
+				</div>
+			</div>
 
-							<!-- Tab Content -->
-							<div class="col-9">
-								<div class="tab-content" id="v-pills-tabContent"></div>
-							</div>
-						</div>
+			<div class="col-8">
+				<div class="iq-card sb-top-banner-card iq-card-block">
+					<div class="iq-card-body">
+						<div class="tab-content" id="v-pills-tabContent"></div>
 					</div>
 				</div>
 			</div>
 
 		</div>
 
-				
-       
      </div>
 </div>
 
@@ -233,7 +222,7 @@
 
 		  // Tab content
 		  const div = document.createElement("div");
-		  div.className = "tab-pane fade p-0" + (idx === 0 ? " show active" : "");
+		  div.className = "tab-pane fade" + (idx === 0 ? " show active" : "");
 		  div.id = catId;
 		  div.role = "tabpanel";
 		  div.setAttribute("aria-labelledby", catId + "-tab");

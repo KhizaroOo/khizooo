@@ -10,7 +10,6 @@
 
 <PageTitle>Calculators</PageTitle>
 
-
 <style>
     .grid-container {
         columns: 6 200px;
@@ -144,8 +143,22 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     }
 
-</style>
+        .card-header .nav-pills .nav-link {
+            min-height: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            padding: 0 0.5rem;
+            border-radius: 5px;
+            margin: 0;
+        }
 
+            .card-header .nav-pills .nav-link.active {
+        color: #000000;
+        background-color: #ffdd44;
+    }
+
+</style>
 
 <div id="content-page" class="content-page">
     <div id="Right-Page-Content" class="container-fluid">
@@ -179,7 +192,7 @@
                             <div class="tab-pane fade show active" id="sip" role="tabpanel" aria-labelledby="sip-tab">
                                 <div class="form-group">
                                     <label>Currency</label>
-                                    <select id="currency" class="form-control">
+                                    <select id="currency" class="form-control calculator-input-bcg">
                                         <option value="AUD">AUD - Australian Dollar</option>
                                         <option value="BGN">BGN - Bulgarian Lev</option>
                                         <option value="BRL">BRL - Brazilian Real</option>
@@ -217,17 +230,31 @@
                                 </div>
                                     <div class="form-group">
                                         <label>Monthly Investment (₹)</label>
-                                    <input type="number" min="0" step="100" class="form-control" id="sipMonthly" value="5000">
+                                    <input type="number" min="0" step="100" class="form-control calculator-input-bcg" id="sipMonthly" value="5000">
                                     </div>
                                     <div class="form-group">
                                         <label>Investment Period (Years)</label>
-                                    <input type="number" min="1" step="1" class="form-control" id="sipYears" value="10">
+                                    <input type="number" min="1" step="1" class="form-control calculator-input-bcg" id="sipYears" value="10">
                                     </div>
                                     <div class="form-group">
                                         <label>Expected Return Rate (%)</label>
-                                    <input type="number" min="1" max="30" step="0.1" class="form-control" id="sipRate" value="12">
+                                    <input type="number" min="1" max="30" step="0.1" class="form-control calculator-input-bcg" id="sipRate" value="12">
                                     </div>
                             </div>
+                            <hr />
+                            <h5 class="mt-4">How to Use the SIP Calculator?</h5>
+                            <p>Enter the monthly amount, investment period (years), and expected return rate. Then click "Calculate" to get instant results.</p>
+                            <h5 class="mt-4">Understanding the Results</h5>
+                            <p>The calculator shows your total investment, estimated returns, maturity value, CAGR, and XIRR. This helps you understand how your money grows over time.</p>
+                            <h5 class="mt-4">Benefits of SIP Investment</h5>
+                            <ul class="p-0">
+                                <li>1: Disciplined and regular investing</li>
+                                <li>2: Compounding benefits over time</li>
+                                <li>3: Flexibility to start small</li>
+                                <li>4: Good for long-term wealth creation</li>
+                                <li>5: Reduces market risk with averaging</li>
+                            </ul>
+                        
                         </div>
                     </div>
                 </div>
@@ -278,6 +305,123 @@
                     </div>
 
                 </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">SIP Calculator FAQs</div>
+                            <div class="card-body">
+                                <div class="faq">
+                                    <ul class="faq-list">
+                                        <li data-aos="fade-up" data-aos-delay="100">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq1" aria-expanded="false">
+                                                What is a SIP Calculator? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq1" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    A SIP Calculator helps you estimate how much wealth you can build by investing a fixed amount regularly over time.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="200">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq2" aria-expanded="false">
+                                                Do I need to know complex math to use it? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq2" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    No, just enter your monthly investment, time period, and expected return rate. The calculator does the rest.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="300">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq3" aria-expanded="false">
+                                                Can I use it for lumpsum investments too? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq3" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Yes! Most SIP calculators also include a lumpsum option for one-time investments.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="400">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq4" aria-expanded="false">
+                                                How accurate are the results? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq4" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Results are estimates. Actual returns depend on market performance.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="500">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq5" aria-expanded="false">
+                                                Can I change the currency? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq5" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Yes, the calculator supports multiple currencies so results can match your country.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="600">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq6" aria-expanded="false">
+                                                What does CAGR mean? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq6" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    CAGR is the Compound Annual Growth Rate, showing average yearly growth of your investment.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="700">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq7" aria-expanded="false">
+                                                What is XIRR in results? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq7" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    XIRR stands for Extended Internal Rate of Return. It’s a better way to measure SIP performance over time.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="800">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq8" aria-expanded="false">
+                                                Can I use it for short-term SIPs like 1–2 years? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq8" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Yes, but SIPs work best when invested for longer durations like 5+ years.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="900">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq9" aria-expanded="false">
+                                                Can I export or share the results? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq9" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Yes, you can export results as PNG and share with others easily.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="1000">
+                                            <a data-toggle="collapse" class="collapsed" href="#faq10" aria-expanded="false">
+                                                Why should I use a SIP Calculator? <i class="ri-arrow-up-box-line"></i>
+                                            </a>
+                                            <div id="faq10" class="collapse" data-parent=".faq-list">
+                                                <p>
+                                                    Because it makes planning easier! You can set goals, estimate returns, and invest smarter.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                             </div>
+                         </div>
+
+                        
+                        </div>
+                    </div>
 
             </div>
         </div>
@@ -371,15 +515,15 @@
         {label:"Total Gain %", val:res.gainPct.toFixed(2)+"%" , icon:"ri-exchange-dollar-fill", w:"col-3", info1:"", info2:""},
         {label:"Wealth Multiple", val:res.wealthMultiple.toFixed(2)+"x" , icon:"ri-line-chart-line", w:"col-3", info1:"", info2:""},
         
-        {label:"CAGR", val:(res.cagr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Compound Annual Growth Rate)(Effective Rate)", info2:"Effective annual rate considering monthly investments"},
-        {label:"XIRR", val:(res.xirr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Internal Rate of Return)(Time-weighted)", info2:"Considers timing of monthly investments for accurate returns"},
+        {label:"CAGR", val:(res.cagr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Compound Annual Growth Rate) (Effective Rate)", info2:"Effective annual rate considering monthly investments"},
+        {label:"XIRR", val:(res.xirr*100).toFixed(2)+"%" , icon:"ri-line-chart-line", w:"col-6", info1:"(Internal Rate of Return) (Time-weighted)", info2:"Considers timing of monthly investments for accurate returns"},
       ];
       cards.forEach(c=>{
         row.innerHTML+=`
         <div class='${c.w}'>
           <div class='card iq-mb-3 bg-calculators p-1' style="padding:0.7rem">
             <div class='card-body text-dark text-center p-1'>
-              <span class="">${c.label}</span>
+              <span class="text-bold">${c.label}</span> <span>${c.info1}</span>
             </div>
             <div class='card-footer text-center p-1'><h6 class="text-dark">${c.val}</h6></div>
           </div>
@@ -404,7 +548,7 @@
 
     res.labelsY.forEach((year, i) => {
       const dot = document.createElement("div");
-      dot.className = "timeline-dot";
+      dot.className = "timeline-dot ";
       
       const yearLabel = document.createElement("div");
       yearLabel.className = "year-label";
