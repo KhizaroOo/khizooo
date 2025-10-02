@@ -89,15 +89,15 @@
                 @{
                     foreach (khizooo.AppData.Calculator calculator in MyAllCalculators)
                     {
-                        <div class="col-lg-3 col-md-4 mb-4">
+                        <div class="col-4">
                             <a class="calculator-asset" href="/calculators/@((MarkupString)calculator.Slug)">
-                                <div class="iq-card dash-hover-gradient iq-card-block iq-card-stretch p-3">
+                            <div class="iq-card dash-hover-gradient iq-card-block iq-card-stretch iq-card-height">
                                     <div class="iq-card-header border-0">
                                         <div class="mb-0 font-size-32 text-dark">@((MarkupString)calculator.Icon)</div>
                                     </div>
-                                    <div class="iq-card-body pb-0 pt-0">
+                                <div class="iq-card-body pt-1 pb-4">
                                         <h5 class="mb-1">@((MarkupString)calculator.Title)</h5>
-                                        <p class="mb-0" style="color: #363636;">@((MarkupString)calculator.Description)</p>
+                                        <p class="" style="color: #363636;">@((MarkupString)calculator.Description)</p>
                                     </div>
                                 </div>
                             </a>

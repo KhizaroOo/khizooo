@@ -12,46 +12,6 @@
 <PageTitle>Khizooo - Calculators - SIP</PageTitle>
 
 <style>
-    .grid-container {
-        columns: 6 200px;
-        column-gap: 1.5rem;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-        .grid-container .Art-Piece {
-            width: 150px;
-            margin: 0 1.5rem 1.5rem 0;
-            display: inline-block;
-            width: 100%;
-            border: solid 4px black;
-            padding: 5px;
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            transition: all 0.25s ease-in-out;
-        }
-
-            .grid-container .Art-Piece:hover img {
-                filter: grayscale(0);
-            }
-
-            .grid-container .Art-Piece:hover {
-                border-color: #ffd100;
-                box-shadow: 0px 0px 15px #ffd100;
-            }
-
-            .grid-container .Art-Piece img {
-                width: 100%;
-                filter: grayscale(100%);
-                border-radius: 5px;
-                transition: all 0.25s ease-in-out;
-            }
-
-    .modal-img {
-        width: 100%;
-        border-radius: 0;
-    }
-
     .calculator-asset:hover .iq-card {
         background: #9ad6d4;
     }
@@ -82,8 +42,6 @@
         color: #333;
     }
 
-
-    /* Bar Rows */
     .bar-row {
         display: flex;
         align-items: center;
@@ -114,7 +72,6 @@
         height: 12px;
     }
 
-    /* Progress Bars */
     .progress-wrap {
         margin: 1rem 0;
     }
@@ -155,10 +112,9 @@
         }
 
             .card-header .nav-pills .nav-link.active {
-        color: #000000;
-        background-color: #ffdd44;
-    }
-
+                color: #000000;
+                background-color: #ffdd44;
+            }
 </style>
 
 <div id="content-page" class="content-page">
@@ -170,8 +126,8 @@
                     <div class="iq-card-body pb-5 pt-5">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-7 align-self-center text-left">
-                                <h4 class="mb-2">Finance Calculator</h4>
-                                <h1 class="mb-2">Systematic Investment Plan</h1>
+                                <h4 class="mb-2"><a href="/calculators/finance-calculators" class="text-dark" style="text-decoration:none;"><i class="ri-arrow-left-fill"></i>  FINANCE CALCULATORS</a></h4>
+                                <h1 class="mb-2">SIP Calculator</h1>
                                 <p class="mb-2">Calculate returns on your Systematic Investment Plan (SIP) investments with detailed growth analysis.</p>
                             </div>
                             <div class="col-4 align-self-center text-right"><SocialMedia /></div>
@@ -189,7 +145,7 @@
                     <div class="card-header text-dark">SIP Calculator</div>
                     <div class="card-body">
                         <div class="tab-content" id="calcContent">
-                            <!-- SIP -->
+                           
                             <div class="tab-pane fade show active" id="sip" role="tabpanel" aria-labelledby="sip-tab">
                                 <div class="form-group">
                                     <label>Currency</label>
@@ -230,7 +186,7 @@
                                     </select>
                                 </div>
                                     <div class="form-group">
-                                        <label>Monthly Investment (₹)</label>
+                                        <label>Monthly Investment</label>
                                     <input type="number" min="0" step="100" class="form-control calculator-input-bcg" id="sipMonthly" value="5000">
                                     </div>
                                     <div class="form-group">
@@ -268,7 +224,7 @@
                     <div class="col-12">
                         <div class="card chart-card mb-4">
                             <div class="card-header text-dark">Overall Summary</div>
-                            <div class="card-body">
+                            <div class="card-body pb-0">
                                 <div class="row" id="summaryRow"></div>
                              </div>
                          </div>
@@ -431,13 +387,19 @@
 </div>
 
 <script>
-    let lineChart, barChart, pieChart;
-    const currencySymbols = {
-      AUD:"A$", BGN:"лв", BRL:"R$", CAD:"C$", CHF:"Fr", CNY:"¥", CZK:"Kč", DKK:"kr", EUR:"€", GBP:"£", HKD:"HK$", HRK:"kn", HUF:"Ft", IDR:"Rp", ILS:"₪", INR:"₹", ISK:"kr", JPY:"¥", KRW:"₩", MXN:"$", MYR:"RM", NOK:"kr", NZD:"NZ$", PHP:"₱", PLN:"zł", RON:"lei", RUB:"₽", SEK:"kr", SGD:"S$", THB:"฿", TRY:"₺", USD:"$", ZAR:"R"
-    };
 
-    let fxRates = {};
-    const FREECURRENCYAPI_KEY = "fca_live_PhuNI0BSRHJ51gnrB1fMEABX0hiQ1ZKSIaNa34ZW";
+    if (typeof currencySymbols === "undefined") {
+      var currencySymbols = {
+        AUD:"A$", BGN:"лв", BRL:"R$", CAD:"C$", CHF:"Fr", CNY:"¥", CZK:"Kč", DKK:"kr", EUR:"€", GBP:"£", HKD:"HK$", HRK:"kn", HUF:"Ft", IDR:"Rp", ILS:"₪", INR:"₹", ISK:"kr", JPY:"¥", KRW:"₩", MXN:"$", MYR:"RM", NOK:"kr", NZD:"NZ$", PHP:"₱", PLN:"zł", RON:"lei", RUB:"₽", SEK:"kr", SGD:"S$", THB:"฿", TRY:"₺", USD:"$", ZAR:"R"
+      };
+    }
+
+    if (typeof fxRates === "undefined") {
+      var fxRates = {};
+    }
+    if (typeof FREECURRENCYAPI_KEY === "undefined") {
+      var FREECURRENCYAPI_KEY = "fca_live_PhuNI0BSRHJ51gnrB1fMEABX0hiQ1ZKSIaNa34ZW";
+    }
 
     async function fetchFxRates(base="USD") {
       try {

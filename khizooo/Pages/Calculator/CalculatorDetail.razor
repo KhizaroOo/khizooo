@@ -87,15 +87,15 @@
                     var icon = item.ContainsKey("icon") ? item["icon"]?.ToString() : "";
                     var url = item.ContainsKey("url") ? item["url"]?.ToString() : "";
 
-                <div class="col-lg-3 col-md-4 mb-4" data-url="@url">
+                <div class="col-4" data-url="@url">
                     <a class="calculator-asset" href="@((MarkupString)url)">
-                            <div class="iq-card dash-hover-gradient iq-card-block iq-card-stretch p-3">
+                        <div class="iq-card dash-hover-gradient iq-card-block iq-card-stretch iq-card-height">
                             <div class="iq-card-header border-0">
                                 <div class="mb-0 font-size-32 text-dark">@((MarkupString)icon)</div>
                             </div>
-                                <div class="iq-card-body pb-0 pt-0">
+                            <div class="iq-card-body pt-1 pb-4">
                                     <h5 class="mb-1">@((MarkupString)name)</h5>
-                                    <p class="mb-0" style="color: #363636;">@((MarkupString)description)</p>
+                                    <p class="" style="color: #363636;">@((MarkupString)description)</p>
                                 </div>
                             </div>
                         </a>
