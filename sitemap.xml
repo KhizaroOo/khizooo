@@ -1,19 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <!-- LANDING PAGE -->
-    <url><loc>https://www.khizooo.com</loc></url>
+<!-- LANDING PAGE -->
+<url><loc>https://khizarooo.github.io/khizooo</loc></url>
 
-	<!-- PORTFOLIO -->
-	<url><loc>https://www.khizooo.com/portfolio</loc></url>
+<!-- PORTFOLIO -->
+<url><loc>https://khizarooo.github.io/khizooo/portfolio</loc></url>
 
-	<!-- ARTWORK -->
-    <url><loc>https://www.khizooo.com/artworks</loc></url>
+<!-- ARTWORK -->
+<url><loc>https://khizarooo.github.io/khizooo/artworks</loc></url>
 
-    <!-- INFOGRAPHIC -->
-    <url><loc>https://www.khizooo.com/infographics</loc></url>
+<!-- INFOGRAPHIC -->
+<url><loc>https://khizarooo.github.io/khizooo/infographics</loc></url>
 
-    <!-- TOOLBOX -->
-    <url><loc>https://www.khizooo.com/webtools</loc></url>
-    
+<!-- WEBTOOLS -->
+<url><loc>https://khizarooo.github.io/khizooo/webtools</loc></url>
+
+<!-- FREEBIES -->
+<url><loc>https://khizarooo.github.io/khizooo/freebies</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/3d</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/backgrounds</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/blogs</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/colors</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/components</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/custom-tools</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/icons</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/illustrations</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/inspirations</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/libraries</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/photos</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/tools</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/typography</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/freebies/videos</loc></url>
+  
+<!-- DEVSPARK-->
+<url><loc>https://khizarooo.github.io/khizooo/devspark</loc></url>
+  
+<!-- CALCULATORS-->
+<url><loc>https://khizarooo.github.io/khizooo/calculators</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/sip-calculator</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/lumpsum-calculator</loc></url>
+  
 </urlset>
