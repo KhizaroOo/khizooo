@@ -1,0 +1,601 @@
+﻿@page "/calculators/finance-calculators/return-on-investment-calculator"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+@using System.Text.Json
+@using Microsoft.AspNetCore.Components.Web
+@using khizooo.AppData.SharedHelper;
+@using khizooo.AppData;
+@using khizooo.Pages.PartialViews
+
+<PageTitle>Khizooo - Calculators - Return on Investment</PageTitle>
+
+<style>
+    .calculator-asset:hover .iq-card {
+        background: #9ad6d4;
+    }
+
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .timeline-dot {
+        position: relative;
+        text-align: center;
+        flex: 1;
+    }
+
+    .year-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #6f42c1;
+    }
+
+    .value-label {
+        font-size: 12px;
+        margin-top: 5px;
+        color: #333;
+    }
+
+    .bar-row {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+    }
+
+    .bar-label {
+        width: 70px;
+        font-size: 0.85rem;
+        color: #374151;
+    }
+
+    .bar-track {
+        flex: 1;
+        background: #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .bar-invested {
+        background: #2563eb;
+        height: 12px;
+    }
+
+    .bar-returns {
+        background: #16a34a;
+        height: 12px;
+    }
+
+    .progress-wrap {
+        margin: 1rem 0;
+    }
+
+    .progress-bar {
+        background: #e5e7eb;
+        border-radius: 8px;
+        height: 14px;
+        overflow: hidden;
+    }
+
+    .progress-invested {
+        background: #2563eb;
+        height: 100%;
+        transition: width 1s ease;
+    }
+
+    .progress-returns {
+        background: #16a34a;
+        height: 100%;
+        transition: width 1s ease;
+    }
+
+    .card-header {
+        background-color: rgb(154 214 212);
+        font-weight: 600;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+        .card-header .nav-pills .nav-link {
+            min-height: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            padding: 0 0.5rem;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+            .card-header .nav-pills .nav-link.active {
+                color: #000000;
+                background-color: #ffdd44;
+            }
+
+    .additional-table th, .additional-table td {
+        padding: 0.4rem 0.7rem;
+    }
+
+    .additional-table th {
+        background: #f3f4f6;
+    }
+
+    .additional-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.5rem;
+    }
+
+        .additional-table td, .additional-table th {
+            border: 1px solid #e5e7eb;
+        }
+
+    .add-btn {
+        background: #c7b8f5;
+        color: #222;
+        border: 2px solid;
+        padding: 0.4rem 1.2rem;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        width:100%;
+            height: 45px;
+    }
+
+        .add-btn:active, .add-btn:focus {
+            background: #b3a1e6;
+        }
+
+    .remove-btn {
+        background: #f3f4f6;
+        color: #222;
+        border: none;
+        padding: 0.3rem 0.8rem;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+        .remove-btn:active, .remove-btn:focus {
+            background: #e5e7eb;
+        }
+</style>
+
+
+<div id="content-page" class="content-page">
+    <div id="Right-Page-Content" class="container-fluid">
+
+        <div class="row mb-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-self-center text-center">
+                <div class="iq-card sb-top-banner-card iq-card-block iq-card-stretch iq-card-height p-2" style="background:#9ad6d4">
+                    <div class="iq-card-body pb-5 pt-5">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-7 align-self-center text-left">
+                                <h4 class="mb-2">
+                                    <a href="/calculators/finance-calculators" class="text-dark" style="text-decoration:none;">
+                                        <i class="ri-arrow-left-fill"></i> FINANCE CALCULATORS
+                                    </a>
+                                </h4>
+                                <h1 class="mb-2">Return on Investment Calculator</h1>
+                                <p class="mb-2">Calculate ROI and XIRR with support for additional investments.</p>
+                            </div>
+                            <div class="col-4 align-self-center text-right"><SocialMedia /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- LEFT: Forms -->
+            <div class="col-lg-4 mb-4">
+                <div class="card sticky-col">
+                    <div class="card-header text-dark">Return on Investment Calculator</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Initial Investment</label>
+                            <input id="roiInitial" type="number" min="0" step="100" class="form-control calculator-input-bcg" value="10000">
+                        </div>
+                        <div class="form-group">
+                            <label>Return Amount</label>
+                            <input id="roiReturn" type="number" min="0" step="100" class="form-control calculator-input-bcg" value="15000">
+                        </div>
+                        <div class="form-group">
+                            <label>Investment Duration</label>
+                            <div class="d-flex">
+                                <input id="roiYears" type="number" min="0" step="1" class="form-control calculator-input-bcg mr-2" placeholder="Years" value="10">
+                                <input id="roiMonths" type="number" min="0" max="11" step="1" class="form-control calculator-input-bcg" placeholder="Months" value="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Investments</label>
+                            <div class="row mt-2">
+                                <div class="col-3">
+                                    <input id="addAmount" type="number" min="0" step="100" class="form-control calculator-input-bcg" placeholder="Amount">
+                                </div>
+                                <div class="col-3">
+                                    <input id="addYears" type="number" min="0" step="1" class="form-control calculator-input-bcg" placeholder="Years">
+                                </div>
+                                <div class="col-3">
+                                    <input id="addMonths" type="number" min="0" max="11" step="1" class="form-control calculator-input-bcg" placeholder="Months">
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="add-btn">Add</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="additionalInvestments" class="col-12"></div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h5 class="mt-4">How to Use the ROI Calculator?</h5>
+                        <p>Enter your initial investment, return amount, and investment duration. Add any additional investments with their respective durations. The calculator will show your total ROI and annualized return (XIRR).</p>
+                        <h5 class="mt-4">Understanding the Results</h5>
+                        <p>See your total investment, total return, absolute ROI, and annualized return (XIRR). Visualize your growth over time and compare different investment scenarios.</p>
+                        <h5 class="mt-4">Benefits of ROI Calculation</h5>
+                        <ul class="p-0">
+                            <li>1: Compare different investments easily</li>
+                            <li>2: See the impact of additional investments</li>
+                            <li>3: Understand both absolute and annualized returns</li>
+                            <li>4: Visualize your investment growth</li>
+                            <li>5: Make smarter financial decisions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Results -->
+            <!-- Results Section -->
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Overall Summary</div>
+                            <div class="card-body pb-0">
+                                <div class="row" id="summaryRow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Growth Over Time -->
+                    <div class="col-12">
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Growth Over Time</div>
+                            <div class="card-body">
+                                <div id="growthTimeline"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Yearly Investment vs Returns -->
+                    <div class="col-6">
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Yearly Investment vs Returns</div>
+                            <div class="card-body">
+                                <div id="yearlyBarChart"></div>
+                            </div>
+                        </div>
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Final Portfolio Breakdown</div>
+                            <div class="card-body">
+                                <div id="portfolioBreakdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Growth Breakdown -->
+                    <div class="col-6">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between text-dark">
+                                <span>Growth Breakdown</span>
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item"><a class="nav-link active" id="yearlyTab" href="#">Yearly</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="monthlyTab" href="#">Monthly</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-content">
+                                <div id="growthBreakdownTable"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card chart-card mb-4">
+                            <div class="card-header text-dark">Return on Investment Calculator FAQs</div>
+                            <div class="card-body">
+                                <div class="faq">
+                                    <ul class="faq-list" id="roiFaqs"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    window.roiCalculatorInit = function () {
+        let additionalInvestments = [];
+        let showYearly = true;
+
+        function getInputs() {
+            return {
+                initial: +document.getElementById("roiInitial").value || 0,
+                ret: +document.getElementById("roiReturn").value || 0,
+                years: +document.getElementById("roiYears").value || 0,
+                months: +document.getElementById("roiMonths").value || 0
+            };
+        }
+
+        function addAdditionalInvestment() {
+            const amount = +document.getElementById("addAmount").value || 0;
+            const years = +document.getElementById("addYears").value || 0;
+            const months = +document.getElementById("addMonths").value || 0;
+            if (amount > 0 && (years > 0 || months > 0)) {
+                additionalInvestments.push({ amount, years, months });
+                document.getElementById("addAmount").value = "";
+                document.getElementById("addYears").value = "";
+                document.getElementById("addMonths").value = "";
+                renderAdditionalInvestments();
+                computeROI();
+            }
+        }
+
+        function removeAdditionalInvestment(idx) {
+            additionalInvestments.splice(idx, 1);
+            renderAdditionalInvestments();
+            computeROI();
+        }
+
+        function renderAdditionalInvestments() {
+            const container = document.getElementById("additionalInvestments");
+            let html = `<table class="additional-table"><thead><tr>
+                <th style="width: 25%;">Amount</th><th style="width: 25%;">Added After</th><th style="width: 25%;">Duration</th><th style="width: 25%;">Action</th></tr></thead><tbody>`;
+            additionalInvestments.forEach((inv, idx) => {
+                html += `<tr>
+                    <td style="width: 25%;">${inv.amount.toLocaleString(undefined, {maximumFractionDigits:2})}</td>
+                    <td style="width: 25%;">${inv.years} years ${inv.months} months</td>
+                    <td style="width: 25%;">${getInvestmentPeriod(inv.years, inv.months)}</td>
+                    <td style="width: 25%;"><button class="remove-btn" onclick="window.roiRemoveInvestment(${idx})">Remove</button></td>
+                </tr>`;
+            });
+            html += "</tbody></table>";
+            container.innerHTML = html;
+        }
+        window.roiRemoveInvestment = removeAdditionalInvestment;
+
+        function getInvestmentPeriod(years, months) {
+            const { years: totalYears, months: totalMonths } = getInputs();
+            let leftYears = totalYears - years;
+            let leftMonths = totalMonths - months;
+            if (leftMonths < 0) { leftYears -= 1; leftMonths += 12; }
+            return `${leftYears} years ${leftMonths} months`;
+        }
+
+        function computeROI() {
+            const { initial, ret, years, months } = getInputs();
+            const totalMonths = years * 12 + months;
+
+            // Cash flows
+            let cashFlows = [{ amount: -initial, month: 0 }];
+            let totalInvestment = initial;
+            additionalInvestments.forEach(inv => {
+                const m = (inv.years || 0) * 12 + (inv.months || 0);
+                if (inv.amount > 0 && m >= 0 && m <= totalMonths) {
+                    cashFlows.push({ amount: -inv.amount, month: m });
+                    totalInvestment += inv.amount;
+                }
+            });
+            cashFlows.push({ amount: ret, month: totalMonths });
+            cashFlows.sort((a, b) => a.month - b.month);
+
+            // ROI
+            const roi = totalInvestment === 0 ? 0 : ((ret - totalInvestment) / totalInvestment) * 100;
+
+            // XIRR
+            function xirr(cashFlows) {
+                const guess = 0.1;
+                let rate = guess;
+                for (let iter = 0; iter < 100; iter++) {
+                    let f = 0, df = 0;
+                    for (let i = 0; i < cashFlows.length; i++) {
+                        const t = cashFlows[i].month / 12;
+                        f += cashFlows[i].amount / Math.pow(1 + rate, t);
+                        if (cashFlows[i].amount !== 0) {
+                            df += -cashFlows[i].amount * t / Math.pow(1 + rate, t + 1);
+                        }
+                    }
+                    const newRate = rate - f / df;
+                    if (Math.abs(newRate - rate) < 1e-7) return rate;
+                    rate = newRate;
+                }
+                return rate;
+            }
+            let xirrValue = 0;
+            try { xirrValue = xirr(cashFlows) * 100; } catch { xirrValue = 0; }
+
+            // Growth Over Time
+            let growthOverTime = {};
+            let yearlyInvested = {};
+            let yearlyReturns = {};
+            let monthlyInvested = {};
+            let monthlyReturns = {};
+
+            let investedByMonth = Array(totalMonths + 1).fill(0);
+            investedByMonth[0] = initial;
+            additionalInvestments.forEach(inv => {
+                const m = inv.years * 12 + inv.months;
+                if (m <= totalMonths) investedByMonth[m] += inv.amount;
+            });
+            let investedSum = 0;
+            for (let m = 0; m <= totalMonths; m++) {
+                investedSum += investedByMonth[m];
+                monthlyInvested[m] = investedSum;
+                monthlyReturns[m] = m === totalMonths ? ret : 0;
+            }
+            for (let y = 0; y <= years; y++) {
+                let month = y * 12;
+                growthOverTime[y] = month <= totalMonths ? monthlyInvested[month] : monthlyInvested[totalMonths];
+                yearlyInvested[y] = month <= totalMonths ? monthlyInvested[month] : monthlyInvested[totalMonths];
+                yearlyReturns[y] = y === years ? ret : 0;
+            }
+
+            // Final Portfolio Breakdown
+            let investedPercent = totalInvestment + ret === 0 ? 0 : Math.round((totalInvestment / (totalInvestment + ret)) * 100);
+            let returnsPercent = totalInvestment + ret === 0 ? 0 : Math.round((ret / (totalInvestment + ret)) * 100);
+
+            // Render summary
+            renderROISummary({
+                totalInvestment,
+                totalReturn: ret,
+                roi,
+                xirr: xirrValue
+            });
+
+            // Growth Over Time
+            let timelineHtml = '<div class="timeline">';
+            for (let y = 0; y <= years; y++) {
+                timelineHtml += `<div class="timeline-dot">
+                    <div class="year-label">${y} Y</div>
+                    <div class="value-label">${growthOverTime[y] ? growthOverTime[y].toLocaleString(undefined, {maximumFractionDigits:2}) : "0"}</div>
+                </div>`;
+            }
+            timelineHtml += '</div>';
+            document.getElementById("growthTimeline").innerHTML = timelineHtml;
+
+            // Yearly Investment vs Returns
+            let barHtml = '';
+            for (let y = 1; y <= years; y++) {
+                barHtml += `<div class="bar-row">
+                    <div class="bar-label">Year ${y}</div>
+                    <div class="bar-track">
+                        <div class="bar-invested" style="width:${yearlyInvested[y] && yearlyReturns[years] ? (yearlyInvested[y] / yearlyReturns[years] * 100) : 0}%"></div>
+                        <div class="bar-returns" style="width:${yearlyReturns[y] && yearlyReturns[years] ? (yearlyReturns[y] / yearlyReturns[years] * 100) : 0}%"></div>
+                    </div>
+                </div>`;
+            }
+            document.getElementById("yearlyBarChart").innerHTML = barHtml;
+
+            // Final Portfolio Breakdown
+            document.getElementById("portfolioBreakdown").innerHTML = `
+                <div class="progress-wrap">
+                    <span>Total Invested: ${totalInvestment.toLocaleString(undefined, {maximumFractionDigits:2})} (${investedPercent}%)</span>
+                    <div class="progress-bar">
+                        <div class="progress-invested" style="width:${investedPercent}%"></div>
+                    </div>
+                </div>
+                <div class="progress-wrap">
+                    <span>Total Return: ${ret.toLocaleString(undefined, {maximumFractionDigits:2})} (${returnsPercent}%)</span>
+                    <div class="progress-bar">
+                        <div class="progress-returns" style="width:${returnsPercent}%"></div>
+                    </div>
+                </div>
+            `;
+
+            // Growth Breakdown Table
+            let breakdownHtml = '';
+            if (showYearly) {
+                breakdownHtml += `<table class="table table-sm"><thead><tr><th>Year</th><th>Invested</th><th>Return</th></tr></thead><tbody>`;
+                for (let y = 1; y <= years; y++) {
+                    breakdownHtml += `<tr>
+                        <td>${y}</td>
+                        <td>${yearlyInvested[y] ? yearlyInvested[y].toLocaleString(undefined, {maximumFractionDigits:2}) : "0"}</td>
+                        <td>${yearlyReturns[y] ? yearlyReturns[y].toLocaleString(undefined, {maximumFractionDigits:2}) : "0"}</td>
+                    </tr>`;
+                }
+                breakdownHtml += `</tbody></table>`;
+            } else {
+                breakdownHtml += `<table class="table table-sm"><thead><tr><th>Month</th><th>Invested</th><th>Return</th></tr></thead><tbody>`;
+                for (let m = 1; m <= years * 12 + months; m++) {
+                    breakdownHtml += `<tr>
+                        <td>${m}</td>
+                        <td>${monthlyInvested[m] ? monthlyInvested[m].toLocaleString(undefined, {maximumFractionDigits:2}) : "0"}</td>
+                        <td>${monthlyReturns[m] ? monthlyReturns[m].toLocaleString(undefined, {maximumFractionDigits:2}) : "0"}</td>
+                    </tr>`;
+                }
+                breakdownHtml += `</tbody></table>`;
+            }
+            document.getElementById("growthBreakdownTable").innerHTML = breakdownHtml;
+
+            // FAQs
+            const faqs = [
+                { q: "What is ROI?", a: "ROI (Return on Investment) measures the gain or loss generated on an investment relative to the amount invested." },
+                { q: "What is XIRR?", a: "XIRR is the annualized return that takes into account the timing and amount of multiple cash flows." },
+                { q: "How do I add multiple investments?", a: "Enter the amount and when it was invested, then click 'Add'." },
+                { q: "What is absolute return?", a: "Absolute return is the total percentage gain or loss on an investment, regardless of time." },
+                { q: "What is annualized return?", a: "Annualized return (XIRR) shows the average yearly return, accounting for the timing of all investments." },
+                { q: "Can I use this for SIPs?", a: "Yes, add each SIP as an additional investment with its own date." },
+                { q: "What if I withdraw money early?", a: "Withdrawals can be entered as negative additional investments to reflect cash outflows." },
+                { q: "Is XIRR better than ROI?", a: "XIRR is more accurate for multiple cash flows; ROI is simpler for single investments." },
+                { q: "Can I export the results?", a: "You can copy the summary for your records or use screenshots." },
+                { q: "What is a good ROI?", a: "A good ROI depends on your investment goals and risk tolerance. Compare with market averages." }
+            ];
+            let faqHtml = "";
+            faqs.forEach(f => {
+                faqHtml += `<li><b>${f.q}</b> ${f.a}</li>`;
+            });
+            document.getElementById("roiFaqs").innerHTML = faqHtml;
+        }
+
+       // ... (rest of your code remains unchanged)
+
+function renderROISummary(res) {
+    const row = document.getElementById("summaryRow"); row.innerHTML = "";
+    const cards = [
+        { label: "Total Investment", val: res.totalInvestment.toLocaleString(undefined, {maximumFractionDigits:2}), w: "col-3" },
+        // FIX: Show net return (Total Return - Total Investment) and allow negative values
+        { label: "Total Return", val: (res.totalReturn - res.totalInvestment).toLocaleString(undefined, {maximumFractionDigits:2, signDisplay: "always"}), w: "col-3" },
+        { label: "ROI (Absolute Return)", val: res.roi.toFixed(2) + "%", w: "col-3" },
+        { label: "XIRR (Annualized Return)", val: res.xirr.toFixed(2) + "%", w: "col-3" }
+    ];
+    cards.forEach(c => {
+        row.innerHTML += `
+        <div class='${c.w}'>
+            <div class='card iq-mb-3 bg-calculators p-1' style="padding:0.7rem">
+                <div class='card-body text-dark text-center p-1'>
+                    <span class="text-bold">${c.label}</span>
+                </div>
+                <div class='card-footer text-center p-1'><h6 class="text-dark">${c.val}</h6></div>
+            </div>
+        </div>`;
+    });
+}
+
+// ... (rest of your code remains unchanged)
+
+        // Attach listeners and initialize
+        document.getElementById("yearlyTab").addEventListener("click", function (e) {
+            e.preventDefault(); showYearly = true; computeROI();
+            this.classList.add("active"); document.getElementById("monthlyTab").classList.remove("active");
+        });
+        document.getElementById("monthlyTab").addEventListener("click", function (e) {
+            e.preventDefault(); showYearly = false; computeROI();
+            this.classList.add("active"); document.getElementById("yearlyTab").classList.remove("active");
+        });
+
+        ["roiInitial", "roiReturn", "roiYears", "roiMonths"].forEach(id => {
+            document.getElementById(id).addEventListener("input", computeROI);
+        });
+        document.getElementById("addAmount").addEventListener("keydown", function (e) { if (e.key === "Enter") addAdditionalInvestment(); });
+        document.getElementById("addYears").addEventListener("keydown", function (e) { if (e.key === "Enter") addAdditionalInvestment(); });
+        document.getElementById("addMonths").addEventListener("keydown", function (e) { if (e.key === "Enter") addAdditionalInvestment(); });
+        document.querySelector(".add-btn").addEventListener("click", addAdditionalInvestment);
+
+        renderAdditionalInvestments();
+        computeROI();
+    };
+
+    window.roiCalculatorInit();
+</script>
+
+@code {
+   
+}

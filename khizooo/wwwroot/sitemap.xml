@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  
 <!-- LANDING PAGE -->
 <url><loc>https://khizarooo.github.io/khizooo</loc></url>
 
@@ -35,11 +37,14 @@
   
 <!-- DEVSPARK-->
 <url><loc>https://khizarooo.github.io/khizooo/devspark</loc></url>
-  
+ 
 <!-- CALCULATORS-->
 <url><loc>https://khizarooo.github.io/khizooo/calculators</loc></url>
 <url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators</loc></url>
 <url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/sip-calculator</loc></url>
 <url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/lumpsum-calculator</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/simple-interest-calculator</loc></url>
+<url><loc>https://khizarooo.github.io/khizooo/calculators/finance-calculators/return-on-investment-calculator</loc></url>
+
   
 </urlset>
