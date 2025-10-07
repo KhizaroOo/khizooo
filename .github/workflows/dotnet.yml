@@ -5,49 +5,45 @@ on:
     branches:
       - main
 
-permissions: 
+permissions:
   contents: write
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '8.0.x'
-        
-    # - name: Publish with dotnet
-    #   run: dotnet publish --configuration Release --output build
 
     - name: Publish .NET Core Project
       run: dotnet publish khizooo/khizooo.csproj -c Release -o release --nologo
-      
-    # changes the base-tag in index.html from '/' to 'khizooo' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to khizooo
-      run: sed -i 's/<base href="\/" \/>/<base href="\/khizooo\/" \/>/g' release/wwwroot/index.html
-      
-    # copy index.html to 404.html to serve the same file when a file is not found
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
 
-    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+    # Ensure base-tag in index.html is /khizooo/
+    - name: Ensure base-tag in index.html is /khizooo/
+      run: sed -i 's|<base href="/[^"]*"|<base href="/khizooo/"|g' release/wwwroot/index.html
+
+    # Add _redirects file for SPA routing
+    - name: Add _redirects file for SPA routing
+      run: echo '/*    /index.html   200' > release/wwwroot/_redirects
+
+    # Add .nojekyll file to allow files/folders starting with underscore
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
-      
-    # - name: Commit wwwroot to GitHub Pages
-    #   uses: JamesIves/github-pages-deploy-action@3.7.1
-    #   with:
-    #     GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-    #     BRANCH: gh-pages
-    #     FOLDER: build/wwwroot
 
-    - name: Commit wwwroot to GitHub Pages
+    # Copy index.html to 404.html for SPA fallback
+    - name: Copy index.html to 404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+    # Deploy to gh-pages branch
+    - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: release/wwwroot
+        CLEAN: true
