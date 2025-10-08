@@ -128,6 +128,8 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 0.5rem;
+            font-size: 11px;
+    text-align: center;
     }
 
         .additional-table td, .additional-table th {
@@ -151,18 +153,9 @@
         }
 
     .remove-btn {
-        background: #f3f4f6;
-        color: #222;
-        border: none;
-        padding: 0.3rem 0.8rem;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
+      
     }
 
-        .remove-btn:active, .remove-btn:focus {
-            background: #e5e7eb;
-        }
 </style>
 
 
@@ -357,14 +350,14 @@
 
         function renderAdditionalInvestments() {
             const container = document.getElementById("additionalInvestments");
-            let html = `<table class="additional-table"><thead><tr>
+            let html = `<table class="additional-table"><thead style="font-size: 13px;text-align: left;"><tr>
                 <th style="width: 25%;">Amount</th><th style="width: 25%;">Added After</th><th style="width: 25%;">Duration</th><th style="width: 25%;">Action</th></tr></thead><tbody>`;
             additionalInvestments.forEach((inv, idx) => {
                 html += `<tr>
                     <td style="width: 25%;">${inv.amount.toLocaleString(undefined, {maximumFractionDigits:2})}</td>
                     <td style="width: 25%;">${inv.years} years ${inv.months} months</td>
                     <td style="width: 25%;">${getInvestmentPeriod(inv.years, inv.months)}</td>
-                    <td style="width: 25%;"><button class="remove-btn" onclick="window.roiRemoveInvestment(${idx})">Remove</button></td>
+                    <td style="width: 25%;"><button class="remove-btn btn btn-danger btn-sm" onclick="window.roiRemoveInvestment(${idx})">Remove</button></td>
                 </tr>`;
             });
             html += "</tbody></table>";
