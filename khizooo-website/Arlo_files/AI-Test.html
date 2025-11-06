@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khizooo — Monsters & Grayscale</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* -------------------------
+       Design tokens / variables
+       ------------------------- */
+    :root{
+      /* Grayscale foundation */
+      --bg-canvas: #FAFAFA;      /* main body background */
+      --panel-bg: #ffffff;       /* card / panel */
+      --sidebar-bg: #F3F3F3;     /* left sidebar */
+      --muted-border: #E0E0E0;   /* dividers */
+      --muted-text: #6E6E6E;     /* secondary text */
+      --primary-text: #222222;   /* main text */
+      --line-black: #000000;     /* strong outlines */
+
+      /* Monster accents (pastel vibrant) */
+      --monster-yellow: #F5CF5C;
+      --monster-mint:   #5CCFAF;
+      --monster-orange: #F7933C;
+      --monster-blue:   #6CA6FF;
+      --monster-purple: #B699FF;
+
+      /* UI sizing */
+      --sidebar-width: 240px;
+      --card-border-w: 1.6px;
+      --radius: 8px;
+    }
+
+    /* Global body */
+    body{
+      background: var(--bg-canvas);
+      color: var(--primary-text);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      margin: 0;
+    }
+
+    /* Layout */
+    .app-shell{
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      width: var(--sidebar-width);
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--muted-border);
+      box-shadow: inset -1px 0 0 rgba(0,0,0,0.03);
+      padding: 20px;
+      flex-shrink: 0;
+    }
+    .sidebar .profile-wrap{
+      text-align: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--muted-border);
+    }
+    .avatar{
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #111;
+      border: 6px solid var(--panel-bg);
+      display: inline-block;
+      overflow: hidden;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .menu-btn{
+      width:100%;
+      background: var(--panel-bg);
+      border: 1px solid var(--line-black);
+      color: var(--primary-text);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-weight:600;
+      text-align:center;
+    }
+    .menu-btn:focus{ outline: none; box-shadow:none; }
+
+    /* main content area */
+    .main{
+      flex:1;
+      padding: 36px;
+    }
+
+    /* hero */
+    .hero-title{ font-weight:800; letter-spacing:0.6px; }
+    .hero-sub{ color: var(--muted-text); }
+
+    /* cards */
+    .category-card{
+      background: var(--panel-bg);
+      border: var(--card-border-w) solid var(--line-black);
+      border-radius: 6px;
+      padding: 18px;
+      text-align:center;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .category-card:hover{ transform: translateY(-6px); box-shadow: 0 10px 18px rgba(0,0,0,0.06); }
+
+    .monster-wrap{
+      width:84px; height:84px; margin:0 auto 12px;
+      display:flex; align-items:center; justify-content:center;
+      border-radius: 12px;
+    }
+    .monster-blob{ width:72px; height:72px; border-radius:14px; border: 3px solid var(--line-black); display:block; }
+
+    /* tag/button inside card */
+    .tag {
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:6px;
+      background: #fff;
+      border: 1px solid var(--line-black);
+      font-weight:700;
+      color:var(--primary-text);
+      cursor:pointer;
+      transition: background .12s ease, color .12s ease, transform .12s ease;
+    }
+    .tag:active{ transform: translateY(1px); }
+
+    /* Footer monsters strip */
+    .monster-strip{
+      background: #fff;
+      border:1px solid var(--muted-border);
+      padding:12px;
+      border-radius:10px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:center;
+      margin-top:28px;
+    }
+
+    /* Mobile tweaks - collapse sidebar on small screens */
+    @media (max-width: 991px){
+      .sidebar{
+        position: fixed;
+        left: -9999px;
+        top: 0;
+        bottom: 0;
+        z-index: 1040;
+        width: 220px;
+      }
+      .sidebar.open{
+        left:0;
+      }
+      .main{ padding: 20px; }
+    }
+
+    /* Monster color utility classes */
+    .m-yellow{ background: var(--monster-yellow); }
+    .m-mint  { background: var(--monster-mint);   }
+    .m-orange{ background: var(--monster-orange); }
+    .m-blue  { background: var(--monster-blue);   }
+    .m-purple{ background: var(--monster-purple); }
+
+    /* Accessible text on colored patches */
+    .monster-blob strong{ display:block; font-size:12px; color:#111; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; padding-top:4px; }
+
+    /* Hover rules: when a .accent-* class is set on body, apply accent to interactive elements */
+    .accent-yellow .menu-btn:hover,
+    .accent-yellow .tag:hover { background: var(--monster-yellow); color: #111; border-color: rgba(0,0,0,0.06); }
+    .accent-mint .menu-btn:hover,
+    .accent-mint .tag:hover   { background: var(--monster-mint); color:#06261a; border-color: rgba(0,0,0,0.06); }
+    .accent-orange .menu-btn:hover,
+    .accent-orange .tag:hover { background: var(--monster-orange); color:#2b1600; border-color: rgba(0,0,0,0.06); }
+    .accent-blue .menu-btn:hover,
+    .accent-blue .tag:hover   { background: var(--monster-blue); color:#071433; border-color: rgba(0,0,0,0.06); }
+    .accent-purple .menu-btn:hover,
+    .accent-purple .tag:hover { background: var(--monster-purple); color:#1a0f2a; border-color: rgba(0,0,0,0.06); }
+
+    /* Ensure links have good contrast on panels */
+    a { color: var(--primary-text); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* small helper */
+    .muted { color: var(--muted-text); }
+  </style>
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+      <div class="profile-wrap">
+        <div class="avatar mb-2">
+          <!-- Replace src with your profile image -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=45c8a3e3bdf1b2a3e79f26a7b2ae8e9a" alt="Profile">
+        </div>
+        <h6 class="mb-0" style="font-weight:800">KHIZAR IMTIAZ</h6>
+        <small class="muted">Programmer & Artist</small>
+      </div>
+
+      <!-- Menu buttons - default grayscale. data-accent maps to monsters -->
+      <div class="d-grid">
+        <button class="menu-btn" data-accent="yellow">My Portfolio</button>
+        <button class="menu-btn" data-accent="mint">Artooo</button>
+        <button class="menu-btn" data-accent="mint">Infooo</button>
+        <button class="menu-btn" data-accent="orange">Toolooo</button>
+        <button class="menu-btn" data-accent="blue">Freeooo</button>
+        <button class="menu-btn" data-accent="purple">Devooo</button>
+        <button class="menu-btn" data-accent="yellow">Helpooo</button>
+      </div>
+
+      <!-- Mobile close hint -->
+      <div class="mt-3 d-lg-none text-center">
+        <small class="muted">Tap outside to close</small>
+      </div>
+
+      <div style="position: absolute; bottom:12px; left:20px; right:20px;">
+        <small class="muted">Copyright © 2025 by khizooo</small>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main" id="mainContent">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+          <div>
+            <h6 class="muted mb-1">Hi, I'm</h6>
+            <h1 class="hero-title display-6">KHIZAR IMTIAZ</h1>
+            <p class="hero-sub mt-2 mb-0">By luck, I am a programmer; by nature, I am an artist</p>
+          </div>
+
+          <!-- Mobile toggle + CTA -->
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-dark d-lg-none" id="openSidebarBtn" aria-label="Open menu">Menu</button>
+            <button class="btn btn-dark btn-sm">Future Monsters</button>
+          </div>
+        </div>
+
+        <!-- categories row -->
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-card">
+              <div>
+                <div class="monster-wrap">
+                  <div class="monster-blob m-yellow" role="img" aria-label="Yellow monster">
+                    <!-- the little text just for demo -->
+                    <strong style="font-size:11px">ART</strong>
+                  </div>
+                </div>
+                <h5 class="mb-1">Artooo</h5>
+                <small class="muted">Creative sketches & drawings made with love on sticky notes.</small>
+              </div>
+
+              <div class="mt-3">
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                  <span class="tag">Sticky Notes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-card">
+              <div>
+                <div class="monster-wrap">
+                  <div class="monster-blob m-mint" role="img" aria-label="Mint monster"><strong>INFO</strong></div>
+                </div>
+                <h5 class="mb-1">Infooo</h5>
+                <small class="muted">Simple infographics that make learning quick, clear & fun.</small>
+              </div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                  <span class="tag">AI & Automation</span>
+                  <span class="tag">Crypto</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-card">
+              <div>
+                <div class="monster-wrap">
+                  <div class="monster-blob m-orange" role="img" aria-label="Orange monster"><strong>TOOLS</strong></div>
+                </div>
+                <h5 class="mb-1">Toolooo</h5>
+                <small class="muted">Useful smart online tools to make your daily work easier.</small>
+              </div>
+              <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                <span class="tag">Web Tools</span>
+                <span class="tag">Calculators</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-card">
+              <div>
+                <div class="monster-wrap">
+                  <div class="monster-blob m-blue" role="img" aria-label="Blue monster"><strong>FREE</strong></div>
+                </div>
+                <h5 class="mb-1">Freeooo</h5>
+                <small class="muted">Free icons, templates, and assets to boost your projects.</small>
+              </div>
+              <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                <span class="tag">Icons</span>
+                <span class="tag">Illustration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-card">
+              <div>
+                <div class="monster-wrap">
+                  <div class="monster-blob m-purple" role="img" aria-label="Purple monster"><strong>DEV</strong></div>
+                </div>
+                <h5 class="mb-1">Devooo</h5>
+                <small class="muted">Useful developer tools and free software for creators.</small>
+              </div>
+              <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+                <span class="tag">Dev Resources</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer monster strip -->
+        <div class="monster-strip mt-4">
+          <div class="monster-blob m-blue" style="width:56px; height:56px; border-radius:12px;"></div>
+          <div class="monster-blob m-yellow" style="width:56px; height:56px; border-radius:12px;"></div>
+          <div class="monster-blob m-mint" style="width:56px; height:56px; border-radius:12px;"></div>
+          <div class="monster-blob m-orange" style="width:56px; height:56px; border-radius:12px;"></div>
+          <div class="monster-blob m-purple" style="width:56px; height:56px; border-radius:12px;"></div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Sidebar toggle for mobile
+    $(function(){
+      var $sidebar = $('#sidebar');
+
+      $('#openSidebarBtn').on('click', function(e){
+        e.preventDefault();
+        $sidebar.toggleClass('open');
+      });
+
+      // Close sidebar when clicking outside (mobile)
+      $(document).on('click touchstart', function(e){
+        if( $(window).width() <= 991 ){
+          if( !$(e.target).closest('#sidebar, #openSidebarBtn').length ){
+            $sidebar.removeClass('open');
+          }
+        }
+      });
+
+      // When hovering or focusing menu buttons, set body accent class
+      $('.menu-btn').on('mouseenter focus', function(){
+        var accent = $(this).data('accent') || '';
+        // Clear previous accents
+        $('body').removeClass (function (index, className) {
+          return (className.match (/(^|\s)accent-\S+/g) || []).join(' ');
+        });
+
+        if(accent){
+          $('body').addClass('accent-' + accent);
+        }
+      });
+
+      // On mouseleave remove accent (keeps UI calm)
+      $('.menu-btn').on('mouseleave blur', function(){
+        // remove after tiny timeout so quick moves feel smooth
+        setTimeout(function(){
+          $('body').removeClass (function (index, className) {
+            return (className.match (/(^|\s)accent-\S+/g) || []).join(' ');
+          });
+        }, 90);
+      });
+
+      // Also add click demo: clicking a menu pins the accent to body
+      $('.menu-btn').on('click', function(){
+        var accent = $(this).data('accent') || '';
+        $('body').removeClass (function (index, className) {
+          return (className.match (/(^|\s)accent-\S+/g) || []).join(' ');
+        });
+        if(accent) $('body').addClass('accent-' + accent);
+        // small visual feedback
+        $(this).addClass('active');
+        setTimeout(()=> $(this).removeClass('active'), 200);
+      });
+
+      // Tag hover highlights too (uses nearest category monster color)
+      $('.category-card').each(function(){
+        var $card = $(this);
+        var colorClass = $card.find('.monster-blob').attr('class') || '';
+        $card.find('.tag').on('mouseenter focus', function(){
+          // map class to accent-*
+          if(colorClass.indexOf('m-yellow')>-1) $('body').addClass('accent-yellow');
+          if(colorClass.indexOf('m-mint')>-1)   $('body').addClass('accent-mint');
+          if(colorClass.indexOf('m-orange')>-1) $('body').addClass('accent-orange');
+          if(colorClass.indexOf('m-blue')>-1)   $('body').addClass('accent-blue');
+          if(colorClass.indexOf('m-purple')>-1) $('body').addClass('accent-purple');
+        });
+        $card.find('.tag').on('mouseleave blur', function(){
+          setTimeout(function(){
+            $('body').removeClass (function (index, className) {
+              return (className.match (/(^|\s)accent-\S+/g) || []).join(' ');
+            });
+          }, 80);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
