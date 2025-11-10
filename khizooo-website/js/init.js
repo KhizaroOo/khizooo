@@ -34,6 +34,7 @@
 		khizooo_tm_jarallax();
 	});
 
+
 });
 
 // ====> FUNCTIONS
@@ -586,7 +587,12 @@ function khizooo_tm_totop_fade(){
 }
 
 // ANCHOR
-jQuery('.anchor_nav').onePageNav();
+try{
+	jQuery('.anchor_nav').onePageNav();
+}	
+catch{
+
+}
 
 // DOWN
 function khizooo_tm_down(){
@@ -642,7 +648,7 @@ function khizooo_tm_canvas_effect() {
 		var context = canvas.getContext("2d");
 
 		// Increase dot count by 15%
-		var dotCount = Math.floor(200 * 1.15); // = 230 approx
+		var dotCount = Math.floor(350 * 1.15); // = 230 approx
 		var dots = [];
 
 		// Create dots

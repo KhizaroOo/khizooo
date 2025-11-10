@@ -18,24 +18,23 @@
 
 .btn-header {
   overflow: visible;
-  margin: 0;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  line-height: normal;
-  cursor: pointer;
-  -moz-user-select: text;
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 12px 30px;
-  background-color: #fff;
-  color: var(--ls-top-bcg);
-  border: 2px solid var(--ls-top-bcg);
-  border-radius: 6px;
-  transition: all 0.5s ease;
-      font-weight: 600;
+    margin: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    -moz-user-select: text;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: var(--ls-top-bcg);
+    border: 2px solid var(--ls-top-bcg);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    font-weight: 800;
     font-size: 14px;
+    width: 165px;
 }
 .btn-header:-moz-focus-inner {
   padding: 0;
@@ -70,8 +69,9 @@
           animation: stripe-slide 12s infinite linear forwards;
 }
 .btn--large {
+    width: 50%;
 }
-  width: 50%;
+
 .btn--radius {
   border-radius: 15px;
 }
@@ -164,4 +164,18 @@
      background-color: #e0dcdc;
     color: var(--ls-top-bcg);
 
+}
+
+
+.pill-theme{
+  color: var(--mc-body-bcg);
+  background-color: var(--ls-top-bcg);
+  padding: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.pill-theme strong{
+  font-weight: 800;
 }
