@@ -753,7 +753,7 @@ body.resize .khizooo_tm_mainpart{
 	height: auto;
 	clear: both;
 	float: left;
-	padding: 155px 20px;
+	padding: 155px 0px;
 }
 .khizooo_tm_about .about_inner{
 	width: 100%;
