@@ -648,7 +648,7 @@ function khizooo_tm_canvas_effect() {
 		var context = canvas.getContext("2d");
 
 		// Increase dot count by 15%
-		var dotCount = Math.floor(350 * 1.15); // = 230 approx
+		var dotCount = Math.floor(600 * 1.15); // = 230 approx
 		var dots = [];
 
 		// Create dots
