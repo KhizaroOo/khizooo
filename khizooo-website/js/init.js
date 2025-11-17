@@ -632,6 +632,9 @@ function khizooo_tm_resizer(){
 	});
 }
 
+
+
+
 // BACKGROUND CANVAS
 function khizooo_tm_canvas_effect() {
 	"use strict";
@@ -668,10 +671,10 @@ function khizooo_tm_canvas_effect() {
 
 		function dot() {
 			this.rad_x = 2 * Math.random() * halfx + 1;
-			this.rad_y = 1.2 * Math.random() * halfy + 1;
-			this.alpha = Math.random() * 360 + 1;
-			this.speed = (Math.random() < 0.5 ? 1 : -1) * 0.1;
-			this.size = Math.random() * 5 + 1;
+			this.rad_y = 1.2 * Math.random() * halfy + 2;
+			this.alpha = Math.random() * 660 + 1;
+			this.speed = (Math.random() < 0.1 ? 1 : -1) * 0.05;
+			this.size = Math.random() * 4 + 1;
 
 			// 🎨 Pick a bright color (HSL for vibrancy)
 			this.h = Math.floor(Math.random() * 360);  // random hue
