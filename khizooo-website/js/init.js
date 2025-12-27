@@ -2,6 +2,11 @@
 
 	"use strict";
 
+	Render_Sidebar();
+	Render_MobileMenu();
+	Render_Footer();
+
+
 	khizooo_tm_modalbox();
 	khizooo_tm_trigger_menu();
 	khizooo_tm_service_popup();
@@ -38,6 +43,181 @@
 });
 
 // ====> FUNCTIONS
+
+// SIDEBAR
+function Render_Sidebar(){
+    "use strict";
+    var sidebarHTML = `
+        <div class="khizooo_tm_sidebar">
+            <div class="logo" data-type="avatar">
+                <!-- You can set your own avatar or image or text as a logo. data-type values are: "avatar", "image", "text" -->
+                <div class="avatar" data-img-url="images/Monsters/khizooo.png" style="background-image: url(images/Monsters/khizooo.png);"></div>
+                <div class="image"><img src="images/Monsters/khizooo.png" alt=""></div>
+                <div class="text"><h3>khizooo</h3></div>
+            </div>
+            <div class="menu scrollable" tabindex="5000" style="height: 643px; overflow: hidden; outline: none;">
+                <ul class="anchor_nav">
+                    <li><a href="#" class="btn-header btn--stripe btn--radius m-default-color">Portfolio</a></li>
+                    <li><a href="javascript:void(0)" class="btn-header btn--stripe btn--radius m-artooo-color">Artooo</a></li>
+                    <li><a href="javascript:void(0)" class="btn-header btn--stripe btn--radius m-infooo-color">Infooo</a></li>
+                    <li><a href="javascript:void(0)" class="btn-header btn--stripe btn--radius m-toolooo-color">Toolooo</a></li>
+                    <li><a href="javascript:void(0)" class="btn-header btn--stripe btn--radius m-freeooo-color">Freeooo</a></li>
+                    <li><a href="javascript:void(0)" class="btn-header btn--stripe btn--radius m-devooo-color">Devooo</a></li>
+                    <li><button onclick="openSupportModal(this)" class="btn-header btn--stripe btn--radius m-default-color">Support 🩷</button></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <!-- <p class="text-center">Copyright © 2025 by <a class="line_effect" href="#">khizooo</a></p>
+                <p class="text-center">All rights are reserved</p> -->
+            </div>
+            <div class="khizooo_tm_resizer">
+                <a href="./index.html#"><i class="icon-right-dir-2"></i></a>
+            </div>
+        </div>
+    `;
+    jQuery('.khizooo_tm_all_wrap').prepend(sidebarHTML);
+}
+
+// MOBILE MENU
+function Render_MobileMenu(){
+    "use strict";
+    var mobileMenuHTML = `
+        <div class="khizooo_tm_mobile_menu">
+            <div class="mobile_menu_inner">
+                <div class="mobile_in">
+                    <div class="logo" data-type="avatar">
+                        <div class="avatar" data-img-url="images/Monsters/khizooo.png" style="background-image: url(images/Monsters/khizooo.png);"></div>
+                        <div class="image"><img src="images/Monsters/khizooo.png" alt=""></div>
+                        <div class="text"><h3>khizooo</h3></div>
+                    </div>
+                    <div class="trigger">
+                        <div class="hamburger hamburger--slider">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown_inner">
+                    <ul class="anchor_nav">
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-default-color">Portfolio</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-artooo-color">Artooo</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-infooo-color">Infooo</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-toolooo-color">Toolooo</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-freeooo-color">Freeooo</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-devooo-color">Devooo</a></li>
+                        <li><a href="abc" class="btn-header btn--stripe btn--radius w-100 m-default-color">Support 🩷</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+    jQuery('.khizooo_tm_all_wrap').prepend(mobileMenuHTML);
+}
+
+// FOOTER
+function Render_Footer(){
+    "use strict";
+    var footerHTML = `
+        <div class="khizooo_tm_section mb-4" id="socials">
+            <div class="khizooo_tm_services p-2">
+                <div class="container">
+                    <div class="khizooo_tm_main_title text-center mb-4">
+                        <h3 class="wow fadeInUp" data-wow-duration="1s">Connect with ME</h3>
+                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                            Follow me across platforms, where art meets code
+                        </p>
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+                            <a href="https://www.facebook.com/khizoooartist" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/khizooo_art" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/khizar-imtiaz" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/khizaroo" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/@khizooo" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@khizooo_butt" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.pinterest.com/KhizoOo_" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="https://opensea.io/KhizoOo_" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-ethereum"></i>
+                            </a>
+                            <a href="https://wa.me/923007683396?text=KhizoOo%20%3C3" target="_blank" class="btn btn--stripe btn--radius">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    jQuery('.khizooo_tm_mainpart').append(footerHTML);
+}
+
+
+// SUPPORT MODAL
+function openSupportModal(){
+    "use strict";
+    var content = `
+        <div class="khizooo_tm_modalbox_support">
+            <div class="khizooo_tm_main_title text-center mb-4">
+                <h3>Support My Work 🩷</h3>
+                <p>Your support helps me create more art and code! Donate via crypto below.</p>
+            </div>
+            <div class="support_donations">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="donation_item mb-3 p-3 border rounded">
+                            <h5><i class="fab fa-bitcoin text-warning"></i> Bitcoin (BTC)</h5>
+                            <p class="mb-2">Wallet: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
+                            <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyToClipboard('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')">Copy Address</button>
+                        </div>
+                        <div class="donation_item mb-3 p-3 border rounded">
+                            <h5><i class="fab fa-ethereum text-primary"></i> Ethereum (ETH)</h5>
+                            <p class="mb-2">Wallet: 0x742d35Cc6634C0532925a3b844Bc454e4438f44e</p>
+                            <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyToClipboard('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">Copy Address</button>
+                        </div>
+                        <div class="donation_item mb-3 p-3 border rounded">
+                            <h5><i class="fab fa-solana text-purple"></i> Solana (SOL)</h5>
+                            <p class="mb-2">Wallet: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU</p>
+                            <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyToClipboard('7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU')">Copy Address</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <p>Thank you for your generosity! Every bit helps. 💖</p>
+                </div>
+            </div>
+        </div>
+    `;
+    jQuery('body').append(content);
+    jQuery('.khizooo_tm_modalbox_support').addClass('opened show');
+}
+
+// COPY TO CLIPBOARD FUNCTION
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        alert('Address copied to clipboard!');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
 
 // MODALBOX
 function khizooo_tm_modalbox(){
@@ -637,69 +817,76 @@ function khizooo_tm_resizer(){
 
 // BACKGROUND CANVAS
 function khizooo_tm_canvas_effect() {
-	"use strict";
+    "use strict";
 
-	if (jQuery('.canvas_effects').length) {
-		var maxx = document.body.clientWidth;
-		var maxy = document.body.clientHeight;
-		var halfx = maxx / 2;
-		var halfy = maxy / 2;
-		var canvas = document.createElement("canvas");
-		document.body.appendChild(canvas);
-		canvas.width = maxx;
-		canvas.height = maxy;
-		var context = canvas.getContext("2d");
+    var $container = jQuery('.canvas_effects');
 
-		// Increase dot count by 15%
-		var dotCount = Math.floor(600 * 1.15); // = 230 approx
-		var dots = [];
+    if ($container.length) {
+        var maxx = window.innerWidth;
+        var maxy = window.innerHeight;
+        var halfx = maxx / 2;
+        var halfy = maxy / 2;
 
-		// Create dots
-		for (var i = 0; i < dotCount; i++) {
-			dots.push(new dot());
-		}
+        // Create canvas inside the container
+        var canvas = document.createElement("canvas");
+        $container[0].appendChild(canvas);
 
-		function render() {
-			context.fillStyle = "#eee";
-			context.fillRect(0, 0, maxx, maxy);
-			for (var i = 0; i < dotCount; i++) {
-				dots[i].draw();
-				dots[i].move();
-			}
-			requestAnimationFrame(render);
-		}
+        canvas.width = maxx;
+        canvas.height = maxy;
 
-		function dot() {
-			this.rad_x = 2 * Math.random() * halfx + 1;
-			this.rad_y = 1.2 * Math.random() * halfy + 2;
-			this.alpha = Math.random() * 660 + 1;
-			this.speed = (Math.random() < 0.1 ? 1 : -1) * 0.05;
-			this.size = Math.random() * 4 + 1;
+        var context = canvas.getContext("2d");
 
-			// 🎨 Pick a bright color (HSL for vibrancy)
-			this.h = Math.floor(Math.random() * 360);  // random hue
-			this.s = Math.floor(70 + Math.random() * 30); // 70–100% saturation
-			this.l = Math.floor(50 + Math.random() * 30); // 50–80% brightness
-		}
+        // Dot count
+        var dotCount = Math.floor(600 * 1.15);
+        var dots = [];
 
-		// Draw dot
-		dot.prototype.draw = function () {
-			var dx = halfx + this.rad_x * Math.cos(this.alpha / 180 * Math.PI);
-			var dy = halfy + this.rad_y * Math.sin(this.alpha / 180 * Math.PI);
+        for (var i = 0; i < dotCount; i++) dots.push(new dot());
 
-			// 🎨 Use dynamic bright color
-			context.fillStyle = `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
-			context.fillRect(dx, dy, this.size, this.size);
-		};
+        function render() {
+            context.clearRect(0, 0, maxx, maxy); // transparent bg
+            for (var i = 0; i < dotCount; i++) {
+                dots[i].draw();
+                dots[i].move();
+            }
+            requestAnimationFrame(render);
+        }
 
-		// Move dot
-		dot.prototype.move = function () {
-			this.alpha += this.speed;
+        function dot() {
+            this.rad_x = 2 * Math.random() * halfx + 1;
+            this.rad_y = 1.2 * Math.random() * halfy + 2;
+            this.alpha = Math.random() * 660 + 1;
+            this.speed = (Math.random() < 0.1 ? 1 : -1) * 0.05;
+            this.size = Math.random() * 4 + 1;
 
-			// Slow hue shift for animated color shimmer ✨
-			this.h = (this.h + 0.3) % 360;
-		};
+            this.h = Math.floor(Math.random() * 360);
+            this.s = Math.floor(70 + Math.random() * 30);
+            this.l = Math.floor(50 + Math.random() * 30);
+        }
 
-		render();
-	}
+        dot.prototype.draw = function () {
+            var dx = halfx + this.rad_x * Math.cos(this.alpha * Math.PI / 180);
+            var dy = halfy + this.rad_y * Math.sin(this.alpha * Math.PI / 180);
+
+            context.fillStyle = `hsl(${this.h}, ${this.s}%, ${this.l}%)`;
+            context.fillRect(dx, dy, this.size, this.size);
+        };
+
+        dot.prototype.move = function () {
+            this.alpha += this.speed;
+            this.h = (this.h + 0.3) % 360;
+        };
+
+        render();
+
+        // ❗ Resize support
+        window.addEventListener("resize", () => {
+            maxx = window.innerWidth;
+            maxy = window.innerHeight;
+            halfx = maxx / 2;
+            halfy = maxy / 2;
+
+            canvas.width = maxx;
+            canvas.height = maxy;
+        });
+    }
 }

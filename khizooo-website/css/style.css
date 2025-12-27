@@ -35,7 +35,7 @@ a{ text-decoration: none; }
     --font-family-poppins: 'Poppins', sans-serif;
 
 	
-	--ls-top-bcg: #181B1E;
+	--ls-top-bcg: #3a3a3a;
 	--ls-body-bcg: #FFFFFF;
 	--mc-body-bcg: #EEEEEE;
 	--mc-container-bcg: #FFFFFF;
@@ -47,7 +47,7 @@ a{ text-decoration: none; }
 	--m-devooo-color: #B699FF;
 
 	--mc-body-h: #000000;
-	--mc-body-p: #181B1E;
+	--mc-body-p: #3a3a3a;
 
 	--mc-body-section-h: #52528c;
 	--mc-body-card-bcg: #FFFFFF;
@@ -102,7 +102,7 @@ img.svg{
 }
 
 .container {
-	max-width: 1650px;
+	max-width: 1700px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -392,10 +392,10 @@ body::-webkit-scrollbar-thumb {
 	top: 0px;
 	left: 0px;
 	height: 100vh;
-	width: 225px;
-	background-color: var(--ls-body-bcg);
+	width: 160px;
+	background-color: var(--mc-body-bcg);
 	z-index: 3;
-	border-right: 2px solid var(--ls-top-bcg);
+	border-right: 2px solid #000000;
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -407,7 +407,7 @@ body.resize .khizooo_tm_sidebar{
 }
 .khizooo_tm_sidebar .logo{
 	width: 100%;
-	height: 160px;
+	height: 120px;
 	background-color: var(--ls-top-bcg);
 	z-index: 1;
 	text-align: center;
@@ -417,10 +417,10 @@ body.resize .khizooo_tm_sidebar{
 	position: absolute;
 	left: 50%;
 	top: 100%;
-    margin-top: -70px;
+    margin-top: -55px;
     transform: translateX(-50%);
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -435,7 +435,7 @@ body.resize .khizooo_tm_sidebar{
     left: -20px;
     right: -20px;
     border-radius: 100%;
-    border: 10px solid rgb(255 255 255);
+    border: 10px solid var(--mc-body-bcg);
     z-index: -1;
 }
 .khizooo_tm_sidebar .logo[data-type="avatar"] .avatar{display: inline-block;}
@@ -517,7 +517,7 @@ body.resize .khizooo_tm_sidebar{
 }
 .khizooo_tm_resizer{
 	position: absolute;
-	bottom: 105px;
+	bottom: 15px;
 	right: 0px;
 	
 	-webkit-transition: all .3s ease;
@@ -558,7 +558,7 @@ body.resize .khizooo_tm_resizer a i{
 	height: auto;
 	clear: both;
 	float: left;
-	padding-left: 225px;
+	padding-left: 160px;
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
@@ -575,7 +575,7 @@ body.resize .khizooo_tm_mainpart{
 	clear: both;
 	float: left;
 	position: relative;
-	background-color: #f9f9f9;
+	background-color: #ffffff;
 }
 .khizooo_tm_hero .background{
 	position: absolute;
@@ -731,17 +731,14 @@ body.resize .khizooo_tm_mainpart{
 	width: 100%;
 	height: auto;
 	clear: both;
-	float: left;
 }
 .khizooo_tm_main_title span{
-	    text-transform: uppercase;
-    color: #eeeeee;
-    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 600;
     font-family: var(--font-family-poppins);
     display: inline-block;
     margin-bottom: 10px;
     font-size: 16px;
-    background-color: var(--ls-top-bcg);
     padding: 5px 20px;
 }
 .khizooo_tm_main_title h3{
@@ -753,7 +750,7 @@ body.resize .khizooo_tm_mainpart{
 	height: auto;
 	clear: both;
 	float: left;
-	padding: 100px 0px
+	padding: 60px 0px
 }
 .khizooo_tm_about .about_inner{
 	width: 100%;
@@ -917,7 +914,7 @@ body.resize .khizooo_tm_mainpart{
     border: 2px solid var(--ls-top-bcg);
     box-shadow: 0px 0px 3px var(--ls-top-bcg);
     background: var(--mc-body-card-bcg);
-	padding: 70px 50px 60px 50px;
+	padding: 35px 25px 40px 25px;
 	overflow: hidden;
 }
 .khizooo_tm_services .list_inner:before{
@@ -2783,14 +2780,15 @@ body.intro::-webkit-scrollbar {
 
 /*Canvsa Effect*/
 canvas {
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	z-index: -1;
-	padding: 0px;
-	margin: 0px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: block;
+    z-index: -1;
 }
 
 .khizooo_tm_background_effects[data-style="canvas"] .lines {
@@ -2852,5 +2850,4 @@ canvas {
 }
 .khizooo_tm_about .center-box{
     flex: 1 100%;
-	margin-top: 25px;
 }
