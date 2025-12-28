@@ -127,7 +127,7 @@ function Render_Footer(){
                     <div class="khizooo_tm_main_title text-center mb-4">
                         <h3 class="wow fadeInUp" data-wow-duration="1s">Connect with ME</h3>
                         <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                            Follow me across platforms, where art meets code
+                            Reach out, collaborate, network, chat, hire, discuss ideas, or just say hello anytime.
                         </p>
                     </div>
                     <div class="row justify-content-center">
